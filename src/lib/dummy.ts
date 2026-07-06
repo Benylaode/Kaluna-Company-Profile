@@ -1,55 +1,22 @@
 // src/lib/dummy.ts
 import db from './db';
+// src/lib/dummy.ts
 
-const seedDatabase = () => {
-  console.log('🔄 Memulai proses pengisian data dummy...');
+// HAPUS import db from './db'; 
 
-  // ==========================================
-  // 1. DATA LAYANAN (SERVICES)
-  // ==========================================
-const services = [
-  { 
-    slug: "iot-system-development", 
-    title: "IoT System Development", 
-    description: "Connected systems for real-time monitoring and automation", 
-    image_url: "/image/service/1.png" 
-  },
-  { 
-    slug: "web-application-development", 
-    title: "Web & Application Development", 
-    description: "Scalable web and mobile platform built for complex operations", 
-    image_url: "/image/service/2.png" 
-  },
-  { 
-    slug: "erp-system-integration", 
-    title: "ERP & System Integration", 
-    description: "Seamless integration across platforms, APIs, and devices", 
-    image_url: "/image/service/3.png" 
-  },
-  { 
-    slug: "industrial-automation-solutions", 
-    title: "Industrial & Automation Solutions", 
-    description: "Smart systems to optimize operational workflows", 
-    image_url: "/image/service/4.png" 
-  },
-  { 
-    slug: "data-dashboard-analytics", 
-    title: "Data Dashboard & Analytics", 
-    description: "Transforming raw data into actionable insights", 
-    image_url: "/image/service/5.png" 
-  },
-  { 
-    slug: "it-strategy-consulting", 
-    title: "IT Strategy & Consulting", 
-    description: "Strategic planning for scalable and future-ready IT infrastructure", 
-    image_url: "/image/service/6.png" 
-  }
-];
+// Tambahkan parameter db: any ke dalam fungsi
+export const seedDatabase = (db: any) => {
+  console.log('🔄 Memulai proses pengisian data dummy secara Synchronous...');
 
-  // ==========================================
-  // 2. DATA PORTOFOLIO (WORKS)
-  // ==========================================
-  // UPDATE: Path gambar disesuaikan dengan folder /image/projects/[slug]/[1,2,3].png
+  const services = [
+    { slug: "iot-system-development", title: "IoT System Development", description: "Connected systems for real-time monitoring and automation", image_url: "/image/service/1.png" },
+    { slug: "web-application-development", title: "Web & Application Development", description: "Scalable web and mobile platform built for complex operations", image_url: "/image/service/2.png" },
+    { slug: "erp-system-integration", title: "ERP & System Integration", description: "Seamless integration across platforms, APIs, and devices", image_url: "/image/service/3.png" },
+    { slug: "industrial-automation-solutions", title: "Industrial & Automation Solutions", description: "Smart systems to optimize operational workflows", image_url: "/image/service/4.png" },
+    { slug: "data-dashboard-analytics", title: "Data Dashboard & Analytics", description: "Transforming raw data into actionable insights", image_url: "/image/service/5.png" },
+    { slug: "it-strategy-consulting", title: "IT Strategy & Consulting", description: "Strategic planning for scalable and future-ready IT infrastructure", image_url: "/image/service/6.png" }
+  ];
+
   const works = [
     { 
       slug: "x-1-tire-company-profile",
@@ -103,9 +70,9 @@ const services = [
             "Increased overall customer engagement by 25%",
             "Real-time inventory sync eliminated overselling issues"
           ],
-          image_url: "/image/projects/sinau-print-pos-system/1.png" // Pastikan gambar ini ada di folder public Anda
+          image_url: "/image/projects/sinau-print-pos-system/1.png"
         },
-        bottom_image: "/image/projects/sinau-print-pos-system/2.png" // Pastikan gambar ini ada di folder public Anda
+        bottom_image: "/image/projects/sinau-print-pos-system/2.png"
       })
     },
     { 
@@ -135,130 +102,55 @@ const services = [
   ];
 
   const testimonials = [
-    { 
-      client_name: "John Doe", 
-      role: "Operations Director", 
-      company_name: "ABC Manufacturing", 
-      content: "Saya selaku pemilik Sinau Print sangat puas dengan hasil kerja PT. Kaluna Teknologi Digital. Website yang dibuat memudahkan pelanggan kami melakukan pemesanan online. Proses profesional, komunikasi lancar, dan hasil sesuai harapan. Terima kasih atas kerja samanya.", 
-      avatar_url: "/image/default-avatar.svg" 
-    },
-    { 
-      client_name: "Anna Karenina", 
-      role: "IT Manager", 
-      company_name: "Sentul City Mall", 
-      content: "Sebagai media berpengalaman, kami membutuhkan website modern yang tetap menjaga nilai jurnalisme. PT. Kaluna Teknologi Digital berhasil mewujudkannya dengan baik. Sistem mudah digunakan, tampilannya elegan, dan sangat kami rekomendasikan.", 
-      avatar_url: "/image/default-avatar.svg" 
-    },
-    { 
-      client_name: "Sarah Wijaya", 
-      role: "IT Manager", 
-      company_name: "Nusantara Logistics", 
-      content: "Kami berterima kasih kepada PT. Kaluna Teknologi Digital atas pengembangan website perusahaan kami yang memuaskan. Proses berjalan lancar, tepat waktu, tim responsif, dan hasilnya sesuai visi perusahaan kami. Kerja sama yang sangat profesional.", 
-      avatar_url: "/image/default-avatar.svg" 
-    },
-    { 
-      client_name: "Sarah Wijaya", 
-      role: "IT Manager", 
-      company_name: "Nusantara Logistics", 
-      content: "Website yang dibuat oleh Kaluna meningkatkan citra perusahaan kami. Katalog produk ban menjadi lebih mudah dilihat, fitur pencarian berdasarkan ukuran berfungsi dengan baik, dan tampilan untuk mobile juga bagus. Pelanggan kami jadi lebih mudah mencari informasi produk. Investasi yang sangat bermanfaat.", 
-      avatar_url: "/image/default-avatar.png" 
-    }
+    { client_name: "John Doe", role: "Operations Director", company_name: "ABC Manufacturing", content: "Saya selaku pemilik Sinau Print sangat puas dengan hasil kerja PT. Kaluna Teknologi Digital...", avatar_url: "/image/default-avatar.svg" },
+    { client_name: "Anna Karenina", role: "IT Manager", company_name: "Sentul City Mall", content: "Sebagai media berpengalaman, kami membutuhkan website modern...", avatar_url: "/image/default-avatar.svg" },
+    { client_name: "Sarah Wijaya", role: "IT Manager", company_name: "Nusantara Logistics", content: "Kami berterima kasih kepada PT. Kaluna Teknologi Digital atas pengembangan website...", avatar_url: "/image/default-avatar.svg" },
+    { client_name: "Sarah Wijaya", role: "IT Manager", company_name: "Nusantara Logistics", content: "Website yang dibuat oleh Kaluna meningkatkan citra perusahaan kami...", avatar_url: "/image/default-avatar.png" }
   ];
 
-  // ==========================================
-  // 4. DATA TIM
-  // ==========================================
-const team = [
-  {
-    full_name: "Ryan Destianto",
-    position: "CHIEF EXECUTIVE OFFICER",
-    image_url: "/image/team/ryan-destianto.png",
-    linkedin_url: "#",
-  },
-  {
-    full_name: "Ayunina Zenti",
-    position: "OPERATIONAL MANAGER",
-    image_url: "/image/team/ayunina-zenti.png",
-    linkedin_url: "#",
-  },
-  {
-    full_name: "Ponco Adi Nugroho",
-    position: "ASSISTANT OPERATIONAL MANAGER",
-    image_url: "/image/team/ponco-adi-nugroho.png",
-    linkedin_url: "#",
-  },
-  {
-    full_name: "Ahmad Arof Fudin",
-    position: "LEGAL & GENERAL AFFAIRS",
-    image_url: "/image/team/ahmad-arof-fudin.png",
-    linkedin_url: "#",
-  },
-  {
-    full_name: "Ilyas Kurnia Ramadhan",
-    position: "LEAD SOFTWARE ENGINEER",
-    image_url: "/image/team/ilyas-kurnia-ramadhan.png",
-    linkedin_url: "#",
-  },
-  {
-    full_name: "Intan Nur Fadhilah",
-    position: "FINANCE",
-    image_url: "/image/team/intan-nur-fadhilah.png",
-    linkedin_url: "#",
-  },
-];
+  const team = [
+    { full_name: "Ryan Destianto", position: "CHIEF EXECUTIVE OFFICER", image_url: "/image/team/ryan-destianto.png", linkedin_url: "#" },
+    { full_name: "Ayunina Zenti", position: "OPERATIONAL MANAGER", image_url: "/image/team/ayunina-zenti.png", linkedin_url: "#" },
+    { full_name: "Ponco Adi Nugroho", position: "ASSISTANT OPERATIONAL MANAGER", image_url: "/image/team/ponco-adi-nugroho.png", linkedin_url: "#" },
+    { full_name: "Ahmad Arof Fudin", position: "LEGAL & GENERAL AFFAIRS", image_url: "/image/team/ahmad-arof-fudin.png", linkedin_url: "#" },
+    { full_name: "Ilyas Kurnia Ramadhan", position: "LEAD SOFTWARE ENGINEER", image_url: "/image/team/ilyas-kurnia-ramadhan.png", linkedin_url: "#" },
+    { full_name: "Intan Nur Fadhilah", position: "FINANCE", image_url: "/image/team/intan-nur-fadhilah.png", linkedin_url: "#" }
+  ];
 
-  // ==========================================
-  // EKSEKUSI DATABASE
-  // ==========================================
   try {
-    const insertServices = db.transaction((data) => {
+    const runAllSeeds = db.transaction(() => {
+      // 1. Eksekusi Services
       db.prepare("DELETE FROM services").run(); 
-      const stmt = db.prepare("INSERT INTO services (slug, title, description, image_url) VALUES (?, ?, ?, ?)");
-      for (const item of data) stmt.run(item.slug, item.title, item.description, item.image_url);
-    });
+      const stmtServices = db.prepare("INSERT INTO services (slug, title, description, image_url) VALUES (?, ?, ?, ?)");
+      for (const item of services) stmtServices.run(item.slug, item.title, item.description, item.image_url);
 
-    const insertWorks = db.transaction((data) => {
+      // 2. Eksekusi Works
       db.prepare("DELETE FROM works").run();
-      const stmt = db.prepare(`
+      const stmtWorks = db.prepare(`
         INSERT INTO works (slug, client, title, desc, category, images, content_json) 
         VALUES (?, ?, ?, ?, ?, ?, ?)
       `);
-      for (const item of data) {
-        stmt.run(
-          item.slug,
-          item.client, 
-          item.title, 
-          item.desc, 
-          item.category, 
-          JSON.stringify(item.images), 
-          item.content_json || null
+      for (const item of works) {
+        stmtWorks.run(
+          item.slug, item.client, item.title, item.desc, item.category, 
+          JSON.stringify(item.images), item.content_json || null
         );
       }
-    });
 
-    const insertTestimonials = db.transaction((data) => {
+      // 3. Eksekusi Testimonials
       db.prepare("DELETE FROM testimonials").run();
-      const stmt = db.prepare("INSERT INTO testimonials (client_name, role, company_name, content, avatar_url) VALUES (?, ?, ?, ?, ?)");
-      for (const item of data) stmt.run(item.client_name, item.role, item.company_name, item.content, item.avatar_url);
-    });
+      const stmtTestimonials = db.prepare("INSERT INTO testimonials (client_name, role, company_name, content, avatar_url) VALUES (?, ?, ?, ?, ?)");
+      for (const item of testimonials) stmtTestimonials.run(item.client_name, item.role, item.company_name, item.content, item.avatar_url);
 
-    const insertTeam = db.transaction((data) => {
+      // 4. Eksekusi Team
       db.prepare("DELETE FROM team_members").run(); 
-      const stmt = db.prepare("INSERT INTO team_members (full_name, position, image_url, linkedin_url) VALUES (?, ?, ?, ?)");
-      for (const m of data) stmt.run(m.full_name, m.position, m.image_url, m.linkedin_url);
+      const stmtTeam = db.prepare("INSERT INTO team_members (full_name, position, image_url, linkedin_url) VALUES (?, ?, ?, ?)");
+      for (const m of team) stmtTeam.run(m.full_name, m.position, m.image_url, m.linkedin_url);
     });
 
-    // Jalankan semua transaksi secara berurutan
-    insertServices(services);
-    insertWorks(works);
-    insertTestimonials(testimonials);
-    insertTeam(team);
-
-    console.log('✅ Data dummy berhasil dimasukkan ke SQLite!');
+    runAllSeeds();
+    console.log('✅ Data dummy berhasil di-reset dan dimasukkan ke SQLite secara atomik!');
   } catch (error) {
     console.error('❌ Terjadi kesalahan saat mengisi data:', error);
   }
 };
-
-// Panggil fungsi eksekusi utama
-seedDatabase();

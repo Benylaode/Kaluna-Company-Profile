@@ -11,7 +11,7 @@ export interface WorkData {
   title: string;
   desc: string;
   category: string;
-  images: string[]; // UPDATE: Mengubah image_url menjadi images (array of strings)
+  images: string[]; 
   content_json?: string;
   created_at?: string;
 }
@@ -27,6 +27,7 @@ export interface TeamMember {
   linkedin_url: string;
 }
 
+// Inisialisasi transporter Nodemailer
 const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
   port: 587,
@@ -41,7 +42,7 @@ export async function getWorks(): Promise<WorkData[]> {
   const stmt = db.prepare('SELECT * FROM works ORDER BY created_at DESC');
   const rows = stmt.all() as any[]; 
   
-  // UPDATE: Parsing string JSON dari SQLite kembali menjadi array untuk masing-masing work
+  // Parsing string JSON dari SQLite kembali menjadi array untuk masing-masing work
   return rows.map(row => ({
     ...row,
     images: row.images ? JSON.parse(row.images) : [],
@@ -54,7 +55,7 @@ export async function getWorkBySlug(slug: string): Promise<WorkData | undefined>
   
   if (!row) return undefined;
 
-  // UPDATE: Parsing string JSON dari SQLite kembali menjadi array
+  // Parsing string JSON dari SQLite kembali menjadi array
   return {
     ...row,
     images: row.images ? JSON.parse(row.images) : [],
@@ -85,6 +86,7 @@ export async function submitLead(formData: FormData) {
   const message = formData.get('message') as string;
 
   try {
+    // 1. Simpan ke Database (menggunakan skema leads yang sudah diperbarui)
     const stmt = db.prepare(`
       INSERT INTO leads (sender_name, company_name, sender_email, phone_number, service_interest, message) 
       VALUES (?, ?, ?, ?, ?, ?)
@@ -92,6 +94,7 @@ export async function submitLead(formData: FormData) {
     
     stmt.run(name, company, email, phone, inquiry, message);
 
+    // 2. Kirim Email Notifikasi
     await transporter.sendMail({
       from: '"Kaluna Website" <corporate@kalunatechnology.com>',
       to: 'corporate@kalunatechnology.com',
@@ -99,9 +102,9 @@ export async function submitLead(formData: FormData) {
       html: `
         <h2>New Inquiry Received</h2>
         <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Company:</strong> ${company}</p>
+        <p><strong>Company:</strong> ${company || '-'}</p>
         <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone}</p>
+        <p><strong>Phone:</strong> ${phone || '-'}</p>
         <p><strong>Inquiry Type:</strong> ${inquiry}</p>
         <p><strong>Message:</strong><br>${message}</p>
       `,
@@ -110,6 +113,6 @@ export async function submitLead(formData: FormData) {
     return { success: true, message: "Pesan berhasil dikirim ke sistem dan email!" };
   } catch (error) {
     console.error("Gagal memproses lead:", error);
-    return { success: false, message: "Terjadi kesalahan pada server." };
+    return { success: false, message: "Terjadi kesalahan pada server saat mengirim pesan." };
   }
 }
