@@ -12,13 +12,13 @@ export default function ContactPage() {
 
     const [showPopup, setShowPopup] = useState(false);
     const router = useRouter();
+    
     async function action(formData: FormData) {
         const result = await submitLead(formData);
         if (result.success) {
-        // Hapus alert dan ganti dengan setShowPopup
-        setShowPopup(true); 
+            setShowPopup(true); 
         } else {
-        alert("Terjadi kesalahan, silakan coba lagi.");
+            alert("Terjadi kesalahan, silakan coba lagi.");
         }
     }
 
@@ -39,18 +39,34 @@ export default function ContactPage() {
           <h2 className="text-3xl font-bold mb-8">Let's Discuss Your Technology Needs</h2>
           <div className="mb-8">
             <h4 className="font-bold uppercase text-xs tracking-widest mb-2">Our Office</h4>
-            <p className="text-sm text-gray-600">Mg Setos, Jl. Inspeksi Lt 3, Kembangsari, Kec. Semarang Tengah, Kota Semarang, Jawa Tengah 50133</p>
+            {/* Teks alamat sudah diperbarui */}
+            <p className="text-sm text-gray-600 leading-relaxed">
+              Menara Rajawali, Jl. DR. Ide Anak Agung Gde Agung, RT.5/RW.2, Kuningan, 
+              Kuningan Tim., Kecamatan Setiabudi, Kota Jakarta Selatan, 
+              Daerah Khusus Ibukota Jakarta 12950, Indonesia
+            </p>
           </div>
-          {/* Tambahkan Map Image di sini */}
-          <div className="w-full h-[200px] bg-gray-200 rounded-2xl mb-8"></div>
+          
+          {/* Implementasi Peta Google Maps (Iframe) */}
+          <div className="w-full h-[250px] md:h-[300px] bg-gray-200 rounded-2xl mb-8 overflow-hidden shadow-sm border border-gray-100">
+            <iframe
+              src="https://maps.google.com/maps?q=Menara%20Rajawali%2C%20Jl.%20DR.%20Ide%20Anak%20Agung%20Gde%20Agung%2C%20Jakarta%20Selatan&t=&z=16&ie=UTF8&iwloc=&output=embed"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen={true}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
         </div>
 
         <form action={action} className="space-y-6">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <input name="name" placeholder="* Your Name" className="p-4 border rounded-xl w-full" required />
             <input name="company" placeholder="* Company Name" className="p-4 border rounded-xl w-full" />
           </div>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <input name="email" type="email" placeholder="* E-mail" className="p-4 border rounded-xl w-full" required />
             <input name="phone" placeholder="* Phone" className="p-4 border rounded-xl w-full" />
           </div>
@@ -60,22 +76,24 @@ export default function ContactPage() {
             <option value="iot">IoT System</option>
           </select>
           <textarea name="message" placeholder="Message" className="p-4 border rounded-xl w-full h-32"></textarea>
-          <button className="bg-[#0D2342] text-white px-8 py-4 rounded-full flex items-center gap-2 hover:bg-[#1E88E5]">
+          <button className="bg-[#0D2342] text-white px-8 py-4 rounded-full flex items-center gap-2 hover:bg-[#1E88E5] transition-colors">
             Submit Inquiry <ArrowRight size={18} />
           </button>
         </form>
       </section>
       <CTAC/>
       <Footer />
+
+      {/* Pop Up */}
       {showPopup && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
-          <div className="bg-white rounded-[32px] p-8 md:p-12 max-w-lg w-full text-center relative shadow-2xl">
-            <button onClick={() => setShowPopup(false)} className="absolute top-6 right-6 text-gray-400 hover:text-gray-600">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-sm">
+          <div className="bg-white rounded-[32px] p-8 md:p-12 max-w-lg w-full text-center relative shadow-2xl animate-in fade-in zoom-in duration-300">
+            <button onClick={() => setShowPopup(false)} className="absolute top-6 right-6 text-gray-400 hover:text-gray-600 transition-colors">
               <X size={24} />
             </button>
             
             {/* Icon Checkmark */}
-            <div className="w-24 h-24 bg-[#0D2342] rounded-full flex items-center justify-center mx-auto mb-8">
+            <div className="w-24 h-24 bg-[#0D2342] rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg">
               <svg className="w-12 h-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
               </svg>
@@ -89,7 +107,7 @@ export default function ContactPage() {
             
             <button 
               onClick={() => router.push("/")}
-              className="bg-[#0D2342] text-white px-8 py-4 rounded-full flex items-center gap-2 mx-auto hover:bg-[#1E88E5]"
+              className="bg-[#0D2342] text-white px-8 py-4 rounded-full flex items-center gap-2 mx-auto hover:bg-[#1E88E5] transition-colors"
             >
               Back to Home <ArrowRight size={18} />
             </button>

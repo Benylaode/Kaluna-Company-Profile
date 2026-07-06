@@ -15,5 +15,5 @@ export default function HashScroll() {
     }
   }, []);
 
-  return null; // Komponen ini tidak merender elemen visual apa pun
+  return null; 
 }

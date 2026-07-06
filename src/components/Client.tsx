@@ -1,30 +1,34 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
-// 1. Kita buat sub-komponen khusus untuk masing-masing "Kotak/Slot"
-const LogoSlot = ({ logos, delay }: { logos: any[], delay: number }) => {
+interface Logo {
+  name: string;
+  src: string;
+}
+
+const LogoSlot = ({
+  logos,
+  delay,
+}: {
+  logos: Logo[];
+  delay: number;
+}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFading, setIsFading] = useState(false);
 
   useEffect(() => {
-    // Jika logo di kotak ini hanya 1, tidak perlu ada animasi
     if (logos.length <= 1) return;
 
-    // setTimeout pertama ini berfungsi sebagai "delay awal" agar 
-    // animasi tiap kotak tidak terjadi bersamaan (efek bergelombang)
     const startTimeout = setTimeout(() => {
       const interval = setInterval(() => {
-        // Mulai memudar
         setIsFading(true);
-        
-        // Tunggu 500ms (durasi CSS transisi), lalu ganti logo dan munculkan lagi
+
         setTimeout(() => {
           setCurrentIndex((prev) => (prev + 1) % logos.length);
           setIsFading(false);
         }, 500);
-        
-      }, 4000); // Ganti logo setiap 4 detik
+      }, 4000);
 
       return () => clearInterval(interval);
     }, delay);
@@ -35,69 +39,82 @@ const LogoSlot = ({ logos, delay }: { logos: any[], delay: number }) => {
   const currentLogo = logos[currentIndex];
 
   return (
-    // Penambahan scale-95 agar saat memudar terlihat sedikit mengecil (lebih halus)
-    <div 
-      className={`flex-shrink-0 w-32 md:w-40 h-24 flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500 ease-in-out ${
-        isFading ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
+    <div
+      className={`group flex-shrink-0 w-[150px] sm:w-[180px] md:w-[220px] h-[90px] md:h-[110px] flex items-center justify-center overflow-hidden transition-all duration-500 ${
+        isFading ? "opacity-0 scale-95" : "opacity-100 scale-100"
       }`}
     >
-      {/* Jika Anda sudah memasukkan file gambar asli ke folder public, aktifkan baris ini: */}
-      {/* <img src={currentLogo.src} alt={currentLogo.name} className="max-h-12 w-auto object-contain" /> */}
-      
-      {/* Placeholder sementara selama belum memakai gambar asli: */}
-      <div className="text-lg md:text-xl font-bold text-gray-400 text-center">{currentLogo.name}</div>
+      <img
+        src={currentLogo.src}
+        alt={currentLogo.name}
+        className="
+          w-[90%]
+          h-[90%]
+          object-contain
+          transition-all
+          duration-300
+          ease-out
+          group-hover:scale-110
+          group-hover:-translate-y-1
+          group-hover:drop-shadow-[0_8px_20px_rgba(30,136,229,0.18)]
+        "
+      />
     </div>
   );
 };
 
 export default function Clients() {
-  // 2. Kita membagi kelompok logo berdasarkan "Kotak" (Slot) nya masing-masing.
-  // Misalnya, kotak pertama akan bergantian antara "Sinau Print" dan "LogoIpsum 1"
   const slot1 = [
-    { name: "Sinau Print", src: "/clients/sinau-print.png" },
-    { name: "LogoIpsum 1", src: "/clients/logo1.png" }
-  ];
-  const slot2 = [
-    { name: "Plaza Ambarrukmo", src: "/clients/plaza.png" },
-    { name: "LogoIpsum 2", src: "/clients/logo2.png" }
-  ];
-  const slot3 = [
-    { name: "Miniso", src: "/clients/miniso.png" },
-    { name: "LogoIpsum 3", src: "/clients/logo3.png" }
-  ];
-  const slot4 = [
-    { name: "Artic Analytica", src: "/clients/artic.png" },
-    { name: "LogoIpsum 4", src: "/clients/logo4.png" }
-  ];
-  const slot5 = [
-    { name: "Queen City", src: "/clients/queen-city.png" },
-    { name: "LogoIpsum 5", src: "/clients/logo5.png" }
+    { name: "Mitra 1", src: "/image/mitra/1.png" },
+    { name: "Mitra 6", src: "/image/mitra/6.png" },
   ];
 
-  // Kumpulan dari ke-5 slot di atas
+  const slot2 = [
+    { name: "Mitra 2", src: "/image/mitra/2.png" },
+    { name: "Mitra 7", src: "/image/mitra/7.png" },
+  ];
+
+  const slot3 = [
+    { name: "Mitra 3", src: "/image/mitra/3.png" },
+  ];
+
+  const slot4 = [
+    { name: "Mitra 4", src: "/image/mitra/4.png" },
+  ];
+
+  const slot5 = [
+    { name: "Mitra 5", src: "/image/mitra/5.png" },
+  ];
+
   const slots = [slot1, slot2, slot3, slot4, slot5];
 
   return (
-    <section className="bg-white py-12 border-y border-gray-100">
-      <div className="max-w-7xl mx-auto px-10 mb-8">
-        <p className="text-center text-sm font-semibold tracking-wider text-[#0D2342]">
-          <span className="w-1 h-4 bg-[#1E88E5] inline-block align-middle mr-2"></span>
+    <section className="bg-white py-12 md:py-16">
+      {/* Heading */}
+      <div className="max-w-[1440px] mx-auto px-6 lg:px-10 mb-10 md:mb-14">
+        <div className="flex items-center justify-center gap-2 text-xs font-bold tracking-[0.2em] uppercase text-[#1E88E5] mb-3">
+          <span className="w-1.5 h-4 rounded-full bg-[#1E88E5]" />
           OUR CLIENTS
-        </p>
-        <h2 className="text-center text-3xl font-bold text-[#0D2342] mt-2">
+        </div>
+
+        <h2 className="text-center text-2xl md:text-3xl lg:text-[36px] font-bold text-[#0D2342] tracking-tight">
           Companies That Trust Our Solutions
         </h2>
+
+        <p className="mt-3 text-center text-sm md:text-base text-gray-500 font-medium">
+          We have collaborated with forward-thinking organizations across
+          industries
+        </p>
       </div>
 
-      <div className="max-w-5xl mx-auto px-10 min-h-[120px] flex justify-center items-center">
-        <div className="flex flex-wrap justify-center items-center w-full gap-6 md:gap-8">
+      {/* Logo List */}
+      <div className="max-w-[1200px] mx-auto px-4">
+        <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-10 md:gap-x-14 md:gap-y-12">
           {slots.map((slotLogos, index) => (
-            // Kita panggil komponen LogoSlot. 
-            // Delay dikalikan 800ms agar perubahannya menjalar (Slot 1 berubah, 0.8 detik kemudian Slot 2 berubah, dst)
-            <LogoSlot 
-              key={index} 
-              logos={slotLogos} 
-              delay={index * 800} 
+            <LogoSlot
+              key={index}
+              logos={slotLogos}
+              delay={index * 800}
             />
           ))}
         </div>

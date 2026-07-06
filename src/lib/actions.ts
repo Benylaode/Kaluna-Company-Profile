@@ -11,7 +11,7 @@ export interface WorkData {
   title: string;
   desc: string;
   category: string;
-  image_url: string;
+  images: string[]; // UPDATE: Mengubah image_url menjadi images (array of strings)
   content_json?: string;
   created_at?: string;
 }
@@ -39,12 +39,26 @@ const transporter = nodemailer.createTransport({
 
 export async function getWorks(): Promise<WorkData[]> {
   const stmt = db.prepare('SELECT * FROM works ORDER BY created_at DESC');
-  return stmt.all() as WorkData[]; 
+  const rows = stmt.all() as any[]; 
+  
+  // UPDATE: Parsing string JSON dari SQLite kembali menjadi array untuk masing-masing work
+  return rows.map(row => ({
+    ...row,
+    images: row.images ? JSON.parse(row.images) : [],
+  })) as WorkData[];
 }
 
 export async function getWorkBySlug(slug: string): Promise<WorkData | undefined> {
   const stmt = db.prepare('SELECT * FROM works WHERE slug = ?');
-  return stmt.get(slug) as WorkData | undefined;
+  const row = stmt.get(slug) as any;
+  
+  if (!row) return undefined;
+
+  // UPDATE: Parsing string JSON dari SQLite kembali menjadi array
+  return {
+    ...row,
+    images: row.images ? JSON.parse(row.images) : [],
+  } as WorkData;
 }
 
 export async function getTestimonials(): Promise<TestimonialData[]> {

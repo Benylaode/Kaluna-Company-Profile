@@ -7,36 +7,49 @@ const seedDatabase = () => {
   // ==========================================
   // 1. DATA LAYANAN (SERVICES)
   // ==========================================
-  const services = [
-    { 
-      slug: "system-development", 
-      title: "System Development", 
-      description: "Building High-Performance Websites with Exceptional User Experience for modern enterprises.", 
-      image_url: "/section/service1.jpg" 
-    },
-    { 
-      slug: "erp-system-integration", 
-      title: "ERP & System Integration", 
-      description: "Seamlessly connect your business processes with custom ERP solutions to drive operational efficiency.", 
-      image_url: "/section/service2.jpg" 
-    },
-    { 
-      slug: "industrial-automation", 
-      title: "Industrial and Automation Solutions", 
-      description: "Automate your industrial workflow for better efficiency, accuracy, and long-term growth.", 
-      image_url: "/section/service3.jpg" 
-    },
-    { 
-      slug: "data-dashboard-analytics", 
-      title: "Data Dashboard & Analytics", 
-      description: "Turn your raw data into actionable insights with our interactive dashboard visualization.", 
-      image_url: "/section/service4.jpg" 
-    }
-  ];
+const services = [
+  { 
+    slug: "iot-system-development", 
+    title: "IoT System Development", 
+    description: "Connected systems for real-time monitoring and automation", 
+    image_url: "/image/service/1.png" 
+  },
+  { 
+    slug: "web-application-development", 
+    title: "Web & Application Development", 
+    description: "Scalable web and mobile platform built for complex operations", 
+    image_url: "/image/service/2.png" 
+  },
+  { 
+    slug: "erp-system-integration", 
+    title: "ERP & System Integration", 
+    description: "Seamless integration across platforms, APIs, and devices", 
+    image_url: "/image/service/3.png" 
+  },
+  { 
+    slug: "industrial-automation-solutions", 
+    title: "Industrial & Automation Solutions", 
+    description: "Smart systems to optimize operational workflows", 
+    image_url: "/image/service/4.png" 
+  },
+  { 
+    slug: "data-dashboard-analytics", 
+    title: "Data Dashboard & Analytics", 
+    description: "Transforming raw data into actionable insights", 
+    image_url: "/image/service/5.png" 
+  },
+  { 
+    slug: "it-strategy-consulting", 
+    title: "IT Strategy & Consulting", 
+    description: "Strategic planning for scalable and future-ready IT infrastructure", 
+    image_url: "/image/service/6.png" 
+  }
+];
 
   // ==========================================
   // 2. DATA PORTOFOLIO (WORKS)
   // ==========================================
+  // UPDATE: Path gambar disesuaikan dengan folder /image/projects/[slug]/[1,2,3].png
   const works = [
     { 
       slug: "x-1-tire-company-profile",
@@ -44,7 +57,11 @@ const seedDatabase = () => {
       title: "Company Profile Revamp for X-1 Tire", 
       desc: "A modern company profile website designed to present X-1 Tire's brand, services, and core initiatives with an integrated product presentation module.",
       category: "Website Development", 
-      image_url: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800" 
+      images: [
+        "/image/projects/x-1-tire-company-profile/1.png",
+        "/image/projects/x-1-tire-company-profile/2.png",
+        "/image/projects/x-1-tire-company-profile/3.png"
+      ] 
     },
     { 
       slug: "navicom-smart-home",
@@ -52,7 +69,11 @@ const seedDatabase = () => {
       title: "Smart Home System for Navicom", 
       desc: "Smart home system managing 3,800+ devices across 240 units, delivering real-time control of lighting, AC, and safety through tablets and mobile apps.",
       category: "IoT System", 
-      image_url: "https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=800" 
+      images: [
+        "/image/projects/navicom-smart-home/1.png",
+        "/image/projects/navicom-smart-home/2.png",
+        "/image/projects/navicom-smart-home/3.png"
+      ] 
     },
     { 
       slug: "sinau-print-pos-system",
@@ -60,15 +81,31 @@ const seedDatabase = () => {
       title: "POS System for Sinau Print", 
       desc: "Improved transaction efficiency, enabled real-time stock control to prevent overselling, and increased user engagement for Sinau Print, successfully achieving all KPIs.",
       category: "Software Development", 
-      image_url: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800",
+      images: [
+        "/image/projects/sinau-print-pos-system/1.png",
+        "/image/projects/sinau-print-pos-system/2.png",
+        "/image/projects/sinau-print-pos-system/3.png"
+      ],
       content_json: JSON.stringify({
         overview: "Digitalizing printing services through a custom marketplace platform, transforming manual order processing into a seamless digital experience.",
         features: [
             { title: "Online Inventory", desc: "Real-time tracking of paper and ink supplies." },
             { title: "Automated Workflow", desc: "Streamlined order submission and status updates." },
-            { title: "User Dashboard", desc: "Intuitive interface for customers and staff." }
+            { title: "User Dashboard", desc: "Intuitive interface for customers and staff." },
+            { title: "Payment Integration", desc: "Secure and fast digital payment gateways for seamless transactions." }
         ],
-        tech_stack: ["Next.js", "PostgreSQL", "Node.js", "Docker"]
+        tech_stack: ["HTML5", "CSS3", "JavaScript", "Next.js", "PostgreSQL", "Git"],
+        result: {
+          title: "Improving Transaction Efficiency and Customer Engagement",
+          desc: "By integrating a custom digital platform, Sinau Print successfully automated their manual workflow, resulting in faster processing times and a much smoother customer experience.",
+          points: [
+            "Reduced manual order processing time by 40%",
+            "Increased overall customer engagement by 25%",
+            "Real-time inventory sync eliminated overselling issues"
+          ],
+          image_url: "/image/projects/sinau-print-pos-system/1.png" // Pastikan gambar ini ada di folder public Anda
+        },
+        bottom_image: "/image/projects/sinau-print-pos-system/2.png" // Pastikan gambar ini ada di folder public Anda
       })
     },
     { 
@@ -77,7 +114,11 @@ const seedDatabase = () => {
       title: "Website Refresh Suara Merdeka", 
       desc: "Modern website refresh to maintain journalism values with an elegant and user-friendly interface.",
       category: "Website Development", 
-      image_url: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=800" 
+      images: [
+        "/image/projects/suara-merdeka-refresh/1.png",
+        "/image/projects/suara-merdeka-refresh/2.png",
+        "/image/projects/suara-merdeka-refresh/3.png"
+      ] 
     },
     { 
       slug: "korlantas-polri-edrives",
@@ -85,56 +126,89 @@ const seedDatabase = () => {
       title: "E-Drives for Korlantas Polri", 
       desc: "Backend and IoT integration system for E-Drives to support law enforcement and traffic management.",
       category: "Backend & IoT", 
-      image_url: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800" 
+      images: [
+        "/image/projects/korlantas-polri-edrives/1.png",
+        "/image/projects/korlantas-polri-edrives/2.png",
+        "/image/projects/korlantas-polri-edrives/3.png"
+      ] 
     }
   ];
 
-  // ==========================================
-  // 3. DATA TESTIMONI (TESTIMONIALS)
-  // ==========================================
   const testimonials = [
     { 
       client_name: "John Doe", 
       role: "Operations Director", 
-      company_name: "SINAU PRINT", 
+      company_name: "ABC Manufacturing", 
       content: "Saya selaku pemilik Sinau Print sangat puas dengan hasil kerja PT. Kaluna Teknologi Digital. Website yang dibuat memudahkan pelanggan kami melakukan pemesanan online. Proses profesional, komunikasi lancar, dan hasil sesuai harapan. Terima kasih atas kerja samanya.", 
-      avatar_url: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&h=150&q=80" 
+      avatar_url: "/image/default-avatar.svg" 
     },
     { 
       client_name: "Anna Karenina", 
       role: "IT Manager", 
-      company_name: "SUARA MERDEKA", 
+      company_name: "Sentul City Mall", 
       content: "Sebagai media berpengalaman, kami membutuhkan website modern yang tetap menjaga nilai jurnalisme. PT. Kaluna Teknologi Digital berhasil mewujudkannya dengan baik. Sistem mudah digunakan, tampilannya elegan, dan sangat kami rekomendasikan.", 
-      avatar_url: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&h=150&q=80" 
+      avatar_url: "/image/default-avatar.svg" 
     },
     { 
-      client_name: "Budi Santoso", 
-      role: "CEO", 
-      company_name: "X-1 TIRE", 
-      content: "Transformasi digital yang dilakukan oleh Kaluna sangat membantu operasional bisnis kami. Sistem inventori terintegrasi dengan baik dan sangat minim error. Sangat direkomendasikan untuk enterprise.", 
-      avatar_url: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&h=150&q=80" 
+      client_name: "Sarah Wijaya", 
+      role: "IT Manager", 
+      company_name: "Nusantara Logistics", 
+      content: "Kami berterima kasih kepada PT. Kaluna Teknologi Digital atas pengembangan website perusahaan kami yang memuaskan. Proses berjalan lancar, tepat waktu, tim responsif, dan hasilnya sesuai visi perusahaan kami. Kerja sama yang sangat profesional.", 
+      avatar_url: "/image/default-avatar.svg" 
     },
     { 
-      client_name: "Siti Aminah", 
-      role: "Data Lead", 
-      company_name: "NAVICOM", 
-      content: "Pengembangan dashboard analitik data kami berjalan sangat lancar. Visualisasi datanya sangat interaktif dan membantu kami mengambil keputusan krusial dengan jauh lebih cepat dan akurat.", 
-      avatar_url: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&h=150&q=80" 
+      client_name: "Sarah Wijaya", 
+      role: "IT Manager", 
+      company_name: "Nusantara Logistics", 
+      content: "Website yang dibuat oleh Kaluna meningkatkan citra perusahaan kami. Katalog produk ban menjadi lebih mudah dilihat, fitur pencarian berdasarkan ukuran berfungsi dengan baik, dan tampilan untuk mobile juga bagus. Pelanggan kami jadi lebih mudah mencari informasi produk. Investasi yang sangat bermanfaat.", 
+      avatar_url: "/image/default-avatar.png" 
     }
   ];
 
   // ==========================================
   // 4. DATA TIM
   // ==========================================
-  const team = [
-    { full_name: "Ryan Destianto", position: "CHIEF EXECUTIVE OFFICER", image_url: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200", linkedin_url: "#" },
-    { full_name: "Ayunina Zenti", position: "OPERATIONAL MANAGER", image_url: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200", linkedin_url: "#" },
-    { full_name: "Ponco Adi Nugroho", position: "ASSISTANT OPERATIONAL MANAGER", image_url: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=200", linkedin_url: "#" },
-    { full_name: "Ahmad Arof Fudin", position: "LEGAL & GENERAL AFFAIRS", image_url: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=200", linkedin_url: "#" },
-  ];
+const team = [
+  {
+    full_name: "Ryan Destianto",
+    position: "CHIEF EXECUTIVE OFFICER",
+    image_url: "/image/team/ryan-destianto.png",
+    linkedin_url: "#",
+  },
+  {
+    full_name: "Ayunina Zenti",
+    position: "OPERATIONAL MANAGER",
+    image_url: "/image/team/ayunina-zenti.png",
+    linkedin_url: "#",
+  },
+  {
+    full_name: "Ponco Adi Nugroho",
+    position: "ASSISTANT OPERATIONAL MANAGER",
+    image_url: "/image/team/ponco-adi-nugroho.png",
+    linkedin_url: "#",
+  },
+  {
+    full_name: "Ahmad Arof Fudin",
+    position: "LEGAL & GENERAL AFFAIRS",
+    image_url: "/image/team/ahmad-arof-fudin.png",
+    linkedin_url: "#",
+  },
+  {
+    full_name: "Ilyas Kurnia Ramadhan",
+    position: "LEAD SOFTWARE ENGINEER",
+    image_url: "/image/team/ilyas-kurnia-ramadhan.png",
+    linkedin_url: "#",
+  },
+  {
+    full_name: "Intan Nur Fadhilah",
+    position: "FINANCE",
+    image_url: "/image/team/intan-nur-fadhilah.png",
+    linkedin_url: "#",
+  },
+];
 
   // ==========================================
-  // EKSEKUSI DATABASE (Satu pintu eksekusi agar tidak bentrok)
+  // EKSEKUSI DATABASE
   // ==========================================
   try {
     const insertServices = db.transaction((data) => {
@@ -146,7 +220,7 @@ const seedDatabase = () => {
     const insertWorks = db.transaction((data) => {
       db.prepare("DELETE FROM works").run();
       const stmt = db.prepare(`
-        INSERT INTO works (slug, client, title, desc, category, image_url, content_json) 
+        INSERT INTO works (slug, client, title, desc, category, images, content_json) 
         VALUES (?, ?, ?, ?, ?, ?, ?)
       `);
       for (const item of data) {
@@ -156,7 +230,7 @@ const seedDatabase = () => {
           item.title, 
           item.desc, 
           item.category, 
-          item.image_url, 
+          JSON.stringify(item.images), 
           item.content_json || null
         );
       }

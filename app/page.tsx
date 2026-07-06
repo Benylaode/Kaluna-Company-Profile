@@ -10,36 +10,30 @@ import ProjectCarousel from '../src/components/ProjectCarousel';
 import CTA from '../src/components/CTA';
 import HashScroll from '../src/components/HashScroll';
 
-// Import fungsi dari database backend
 import { getWorks, getTestimonials, getServices } from '../src/lib/actions';
 
 export default async function Home() {
-  // Ambil data dari SQLite secara aman di sisi server
   const worksData = await getWorks();
   const testimonialsData = await getTestimonials();
   const servicesData = await getServices();
 
   return (
-    <main className="min-h-screen bg-white scroll-smooth">
+    <main className="min-h-screen bg-white scroll-smooth overflow-x-hidden">
       <HashScroll />
-      
       <Navbar />
-      <Hero />
       
-      <ProjectCarousel projects={worksData} />
-      
-      <OurServices services={servicesData} />
-      
-      <WhyKaluna />
-      
-      {/* OurWorks MURNI HARDCODE (Tidak pakai props works={...} lagi!) */}
-      <OurWorks />
-      
-      <Clients />
-      
-      <Deliver testimonials={testimonialsData} />
-      
-      <CTA />
+      {/* Wrapper diubah: Menghilangkan gap agar jarak murni dari padding (py) masing-masing komponen */}
+      <div className="flex flex-col w-full pb-16">
+        <Hero />
+        <ProjectCarousel projects={worksData} />
+        <OurServices services={servicesData} />
+        <WhyKaluna />
+        <OurWorks />
+        <Clients />
+        <Deliver testimonials={testimonialsData} />
+        <CTA />
+      </div>
+
       <Footer />
       
       {/* Floating WA Button */}
@@ -47,12 +41,12 @@ export default async function Home() {
         href="https://wa.me/6281234567890" 
         target="_blank" 
         rel="noreferrer" 
-        className="fixed bottom-6 right-6 z-50"
+        className="fixed bottom-6 right-6 z-50 group"
       >
         <img 
           src="/Frame WA.png" 
           alt="WhatsApp" 
-          className="w-14 h-14 drop-shadow-lg cursor-pointer hover:scale-105 transition-transform" 
+          className="w-14 h-14 md:w-16 md:h-16 drop-shadow-xl cursor-pointer hover:scale-110 transition-transform duration-300" 
         />
       </a>
     </main>

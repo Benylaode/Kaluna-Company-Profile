@@ -24,23 +24,24 @@ db.exec(`
 
   CREATE TABLE IF NOT EXISTS works (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    client TEXT,          -- Tambahkan ini
+    client TEXT,          
     slug TEXT UNIQUE NOT NULL,
     title TEXT NOT NULL,
-    desc TEXT,            -- Tambahkan ini (ganti category menjadi desc jika perlu)
-    category TEXT,        -- Tetap biarkan jika masih dipakai di tempat lain
-    image_url TEXT NOT NULL,
+    desc TEXT,            
+    category TEXT,        
+    images TEXT NOT NULL, -- UPDATE: Mengubah image_url menjadi images (untuk JSON string dari array)
     content_json TEXT,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
   );
-    CREATE TABLE IF NOT EXISTS team_members (
+
+  CREATE TABLE IF NOT EXISTS team_members (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     full_name TEXT NOT NULL,
     position TEXT NOT NULL,
     image_url TEXT,
     linkedin_url TEXT,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-    );
+  );
 
   CREATE TABLE IF NOT EXISTS testimonials (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -58,14 +59,6 @@ db.exec(`
     sender_email TEXT NOT NULL,
     message TEXT NOT NULL,
     status TEXT DEFAULT 'unread',
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-  );
-
-  CREATE TABLE IF NOT EXISTS team_members (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    full_name TEXT NOT NULL,
-    position TEXT NOT NULL,
-    image_url TEXT,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
   );
 `);
