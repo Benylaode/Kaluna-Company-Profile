@@ -1,9 +1,14 @@
 // src/lib/db.ts
 import Database from 'better-sqlite3';
 import path from 'path';
+import fs from "fs";
 
+console.log("cwd =", process.cwd());
 // Database akan disimpan di root folder proyek dengan nama kaluna.db
-const dbPath = path.join(process.cwd(), 'kaluna.db');
+const dbPath = path.join(process.cwd(), "kaluna.db");
+
+console.log("dbPath =", dbPath);
+console.log("exists =", fs.existsSync(dbPath));
 
 // Inisialisasi koneksi
 const db = new Database(dbPath);
