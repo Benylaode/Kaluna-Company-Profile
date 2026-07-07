@@ -5,7 +5,9 @@ import fs from 'fs';
 import { seedDatabase } from './dummy'; // <-- IMPORT LANGSUNG DI SINI
 
 const DB_FILENAME = "kaluna.db";
-const dbPath = path.join(process.cwd(), DB_FILENAME);
+// Gunakan /tmp di Vercel karena filesystem root bersifat Read-Only
+const isVercel = process.env.VERCEL === "1" || process.env.NODE_ENV === "production";
+const dbPath = isVercel ? path.join("/tmp", DB_FILENAME) : path.join(process.cwd(), DB_FILENAME);
 
 
 declare global {

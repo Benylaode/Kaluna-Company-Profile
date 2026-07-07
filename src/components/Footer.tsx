@@ -160,7 +160,7 @@ export default function Footer() {
           </div>
 
           <div className="border-t border-[#D7E6F8] pt-6 text-center text-xs font-bold tracking-wider text-[#3F3F3F]">
-            © 2026 PT. KALUNA TEKNOLOGI DIGITAL
+            © 2026 PT Sinergi Muda Arsa
           </div>
         </div>
       </div>
