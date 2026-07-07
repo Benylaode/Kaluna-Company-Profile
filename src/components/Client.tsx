@@ -15,20 +15,20 @@ const LogoSlot = ({
   delay: number;
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isFading, setIsFading] = useState(false);
+  const [fadeState, setFadeState] = useState<"in" | "out">("in");
 
   useEffect(() => {
     if (logos.length <= 1) return;
 
     const startTimeout = setTimeout(() => {
       const interval = setInterval(() => {
-        setIsFading(true);
+        setFadeState("out");
 
         setTimeout(() => {
           setCurrentIndex((prev) => (prev + 1) % logos.length);
-          setIsFading(false);
-        }, 500);
-      }, 4000);
+          setFadeState("in");
+        }, 1000); // 1 second fade out duration
+      }, 5000); // switch every 5 seconds
 
       return () => clearInterval(interval);
     }, delay);
@@ -37,85 +37,102 @@ const LogoSlot = ({
   }, [logos.length, delay]);
 
   const currentLogo = logos[currentIndex];
+  const hasImage = currentLogo.src && currentLogo.src.trim() !== "" && currentLogo.src !== "#";
 
   return (
-    <div
-      className={`group flex-shrink-0 w-[150px] sm:w-[180px] md:w-[220px] h-[90px] md:h-[110px] flex items-center justify-center overflow-hidden transition-all duration-500 ${
-        isFading ? "opacity-0 scale-95" : "opacity-100 scale-100"
-      }`}
-    >
-      <img
-        src={currentLogo.src}
-        alt={currentLogo.name}
-        className="
-          w-[90%]
-          h-[90%]
-          object-contain
-          transition-all
-          duration-300
-          ease-out
-          group-hover:scale-110
-          group-hover:-translate-y-1
-          group-hover:drop-shadow-[0_8px_20px_rgba(30,136,229,0.18)]
-        "
-      />
+    <div className="relative w-full h-full flex items-center justify-center p-4">
+      <div
+        className={`w-full h-full flex items-center justify-center transition-all duration-1000 ease-in-out ${fadeState === "in"
+          ? "opacity-100 scale-100 blur-0"
+          : "opacity-0 scale-95 blur-[2px]"
+          }`}
+      >
+        {hasImage ? (
+          <img
+            src={currentLogo.src}
+            alt={currentLogo.name}
+            className="max-h-[38px] lg:max-h-[44px] max-w-[85%] object-contain transition-transform duration-300 hover:scale-105"
+            style={{
+              filter: "drop-shadow(0px 0px 1.5px rgba(0,0,0,0.4)) drop-shadow(0px 6px 20px rgba(0,0,0,0.16))",
+            }}
+          />
+        ) : (
+          <span className="text-xs md:text-sm font-semibold text-[#0E2A54]/80 tracking-wide text-center uppercase">
+            {currentLogo.name}
+          </span>
+        )}
+      </div>
     </div>
   );
 };
 
 export default function Clients() {
   const slot1 = [
-    { name: "Mitra 1", src: "/image/mitra/1.png" },
-    { name: "Mitra 6", src: "/image/mitra/6.png" },
+    { name: "Sinau Print", src: "/image/mitra/1.png" },
+    { name: "Suara Merdeka", src: "/image/mitra/6.png" },
+    { name: "Mitra 11", src: "/image/mitra/11.png" },
   ];
 
   const slot2 = [
-    { name: "Mitra 2", src: "/image/mitra/2.png" },
-    { name: "Mitra 7", src: "/image/mitra/7.png" },
+    { name: "Mitra 7", src: "/image/mitra/2.png" },
+    { name: "Mitra 7 Alternate", src: "/image/mitra/7.png" },
+    { name: "Mitra 12", src: "/image/mitra/12.png" },
   ];
 
   const slot3 = [
-    { name: "Mitra 3", src: "/image/mitra/3.png" },
+    { name: "Plaza Ambarrukmo", src: "/image/mitra/3.png" },
+    { name: "Mitra 8", src: "/image/mitra/8.png" },
+    { name: "Mitra 13", src: "/image/mitra/13.png" },
   ];
 
   const slot4 = [
-    { name: "Mitra 4", src: "/image/mitra/4.png" },
+    { name: "Miniso", src: "/image/mitra/4.png" },
+    { name: "Mitra 9", src: "/image/mitra/9.png" },
+    { name: "Mitra 14", src: "/image/mitra/14.png" },
   ];
 
   const slot5 = [
-    { name: "Mitra 5", src: "/image/mitra/5.png" },
+    { name: "Artic Analytica", src: "/image/mitra/5.png" },
+    { name: "Mitra 10", src: "/image/mitra/10.png" },
   ];
 
   const slots = [slot1, slot2, slot3, slot4, slot5];
 
   return (
-    <section className="bg-white py-12 md:py-16">
-      {/* Heading */}
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-10 mb-10 md:mb-14">
-        <div className="flex items-center justify-center gap-2 text-xs font-bold tracking-[0.2em] uppercase text-[#1E88E5] mb-3">
-          <span className="w-1.5 h-4 rounded-full bg-[#1E88E5]" />
-          OUR CLIENTS
+    <section className="bg-[#FAFAFA] py-16 md:py-20">
+      <style>{`
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      `}</style>
+      <div className="kaluna-container mb-12 text-center flex flex-col items-center">
+        <div className="flex items-center gap-2.5 mb-4 justify-center">
+          <span className="h-3.5 w-[2.5px] bg-[#299EED] rounded-full"></span>
+          <span className="text-xs font-semibold tracking-[0.08em] text-[#0E2A54] uppercase">
+            Our Clients
+          </span>
         </div>
 
-        <h2 className="text-center text-2xl md:text-3xl lg:text-[36px] font-bold text-[#0D2342] tracking-tight">
+        <h2 className="mt-2 text-[28px] font-bold leading-[1.2] tracking-[-0.015em] text-[#0E2A54] md:text-[36px] lg:text-[44px]">
           Companies That Trust Our Solutions
         </h2>
 
-        <p className="mt-3 text-center text-sm md:text-base text-gray-500 font-medium">
-          We have collaborated with forward-thinking organizations across
-          industries
+        <p className="mt-3 text-sm leading-[1.5] text-gray-500 md:text-base max-w-xl mx-auto">
+          We have collaborated with forward-thinking organizations across industries
         </p>
       </div>
 
-      {/* Logo List */}
-      <div className="max-w-[1200px] mx-auto px-4">
-        <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-10 md:gap-x-14 md:gap-y-12">
+      <div className="w-full px-4 md:px-8">
+        <div className="flex w-full gap-4 md:gap-6 overflow-x-auto hide-scrollbar justify-center items-center py-2">
           {slots.map((slotLogos, index) => (
-            <LogoSlot
+            <div
               key={index}
-              logos={slotLogos}
-              delay={index * 800}
-            />
+              className="relative flex-shrink-0 w-[180px] sm:w-[200px] lg:w-[220px] h-[80px] sm:h-[90px] lg:h-[100px] flex items-center justify-center transition-all duration-300"
+            >
+              <LogoSlot
+                logos={slotLogos}
+                delay={index * 800}
+              />
+            </div>
           ))}
         </div>
       </div>

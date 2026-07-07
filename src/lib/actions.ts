@@ -72,6 +72,13 @@ export async function getServices(): Promise<ServiceData[]> {
   return stmt.all() as ServiceData[];
 }
 
+export async function getServiceBySlug(slug: string): Promise<ServiceData | undefined> {
+  const stmt = db.prepare('SELECT * FROM services WHERE slug = ?');
+  const row = stmt.get(slug) as any;
+  if (!row) return undefined;
+  return row as ServiceData;
+}
+
 export async function getTeam(): Promise<TeamMember[]> {
   const stmt = db.prepare('SELECT * FROM team_members');
   return stmt.all() as TeamMember[];

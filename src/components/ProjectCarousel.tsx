@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
@@ -16,121 +16,104 @@ export interface ProjectData {
 
 export default function ProjectCarousel({ projects }: { projects: ProjectData[] }) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   if (!projects || projects.length === 0) return null;
-
-  useEffect(() => {
-    setCurrentImageIndex(0);
-  }, [currentIndex]);
-
-  useEffect(() => {
-    const currentProject = projects[currentIndex];
-    if (!currentProject || !currentProject.images || currentProject.images.length <= 1) return;
-    const imageTimer = setInterval(() => {
-      setCurrentImageIndex((prev) => prev === currentProject.images.length - 1 ? 0 : prev + 1);
-    }, 3000);
-    return () => clearInterval(imageTimer);
-  }, [currentIndex, projects]);
-
-  const totalProjects = projects.length < 10 ? `0${projects.length}` : projects.length.toString();
-  const displayId = (currentIndex + 1) < 10 ? `0${currentIndex + 1}` : (currentIndex + 1).toString();
 
   const handleNext = () => setCurrentIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
   const handlePrev = () => setCurrentIndex((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
 
+  const currentProject = projects[currentIndex];
+
   return (
-    <section className="mx-auto max-w-[1440px] px-6 lg:px-10 py-10 md:py-20 bg-white">
-      <div className="grid lg:grid-cols-[1fr_1.3fr] items-center gap-10 lg:gap-16">
-        
-        {/* LEFT SECTION (TEXT) */}
-        <div className="flex h-full flex-col order-2 lg:order-1 relative">
-          <div key={`text-${currentIndex}`} className="animate-fade-in transition-all duration-500">
-            <div className="mb-6 flex items-center gap-4 text-xs font-bold tracking-widest text-[#0D2342]">
-              <span>{displayId}</span>
-              <span className="text-gray-300">|</span>
-              <span className="text-gray-400">{totalProjects}</span>
-            </div>
-
-            <h2 className="text-[32px] md:text-[40px] lg:text-[46px] font-bold leading-[1.1] tracking-tight text-[#0D2342]">
-              {projects[currentIndex].title}
-            </h2>
-
-            <p className="mt-6 text-base md:text-lg leading-relaxed text-gray-500">
-              {projects[currentIndex].desc}
-            </p>
-          </div>
-
-          <Link href={`/works/${projects[currentIndex].slug}`} className="mt-10 md:mt-12 w-fit">
-            <button className="group flex items-center rounded-full bg-[#0D2342] py-2 pl-6 pr-2 text-white transition hover:bg-[#163A70] shadow-lg">
-              <span className="mr-4 text-sm font-medium">See Case Studies</span>
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#1E88E5] group-hover:translate-x-1 transition-transform">
-                <ArrowRight size={16} />
+    <section className="w-full bg-white py-20 md:py-28">
+      <div className="kaluna-container">
+        <div className="grid items-center gap-10 lg:grid-cols-[2fr_3fr] lg:gap-16 xl:gap-20">
+          
+          {/* Left Column: Typography and Controls */}
+          <div className="relative flex flex-col justify-between py-4 lg:py-0 min-h-[400px] md:min-h-[454px]">
+            <div key={`text-${currentIndex}`} className="transition-all duration-500">
+              {/* Pagination/Paging Indicator */}
+              <div className="mb-6 flex items-baseline text-[#C7C7CC] text-[16px] font-bold">
+                <span className="text-[#000000]">{String(currentIndex + 1).padStart(1, "0")}</span>
+                <span className="mx-2 text-gray-300">/</span>
+                <span className="text-[#C7C7CC]">{String(projects.length).padStart(1, "0")}</span>
               </div>
-            </button>
-          </Link>
-
-          {/* Navigation Desktop */}
-          <div className="hidden lg:flex mt-auto pt-24 gap-8">
-            <button onClick={handlePrev} className="text-sm font-bold uppercase tracking-wider text-gray-400 hover:text-[#0D2342] transition-colors">
-              &lt; Previous
-            </button>
-            <button onClick={handleNext} className="text-sm font-bold uppercase tracking-wider text-[#0D2342] hover:text-[#1E88E5] transition-colors">
-              Next Project &gt;
-            </button>
-          </div>
-        </div>
-
-        {/* RIGHT SECTION (IMAGE) */}
-        <div className="order-1 lg:order-2 w-full h-[300px] sm:h-[450px] lg:h-[550px] relative rounded-[24px] md:rounded-[40px] overflow-hidden bg-[#0D2342] shadow-2xl">
-          {projects.map((project, pIndex) => (
-            <div
-              key={`project-${project.id}`}
-              className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ${
-                pIndex === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"
-              }`}
-            >
-              {project.images.map((imgUrl, iIndex) => (
-                <img
-                  key={`img-${project.id}-${iIndex}`}
-                  src={imgUrl}
-                  alt={`${project.title} - ${iIndex}`}
-                  className={`absolute inset-0 w-full h-full object-cover md:object-contain p-0 md:p-8 transition-opacity duration-700 ${
-                    pIndex === currentIndex && iIndex === currentImageIndex ? "opacity-100" : "opacity-0"
-                  }`}
-                />
-              ))}
+ 
+              {/* Project Title */}
+              <h2 className="text-[28px] md:text-[36px] lg:text-[44px] font-bold leading-[1.15] tracking-[-0.015em] text-[#0E2A54]">
+                {currentProject.title}
+              </h2>
+ 
+              {/* Project Description */}
+              <p className="mt-6 max-w-[633px] text-sm md:text-[18px] leading-[1.5] tracking-[0.02em] text-[#3F3F3F]">
+                {currentProject.desc}
+              </p>
             </div>
-          ))}
-
-          {/* Overlays & Indicators */}
-          <div className="absolute top-6 left-6 flex items-center gap-2 z-20">
-            {projects.map((_, index) => (
-              <button
-                key={`dot-${index}`}
-                onClick={() => setCurrentIndex(index)}
-                className={`rounded-full transition-all duration-300 ${
-                  index === currentIndex ? "w-3 h-3 bg-white" : "w-2.5 h-2.5 bg-white/30"
+ 
+            {/* Buttons and Navigation */}
+            <div className="mt-8 flex flex-col items-start gap-8">
+              <Link href={`/works/${currentProject.slug}`} className="w-full sm:w-fit">
+                <button className="group flex h-14 w-full sm:w-[240px] items-center justify-between gap-4 rounded-full bg-[#0E2A54] py-2 pl-8 pr-2 text-white transition hover:bg-[#163A70] cursor-pointer border-0 shadow-md">
+                  <span className="text-sm font-medium tracking-[0.02em] md:text-base text-white">View Case Study</span>
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#299EED] text-white transition-transform duration-300 group-hover:translate-x-1">
+                    <ArrowRight size={18} />
+                  </div>
+                </button>
+              </Link>
+ 
+              {/* Slider Controls */}
+              <div className="flex items-center gap-[34px] text-sm font-semibold tracking-wider text-gray-400">
+                <button 
+                  onClick={handlePrev} 
+                  className="transition-colors hover:text-[#0E2A54] cursor-pointer flex items-center gap-1.5 uppercase text-xs"
+                >
+                  <span>←</span> PREVIOUS
+                </button>
+                <button 
+                  onClick={handleNext} 
+                  className="transition-colors hover:text-[#0E2A54] cursor-pointer flex items-center gap-1.5 uppercase text-xs"
+                >
+                  NEXT PROJECT <span>→</span>
+                </button>
+              </div>
+            </div>
+          </div>
+ 
+          {/* Right Column: Device Showcase Card (Aspect ratio 979:711 matching Figma) */}
+          <div className="relative w-full aspect-[979/711] overflow-hidden rounded-[24px] bg-[#0E2A54] shadow-lg">
+            {projects.map((project, pIndex) => (
+              <div
+                key={`project-${project.id}`}
+                className={`absolute inset-0 h-full w-full transition-opacity duration-700 ${
+                  pIndex === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"
                 }`}
-              />
+              >
+                {project.images?.[0] && (
+                  <img
+                    src={project.images[0]}
+                    alt={project.title}
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                )}
+              </div>
             ))}
+
+            {/* Browser Window Controls Mockup (Top Left) */}
+            <div className="absolute left-6 top-6 z-20 flex items-center gap-1.5 md:left-8 md:top-8">
+              <div className="h-1.5 w-1.5 rounded-full bg-[#81C3F9]/60" />
+              <div className="h-1.5 w-1.5 rounded-full bg-[#81C3F9]/60" />
+              <div className="h-1.5 w-1.5 rounded-full bg-[#81C3F9]/60" />
+            </div>
+
+            {/* Client Indicator (Bottom Left) */}
+            <div className="absolute bottom-6 left-6 z-20 flex items-center gap-2 md:bottom-8 md:left-8">
+              <div className="h-4 w-[3px] bg-[#299EED] rounded-full" />
+              <span className="text-xs font-semibold uppercase tracking-[0.15em] text-white">
+                {projects[currentIndex].client}
+              </span>
+            </div>
           </div>
 
-          <div className="absolute bottom-6 left-6 z-20">
-            <span className="text-white font-bold tracking-widest text-xs uppercase bg-[#0D2342]/50 px-3 py-1.5 rounded-md backdrop-blur-sm border border-white/10">
-              {projects[currentIndex].client}
-            </span>
-          </div>
-        </div>
-
-        {/* Mobile Navigation */}
-        <div className="flex lg:hidden order-3 justify-between w-full mt-4">
-          <button onClick={handlePrev} className="text-xs font-bold uppercase tracking-wider text-gray-500">
-            &lt; Prev
-          </button>
-          <button onClick={handleNext} className="text-xs font-bold uppercase tracking-wider text-[#0D2342]">
-            Next &gt;
-          </button>
         </div>
       </div>
     </section>

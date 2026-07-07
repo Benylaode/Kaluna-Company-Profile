@@ -23,12 +23,12 @@ export default function Navbar() {
   }, []);
 
   const services = [
-    { name: "Web & Application Development", href: "/services/web-development" },
-    { name: "IoT System Development", href: "/services/iot" },
-    { name: "ERP & System Integration", href: "/services/erp-integration" },
-    { name: "Industrial & Automation Solutions", href: "/services/automation" },
-    { name: "Data Dashboard & Analytics", href: "/services/analytics" },
-    { name: "IT Consulting & Digital Strategy", href: "/services/it-consulting" },
+    { name: "Web & Application Development", href: "/services/web-application-development" },
+    { name: "IoT System Development", href: "/services/iot-system-development" },
+    { name: "ERP & System Integration", href: "/services/erp-system-integration" },
+    { name: "Industrial & Automation Solutions", href: "/services/industrial-automation-solutions" },
+    { name: "Data Dashboard & Analytics", href: "/services/data-dashboard-analytics" },
+    { name: "IT Consulting & Digital Strategy", href: "/services/it-strategy-consulting" },
   ];
 
   const scrollToFooter = () => {

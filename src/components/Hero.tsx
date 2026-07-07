@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ArrowRight, ChevronRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 export default function Hero() {
@@ -19,7 +19,7 @@ export default function Hero() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-    }, slideDuration); 
+    }, slideDuration);
     return () => clearInterval(timer);
   }, [slides.length]);
 
@@ -29,72 +29,123 @@ export default function Hero() {
   };
 
   return (
-    <section className="mx-auto max-w-[1440px] px-6 lg:px-10 pt-28 md:pt-40 lg:pt-48 pb-10 bg-white">
+    <section className="relative overflow-hidden bg-[linear-gradient(312deg,#f3f8ff_58%,#fff_92%)] pt-12 pb-12 md:pt-12 md:pb-20 lg:pt-12 lg:pb-24">
       <style>{`
         @keyframes fillProgress { 0% { width: 0%; } 100% { width: 100%; } }
         @keyframes floatUp { 0% { opacity: 0; transform: translateY(10px); } 100% { opacity: 1; transform: translateY(0); } }
       `}</style>
 
-      <div className="grid lg:grid-cols-[1.1fr_1fr] items-center gap-12 lg:gap-8">
-        
-        {/* LEFT SECTION */}
-        <div className="order-2 lg:order-1 flex flex-col justify-center text-center lg:text-left">
-          <div className="flex items-center justify-center lg:justify-start gap-3 mb-6">
-            <span className="w-1 h-4 bg-[#1E88E5]" />
-            <span className="tracking-[0.2em] text-xs font-bold text-[#1E88E5] uppercase">
-              KALUNA TECHNOLOGY
-            </span>
-          </div>
-          
-          <h1 className="text-[#0D2342] font-extrabold leading-[1.15] tracking-tight text-[36px] md:text-[48px] lg:text-[56px] xl:text-[64px]">
-            Your Scalable<br className="hidden lg:block" />
-            IT Solutions Partner<br className="hidden lg:block" />
-            for Modern Enterprises
-          </h1>
+      {/* Mobile Layout */}
+      <div className="md:hidden relative min-h-[847px] bg-[linear-gradient(185deg,#0E2A54_62%,#1F5DBA_115%)]">
+        <div className="absolute inset-x-0 top-20 h-[444px] overflow-hidden">
+          {slides.map((slide, index) => (
+            <img
+              key={slide.id}
+              src={slide.image}
+              alt={`Kaluna portfolio ${index + 1}`}
+              className={`absolute left-1/2 top-[-26px] h-[461px] w-[614px] max-w-none -translate-x-[55%] object-cover transition-opacity duration-1000 ${index === currentSlide ? "opacity-100" : "opacity-0"
+                }`}
+            />
+          ))}
+          <div className="absolute inset-x-0 bottom-0 h-[296px] bg-gradient-to-b from-[#0E2A54]/0 to-[#0E2A54]" />
+        </div>
 
-          <p className="mt-6 text-base md:text-lg lg:text-xl leading-relaxed text-gray-500 max-w-2xl mx-auto lg:mx-0">
+        <div className="absolute inset-x-0 bottom-0 h-1 bg-[#299EED]/20">
+          <div className="h-full bg-[#299EED]" style={{ width: `${((currentSlide + 1) / slides.length) * 100}%` }} />
+        </div>
+
+        <div className="absolute inset-x-0 top-[377px] px-5">
+          <h1 className="text-[36px] font-medium leading-[1.1] tracking-[-0.01em] text-white">
+            Your Scalable IT Solutions Partner for Modern Enterprises
+          </h1>
+          <p className="mt-4 text-sm leading-[1.4] tracking-[0.02em] text-white">
             We design, build, and integrate intelligent software systems that drive operational efficiency and long-term growth.
           </p>
 
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6">
-            <button 
+          <div className="mt-4 flex flex-col gap-3">
+            <button
               onClick={() => router.push("/contact")}
-              className="group flex items-center rounded-full bg-[#0D2342] py-2 pl-6 pr-2 text-white transition hover:bg-[#163A70] shadow-xl shadow-blue-900/10 w-full sm:w-auto justify-between sm:justify-start"
+              className="group flex h-14 w-full items-center justify-between rounded-full bg-white py-2 pl-8 pr-2 text-[#0E2A54]"
             >
-              <span className="mr-4 text-sm font-medium">Start a Consultation</span>
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#1E88E5] transition-transform duration-300 group-hover:translate-x-1">
-                <ArrowRight size={16} strokeWidth={2.5} />
-              </div>
+              <span className="text-base font-medium tracking-[0.02em]">Start a Consultation</span>
+              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#299EED] text-white transition-transform duration-300 group-hover:translate-x-1">
+                <ArrowRight size={18} />
+              </span>
             </button>
 
-            <button 
+            <button
               onClick={scrollToWorks}
-              className="flex items-center gap-2 text-[#0D2342] font-semibold text-sm hover:text-[#1E88E5] transition-colors"
+              className="group flex h-14 w-full items-center justify-between rounded-full border border-white py-3 pl-8 pr-2 text-white transition hover:bg-white/5"
             >
-              Explore Our Works <ChevronRight size={18} />
+              <span className="text-base font-medium tracking-[0.02em]">Learn Our Work</span>
+              <span className="flex h-10 w-10 items-center justify-center rounded-full border border-white text-white transition-transform group-hover:translate-x-1">
+                <ArrowRight size={18} />
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Desktop Layout */}
+      <div className="kaluna-container hidden md:grid min-h-[600px] lg:min-h-[640px] grid-cols-[1.1fr_1fr] items-center gap-10 lg:gap-16 pt-2">
+        <div className="flex flex-col items-start gap-6">
+          <div className="flex items-center gap-2.5">
+            <span className="h-4 w-[2.5px] bg-[#299EED] rounded-full"></span>
+            <span className="text-xs font-semibold tracking-wider text-[#0E2A54] uppercase">
+              Kaluna Technology
+            </span>
+          </div>
+
+          <h1 className="text-[36px] md:text-[44px] lg:text-[54px] font-medium leading-[1.15] tracking-[-0.02em] text-[#0E2A54]">
+            Your Scalable<br />
+            IT Solutions Partner<br />
+            for Modern Enterprises
+          </h1>
+
+          <p className="max-w-[500px] text-base leading-[1.6] text-[#4B5563]">
+            We design, build, and integrate intelligent software systems that drive operational efficiency and long-term growth.
+          </p>
+
+          <div className="flex items-center gap-4">
+            <button
+              onClick={() => router.push("/contact")}
+              className="group flex h-14 items-center rounded-full bg-[#0E2A54] py-2 pl-8 pr-2 text-white transition hover:bg-[#163A70]"
+            >
+              <span className="mr-6 text-sm font-medium tracking-[0.02em] md:text-base">Start a Consultation</span>
+              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#299EED] text-white transition-transform duration-300 group-hover:translate-x-1">
+                <ArrowRight size={18} />
+              </span>
+            </button>
+
+            <button
+              onClick={scrollToWorks}
+              className="group flex h-14 items-center rounded-full border border-[#0E2A54] py-2 pl-8 pr-2 text-[#0E2A54] transition hover:bg-[#0E2A54]/5"
+            >
+              <span className="mr-6 text-sm font-medium tracking-[0.02em] md:text-base">Learn Our Work</span>
+              <span className="flex h-10 w-10 items-center justify-center rounded-full border border-[#0E2A54] text-[#0E2A54] transition-transform group-hover:translate-x-1">
+                <ArrowRight size={18} />
+              </span>
             </button>
           </div>
         </div>
 
-        {/* RIGHT SECTION (SLIDER) */}
-        <div className="order-1 lg:order-2 w-full">
-          <div className="relative w-full aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-[24px] md:rounded-[40px] bg-gray-100 shadow-2xl shadow-[#1E88E5]/10">
+        <div className="w-full">
+          <div className="relative ml-auto h-[380px] w-full max-w-[620px] overflow-hidden rounded-[24px] bg-[#0E2A54] lg:h-[460px] xl:h-[500px]">
             {slides.map((slide, index) => (
               <img
                 key={slide.id}
                 src={slide.image}
                 alt={`Kaluna Tech Portfolio ${index + 1}`}
-                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
-                  index === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
-                }`}
+                className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-in-out ${index === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
+                  }`}
               />
             ))}
 
-            <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8 flex flex-wrap gap-2 md:gap-3 z-20">
+            <div className="absolute bottom-6 left-6 z-20 flex flex-wrap gap-2.5 md:bottom-8 md:left-8">
               {slides[currentSlide].tags.map((tag, index) => (
                 <span
                   key={`tag-${currentSlide}-${index}`}
-                  className="px-4 py-1.5 md:px-5 md:py-2 rounded-full bg-white text-[#0D2342] font-bold text-[11px] md:text-[12px] shadow-sm uppercase tracking-wide"
+                  className="rounded-full bg-white px-5 py-2.5 text-xs font-medium tracking-[0.01em] text-[#0E2A54] shadow-md md:px-6 md:py-3 md:text-sm"
                   style={{ animation: `floatUp 0.5s ease-out forwards`, animationDelay: `${index * 0.1}s`, opacity: 0 }}
                 >
                   {tag}
@@ -102,17 +153,17 @@ export default function Hero() {
               ))}
             </div>
 
-            <div className="absolute bottom-0 left-0 w-full h-1.5 md:h-2 bg-black/20 flex z-20">
+            <div className="absolute bottom-0 left-0 z-20 flex h-1 w-full bg-[#299EED]/20">
               {slides.map((_, index) => (
-                <div key={index} onClick={() => setCurrentSlide(index)} className="flex-1 h-full relative cursor-pointer">
+                <div key={index} onClick={() => setCurrentSlide(index)} className="relative h-full flex-1 cursor-pointer">
                   {index === currentSlide && (
                     <div
-                      className="absolute top-0 left-0 h-full bg-[#1E88E5]"
+                      className="absolute left-0 top-0 h-full bg-[#299EED]"
                       style={{ animation: `fillProgress ${slideDuration}ms linear forwards` }}
                     />
                   )}
                   {index < currentSlide && (
-                    <div className="absolute top-0 left-0 h-full w-full bg-[#1E88E5]" />
+                    <div className="absolute left-0 top-0 h-full w-full bg-[#299EED]" />
                   )}
                 </div>
               ))}

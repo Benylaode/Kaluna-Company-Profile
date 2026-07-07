@@ -4,50 +4,288 @@ import db from './db';
 
 // HAPUS import db from './db'; 
 
+export const testimonials = [
+  { client_name: "Joshua", role: "Owner", company_name: "Sinau Print", content: "Saya selaku pemilik Sinau Print sangat puas dengan hasil kerja PT. Kaluna Teknologi Digital. Website yang dibuat memudahkan pelanggan kami melakukan pemesanan online. Proses profesional, komunikasi lancar, dan hasil sesuai harapan. Terima kasih atas kerja samanya.", avatar_url: "/image/default-avatar.svg" },
+  { client_name: "Triyanto", role: "IT Manager", company_name: "Suara Merdeka", content: "Sebagai media berpengalaman, kami membutuhkan website modern yang tetap menjaga nilai jurnalisme. PT. Kaluna Teknologi Digital berhasil mewujudkannya dengan baik. Sistem mudah digunakan, tampilannya elegan, dan sangat kami rekomendasikan.", avatar_url: "/image/default-avatar.svg" },
+  { client_name: "Sarah Wijaya", role: "IT Manager", company_name: "Nusantara Logistics", content: "Kami berterima kasih kepada PT. Kaluna Teknologi Digital atas pengembangan website perusahaan kami yang memuaskan. Proses berjalan lancar, tepat waktu, tim responsif, dan hasilnya sesuai visi perusahaan kami. Kerja sama yang sangat profesional.", avatar_url: "/image/default-avatar.svg" },
+  { client_name: "Sarah Wijaya", role: "IT Manager", company_name: "Nusantara Logistics", content: "Website yang dibuat oleh Kaluna meningkatkan citra perusahaan kami. Katalog produk ban menjadi lebih mudah dilihat, fitur pencarian berdasarkan ukuran berfungsi dengan baik, dan tampilan untuk mobile juga bagus. Pelanggan kami jadi lebih mudah mencari informasi produk. Investasi yang sangat bermanfaat.", avatar_url: "/image/default-avatar.svg" }
+];
+
 // Tambahkan parameter db: any ke dalam fungsi
 export const seedDatabase = (db: any) => {
   console.log('🔄 Memulai proses pengisian data dummy secara Synchronous...');
 
   const services = [
-    { slug: "iot-system-development", title: "IoT System Development", description: "Connected systems for real-time monitoring and automation", image_url: "/image/service/1.png" },
-    { slug: "web-application-development", title: "Web & Application Development", description: "Scalable web and mobile platform built for complex operations", image_url: "/image/service/2.png" },
-    { slug: "erp-system-integration", title: "ERP & System Integration", description: "Seamless integration across platforms, APIs, and devices", image_url: "/image/service/3.png" },
-    { slug: "industrial-automation-solutions", title: "Industrial & Automation Solutions", description: "Smart systems to optimize operational workflows", image_url: "/image/service/4.png" },
-    { slug: "data-dashboard-analytics", title: "Data Dashboard & Analytics", description: "Transforming raw data into actionable insights", image_url: "/image/service/5.png" },
-    { slug: "it-strategy-consulting", title: "IT Strategy & Consulting", description: "Strategic planning for scalable and future-ready IT infrastructure", image_url: "/image/service/6.png" }
+    { 
+      slug: "web-application-development", 
+      title: "Web & Application Development", 
+      description: "Scalable web and mobile platform built for complex operations", 
+      image_url: "/image/service/2.png",
+      content_json: JSON.stringify({
+        heroDesc: "Building High-Performance Websites & Apps with Exceptional User Experience",
+        heroSub: "We build fast, secure, and fully responsive websites and web applications tailored to your specific business operations, enabling smooth customer acquisition and brand representation.",
+        packages: [
+          { name: "Basic", price: "Rp 3.000.000", desc: "Suitable for landing pages and simple business identity profiles.", features: ["1 Page Website Design", "Responsive Layout (Mobile Ready)", "Domain & Hosting 1 Year", "Basic SEO Setup", "Standard Security"], isPopular: false },
+          { name: "Business", price: "Rp 7.000.000", desc: "Best for growing companies requiring detailed services and showcase.", features: ["Up to 5 Pages Website", "CMS Panel (WordPress/Custom)", "Advanced SEO Optimization", "Speed Performance Tuning", "1 Month Free Maintenance"], isPopular: true },
+          { name: "Custom", price: "Chat Admin", desc: "For complex web architectures, SaaS platforms, or custom web systems.", features: ["Tailored Web Architecture", "Custom Backend & API", "Advanced Database System", "High-level Security Setup", "Scalable Cloud Server"], isPopular: false },
+        ],
+        challenges: [
+          "Outdated website design that ruins brand reputation",
+          "Poor load performance causing high user bounce rate",
+          "Hard-to-manage backends that waste time",
+          "Inability to scale software infrastructure as you grow"
+        ],
+        capabilities: [
+          { title: "User-Centric UI/UX Design", desc: "We design intuitive websites that guide users effortlessly towards conversion goals." },
+          { title: "Responsive & Mobile-Ready", desc: "Flawless experience across all devices, from desktop monitors to smartphones." },
+          { title: "SEO-Friendly Structure", desc: "Built with best practices to help you rank higher on search engines organically." },
+          { title: "Fast Loading Speed", desc: "Optimized code and assets to ensure your website loads in under 3 seconds." },
+          { title: "Easy Content Management", desc: "Empower your team to update text and images easily without coding knowledge." },
+          { title: "Robust Security", desc: "Implementation of SSL, firewalls, and secure coding to protect your data." },
+        ],
+        processes: [
+          { step: "01", title: "Requirement Gathering", desc: "We begin by understanding your business goals, target audience, and specific technical requirements." },
+          { step: "02", title: "UI/UX Design & Prototyping", desc: "Creating wireframes and high-fidelity designs for your approval before development starts." },
+          { step: "03", title: "Development & Integration", desc: "Transforming the design into a fully functional, responsive, and secure website." },
+          { step: "04", title: "Testing & Deployment", desc: "Rigorous testing for performance and bugs, followed by a smooth launch to your domain." }
+        ],
+        faqs: [
+          { q: "How long does it take to build a website?", a: "A standard corporate website takes around 2 to 4 weeks. E-commerce or custom web applications may take 6 to 12 weeks depending on the complexity." },
+          { q: "Do you provide maintenance services?", a: "Yes, we offer ongoing maintenance and support packages to ensure your website remains updated, secure, and running smoothly." },
+          { q: "Can I update the content on my own?", a: "Absolutely. We integrate user-friendly Content Management Systems (CMS) so you can edit text, images, and posts easily." },
+          { q: "Do I need to pay for domain and hosting?", a: "Our packages generally include domain and hosting for the first year. For custom projects, we will outline these costs transparently." }
+        ]
+      })
+    },
+    { 
+      slug: "iot-system-development", 
+      title: "IoT System Development", 
+      description: "Connected systems for real-time monitoring and automation", 
+      image_url: "/image/service/1.png",
+      content_json: JSON.stringify({
+        heroDesc: "Connected Hardware and Software Systems for Real-Time Control & Analytics",
+        heroSub: "Bridge the gap between physical objects and digital management. We develop robust IoT infrastructures connecting smart devices, microcontrollers, and analytics systems.",
+        packages: [
+          { name: "Starter Kit", price: "Rp 15.000.000", desc: "Ideal for basic sensor integration and monitoring dashboards.", features: ["Up to 5 Connected Sensors", "Real-time Dashboard UI", "Standard MQTT Connection", "Email/Telegram Alerts", "1 Year Data Storage"], isPopular: false },
+          { name: "Enterprise", price: "Rp 35.000.000", desc: "Advanced telemetry and automation workflows for business operations.", features: ["Up to 50 Connected Devices", "Custom Automation Rules", "Edge Computing Support", "Cross-Platform Dashboard", "API Access & Integration"], isPopular: true },
+          { name: "Custom Suite", price: "Chat Admin", desc: "Full-scale industrial automation or customized smart solutions.", features: ["Hardware Design Advisory", "Proprietary Protocol Support", "On-Premises Deployment", "High-Concurrency Broker", "24/7 Priority Support"], isPopular: false },
+        ],
+        challenges: [
+          "Unreliable connectivity and data loss from sensors",
+          "Security vulnerabilities in edge devices and telemetry",
+          "High latency in real-time alert systems",
+          "Difficulties in scaling database writes for telemetry data"
+        ],
+        capabilities: [
+          { title: "Real-Time Telemetry", desc: "Fast and reliable streaming of sensor readings to high-performance cloud databases." },
+          { title: "Edge & Cloud Automation", desc: "Establish rule engines that run locally or in the cloud to trigger alarms or actuators." },
+          { title: "Secure Telemetry Channels", desc: "Encrypted data exchange via secure TLS connections preventing unauthorized eavesdropping." },
+          { title: "Custom Interactive Dashboards", desc: "Stunning, easy-to-read dashboards featuring real-time charts, map locations, and logs." },
+          { title: "Cross-Platform Control", desc: "Control smart actuators or systems seamlessly via mobile apps, tablets, or desktops." },
+          { title: "OTA Firmware Updates", desc: "Over-the-air firmware update support to patch bugs and deploy features to deployed hardware." },
+        ],
+        processes: [
+          { step: "01", title: "Hardware & Requirement Mapping", desc: "Specifying sensor list, transmission protocols (Wi-Fi, LoRa, cellular), and power constraints." },
+          { step: "02", title: "Prototypes & Dashboard Design", desc: "Creating hardware mockup connections and real-time dashboard wireframes." },
+          { step: "03", title: "Firmware & Platform Coding", desc: "Writing firmware scripts for microcontrollers and linking to broker services." },
+          { step: "04", title: "Field Testing & Deployment", desc: "Simulating high load, physical device testing, and launching live broker server." }
+        ],
+        faqs: [
+          { q: "What protocols do you support for device connectivity?", a: "We primarily support MQTT, HTTP REST, WebSockets, and Modbus depending on the project requirements." },
+          { q: "Can we integrate existing legacy hardware?", a: "Yes, we can advise on adapters and edge controllers to bring legacy machinery into modern cloud portals." },
+          { q: "How is telemetry data secured?", a: "We enforce device-specific tokens, TLS communication, and isolated virtual network groups." }
+        ]
+      })
+    },
+    { 
+      slug: "erp-system-integration", 
+      title: "ERP & System Integration", 
+      description: "Seamless integration across platforms, APIs, and devices", 
+      image_url: "/image/service/3.png",
+      content_json: JSON.stringify({
+        heroDesc: "Unified Enterprise Workflows and Seamless Cross-Platform Integrations",
+        heroSub: "Eliminate manual data synchronization. We integrate your ERP systems, accounting softwares, customer relations systems, and payment portals into one cohesive system.",
+        packages: [
+          { name: "API Connector", price: "Rp 12.000.000", desc: "Connect two distinct platforms via custom secure API gateways.", features: ["Bidirectional Sync", "Error Handling & Retries", "Standard Authentication", "Logs & Auditing Dashboard", "1 Year Support"], isPopular: false },
+          { name: "Business Hub", price: "Rp 28.000.000", desc: "Integrate multi-channel retail systems with standard ERP.", features: ["ERP / POS Syncing", "Multi-Warehouse Management", "Automated Invoice Generation", "Real-Time Stock Updates", "Priority Email Support"], isPopular: true },
+          { name: "Custom Enterprise", price: "Chat Admin", desc: "Large enterprise migration, legacy systems wrapper, or complex sync chains.", features: ["Legacy Database Wrapper", "High-Throughput Queue", "On-Premises Gateway Setup", "Compliance & Audit Readiness", "Dedicated Support Engineer"], isPopular: false },
+        ],
+        challenges: [
+          "Inconsistent inventory data across sales channels",
+          "Manual invoice entry prone to human error",
+          "Legacy softwares lacking open APIs for modern apps",
+          "System bottlenecks during peak sales seasons"
+        ],
+        capabilities: [
+          { title: "Bidirectional Data Sync", desc: "Synchronize inventory, pricing, and orders immediately across all linked channels." },
+          { title: "Automated Invoice Creation", desc: "Generate and send professional tax invoices automatically upon successful payment." },
+          { title: "Legacy System Wrappers", desc: "Expose secure REST APIs from legacy SQL databases, bridging the gap to new softwares." },
+          { title: "Custom Dashboard Logs", desc: "Track synchronization tasks, view active links, and get alerts for failed triggers." },
+          { title: "Robust Error Retries", desc: "Built-in queuing mechanisms that retry operations if external APIs are temporarily down." },
+          { title: "Financial & Tax Audit Logs", desc: "Ensure compliance with comprehensive records of all integrated financial flows." },
+        ],
+        processes: [
+          { step: "01", title: "API Audit & Schema Mapping", desc: "Auditing current platforms, checking API specs, and matching data schemas." },
+          { step: "02", title: "Workflow Orchestration Design", desc: "Defining triggers, actions, fallback routines, and error-handling pipelines." },
+          { step: "03", title: "Integration Development", desc: "Writing microservices, setting up database hooks, and hosting the integration hub." },
+          { step: "04", title: "Staging Tests & Launch", desc: "Rigorous testing with mock data payloads, load simulation, and shifting to production." }
+        ],
+        faqs: [
+          { q: "Can you integrate custom ERP systems?", a: "Yes, as long as we can access the underlying database or if the system exposes connection endpoints." },
+          { q: "What happens if one of the linked systems goes offline?", a: "Our middleware queues the failed transactions and automatically retries them once the target system is back online." }
+        ]
+      })
+    },
+    { 
+      slug: "industrial-automation-solutions", 
+      title: "Industrial & Automation Solutions", 
+      description: "Smart systems to optimize operational workflows", 
+      image_url: "/image/service/4.png",
+      content_json: JSON.stringify({
+        heroDesc: "Smart Automation to Optimize Manufacturing & Operational Workflows",
+        heroSub: "Enhance throughput and reduce downtime. We build tailor-made automated pipelines, SCADA monitoring interfaces, and machine-to-machine control links.",
+        packages: [
+          { name: "PLC Monitor", price: "Rp 20.000.000", desc: "Get real-time readouts and simple controls from your PLC.", features: ["Modbus / OPC UA Integration", "Real-Time Web HMI Dashboard", "Critical Safety Alerts", "Historical Log Chart", "Standard Remote Control"], isPopular: false },
+          { name: "Complete SCADA", price: "Rp 45.000.000", desc: "Comprehensive plant floor visualization and parameter setting.", features: ["Multi-PLC Integration", "Interactive Floorplan Mockup", "Recipe Management Module", "Automated Shift Reports", "Advanced Access Control"], isPopular: true },
+          { name: "Custom Factory Suite", price: "Chat Admin", desc: "Full automation, custom sensors installation advisory, and custom interface development.", features: ["Custom protocol support", "Predictive Maintenance module", "Local server setup (On-Prem)", "High Availability failover", "On-site support"], isPopular: false },
+        ],
+        challenges: [
+          "Unplanned machinery downtime causing massive losses",
+          "Inefficient parameter settings limiting maximum throughput",
+          "Lack of central visualization for factory floor status",
+          "Safety compliance monitoring gaps"
+        ],
+        capabilities: [
+          { title: "Real-time HMI/SCADA", desc: "Web-based SCADA system to check machinery telemetry from any authorized terminal." },
+          { title: "Automated Report Generation", desc: "Receive summary reports on daily production, machine efficiency, and downtime logs." },
+          { title: "Predictive Maintenance", desc: "Track temperature, vibrations, or cycles to schedule maintenance before breakdown." },
+          { title: "Role-Based Access", desc: "Control who can change critical parameters, log operations, and acknowledge safety flags." },
+          { title: "Multi-Protocol Support", desc: "Integrate with OPC UA, Modbus TCP/RTU, Siemens S7, and general TCP interfaces." },
+          { title: "Safety Warning Triggers", desc: "Flash notifications and send urgent SMS/Email alerts when parameters exceed thresholds." },
+        ],
+        processes: [
+          { step: "01", title: "Plant Floor Analysis", desc: "Inspecting machinery, PLC models, wiring paths, and specifying data points." },
+          { step: "02", title: "Interface & HMI Prototyping", desc: "Designing visual layouts of factory lines, charts, and control knobs." },
+          { step: "03", title: "PLC Setup & SCADA Coding", desc: "Setting up communication nodes, reading PLC tags, and programming web dashboard." },
+          { step: "04", title: "Dry Runs & Integration", desc: "On-site testing under safe parameters, validating warning signs, and final hand-off." }
+        ],
+        faqs: [
+          { q: "Is the control system safe from external cyber threats?", a: "Yes, SCADA portals are deployed behind dedicated VPNs and firewalls, with strict IP-address white-listing." },
+          { q: "Do you supply the physical automation hardware?", a: "We act as the software integration partner. We can recommend and specify hardware suppliers to source the PLCs and sensors." }
+        ]
+      })
+    },
+    { 
+      slug: "data-dashboard-analytics", 
+      title: "Data Dashboard & Analytics", 
+      description: "Transforming raw data into actionable insights", 
+      image_url: "/image/service/5.png",
+      content_json: JSON.stringify({
+        heroDesc: "Transforming Raw Data into Actionable Business Intel",
+        heroSub: "Unlock insights from sales, operations, and customers. We design high-fidelity data pipelines and custom analytics dashboards to drive growth.",
+        packages: [
+          { name: "Single Source", price: "Rp 8.000.000", desc: "Best for simple dashboard linked to one primary database.", features: ["Up to 10 Visual Charts", "Google Sheets / PostgreSQL Link", "Auto-Refresh Daily", "User Access Control", "Mobile Layout Setup"], isPopular: false },
+          { name: "Enterprise BI", price: "Rp 18.000.000", desc: "Combine multiple data sources with automated ETL pipelines.", features: ["ETL Processing Pipeline", "Multi-Database Support", "Real-Time Queries", "Automated PDF Reports", "Custom Metric Definitions"], isPopular: true },
+          { name: "AI Analytics", price: "Chat Admin", desc: "Predictive modeling, automated forecasting, and custom machine learning tools.", features: ["Predictive Analysis Module", "Anomaly Detection System", "Custom Data Warehouse", "Big Data Architecture", "Dedicated Data Engineer"], isPopular: false },
+        ],
+        challenges: [
+          "Siloed business datasets that cannot be cross-referenced",
+          "Slow query times blocking urgent data reports",
+          "Inability to forecast stock or sales trends reliably",
+          "Complexity in creating custom reports manually"
+        ],
+        capabilities: [
+          { title: "Dynamic Visual Charts", desc: "Beautiful charts including line trends, bar breakdowns, heatmaps, and funnel diagrams." },
+          { title: "ETL Pipeline Automation", desc: "Extract, transform, and load data from APIs and databases into unified storage automatically." },
+          { title: "Real-Time Analytics", desc: "Instantly query database transactions to see live sale tallies and active customer metrics." },
+          { title: "Predictive Forecasting", desc: "Estimate upcoming sales, demand spikes, or seasonal changes using machine learning." },
+          { title: "Secure User Access", desc: "Restrict specific graphs or datasets based on employee role (e.g. Sales vs Finance)." },
+          { title: "Automated PDF Dispatch", desc: "Schedule daily/weekly email summaries with attached PDF reports for directors." },
+        ],
+        processes: [
+          { step: "01", title: "Data Source Audit", desc: "Identifying all databases, CRM logs, excel sheets, and specifying key performance indicators." },
+          { step: "02", title: "Dashboard Wireframing", desc: "Drafting the screen layout and deciding the ideal chart formats for each metric." },
+          { step: "03", title: "Data Pipeline Programming", desc: "Writing ETL functions, setting up data warehouse, and implementing quick queries." },
+          { step: "04", title: "Verification & Training", desc: "Verifying chart values against raw database queries and training management team." }
+        ],
+        faqs: [
+          { q: "How frequently does the dashboard data update?", a: "Depending on your plan, it can update in real-time, hourly, or once per day." },
+          { q: "Can we connect tools like Google Sheets or Shopify?", a: "Yes, we support API connectors for popular cloud platforms to pull data automatically." }
+        ]
+      })
+    },
+    { 
+      slug: "it-strategy-consulting", 
+      title: "IT Strategy & Consulting", 
+      description: "Strategic planning for scalable and future-ready IT infrastructure", 
+      image_url: "/image/service/6.png",
+      content_json: JSON.stringify({
+        heroDesc: "Strategic Technology Planning for Scalable Company Operations",
+        heroSub: "Get a technology roadmap that matches your business objectives. We analyze your tech systems, recommend optimizations, and manage migrations.",
+        packages: [
+          { name: "Infrastructure Audit", price: "Rp 6.000.000", desc: "Full assessment of your current servers, codebases, and databases.", features: ["Performance Audit Report", "Security Vulnerability Scan", "Cost Optimization Guide", "Architectural Review", "1 Consultation Session"], isPopular: false },
+          { name: "Strategy & Roadmap", price: "Rp 15.000.000", desc: "Create a complete step-by-step technological upgrade roadmap.", features: ["Audit + Upgrade Plan", "Software Stack Selection", "Scale & Capacity Planning", "Team Skill Gap Analysis", "3 Implementation Calls"], isPopular: true },
+          { name: "Retainer Advisory", price: "Chat Admin", desc: "Part-time CTO consulting for ongoing projects and tech vendor management.", features: ["Weekly Sync Meetings", "Vendor Proposal Review", "Emergency Tech Support", "Architecture Approval", "Ongoing Stack Auditing"], isPopular: false },
+        ],
+        challenges: [
+          "Uncontrolled server expenses draining company budget",
+          "Confused software stack choices slowing down developers",
+          "Lack of clear migration plans for cloud databases",
+          "Inefficient engineering team structure"
+        ],
+        capabilities: [
+          { title: "Server Cost Optimization", desc: "Identify unused cloud resources and configure auto-scaling to drop AWS/Azure bills." },
+          { title: "Software Stack Selection", desc: "Pick the best programming languages, frameworks, and databases for your scale." },
+          { title: "Database Migration Plans", desc: "Draft step-by-step, zero-downtime instructions to migrate datasets to modern systems." },
+          { title: "Tech Team Structuring", desc: "Help define roles (e.g. Frontend vs Devops) and set workflow standards (CI/CD)." },
+          { title: "Security Best Practices", desc: "Set encryption, token policies, firewall setups, and backup schemes." },
+          { title: "Vendor Audit Support", desc: "Analyze code quality and agreements from third-party development teams." },
+        ],
+        processes: [
+          { step: "01", title: "Discovery & Access Setup", desc: "Interviews with management, getting temporary access to server accounts." },
+          { step: "02", title: "Analysis & Drafting", desc: "Performing security checks, cost tracking, and drafting migration schedules." },
+          { step: "03", title: "Roadmap Presentation", desc: "Presenting the report to directors, discussing timelines, and selecting stacks." },
+          { step: "04", title: "Review & Quality Control", desc: "Answering team questions and reviewing vendor bids for the roadmap steps." }
+        ],
+        faqs: [
+          { q: "Can you help oversee our outsourced developers?", a: "Yes, we can serve as your tech advisors to perform code quality reviews and evaluate milestones." },
+          { q: "How long does a standard audit take?", a: "A standard infrastructure audit takes between 1 to 2 weeks." }
+        ]
+      })
+    }
   ];
 
   const works = [
-    { 
+    {
       slug: "x-1-tire-company-profile",
       client: "X-1 TIRE",
-      title: "Company Profile Revamp for X-1 Tire", 
+      title: "Company Profile Revamp for X-1 Tire",
       desc: "A modern company profile website designed to present X-1 Tire's brand, services, and core initiatives with an integrated product presentation module.",
-      category: "Website Development", 
+      category: "Website Development",
       images: [
         "/image/projects/x-1-tire-company-profile/1.png",
         "/image/projects/x-1-tire-company-profile/2.png",
         "/image/projects/x-1-tire-company-profile/3.png"
-      ] 
+      ]
     },
-    { 
+    {
       slug: "navicom-smart-home",
       client: "NAVICOM INDONESIA",
-      title: "Smart Home System for Navicom", 
+      title: "Smart Home System for Navicom",
       desc: "Smart home system managing 3,800+ devices across 240 units, delivering real-time control of lighting, AC, and safety through tablets and mobile apps.",
-      category: "IoT System", 
+      category: "IoT System",
       images: [
         "/image/projects/navicom-smart-home/1.png",
         "/image/projects/navicom-smart-home/2.png",
         "/image/projects/navicom-smart-home/3.png"
-      ] 
+      ]
     },
-    { 
+    {
       slug: "sinau-print-pos-system",
       client: "SINAU PRINT",
-      title: "POS System for Sinau Print", 
+      title: "POS System for Sinau Print",
       desc: "Improved transaction efficiency, enabled real-time stock control to prevent overselling, and increased user engagement for Sinau Print, successfully achieving all KPIs.",
-      category: "Software Development", 
+      category: "Software Development",
       images: [
         "/image/projects/sinau-print-pos-system/1.png",
         "/image/projects/sinau-print-pos-system/2.png",
@@ -56,10 +294,10 @@ export const seedDatabase = (db: any) => {
       content_json: JSON.stringify({
         overview: "Digitalizing printing services through a custom marketplace platform, transforming manual order processing into a seamless digital experience.",
         features: [
-            { title: "Online Inventory", desc: "Real-time tracking of paper and ink supplies." },
-            { title: "Automated Workflow", desc: "Streamlined order submission and status updates." },
-            { title: "User Dashboard", desc: "Intuitive interface for customers and staff." },
-            { title: "Payment Integration", desc: "Secure and fast digital payment gateways for seamless transactions." }
+          { title: "Online Inventory", desc: "Real-time tracking of paper and ink supplies." },
+          { title: "Automated Workflow", desc: "Streamlined order submission and status updates." },
+          { title: "User Dashboard", desc: "Intuitive interface for customers and staff." },
+          { title: "Payment Integration", desc: "Secure and fast digital payment gateways for seamless transactions." }
         ],
         tech_stack: ["HTML5", "CSS3", "JavaScript", "Next.js", "PostgreSQL", "Git"],
         result: {
@@ -75,29 +313,29 @@ export const seedDatabase = (db: any) => {
         bottom_image: "/image/projects/sinau-print-pos-system/2.png"
       })
     },
-    { 
+    {
       slug: "suara-merdeka-refresh",
       client: "SUARA MERDEKA",
-      title: "Website Refresh Suara Merdeka", 
+      title: "Website Refresh Suara Merdeka",
       desc: "Modern website refresh to maintain journalism values with an elegant and user-friendly interface.",
-      category: "Website Development", 
+      category: "Website Development",
       images: [
         "/image/projects/suara-merdeka-refresh/1.png",
         "/image/projects/suara-merdeka-refresh/2.png",
         "/image/projects/suara-merdeka-refresh/3.png"
-      ] 
+      ]
     },
-    { 
+    {
       slug: "korlantas-polri-edrives",
       client: "KORLANTAS POLRI",
-      title: "E-Drives for Korlantas Polri", 
+      title: "E-Drives for Korlantas Polri",
       desc: "Backend and IoT integration system for E-Drives to support law enforcement and traffic management.",
-      category: "Backend & IoT", 
+      category: "Backend & IoT",
       images: [
         "/image/projects/korlantas-polri-edrives/1.png",
         "/image/projects/korlantas-polri-edrives/2.png",
         "/image/projects/korlantas-polri-edrives/3.png"
-      ] 
+      ]
     }
   ];
 
@@ -109,20 +347,20 @@ export const seedDatabase = (db: any) => {
   ];
 
   const team = [
-    { full_name: "Ryan Destianto", position: "CHIEF EXECUTIVE OFFICER", image_url: "/image/team/ryan-destianto.png", linkedin_url: "#" },
-    { full_name: "Ayunina Zenti", position: "OPERATIONAL MANAGER", image_url: "/image/team/ayunina-zenti.png", linkedin_url: "#" },
-    { full_name: "Ponco Adi Nugroho", position: "ASSISTANT OPERATIONAL MANAGER", image_url: "/image/team/ponco-adi-nugroho.png", linkedin_url: "#" },
-    { full_name: "Ahmad Arof Fudin", position: "LEGAL & GENERAL AFFAIRS", image_url: "/image/team/ahmad-arof-fudin.png", linkedin_url: "#" },
-    { full_name: "Ilyas Kurnia Ramadhan", position: "LEAD SOFTWARE ENGINEER", image_url: "/image/team/ilyas-kurnia-ramadhan.png", linkedin_url: "#" },
-    { full_name: "Intan Nur Fadhilah", position: "FINANCE", image_url: "/image/team/intan-nur-fadhilah.png", linkedin_url: "#" }
+    { full_name: "Ryan Destianto", position: "CHIEF EXECUTIVE OFFICER", image_url: "/image/default-avatar.svg", linkedin_url: "#" },
+    { full_name: "Ayunina Zenti", position: "OPERATIONAL MANAGER", image_url: "/image/default-avatar.svg", linkedin_url: "#" },
+    { full_name: "Ponco Adi Nugroho", position: "ASSISTANT OPERATIONAL MANAGER", image_url: "/image/default-avatar.svg", linkedin_url: "#" },
+    { full_name: "Ahmad Arof Fudin", position: "LEGAL & GENERAL AFFAIRS", image_url: "/image/default-avatar.svg", linkedin_url: "#" },
+    { full_name: "Ilyas Kurnia Ramadhan", position: "LEAD SOFTWARE ENGINEER", image_url: "/image/default-avatar.svg", linkedin_url: "#" },
+    { full_name: "Intan Nur Fadhilah", position: "FINANCE", image_url: "/image/default-avatar.svg", linkedin_url: "#" }
   ];
 
   try {
     const runAllSeeds = db.transaction(() => {
       // 1. Eksekusi Services
-      db.prepare("DELETE FROM services").run(); 
-      const stmtServices = db.prepare("INSERT INTO services (slug, title, description, image_url) VALUES (?, ?, ?, ?)");
-      for (const item of services) stmtServices.run(item.slug, item.title, item.description, item.image_url);
+      db.prepare("DELETE FROM services").run();
+      const stmtServices = db.prepare("INSERT INTO services (slug, title, description, image_url, content_json) VALUES (?, ?, ?, ?, ?)");
+      for (const item of services) stmtServices.run(item.slug, item.title, item.description, item.image_url, item.content_json);
 
       // 2. Eksekusi Works
       db.prepare("DELETE FROM works").run();
@@ -132,7 +370,7 @@ export const seedDatabase = (db: any) => {
       `);
       for (const item of works) {
         stmtWorks.run(
-          item.slug, item.client, item.title, item.desc, item.category, 
+          item.slug, item.client, item.title, item.desc, item.category,
           JSON.stringify(item.images), item.content_json || null
         );
       }
@@ -143,7 +381,7 @@ export const seedDatabase = (db: any) => {
       for (const item of testimonials) stmtTestimonials.run(item.client_name, item.role, item.company_name, item.content, item.avatar_url);
 
       // 4. Eksekusi Team
-      db.prepare("DELETE FROM team_members").run(); 
+      db.prepare("DELETE FROM team_members").run();
       const stmtTeam = db.prepare("INSERT INTO team_members (full_name, position, image_url, linkedin_url) VALUES (?, ?, ?, ?)");
       for (const m of team) stmtTeam.run(m.full_name, m.position, m.image_url, m.linkedin_url);
     });

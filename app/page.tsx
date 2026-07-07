@@ -18,12 +18,12 @@ export default async function Home() {
   const servicesData = await getServices();
 
   return (
-    <main className="min-h-screen bg-white scroll-smooth overflow-x-hidden">
+    <main className="min-h-screen bg-[#FAFAFA] scroll-smooth overflow-x-hidden">
       <HashScroll />
       <Navbar />
       
       {/* Wrapper diubah: Menghilangkan gap agar jarak murni dari padding (py) masing-masing komponen */}
-      <div className="flex flex-col w-full pb-16">
+      <div className="flex flex-col w-full">
         <Hero />
         <ProjectCarousel projects={worksData} />
         <OurServices services={servicesData} />

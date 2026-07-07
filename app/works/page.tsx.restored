@@ -1,0 +1,444 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Navbar from "../../src/components/Navbar";
+import Footer from "../../src/components/Footer";
+import CTA from "../../src/components/CTA";
+import ProjectCarousel, { ProjectData } from '../../src/components/ProjectCarousel';
+import { getWorks } from "../../src/lib/actions";
+
+// Sub-komponen ImageSlider untuk efek pergantian gambar otomatis di dalam kartu
+const ImageSlider = ({ images, title }: { images: string[], title: string }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (!images || images.length <= 1) return;
+
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, 3000);
+
+    return () => clearInterval(timer);
+  }, [images]);
+
+  if (!images || images.length === 0) return null;
+
+  return (
+    <>
+      {images.map((img, idx) => (
+        <img
+          key={idx}
+          src={img}
+          alt={`${title} - image ${idx + 1}`}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${idx === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"
+            }`}
+        />
+      ))}
+    </>
+  );
+};
+
+export default function WorksPage() {
+  const [projects, setProjects] = useState<ProjectData[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // States untuk dropdown filters
+  const [selectedCategory, setSelectedCategory] = useState<string>("All Works");
+  const [selectedType, setSelectedType] = useState<string>("All Types");
+  const [selectedIndustry, setSelectedIndustry] = useState<string>("All Industries");
+
+  // States untuk toggle visibilitas dropdown
+  const [isCategoryOpen, setIsCategoryOpen] = useState(false);
+  const [isTypeOpen, setIsTypeOpen] = useState(false);
+  const [isIndustryOpen, setIsIndustryOpen] = useState(false);
+
+  // State untuk mengatur Load More (Default tampilkan 5: 1 Besar + 4 Grid)
+  const [visibleCount, setVisibleCount] = useState(5);
+
+  useEffect(() => {
+    async function loadData() {
+      try {
+        const data = await getWorks();
+        setProjects(data as unknown as ProjectData[]);
+      } catch (error) {
+        console.error("Gagal mengambil data works:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    loadData();
+  }, []);
+
+  useEffect(() => {
+    setVisibleCount(5);
+  }, [selectedCategory, selectedType, selectedIndustry]);
+
+  // Helper mapping untuk filter
+  const getProjectIndustry = (slug: string) => {
+    const s = slug.toLowerCase();
+    if (s.includes("korlantas")) return "Government Organizations";
+    if (s.includes("suara-merdeka")) return "Media";
+    if (s.includes("sinau") || s.includes("tire") || s.includes("navicom")) return "Corporate";
+    return "Corporate";
+  };
+
+  const getProjectType = (category: string) => {
+    if (category === "Website Development" || category === "Software Development") {
+      return "Web & Application Development";
+    }
+    if (category === "IoT System" || category === "Backend & IoT") {
+      return "IoT System Development";
+    }
+    return "Web & Application Development";
+  };
+
+  // Mockup data mapping to match Figma screenshot exactly
+  const getMockupData = (slug: string) => {
+    const s = slug.toLowerCase();
+    if (s.includes("x-1-tire")) {
+      return {
+        title: "Company Profile Revamp for X-1 Tire",
+        category: ["Website Development"]
+      };
+    }
+    if (s.includes("navicom")) {
+      return {
+        title: "Smart Home System for Navicom Indonesia",
+        category: ["IoT"]
+      };
+    }
+    if (s.includes("sinau-print")) {
+      return {
+        title: "Point of Sales System for Sinau Print",
+        category: ["Software"]
+      };
+    }
+    if (s.includes("suara-merdeka")) {
+      return {
+        title: "Website Refresh for Suara Merdeka Generation",
+        category: ["Website Development"]
+      };
+    }
+    if (s.includes("korlantas")) {
+      return {
+        title: "E-Drives Development for Korlantas Polri",
+        category: ["IoT", "Software"]
+      };
+    }
+    return {
+      title: "",
+      category: []
+    };
+  };
+
+  // Filter Logic
+  const filteredProjects = projects.filter((p) => {
+    const matchesCategory = selectedCategory === "All Works" || p.category === selectedCategory;
+    const matchesType = selectedType === "All Types" || getProjectType(p.category) === selectedType;
+    const matchesIndustry = selectedIndustry === "All Industries" || getProjectIndustry(p.slug) === selectedIndustry;
+    return matchesCategory && matchesType && matchesIndustry;
+  });
+
+  const visibleProjects = filteredProjects.slice(0, visibleCount);
+  const hasMore = visibleCount < filteredProjects.length;
+
+  // Tampilkan Featured Project besar jika filters dalam posisi default (All)
+  const isDefaultFilter = selectedCategory === "All Works" && selectedType === "All Types" && selectedIndustry === "All Industries";
+  const featuredProject = visibleProjects.length > 0 && isDefaultFilter ? visibleProjects[0] : null;
+  const gridProjects = featuredProject ? visibleProjects.slice(1) : visibleProjects;
+
+  const handleLoadMore = () => {
+    setVisibleCount((prev) => prev + 4);
+  };
+
+  const handleResetFilters = () => {
+    setSelectedCategory("All Works");
+    setSelectedType("All Types");
+    setSelectedIndustry("All Industries");
+  };
+
+  return (
+    <main className="min-h-screen bg-[#FAFAFA] font-sans overflow-x-hidden">
+      <Navbar />
+
+      {/* 1. Hero Banner Section - Styled to match Figma exactly */}
+      <section className="w-full bg-[#FAFAFA] pt-[100px]">
+        <div className="mx-auto max-w-[1440px] px-5 md:px-3 lg:px-3">
+          <div className="relative w-full h-[170px] md:h-[180px] rounded-[20px] overflow-hidden shadow-none flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: "url('/image/works-banner-bg.svg')" }}>
+            <h1 className="relative z-10 text-3xl md:text-[52px] font-bold text-white tracking-wide"> Our Works</h1>
+          </div>
+        </div>
+      </section>
+
+      {/* Project Carousel Section */}
+      {!isLoading && projects.length > 0 && isDefaultFilter && (
+        <ProjectCarousel projects={projects} />
+      )}
+
+      {/* 7. Section Project - Styled to match Figma exactly */}
+      <section className="relative bg-[#FAFAFA] pt-[100px] pb-[120px]">
+        <div className="mx-auto w-full max-w-[1440px] px-5 md:px-3 lg:px-3">
+
+          {/* Title & Filters */}
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-[38px] font-semibold text-[#0D2342] tracking-tight max-w-md leading-tight">
+              Create Meaningful Digital Solutions
+            </h2>
+
+            <div className="flex flex-wrap items-center gap-3">
+              {/* Category Dropdown - Flat Style */}
+              <div className="relative">
+                <button
+                  onClick={() => {
+                    setIsCategoryOpen(!isCategoryOpen);
+                    setIsTypeOpen(false);
+                    setIsIndustryOpen(false);
+                  }}
+                  className={`flex items-center justify-between gap-2 px-5 py-2 md:py-2.5 rounded-full border transition-all text-xs md:text-sm font-medium cursor-pointer shadow-none ${selectedCategory !== "All Works"
+                    ? "bg-[#EEF4FF] text-[#1E88E5] border-blue-200"
+                    : "bg-white text-gray-500 border-gray-200 hover:bg-gray-50"
+                    }`}
+                >
+                  <span>{selectedCategory}</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-3.5 h-3.5"><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+                </button>
+
+                {isCategoryOpen && (
+                  <div className="absolute left-0 mt-2 w-56 rounded-xl border border-gray-100 bg-white py-1 shadow-lg z-30">
+                    {["All Works", "Website Development", "IoT System", "Software Development", "Backend & IoT"].map((opt) => (
+                      <button
+                        key={opt}
+                        onClick={() => {
+                          setSelectedCategory(opt);
+                          setIsCategoryOpen(false);
+                        }}
+                        className={`w-full px-4 py-2 text-left text-xs md:text-sm transition-colors hover:bg-[#EEF4FF] hover:text-[#1E88E5] font-medium ${selectedCategory === opt ? "text-[#1E88E5] bg-[#EEF4FF]/50" : "text-gray-700"
+                          }`}
+                      >
+                        {opt}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Type Dropdown - Flat Style */}
+              <div className="relative">
+                <button
+                  onClick={() => {
+                    setIsTypeOpen(!isTypeOpen);
+                    setIsCategoryOpen(false);
+                    setIsIndustryOpen(false);
+                  }}
+                  className={`flex items-center justify-between gap-2 px-5 py-2 md:py-2.5 rounded-full border transition-all text-xs md:text-sm font-medium cursor-pointer shadow-none ${selectedType !== "All Types"
+                    ? "bg-[#EEF4FF] text-[#1E88E5] border-blue-200"
+                    : "bg-white text-gray-500 border-gray-200 hover:bg-gray-50"
+                    }`}
+                >
+                  <span>{selectedType === "All Types" ? "Type" : selectedType}</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-3.5 h-3.5"><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+                </button>
+
+                {isTypeOpen && (
+                  <div className="absolute left-0 mt-2 w-72 rounded-xl border border-gray-100 bg-white py-1 shadow-lg z-30">
+                    {["All Types", "Web & Application Development", "IoT System Development", "ERP & System Integration"].map((opt) => (
+                      <button
+                        key={opt}
+                        onClick={() => {
+                          setSelectedType(opt);
+                          setIsTypeOpen(false);
+                        }}
+                        className={`w-full px-4 py-2 text-left text-xs md:text-sm transition-colors hover:bg-[#EEF4FF] hover:text-[#1E88E5] font-medium ${selectedType === opt ? "text-[#1E88E5] bg-[#EEF4FF]/50" : "text-gray-700"
+                          }`}
+                      >
+                        {opt}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Industry Dropdown - Flat Style */}
+              <div className="relative">
+                <button
+                  onClick={() => {
+                    setIsIndustryOpen(!isIndustryOpen);
+                    setIsCategoryOpen(false);
+                    setIsTypeOpen(false);
+                  }}
+                  className={`flex items-center justify-between gap-2 px-5 py-2 md:py-2.5 rounded-full border transition-all text-xs md:text-sm font-medium cursor-pointer shadow-none ${selectedIndustry !== "All Industries"
+                    ? "bg-[#EEF4FF] text-[#1E88E5] border-blue-200"
+                    : "bg-white text-gray-500 border-gray-200 hover:bg-gray-50"
+                    }`}
+                >
+                  <span>{selectedIndustry === "All Industries" ? "Select Industry" : selectedIndustry}</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-3.5 h-3.5"><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+                </button>
+
+                {isIndustryOpen && (
+                  <div className="absolute left-0 mt-2 w-64 rounded-xl border border-gray-100 bg-white py-1 shadow-lg z-30">
+                    {["All Industries", "Corporate", "Logistics", "Government Organizations", "Media"].map((opt) => (
+                      <button
+                        key={opt}
+                        onClick={() => {
+                          setSelectedIndustry(opt);
+                          setIsIndustryOpen(false);
+                        }}
+                        className={`w-full px-4 py-2 text-left text-xs md:text-sm transition-colors hover:bg-[#EEF4FF] hover:text-[#1E88E5] font-medium ${selectedIndustry === opt ? "text-[#1E88E5] bg-[#EEF4FF]/50" : "text-gray-700"
+                          }`}
+                      >
+                        {opt}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Reset / Funnel icon button */}
+              <button
+                onClick={handleResetFilters}
+                className={`flex h-9 w-9 md:h-10 md:w-10 items-center justify-center rounded-full text-white transition-colors shadow-none cursor-pointer ${!isDefaultFilter ? "bg-[#1E88E5] hover:bg-[#1565C0]" : "bg-[#0E2A54] hover:bg-[#163A70]"
+                  }`}
+                title="Reset Filters"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          {isLoading ? (
+            <div className="flex justify-center items-center py-24 text-gray-400 font-medium">Loading works...</div>
+          ) : (
+            <>
+              {/* 8. Empty State - Redesigned to match Figma layout perfectly */}
+              {filteredProjects.length === 0 && (
+                <div className="w-full flex flex-col items-center justify-center text-center py-16 md:py-24">
+                  <img src="/image/empty-work.svg" alt="No Project Found Illustration" className="w-[200px] h-[166px]" />
+                  <h3 className="text-[26px] font-semibold text-[#0D2342] mt-6 tracking-tight">No Project Found</h3>
+                  <p className="mt-4 text-sm md:text-[15px] text-gray-500 max-w-md leading-relaxed">
+                    It looks like there are no projects under the current filter selection. Try another category or clear the filters to see all our work.
+                  </p>
+                  <button
+                    onClick={handleResetFilters}
+                    className="mt-8 px-8 py-3 bg-[#299EED] text-white hover:bg-[#1E88E5] font-semibold text-sm rounded-full transition-all cursor-pointer border-0 shadow-none"
+                  >
+                    Clear Filters
+                  </button>
+                </div>
+              )}
+
+              {/* 12. Featured Large Project (Top of list, height adjusted to 440px) */}
+              {featuredProject && (
+                <Link href={`/works/${featuredProject.slug}`}>
+                  <div className="relative w-full h-[280px] sm:h-[360px] md:h-[440px] rounded-[20px] overflow-hidden mb-16 group cursor-pointer block bg-[#F5F5F5]">
+                    <div className="absolute inset-0 w-full h-full transition-transform duration-700 ease-out group-hover:scale-105">
+                      <img
+                        src={featuredProject.images[0]}
+                        alt={featuredProject.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0D2342]/95 via-[#0D2342]/40 to-transparent z-20 pointer-events-none"></div>
+
+                    <div className="absolute bottom-0 left-0 p-6 md:p-10 flex flex-col items-start justify-end z-30 pointer-events-none w-full">
+                      {/* Tags */}
+                      <div className="flex flex-wrap gap-2 mb-3">
+                        {(getMockupData(featuredProject.slug).category.length > 0
+                          ? getMockupData(featuredProject.slug).category
+                          : [featuredProject.category]
+                        ).map((cat, idx) => (
+                          <span key={idx} className="bg-white text-[#299EED] text-[11px] md:text-xs font-semibold px-4 py-2 rounded-full shadow-sm pointer-events-auto">
+                            {cat}
+                          </span>
+                        ))}
+                      </div>
+                      <h3 className="text-xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-tight max-w-3xl drop-shadow-md">
+                        {getMockupData(featuredProject.slug).title || featuredProject.title}
+                      </h3>
+                    </div>
+                  </div>
+                </Link>
+              )}
+
+              {/* 10. Grid Projects - gap-x-8 gap-y-16 layout & 20px radius */}
+              {gridProjects.length > 0 && (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16">
+                  {gridProjects.map((project) => {
+                    const mockup = getMockupData(project.slug);
+                    const displayTitle = mockup.title || project.title;
+                    const displayCategories = mockup.category.length > 0 ? mockup.category : [project.category];
+
+                    return (
+                      <Link key={project.id} href={`/works/${project.slug}`}>
+                        <div className="flex flex-col group cursor-pointer h-full">
+                          <div className="relative w-full h-[180px] sm:h-[240px] md:h-[280px] bg-[#F5F5F5] rounded-[20px] overflow-hidden mb-5 md:mb-6">
+
+                            <div className="absolute inset-0 w-full h-full transition-transform duration-700 ease-out group-hover:scale-105">
+                              <img
+                                src={project.images[0]}
+                                alt={project.title}
+                                className="w-full h-full object-cover"
+                              />
+                            </div>
+
+                            {/* Gradient Overlay for bottom text/buttons */}
+                            <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/40 to-transparent z-10 pointer-events-none"></div>
+
+                            {/* Tag Category (Bottom Left inside Image) */}
+                            <div className="absolute bottom-4 md:bottom-6 left-4 md:left-6 z-20 pointer-events-none flex flex-wrap gap-2">
+                              {displayCategories.map((cat, idx) => (
+                                <span key={idx} className="bg-white text-[#299EED] text-[11px] md:text-xs font-semibold px-3 py-1.5 md:px-4 md:py-2 rounded-full shadow-sm pointer-events-auto">
+                                  {cat}
+                                </span>
+                              ))}
+                            </div>
+
+                            {/* Circle Arrow Button (Bottom Right inside Image) */}
+                            <div className="absolute bottom-4 md:bottom-6 right-4 md:right-6 w-9 h-9 md:w-11 md:h-11 rounded-full bg-[#299EED] text-white flex items-center justify-center transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 z-20 shadow-lg">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-4.5 h-4.5 md:w-5 md:h-5">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                              </svg>
+                            </div>
+                          </div>
+
+                          <h4 className="text-xl md:text-[22px] font-semibold text-[#0D2342] mb-2 md:mb-3 tracking-tight leading-snug group-hover:text-[#299EED] transition-colors">
+                            {displayTitle}
+                          </h4>
+                          <p className="text-gray-500 text-sm md:text-[15px] leading-relaxed font-medium line-clamp-2 md:line-clamp-3 pr-4">
+                            {project.desc}
+                          </p>
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </div>
+              )}
+            </>
+          )}
+
+          {/* 14. Load More Button - Styled to Primary Blue Outline */}
+          {!isLoading && hasMore && (
+            <div className="flex justify-center mt-[100px]">
+              <button
+                onClick={handleLoadMore}
+                className="px-10 py-3 md:px-12 md:py-3.5 border border-[#299EED] text-[#299EED] hover:bg-[#299EED]/5 font-semibold text-sm rounded-full shadow-none transition-all bg-white cursor-pointer"
+              >
+                Load More
+              </button>
+            </div>
+          )}
+        </div>
+      </section>
+
+      <CTA />
+      <Footer />
+    </main>
+  );
+}
+
+The above content shows the entire, complete file contents of the requested file.

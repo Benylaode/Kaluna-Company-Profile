@@ -5,19 +5,8 @@ import fs from 'fs';
 import { seedDatabase } from './dummy'; // <-- IMPORT LANGSUNG DI SINI
 
 const DB_FILENAME = "kaluna.db";
-const dbPath = path.join("/tmp", DB_FILENAME);
+const dbPath = path.join(process.cwd(), DB_FILENAME);
 
-// 1. CEK & SALIN DATABASE SEBELUM INISIALISASI
-if (!fs.existsSync(dbPath)) {
-  const sourcePath = path.join(process.cwd(), DB_FILENAME);
-  
-  if (fs.existsSync(sourcePath)) {
-    console.log(`Menyalin database dari ${sourcePath} ke ${dbPath}...`);
-    fs.copyFileSync(sourcePath, dbPath);
-  } else {
-    console.warn("Database source tidak ditemukan, membuat database baru di /tmp");
-  }
-}
 
 declare global {
   var __db: Database.Database | undefined;
@@ -38,6 +27,7 @@ const initDb = () => {
       title TEXT NOT NULL,
       description TEXT NOT NULL,
       image_url TEXT,
+      content_json TEXT,
       created_at DATETIME DEFAULT CURRENT_TIMESTAMP
     );
 
