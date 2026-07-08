@@ -36,10 +36,10 @@ export default function WorkProjectCard({
           <div className="grid items-center gap-10 lg:grid-cols-[2fr_3fr] lg:gap-[80px] xl:gap-[114px]">
 
             {/* Left Column: Typography and Controls */}
-            <div className="relative flex flex-col justify-between py-4 lg:py-0 min-h-[380px] md:min-h-[400px]">
+            <div className="relative flex flex-col justify-between py-4 lg:py-0">
               <div key={`text-${currentIndex}`} className="transition-all duration-500">
                 {/* Pagination Indicator */}
-                <div className="mb-6 flex items-baseline text-[#A5A5A5] text-[16px] font-bold">
+                <div className="hidden md:flex mb-6 items-baseline text-[#A5A5A5] text-[16px] font-bold">
                   <span className="text-[#000000]">{pad(currentIndex + 1)}</span>
                   <span className="mx-2 text-gray-300">|</span>
                   <span>{pad(projects.length)}</span>
@@ -56,8 +56,8 @@ export default function WorkProjectCard({
                 </p>
               </div>
 
-              {/* Buttons and Navigation */}
-              <div className="mt-8 flex flex-col items-start gap-8">
+              {/* Desktop-only Buttons and Navigation */}
+              <div className="hidden md:flex mt-8 flex-col items-start gap-8">
                 <Link href={`/works/${currentProject.slug}`} className="w-full sm:w-fit">
                   <button className="group flex h-12 w-full items-center justify-between gap-6 rounded-full bg-[#0E2A54] py-1.5 pl-6 pr-1.5 text-white transition hover:bg-[#163A70] sm:w-auto cursor-pointer border-0 shadow-md">
                     <span className="text-[15px] font-medium tracking-wide text-white">See Case Studies</span>
@@ -82,6 +82,22 @@ export default function WorkProjectCard({
                     NEXT PROJECT <span>&#8594;</span>
                   </button>
                 </div>
+              </div>
+
+              {/* Mobile-only Slider Controls */}
+              <div className="flex md:hidden items-center justify-between mt-6 w-full text-xs font-bold tracking-wider text-gray-400 border-b border-gray-100 pb-5">
+                <button 
+                  onClick={handlePrev} 
+                  className="transition-colors hover:text-[#0E2A54] cursor-pointer flex items-center gap-1.5 uppercase text-[#0D2342]/70 font-semibold"
+                >
+                  <span>←</span> PREVIOUS
+                </button>
+                <button 
+                  onClick={handleNext} 
+                  className="transition-colors hover:text-[#0E2A54] cursor-pointer flex items-center gap-1.5 uppercase text-[#0D2342]/70 font-semibold"
+                >
+                  NEXT PROJECT <span>→</span>
+                </button>
               </div>
             </div>
 
@@ -117,6 +133,18 @@ export default function WorkProjectCard({
                   {projects[currentIndex].client}
                 </span>
               </div>
+            </div>
+
+            {/* Mobile-only CTA Button */}
+            <div className="flex md:hidden w-full mt-4">
+              <Link href={`/works/${currentProject.slug}`} className="w-full">
+                <button className="group flex h-14 w-full items-center justify-between gap-4 rounded-full bg-[#0E2A54] py-2 pl-8 pr-2 text-white transition hover:bg-[#163A70] cursor-pointer border-0 shadow-md">
+                  <span className="text-sm font-medium tracking-[0.02em] text-white">See Detail Project</span>
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#299EED] text-white transition-transform duration-300 group-hover:translate-x-1">
+                    <ArrowRight size={18} />
+                  </div>
+                </button>
+              </Link>
             </div>
 
           </div>

@@ -157,7 +157,7 @@ export default async function WhoWeArePage() {
           </div>
           <h2 className="text-2xl md:text-4xl font-bold mb-8 md:mb-12 text-[#0D2342]">Our Technology Expertise</h2>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {expertise.map((item, idx) => (
               <div key={idx} className="relative w-full h-[160px] md:h-[220px] rounded-[16px] overflow-hidden group cursor-pointer">
                 <img src={item.img} alt={item.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
@@ -179,7 +179,7 @@ export default async function WhoWeArePage() {
           </div>
           <h2 className="text-2xl md:text-4xl font-bold mb-10 md:mb-12 text-[#0D2342]">Expert Behind The Works</h2>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 md:gap-x-6 gap-y-10 md:gap-y-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 md:gap-x-6 gap-y-10 md:gap-y-12">
             {team.map((member) => (
               <div key={member.id} className="flex flex-col">
                 <div className="w-full aspect-[3/4] md:aspect-[4/5] rounded-[16px] md:rounded-[20px] overflow-hidden mb-4 bg-gray-200">

@@ -5,9 +5,14 @@ import fs from 'fs';
 import { seedDatabase } from './dummy'; // <-- IMPORT LANGSUNG DI SINI
 
 const DB_FILENAME = "kaluna.db";
-// Gunakan /tmp di Vercel karena filesystem root bersifat Read-Only
-const isVercel = process.env.VERCEL === "1" || process.env.NODE_ENV === "production";
+const isVercel = process.env.VERCEL === "1";
 const dbPath = isVercel ? path.join("/tmp", DB_FILENAME) : path.join(process.cwd(), DB_FILENAME);
+
+// Ensure database directory exists
+const dbDir = path.dirname(dbPath);
+if (!fs.existsSync(dbDir)) {
+  fs.mkdirSync(dbDir, { recursive: true });
+}
 
 
 declare global {

@@ -153,14 +153,14 @@ export default function WorksPage() {
             <h2 className="text-3xl md:text-4xl lg:text-[38px] font-semibold text-[#0D2342] tracking-tight max-w-md leading-tight">
               Create Meaningful Digital Solutions
             </h2>
-            <div className="flex flex-wrap items-center gap-3">
+            <div className="flex md:flex-wrap items-center gap-3 overflow-x-auto hide-scrollbar whitespace-nowrap -mx-5 px-5 pb-2">
               {(["All Works", "Web & App", "IoT System"] as const).map((filter) => {
                 const isActive = activeFilter === filter;
                 return (
                   <button
                     key={filter}
                     onClick={() => setActiveFilter(filter)}
-                    className={`px-6 py-2.5 rounded-full border transition-all text-xs md:text-sm font-semibold cursor-pointer ${isActive
+                    className={`px-6 py-2.5 rounded-full border transition-all text-xs md:text-sm font-semibold cursor-pointer shrink-0 ${isActive
                       ? "bg-[#EAF3FF] text-[#299EED] border-[#DCEBFF]"
                       : "bg-white text-gray-500 border-gray-200 hover:bg-gray-50 hover:text-gray-700"
                       }`}

@@ -131,6 +131,10 @@ const techLogos: Record<string, string> = {
   const allWorks = await getWorks();
   const otherWorks = allWorks.filter((w) => w.slug !== slug).slice(0, 2);
 
+  const currentIndex = allWorks.findIndex((w) => w.slug === slug);
+  const prevProject = allWorks[currentIndex - 1] || allWorks[allWorks.length - 1];
+  const nextProject = allWorks[currentIndex + 1] || allWorks[0];
+
   return (
     <main className="bg-white min-h-screen font-sans">
       <Navbar />
@@ -138,15 +142,59 @@ const techLogos: Record<string, string> = {
       {/* HEADER & HERO */}
       <section className="pt-32 pb-16 px-6 max-w-[1440px] mx-auto">
         <div className="max-w-5xl mx-auto">
-          <h1 className="text-4xl md:text-[60px] font-bold text-[#0D2342] leading-[1.1] mb-8">{project.title}</h1>
-          <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 font-medium mb-12">
+          {/* Breadcrumbs */}
+          <div className="flex items-center gap-2 text-xs font-semibold text-gray-400 mb-4">
+            <Link href="/" className="hover:text-[#299EED] transition-colors">Home</Link>
+            <span>&gt;</span>
+            <Link href="/works" className="hover:text-[#299EED] transition-colors">Our Works</Link>
+            <span>&gt;</span>
+            <span className="text-gray-600">Detail Works</span>
+          </div>
+
+          <h1 className="text-4xl md:text-[60px] font-bold text-[#0D2342] leading-[1.1] mb-6 md:mb-8">{project.title}</h1>
+          
+          {/* Desktop-only metadata indicator */}
+          <div className="hidden md:flex flex-wrap items-center gap-4 text-sm text-gray-500 font-medium mb-12">
             <span className="bg-gray-100 px-5 py-2 rounded-full text-[#0D2342] font-semibold">Client: {project.client}</span>
             <span className="text-gray-300">|</span>
             <span className="bg-gray-100 px-5 py-2 rounded-full text-[#0D2342] font-semibold">Service: {project.category}</span>
           </div>
+
+          {/* Mobile-only Details Slider Navigation */}
+          <div className="flex md:hidden items-center justify-between mt-4 mb-6 w-full text-xs font-bold tracking-wider text-gray-400 border-b border-gray-100 pb-5">
+            <Link href={`/works/${prevProject.slug}`} className="transition-colors hover:text-[#0E2A54] flex items-center gap-1.5 uppercase text-[#0D2342]/70 font-semibold">
+              <span>←</span> PREVIOUS
+            </Link>
+            <Link href={`/works/${nextProject.slug}`} className="transition-colors hover:text-[#0E2A54] flex items-center gap-1.5 uppercase text-[#0D2342]/70 font-semibold">
+              NEXT PROJECT <span>→</span>
+            </Link>
+          </div>
         </div>
+        
         <div className="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-[32px] overflow-hidden shadow-xl bg-gray-100 mt-8">
           {project.images?.[0] && <Image src={project.images[0]} alt={project.title} fill className="object-cover" priority />}
+        </div>
+
+        {/* Mobile Metadata Details List */}
+        <div className="md:hidden mt-8 border-y border-gray-100 py-4 flex flex-col gap-3.5 px-2">
+          <div className="flex justify-between items-center text-sm">
+            <span className="font-semibold text-gray-400 uppercase tracking-wide text-xs">Client</span>
+            <span className="font-bold text-[#0D2342]">{project.client}</span>
+          </div>
+          <div className="flex justify-between items-center text-sm border-t border-gray-100/60 pt-3.5">
+            <span className="font-semibold text-gray-400 uppercase tracking-wide text-xs">Date</span>
+            <span className="font-bold text-[#0D2342]">
+              {project.created_at ? new Date(project.created_at).toLocaleDateString("en-US", {
+                month: "long",
+                day: "numeric",
+                year: "numeric"
+              }) : "June 20, 2024"}
+            </span>
+          </div>
+          <div className="flex justify-between items-center text-sm border-t border-gray-100/60 pt-3.5">
+            <span className="font-semibold text-gray-400 uppercase tracking-wide text-xs">Category</span>
+            <span className="font-bold text-[#0D2342]">{project.category}</span>
+          </div>
         </div>
       </section>
 
@@ -271,7 +319,7 @@ const techLogos: Record<string, string> = {
             <h2 className="text-3xl font-bold text-[#0D2342] mb-12">Explore Other Works</h2>
             <div className="grid md:grid-cols-2 gap-8">
               {otherWorks.map((work) => (
-                <Link key={work.id} href={`/ourworks/${work.slug}`}>
+                <Link key={work.id} href={`/works/${work.slug}`}>
                   <div className="group">
                     <div className="relative h-[300px] bg-gray-200 rounded-[28px] overflow-hidden mb-6">
                       <Image src={work.images?.[0] || '/placeholder.jpg'} alt={work.title} fill className="object-cover group-hover:scale-105 transition-transform" />

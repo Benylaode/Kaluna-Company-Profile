@@ -30,14 +30,17 @@ export default function ProjectCarousel({ projects }: { projects: ProjectData[] 
         <div className="grid items-center gap-10 lg:grid-cols-[2fr_3fr] lg:gap-16 xl:gap-20">
           
           {/* Left Column: Typography and Controls */}
-          <div className="relative flex flex-col justify-between py-4 lg:py-0 min-h-[400px] md:min-h-[454px]">
+          <div className="relative flex flex-col justify-between py-4 lg:py-0 md:min-h-[454px]">
             <div key={`text-${currentIndex}`} className="transition-all duration-500">
               {/* Pagination/Paging Indicator */}
-              <div className="mb-6 flex items-baseline text-[#C7C7CC] text-[16px] font-bold">
+              <div className="hidden md:flex mb-6 items-baseline text-[#C7C7CC] text-[16px] font-bold">
                 <span className="text-[#000000]">{String(currentIndex + 1).padStart(1, "0")}</span>
                 <span className="mx-2 text-gray-300">/</span>
                 <span className="text-[#C7C7CC]">{String(projects.length).padStart(1, "0")}</span>
               </div>
+
+              {/* Mobile Label */}
+              <div className="kaluna-label mb-6 md:hidden">LATEST WORK</div>
  
               {/* Project Title */}
               <h2 className="text-[28px] md:text-[36px] lg:text-[44px] font-bold leading-[1.15] tracking-[-0.015em] text-[#0E2A54]">
@@ -50,8 +53,8 @@ export default function ProjectCarousel({ projects }: { projects: ProjectData[] 
               </p>
             </div>
  
-            {/* Buttons and Navigation */}
-            <div className="mt-8 flex flex-col items-start gap-8">
+            {/* Desktop-only Buttons and Navigation */}
+            <div className="hidden md:flex mt-8 flex-col items-start gap-8">
               <Link href={`/works/${currentProject.slug}`} className="w-full sm:w-fit">
                 <button className="group flex h-14 w-full sm:w-[240px] items-center justify-between gap-4 rounded-full bg-[#0E2A54] py-2 pl-8 pr-2 text-white transition hover:bg-[#163A70] cursor-pointer border-0 shadow-md">
                   <span className="text-sm font-medium tracking-[0.02em] md:text-base text-white">View Case Study</span>
@@ -77,8 +80,24 @@ export default function ProjectCarousel({ projects }: { projects: ProjectData[] 
                 </button>
               </div>
             </div>
+
+            {/* Mobile-only Slider Controls */}
+            <div className="flex md:hidden items-center justify-between mt-6 w-full text-xs font-bold tracking-wider text-gray-400 border-b border-gray-100 pb-5">
+              <button 
+                onClick={handlePrev} 
+                className="transition-colors hover:text-[#0E2A54] cursor-pointer flex items-center gap-1.5 uppercase text-[#0D2342]/70 font-semibold"
+              >
+                <span>←</span> PREVIOUS
+              </button>
+              <button 
+                onClick={handleNext} 
+                className="transition-colors hover:text-[#0E2A54] cursor-pointer flex items-center gap-1.5 uppercase text-[#0D2342]/70 font-semibold"
+              >
+                NEXT PROJECT <span>→</span>
+              </button>
+            </div>
           </div>
- 
+  
           {/* Right Column: Device Showcase Card (Aspect ratio 979:711 matching Figma) */}
           <div className="relative w-full aspect-[979/711] overflow-hidden rounded-[24px] bg-[#0E2A54] shadow-lg">
             {projects.map((project, pIndex) => (
@@ -112,6 +131,18 @@ export default function ProjectCarousel({ projects }: { projects: ProjectData[] 
                 {projects[currentIndex].client}
               </span>
             </div>
+          </div>
+
+          {/* Mobile-only CTA Button */}
+          <div className="flex md:hidden w-full mt-4">
+            <Link href={`/works/${currentProject.slug}`} className="w-full">
+              <button className="group flex h-14 w-full items-center justify-between gap-4 rounded-full bg-[#0E2A54] py-2 pl-8 pr-2 text-white transition hover:bg-[#163A70] cursor-pointer border-0 shadow-md">
+                <span className="text-sm font-medium tracking-[0.02em] text-white">See Detail Project</span>
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#299EED] text-white transition-transform duration-300 group-hover:translate-x-1">
+                  <ArrowRight size={18} />
+                </div>
+              </button>
+            </Link>
           </div>
 
         </div>
