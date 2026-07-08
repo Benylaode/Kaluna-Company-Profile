@@ -4,8 +4,8 @@ import Link from "next/link";
 import Footer from "../../../src/components/Footer";
 import Navbar from "../../../src/components/Navbar";
 import CTA from "../../../src/components/CTA";
-import db from "../../../src/lib/db"; 
-import { getWorks } from "../../../src/lib/actions"; 
+import db from "../../../src/lib/db";
+import { getWorks } from "../../../src/lib/actions";
 
 // ==========================================
 // 1. INTERFACE DATA
@@ -25,7 +25,7 @@ interface ResultData {
 interface ContentJson {
   overview?: string;
   features?: Feature[];
-  tech_stack?: string[]; 
+  tech_stack?: string[];
   result?: ResultData;
   bottom_image?: string;
 }
@@ -67,64 +67,64 @@ function renderTechIcon(techName: string) {
 export default async function CaseStudyPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const project = await getProjectBySlug(slug);
-const techLogos: Record<string, string> = {
-  html: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
-  html5: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+  const techLogos: Record<string, string> = {
+    html: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+    html5: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
 
-  css: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
-  css3: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+    css: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+    css3: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
 
-  javascript: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
-  js: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+    javascript: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+    js: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
 
-  typescript: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
-  ts: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+    typescript: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+    ts: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
 
-  react: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+    react: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
 
-  next: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
-  "next.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
-  nextjs: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+    next: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+    "next.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+    nextjs: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
 
-  node: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-  "node.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-  nodejs: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+    node: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+    "node.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+    nodejs: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
 
-  express: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
+    express: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
 
-  mongodb: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+    mongodb: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
 
-  mysql: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+    mysql: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
 
-  sql: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
-  postgresql: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+    sql: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+    postgresql: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
 
-  firebase: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
+    firebase: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
 
-  docker: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+    docker: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
 
-  git: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+    git: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
 
-  github: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+    github: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
 
-  figma: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
+    figma: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
 
-  flutter: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
+    flutter: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
 
-  dart: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg",
+    dart: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg",
 
-  python: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+    python: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
 
-  django: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg",
+    django: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg",
 
-  php: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+    php: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
 
-  laravel: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg",
+    laravel: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg",
 
-  tailwind: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg",
+    tailwind: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg",
 
-  bootstrap: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg",
-};
+    bootstrap: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg",
+  };
 
   if (!project) notFound();
 
@@ -152,7 +152,7 @@ const techLogos: Record<string, string> = {
           </div>
 
           <h1 className="text-4xl md:text-[60px] font-bold text-[#0D2342] leading-[1.1] mb-6 md:mb-8">{project.title}</h1>
-          
+
           {/* Desktop-only metadata indicator */}
           <div className="hidden md:flex flex-wrap items-center gap-4 text-sm text-gray-500 font-medium mb-12">
             <span className="bg-gray-100 px-5 py-2 rounded-full text-[#0D2342] font-semibold">Client: {project.client}</span>
@@ -170,7 +170,7 @@ const techLogos: Record<string, string> = {
             </Link>
           </div>
         </div>
-        
+
         <div className="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-[32px] overflow-hidden shadow-xl bg-gray-100 mt-8">
           {project.images?.[0] && <Image src={project.images[0]} alt={project.title} fill className="object-cover" priority />}
         </div>
@@ -240,9 +240,9 @@ const techLogos: Record<string, string> = {
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-white mb-12">How We Work</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {[1,2,3,4,5,6].map((i) => (
+            {[1, 2, 3, 4, 5, 6].map((i) => (
               <div key={i} className="bg-white p-4 rounded-2xl shadow-lg">
-                <img src={`/image/ourworkflow/${i}.png`} alt={`Step ${i}`} className="w-full h-32 object-cover rounded-lg mb-4" />
+                <img src={`/image/ourworkflow/${i}.webp`} alt={`Step ${i}`} className="w-full h-32 object-cover rounded-lg mb-4" />
                 <div className="text-xs font-bold text-[#0D2342]">Step {i}</div>
               </div>
             ))}
@@ -250,48 +250,48 @@ const techLogos: Record<string, string> = {
         </div>
       </section>
 
-{/* TECHNOLOGY USED */}
-<section className="py-24 border-b border-gray-100">
-  <div className="max-w-5xl mx-auto px-6 text-center">
-    <h3 className="text-sm font-bold text-gray-400 uppercase mb-12">
-      Technology Used
-    </h3>
+      {/* TECHNOLOGY USED */}
+      <section className="py-24 border-b border-gray-100">
+        <div className="max-w-5xl mx-auto px-6 text-center">
+          <h3 className="text-sm font-bold text-gray-400 uppercase mb-12">
+            Technology Used
+          </h3>
 
-    <div className="flex flex-wrap justify-center gap-10">
-      {project.tech_stack?.map((tech: string) => {
-        const key = tech.toLowerCase();
+          <div className="flex flex-wrap justify-center gap-10">
+            {project.tech_stack?.map((tech: string) => {
+              const key = tech.toLowerCase();
 
-        // Cari logo berdasarkan nama teknologi
-        const logoUrl =
-          techLogos[key] ||
-          Object.entries(techLogos).find(([name]) => key.includes(name))?.[1];
+              // Cari logo berdasarkan nama teknologi
+              const logoUrl =
+                techLogos[key] ||
+                Object.entries(techLogos).find(([name]) => key.includes(name))?.[1];
 
-        return (
-          <div key={tech} className="flex flex-col items-center gap-3">
-            <div className="w-16 h-16 relative flex items-center justify-center">
-              {logoUrl ? (
-                <Image
-                  src={logoUrl}
-                  alt={tech}
-                  fill
-                  className="object-contain"
-                />
-              ) : (
-                <span className="text-4xl">
-                  {renderTechIcon(tech)}
-                </span>
-              )}
-            </div>
+              return (
+                <div key={tech} className="flex flex-col items-center gap-3">
+                  <div className="w-16 h-16 relative flex items-center justify-center">
+                    {logoUrl ? (
+                      <Image
+                        src={logoUrl}
+                        alt={tech}
+                        fill
+                        className="object-contain"
+                      />
+                    ) : (
+                      <span className="text-4xl">
+                        {renderTechIcon(tech)}
+                      </span>
+                    )}
+                  </div>
 
-            <span className="text-sm font-bold text-[#0D2342]">
-              {tech}
-            </span>
+                  <span className="text-sm font-bold text-[#0D2342]">
+                    {tech}
+                  </span>
+                </div>
+              );
+            })}
           </div>
-        );
-      })}
-    </div>
-  </div>
-</section>
+        </div>
+      </section>
 
       {/* THE RESULT */}
       {project.result && (
