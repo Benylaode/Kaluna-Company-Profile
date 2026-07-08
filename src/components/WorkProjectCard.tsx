@@ -37,7 +37,7 @@ export default function WorkProjectCard({
 
             {/* Left Column: Typography and Controls */}
             <div className="relative flex flex-col justify-between py-4 lg:py-0">
-              <div key={`text-${currentIndex}`} className="transition-all duration-500">
+              <div key={`text-${currentIndex}`} className="animate-fade-in">
                 {/* Pagination Indicator */}
                 <div className="hidden md:flex mb-6 items-baseline text-[#A5A5A5] text-[16px] font-bold">
                   <span className="text-[#000000]">{pad(currentIndex + 1)}</span>

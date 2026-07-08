@@ -31,7 +31,7 @@ export default function ProjectCarousel({ projects }: { projects: ProjectData[] 
           
           {/* Left Column: Typography and Controls */}
           <div className="relative flex flex-col justify-between py-4 lg:py-0 md:min-h-[454px]">
-            <div key={`text-${currentIndex}`} className="transition-all duration-500">
+            <div key={`text-${currentIndex}`} className="animate-fade-in">
               {/* Pagination/Paging Indicator */}
               <div className="hidden md:flex mb-6 items-baseline text-[#C7C7CC] text-[16px] font-bold">
                 <span className="text-[#000000]">{String(currentIndex + 1).padStart(1, "0")}</span>

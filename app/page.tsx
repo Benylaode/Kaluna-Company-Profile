@@ -9,6 +9,7 @@ import Footer from '../src/components/Footer';
 import ProjectCarousel from '../src/components/ProjectCarousel';
 import CTA from '../src/components/CTA';
 import HashScroll from '../src/components/HashScroll';
+import ScrollReveal from '../src/components/ScrollReveal';
 
 import { getWorks, getTestimonials, getServices } from '../src/lib/actions';
 
@@ -25,13 +26,32 @@ export default async function Home() {
       {/* Wrapper diubah: Menghilangkan gap agar jarak murni dari padding (py) masing-masing komponen */}
       <div className="flex flex-col w-full">
         <Hero />
-        <ProjectCarousel projects={worksData} />
-        <OurServices services={servicesData} />
+        
+        <ScrollReveal duration={1000} direction="up" distance={40}>
+          <ProjectCarousel projects={worksData} />
+        </ScrollReveal>
+        
+        <ScrollReveal duration={1000} direction="up" distance={40}>
+          <OurServices services={servicesData} />
+        </ScrollReveal>
+        
         <WhyKaluna />
-        <OurWorks />
-        <Clients />
-        <Deliver testimonials={testimonialsData} />
-        <CTA />
+        
+        <ScrollReveal duration={1000} direction="up" distance={40}>
+          <OurWorks />
+        </ScrollReveal>
+        
+        <ScrollReveal duration={1000} direction="up" distance={40}>
+          <Clients />
+        </ScrollReveal>
+        
+        <ScrollReveal duration={1000} direction="up" distance={40}>
+          <Deliver testimonials={testimonialsData} />
+        </ScrollReveal>
+        
+        <ScrollReveal duration={1000} direction="up" distance={40}>
+          <CTA />
+        </ScrollReveal>
       </div>
 
       <Footer />

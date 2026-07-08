@@ -98,13 +98,45 @@ export default function Clients() {
 
   const slots = [slot1, slot2, slot3, slot4, slot5];
 
+  const allLogosList = [
+    { name: "Sinau Print", src: "/image/mitra/1.webp" },
+    { name: "Mitra 7", src: "/image/mitra/2.webp" },
+    { name: "Plaza Ambarrukmo", src: "/image/mitra/3.webp" },
+    { name: "Miniso", src: "/image/mitra/4.webp" },
+    { name: "Artic Analytica", src: "/image/mitra/5.webp" },
+    { name: "Suara Merdeka", src: "/image/mitra/6.webp" },
+    { name: "Mitra 7 Alternate", src: "/image/mitra/7.webp" },
+    { name: "Mitra 8", src: "/image/mitra/8.webp" },
+    { name: "Mitra 9", src: "/image/mitra/9.webp" },
+    { name: "Mitra 10", src: "/image/mitra/10.webp" },
+    { name: "Mitra 11", src: "/image/mitra/11.webp" },
+    { name: "Mitra 12", src: "/image/mitra/12.webp" },
+    { name: "Mitra 13", src: "/image/mitra/13.webp" },
+    { name: "Mitra 14", src: "/image/mitra/14.webp" }
+  ];
+
   return (
-    <section className="bg-[#FAFAFA] py-16 md:py-20">
+    <section className="bg-[#FAFAFA] py-16 md:py-20 overflow-hidden">
       <style>{`
         .hide-scrollbar::-webkit-scrollbar { display: none; }
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        @keyframes marquee {
+          0% { transform: translateX(0%); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+          display: flex;
+          width: max-content;
+          animation: marquee 25s linear infinite;
+        }
+        .animate-marquee:hover {
+          animation-play-state: paused;
+        }
       `}</style>
+
       <div className="kaluna-container mb-12 text-center flex flex-col items-center">
+        {/* ... Bagian Header / Teks Title Sama Seperti Sebelumnya ... */}
         <div className="flex items-center gap-2.5 mb-4 justify-center">
           <span className="h-3.5 w-[2.5px] bg-[#299EED] rounded-full"></span>
           <span className="text-xs font-semibold tracking-[0.08em] text-[#0E2A54] uppercase">
@@ -121,16 +153,48 @@ export default function Clients() {
         </p>
       </div>
 
-      <div className="w-full px-4 md:px-8">
-        <div className="flex w-full gap-4 md:gap-6 overflow-x-auto hide-scrollbar justify-center items-center py-2">
+      {/* Desktop view HANYA untuk layar besar (lg ke atas): Slots transition layout */}
+      <div className="hidden lg:block w-full px-4 lg:px-8">
+        <div className="flex w-full gap-6 overflow-x-auto hide-scrollbar justify-center items-center py-2">
           {slots.map((slotLogos, index) => (
             <div
               key={index}
-              className="relative flex-shrink-0 w-[180px] sm:w-[200px] lg:w-[220px] h-[80px] sm:h-[90px] lg:h-[100px] flex items-center justify-center transition-all duration-300"
+              className="relative flex-shrink-0 w-[200px] lg:w-[220px] h-[90px] lg:h-[100px] flex items-center justify-center transition-all duration-300"
             >
               <LogoSlot
                 logos={slotLogos}
                 delay={index * 800}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Mobile/Tablet view (muncul dari ukuran kecil sampai sebelum lg): Horizontal looping infinite marquee */}
+      <div className="lg:hidden w-full py-4 relative flex overflow-hidden">
+        {/* Gradient blur effect on edges */}
+        <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#FAFAFA] to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#FAFAFA] to-transparent z-10 pointer-events-none" />
+
+        {/* Marquee Wrapper */}
+        <div className="animate-marquee gap-8 items-center pl-8">
+          {allLogosList.map((logo, index) => (
+            <div key={`logo-1-${index}`} className="flex-shrink-0 w-[120px] h-[50px] flex items-center justify-center">
+              <img
+                src={logo.src}
+                alt={logo.name}
+                className="max-h-[35px] max-w-[90%] object-contain opacity-70"
+                style={{ filter: "drop-shadow(0px 0px 1px rgba(0,0,0,0.15))" }}
+              />
+            </div>
+          ))}
+          {allLogosList.map((logo, index) => (
+            <div key={`logo-2-${index}`} className="flex-shrink-0 w-[120px] h-[50px] flex items-center justify-center">
+              <img
+                src={logo.src}
+                alt={logo.name}
+                className="max-h-[35px] max-w-[90%] object-contain opacity-70"
+                style={{ filter: "drop-shadow(0px 0px 1px rgba(0,0,0,0.15))" }}
               />
             </div>
           ))}

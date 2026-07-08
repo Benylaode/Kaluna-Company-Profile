@@ -33,6 +33,21 @@ export default function Hero() {
       <style>{`
         @keyframes fillProgress { 0% { width: 0%; } 100% { width: 100%; } }
         @keyframes floatUp { 0% { opacity: 0; transform: translateY(10px); } 100% { opacity: 1; transform: translateY(0); } }
+        @keyframes heroReveal {
+          0% { opacity: 0; transform: translateY(20px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+        .hero-animate-title {
+          animation: heroReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .hero-animate-text {
+          animation: heroReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+          opacity: 0;
+        }
+        .hero-animate-buttons {
+          animation: heroReveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+          opacity: 0;
+        }
       `}</style>
 
       {/* Mobile Layout */}
@@ -55,14 +70,14 @@ export default function Hero() {
         </div>
 
         <div className="absolute inset-x-0 top-[377px] px-5">
-          <h1 className="text-[36px] font-medium leading-[1.1] tracking-[-0.01em] text-white">
+          <h1 className="hero-animate-title text-[36px] font-medium leading-[1.1] tracking-[-0.01em] text-white">
             Your Scalable IT Solutions Partner for Modern Enterprises
           </h1>
-          <p className="mt-4 text-sm leading-[1.4] tracking-[0.02em] text-white">
+          <p className="hero-animate-text mt-4 text-sm leading-[1.4] tracking-[0.02em] text-white">
             We design, build, and integrate intelligent software systems that drive operational efficiency and long-term growth.
           </p>
 
-          <div className="mt-4 flex flex-col gap-3">
+          <div className="hero-animate-buttons mt-4 flex flex-col gap-3">
             <button
               onClick={() => router.push("/contact")}
               className="group flex h-14 w-full items-center justify-between rounded-full bg-white py-2 pl-8 pr-2 text-[#0E2A54]"
@@ -96,17 +111,17 @@ export default function Hero() {
             </span>
           </div>
 
-          <h1 className="text-[36px] md:text-[44px] lg:text-[54px] font-medium leading-[1.15] tracking-[-0.02em] text-[#0E2A54]">
+          <h1 className="hero-animate-title text-[36px] md:text-[44px] lg:text-[54px] font-medium leading-[1.15] tracking-[-0.02em] text-[#0E2A54]">
             Your Scalable<br />
             IT Solutions Partner<br />
             for Modern Enterprises
           </h1>
 
-          <p className="max-w-[500px] text-base leading-[1.6] text-[#4B5563]">
+          <p className="hero-animate-text max-w-[500px] text-base leading-[1.6] text-[#4B5563]">
             We design, build, and integrate intelligent software systems that drive operational efficiency and long-term growth.
           </p>
 
-          <div className="flex items-center gap-4">
+          <div className="hero-animate-buttons flex items-center gap-4">
             <button
               onClick={() => router.push("/contact")}
               className="group flex h-14 items-center rounded-full bg-[#0E2A54] py-2 pl-8 pr-2 text-white transition hover:bg-[#163A70]"
