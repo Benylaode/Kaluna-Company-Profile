@@ -15,37 +15,37 @@ const WORK_STEPS: WorkData[] = [
     id: 1,
     title: "Discovery and Requirement Mapping",
     category: "Systems engineered to evolve with your growth",
-    image_url: "/image/ourworkflow/1.png"
+    image_url: "/image/ourworkflow/1.webp"
   },
   {
     id: 2,
     title: "Technical Analysis and Solution Planning",
     category: "Define integration scope & technology stack",
-    image_url: "/image/ourworkflow/2.png"
+    image_url: "/image/ourworkflow/2.webp"
   },
   {
     id: 3,
     title: "System Design and Prototyping",
     category: "Designing system flow before full deployment",
-    image_url: "/image/ourworkflow/3.png"
+    image_url: "/image/ourworkflow/3.webp"
   },
   {
     id: 4,
     title: "Development & System Integration",
     category: "Scalable & integrating platforms and devices",
-    image_url: "/image/ourworkflow/4.png"
+    image_url: "/image/ourworkflow/4.webp"
   },
   {
     id: 5,
     title: "Testing, Security and Performance",
     category: "Ensuring stability, security, and performance",
-    image_url: "/image/ourworkflow/5.png"
+    image_url: "/image/ourworkflow/5.webp"
   },
   {
     id: 6,
     title: "Deployment, Monitoring & Continuous Improvement",
     category: "Deploying, providing optimization and support",
-    image_url: "/image/ourworkflow/6.png"
+    image_url: "/image/ourworkflow/6.webp"
   }
 ];
 

@@ -10,10 +10,10 @@ export default function Hero() {
   const router = useRouter();
 
   const slides = [
-    { id: 1, image: "/image/Hero/Default.png", tags: ["Company Profile", "Website Development"] },
-    { id: 2, image: "/image/Hero/1.png", tags: ["Marketplace", "Point Of Sales"] },
-    { id: 3, image: "/image/Hero/2.png", tags: ["AI Integration", "Data Analytics"] },
-    { id: 4, image: "/image/Hero/3.png", tags: ["Mobile App", "UI/UX Design"] }
+    { id: 1, image: "/image/Hero/Default.webp", tags: ["Company Profile", "Website Development"] },
+    { id: 2, image: "/image/Hero/1.webp", tags: ["Marketplace", "Point Of Sales"] },
+    { id: 3, image: "/image/Hero/2.webp", tags: ["AI Integration", "Data Analytics"] },
+    { id: 4, image: "/image/Hero/3.webp", tags: ["Mobile App", "UI/UX Design"] }
   ];
 
   useEffect(() => {

@@ -68,32 +68,32 @@ const LogoSlot = ({
 
 export default function Clients() {
   const slot1 = [
-    { name: "Sinau Print", src: "/image/mitra/1.png" },
-    { name: "Suara Merdeka", src: "/image/mitra/6.png" },
-    { name: "Mitra 11", src: "/image/mitra/11.png" },
+    { name: "Sinau Print", src: "/image/mitra/1.webp" },
+    { name: "Suara Merdeka", src: "/image/mitra/6.webp" },
+    { name: "Mitra 11", src: "/image/mitra/11.webp" },
   ];
 
   const slot2 = [
-    { name: "Mitra 7", src: "/image/mitra/2.png" },
-    { name: "Mitra 7 Alternate", src: "/image/mitra/7.png" },
-    { name: "Mitra 12", src: "/image/mitra/12.png" },
+    { name: "Mitra 7", src: "/image/mitra/2.webp" },
+    { name: "Mitra 7 Alternate", src: "/image/mitra/7.webp" },
+    { name: "Mitra 12", src: "/image/mitra/12.webp" },
   ];
 
   const slot3 = [
-    { name: "Plaza Ambarrukmo", src: "/image/mitra/3.png" },
-    { name: "Mitra 8", src: "/image/mitra/8.png" },
-    { name: "Mitra 13", src: "/image/mitra/13.png" },
+    { name: "Plaza Ambarrukmo", src: "/image/mitra/3.webp" },
+    { name: "Mitra 8", src: "/image/mitra/8.webp" },
+    { name: "Mitra 13", src: "/image/mitra/13.webp" },
   ];
 
   const slot4 = [
-    { name: "Miniso", src: "/image/mitra/4.png" },
-    { name: "Mitra 9", src: "/image/mitra/9.png" },
-    { name: "Mitra 14", src: "/image/mitra/14.png" },
+    { name: "Miniso", src: "/image/mitra/4.webp" },
+    { name: "Mitra 9", src: "/image/mitra/9.webp" },
+    { name: "Mitra 14", src: "/image/mitra/14.webp" },
   ];
 
   const slot5 = [
-    { name: "Artic Analytica", src: "/image/mitra/5.png" },
-    { name: "Mitra 10", src: "/image/mitra/10.png" },
+    { name: "Artic Analytica", src: "/image/mitra/5.webp" },
+    { name: "Mitra 10", src: "/image/mitra/10.webp" },
   ];
 
   const slots = [slot1, slot2, slot3, slot4, slot5];

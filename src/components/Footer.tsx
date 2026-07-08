@@ -96,7 +96,7 @@ export default function Footer() {
                 <li><a href="/works" className="transition-colors hover:text-[#299EED]">Our Works</a></li>
                 <li><a href="/who-we-are" className="transition-colors hover:text-[#299EED]">Who We Are</a></li>
                 <li><a href="#footer" className="transition-colors hover:text-[#299EED]">Contact Us</a></li>
-                <li><a href="#" className="font-semibold text-[#299EED] hover:underline">Download Company Profile -&gt;</a></li>
+                <li><a href="#" className="font-semibold text-[#299EED] hover:underline">Download Company Profile &gt;</a></li>
               </ul>
             </div>
 

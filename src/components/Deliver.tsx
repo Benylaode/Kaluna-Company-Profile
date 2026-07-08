@@ -15,13 +15,13 @@ export interface TestimonialData {
 
 const getCompanyLogo = (companyName: string) => {
   const name = companyName.toLowerCase();
-  if (name.includes("sinau print")) return "/image/mitra/12.png";
-  if (name.includes("aspoo")) return "/image/mitra/17.png";
-  if (name.includes("top toy") || name.includes("aliansea")) return "/image/mitra/16.png";
-  if (name.includes("queen city") || name.includes("queen") || name.includes("semarang center")) return "/image/mitra/15.png";
-  if (name.includes("bsp") || name.includes("bahtera sapta")) return "/image/mitra/2.png";
-  if (name.includes("x-1 tire") || name.includes("x1 tire")) return "/image/mitra/14.png";
-  if (name.includes("suara merdeka")) return "/image/mitra/13.png";
+  if (name.includes("sinau print")) return "/image/mitra/12.webp";
+  if (name.includes("aspoo")) return "/image/mitra/17.webp";
+  if (name.includes("top toy") || name.includes("aliansea")) return "/image/mitra/16.webp";
+  if (name.includes("queen city") || name.includes("queen") || name.includes("semarang center")) return "/image/mitra/15.webp";
+  if (name.includes("bsp") || name.includes("bahtera sapta")) return "/image/mitra/2.webp";
+  if (name.includes("x-1 tire") || name.includes("x1 tire")) return "/image/mitra/14.webp";
+  if (name.includes("suara merdeka")) return "/image/mitra/13.webp";
   return null;
 };
 
