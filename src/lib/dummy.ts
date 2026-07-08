@@ -5,10 +5,13 @@ import db from './db';
 // HAPUS import db from './db'; 
 
 export const testimonials = [
-  { client_name: "Joshua", role: "Owner", company_name: "Sinau Print", content: "Saya selaku pemilik Sinau Print sangat puas dengan hasil kerja PT. Kaluna Teknologi Digital. Website yang dibuat memudahkan pelanggan kami melakukan pemesanan online. Proses profesional, komunikasi lancar, dan hasil sesuai harapan. Terima kasih atas kerja samanya.", avatar_url: "/image/default-avatar.svg" },
-  { client_name: "Triyanto", role: "IT Manager", company_name: "Suara Merdeka", content: "Sebagai media berpengalaman, kami membutuhkan website modern yang tetap menjaga nilai jurnalisme. PT. Kaluna Teknologi Digital berhasil mewujudkannya dengan baik. Sistem mudah digunakan, tampilannya elegan, dan sangat kami rekomendasikan.", avatar_url: "/image/default-avatar.svg" },
-  { client_name: "Sarah Wijaya", role: "IT Manager", company_name: "Nusantara Logistics", content: "Kami berterima kasih kepada PT. Kaluna Teknologi Digital atas pengembangan website perusahaan kami yang memuaskan. Proses berjalan lancar, tepat waktu, tim responsif, dan hasilnya sesuai visi perusahaan kami. Kerja sama yang sangat profesional.", avatar_url: "/image/default-avatar.svg" },
-  { client_name: "Sarah Wijaya", role: "IT Manager", company_name: "Nusantara Logistics", content: "Website yang dibuat oleh Kaluna meningkatkan citra perusahaan kami. Katalog produk ban menjadi lebih mudah dilihat, fitur pencarian berdasarkan ukuran berfungsi dengan baik, dan tampilan untuk mobile juga bagus. Pelanggan kami jadi lebih mudah mencari informasi produk. Investasi yang sangat bermanfaat.", avatar_url: "/image/default-avatar.svg" }
+  { client_name: "Pak Hari", role: "Owner", company_name: "Sinau Print", content: "Sebagai pemilik Sinau Print, saya sangat puas dengan hasil kerja Kaluna dalam mendigitalisasi sistem kasir dan print order kami. Manajemen transaksi harian kini berjalan jauh lebih efisien, rapi, dan cepat.", avatar_url: "/image/default-avatar.svg", logo_url: "/image/mitra/12.png" },
+  { client_name: "Pak Asrofi", role: "Ketua Pengurus", company_name: "ASPOO Jateng", content: "Kaluna membangun portal database keanggotaan dan forum komunikasi untuk pengusaha sablon ASPOO Jateng. Koordinasi antar daerah kini jauh lebih terstruktur dan pendaftaran anggota baru dapat terverifikasi secara instan.", avatar_url: "/image/default-avatar.svg", logo_url: "/image/mitra/17.png" },
+  { client_name: "Ko Simon", role: "Founder", company_name: "Aliansea", content: "Sistem e-commerce retail mainan yang didevelop oleh Kaluna membantu bisnis kami menjangkau pasar nasional secara digital. Sinkronisasi stok produk fisik dengan toko online berjalan real-time dan bebas kendala.", avatar_url: "/image/default-avatar.svg", logo_url: "/image/mitra/16.png" },
+  { client_name: "Pak Ishaq", role: "Property Manager", company_name: "Semarang Center", content: "Integrasi sistem penagihan tenant dan manajemen utilitas gedung mall di Semarang Center berjalan sukses berkat ERP kustom dari Kaluna. Semua data operasional mall kini terpusat dan mudah diakses tim manajemen.", avatar_url: "/image/default-avatar.svg", logo_url: "/image/mitra/15.png" },
+  { client_name: "Pak Todi", role: "General Manager", company_name: "PT. BSP", content: "Otomasi sistem logistik dan pemantauan sensor pabrik (IoT) dari Kaluna membantu meningkatkan output produksi kami. Tim engineer Kaluna sangat ahli, solutif, dan profesional dalam mendampingi instalasi di lapangan.", avatar_url: "/image/default-avatar.svg", logo_url: "/image/mitra/2.png" },
+  { client_name: "Maya Kharta", role: "Marketing Director", company_name: "X-1 Tire", content: "Revitalisasi company profile website X-1 Tire oleh Kaluna sukses mendatangkan prospek B2B baru dari luar kota. Desain visualnya modern, performa load speed sangat kencang, dan sangat mobile-friendly.", avatar_url: "/image/default-avatar.svg", logo_url: "/image/mitra/14.png" },
+  { client_name: "Pak Hermawan", role: "Head of IT", company_name: "Suara Merdeka", content: "Kami mempercayakan refresh total website portal media harian Suara Merdeka kepada tim Kaluna. Hasilnya adalah portal berita yang sangat responsif, andal dalam menangani traffic tinggi, dan nyaman dibaca dari smartphone.", avatar_url: "/image/default-avatar.svg", logo_url: "/image/mitra/13.png" }
 ];
 
 // Tambahkan parameter db: any ke dalam fungsi
@@ -16,10 +19,10 @@ export const seedDatabase = (db: any) => {
   console.log('🔄 Memulai proses pengisian data dummy secara Synchronous...');
 
   const services = [
-    { 
-      slug: "web-application-development", 
-      title: "Web & Application Development", 
-      description: "Scalable web and mobile platform built for complex operations", 
+    {
+      slug: "web-application-development",
+      title: "Web & Application Development",
+      description: "Scalable web and mobile platform built for complex operations",
       image_url: "/image/service/2.png",
       content_json: JSON.stringify({
         heroDesc: "Building High-Performance Websites & Apps with Exceptional User Experience",
@@ -57,10 +60,10 @@ export const seedDatabase = (db: any) => {
         ]
       })
     },
-    { 
-      slug: "iot-system-development", 
-      title: "IoT System Development", 
-      description: "Connected systems for real-time monitoring and automation", 
+    {
+      slug: "iot-system-development",
+      title: "IoT System Development",
+      description: "Connected systems for real-time monitoring and automation",
       image_url: "/image/service/1.png",
       content_json: JSON.stringify({
         heroDesc: "Connected Hardware and Software Systems for Real-Time Control & Analytics",
@@ -97,10 +100,10 @@ export const seedDatabase = (db: any) => {
         ]
       })
     },
-    { 
-      slug: "erp-system-integration", 
-      title: "ERP & System Integration", 
-      description: "Seamless integration across platforms, APIs, and devices", 
+    {
+      slug: "erp-system-integration",
+      title: "ERP & System Integration",
+      description: "Seamless integration across platforms, APIs, and devices",
       image_url: "/image/service/3.png",
       content_json: JSON.stringify({
         heroDesc: "Unified Enterprise Workflows and Seamless Cross-Platform Integrations",
@@ -136,10 +139,10 @@ export const seedDatabase = (db: any) => {
         ]
       })
     },
-    { 
-      slug: "industrial-automation-solutions", 
-      title: "Industrial & Automation Solutions", 
-      description: "Smart systems to optimize operational workflows", 
+    {
+      slug: "industrial-automation-solutions",
+      title: "Industrial & Automation Solutions",
+      description: "Smart systems to optimize operational workflows",
       image_url: "/image/service/4.png",
       content_json: JSON.stringify({
         heroDesc: "Smart Automation to Optimize Manufacturing & Operational Workflows",
@@ -175,10 +178,10 @@ export const seedDatabase = (db: any) => {
         ]
       })
     },
-    { 
-      slug: "data-dashboard-analytics", 
-      title: "Data Dashboard & Analytics", 
-      description: "Transforming raw data into actionable insights", 
+    {
+      slug: "data-dashboard-analytics",
+      title: "Data Dashboard & Analytics",
+      description: "Transforming raw data into actionable insights",
       image_url: "/image/service/5.png",
       content_json: JSON.stringify({
         heroDesc: "Transforming Raw Data into Actionable Business Intel",
@@ -214,10 +217,10 @@ export const seedDatabase = (db: any) => {
         ]
       })
     },
-    { 
-      slug: "it-strategy-consulting", 
-      title: "IT Strategy & Consulting", 
-      description: "Strategic planning for scalable and future-ready IT infrastructure", 
+    {
+      slug: "it-strategy-consulting",
+      title: "IT Strategy & Consulting",
+      description: "Strategic planning for scalable and future-ready IT infrastructure",
       image_url: "/image/service/6.png",
       content_json: JSON.stringify({
         heroDesc: "Strategic Technology Planning for Scalable Company Operations",
@@ -340,19 +343,23 @@ export const seedDatabase = (db: any) => {
   ];
 
   const testimonials = [
-    { client_name: "John Doe", role: "Operations Director", company_name: "ABC Manufacturing", content: "Saya selaku pemilik Sinau Print sangat puas dengan hasil kerja PT. Kaluna Teknologi Digital...", avatar_url: "/image/default-avatar.svg" },
-    { client_name: "Anna Karenina", role: "IT Manager", company_name: "Sentul City Mall", content: "Sebagai media berpengalaman, kami membutuhkan website modern...", avatar_url: "/image/default-avatar.svg" },
-    { client_name: "Sarah Wijaya", role: "IT Manager", company_name: "Nusantara Logistics", content: "Kami berterima kasih kepada PT. Kaluna Teknologi Digital atas pengembangan website...", avatar_url: "/image/default-avatar.svg" },
-    { client_name: "Sarah Wijaya", role: "IT Manager", company_name: "Nusantara Logistics", content: "Website yang dibuat oleh Kaluna meningkatkan citra perusahaan kami...", avatar_url: "/image/default-avatar.png" }
+    { client_name: "Pak Hari", role: "Owner", company_name: "Sinau Print", content: "Sebagai pemilik Sinau Print, saya sangat puas dengan hasil kerja Kaluna dalam mendigitalisasi sistem kasir dan print order kami. Manajemen transaksi harian kini berjalan jauh lebih efisien, rapi, dan cepat.", avatar_url: "/image/default-avatar.svg", logo_url: "/image/mitra/12.png" },
+    { client_name: "Pak Asrofi", role: "Ketua Pengurus", company_name: "ASPOO Jateng", content: "Kaluna membangun portal database keanggotaan dan forum komunikasi untuk pengusaha sablon ASPOO Jateng. Koordinasi antar daerah kini jauh lebih terstruktur dan pendaftaran anggota baru dapat terverifikasi secara instan.", avatar_url: "/image/default-avatar.svg", logo_url: "/image/mitra/17.png" },
+    { client_name: "Ko Simon", role: "Founder", company_name: "Top Toy", content: "Sistem e-commerce retail mainan yang didevelop oleh Kaluna membantu bisnis kami menjangkau pasar nasional secara digital. Sinkronisasi stok produk fisik dengan toko online berjalan real-time dan bebas kendala.", avatar_url: "/image/default-avatar.svg", logo_url: "/image/mitra/16.png" },
+    { client_name: "Pak Ishaq", role: "Property Manager", company_name: "Queen City Mall", content: "Integrasi sistem penagihan tenant dan manajemen utilitas gedung mall di Semarang Center berjalan sukses berkat ERP kustom dari Kaluna. Semua data operasional mall kini terpusat dan mudah diakses tim manajemen.", avatar_url: "/image/default-avatar.svg", logo_url: "/image/mitra/15.png" },
+    { client_name: "Pak Todi", role: "General Manager", company_name: "PT. BSP", content: "Otomasi sistem logistik dan pemantauan sensor pabrik (IoT) dari Kaluna membantu meningkatkan output produksi kami. Tim engineer Kaluna sangat ahli, solutif, dan profesional dalam mendampingi instalasi di lapangan.", avatar_url: "/image/default-avatar.svg", logo_url: "/image/mitra/2.png" },
+    { client_name: "Maya Kharta", role: "Marketing Director", company_name: "X-1 Tire", content: "Revitalisasi company profile website X-1 Tire oleh Kaluna sukses mendatangkan prospek B2B baru dari luar kota. Desain visualnya modern, performa load speed sangat kencang, dan sangat mobile-friendly.", avatar_url: "/image/default-avatar.svg", logo_url: "/image/mitra/14.png" },
+    { client_name: "Pak Hermawan", role: "Head of IT", company_name: "Suara Merdeka", content: "Kami mempercayakan refresh total website portal media harian Suara Merdeka kepada tim Kaluna. Hasilnya adalah portal berita yang sangat responsif, andal dalam menangani traffic tinggi, dan nyaman dibaca dari smartphone.", avatar_url: "/image/default-avatar.svg", logo_url: "/image/mitra/13.png" }
   ];
 
   const team = [
-    { full_name: "Ryan Destianto", position: "CHIEF EXECUTIVE OFFICER", image_url: "/image/default-avatar.svg", linkedin_url: "#" },
-    { full_name: "Ayunina Zenti", position: "OPERATIONAL MANAGER", image_url: "/image/default-avatar.svg", linkedin_url: "#" },
-    { full_name: "Ponco Adi Nugroho", position: "ASSISTANT OPERATIONAL MANAGER", image_url: "/image/default-avatar.svg", linkedin_url: "#" },
-    { full_name: "Ahmad Arof Fudin", position: "LEGAL & GENERAL AFFAIRS", image_url: "/image/default-avatar.svg", linkedin_url: "#" },
-    { full_name: "Ilyas Kurnia Ramadhan", position: "LEAD SOFTWARE ENGINEER", image_url: "/image/default-avatar.svg", linkedin_url: "#" },
-    { full_name: "Intan Nur Fadhilah", position: "FINANCE", image_url: "/image/default-avatar.svg", linkedin_url: "#" }
+    { full_name: "Laode Hidayat", position: "FULL STACK DEVELOPER", image_url: "/image/default-avatar.svg", linkedin_url: "#" },
+    { full_name: "Ilyas Kurnia", position: "FULL STACK DEVELOPER", image_url: "/image/default-avatar.svg", linkedin_url: "#" },
+    { full_name: "Irfan", position: "FRONT END DEVELOPER", image_url: "/image/default-avatar.svg", linkedin_url: "#" },
+    { full_name: "M. Afifudin", position: "BACK END DEVELOPER", image_url: "/image/default-avatar.svg", linkedin_url: "#" },
+    { full_name: "Jundy Isham", position: "UI UX DESIGNER", image_url: "/image/default-avatar.svg", linkedin_url: "#" },
+    { full_name: "Teguh", position: "UI UX DESIGNER", image_url: "/image/default-avatar.svg", linkedin_url: "#" },
+    { full_name: "Ahmad Arof", position: "PROJECT MANAGER", image_url: "/image/default-avatar.svg", linkedin_url: "#" }
   ];
 
   try {
@@ -377,8 +384,8 @@ export const seedDatabase = (db: any) => {
 
       // 3. Eksekusi Testimonials
       db.prepare("DELETE FROM testimonials").run();
-      const stmtTestimonials = db.prepare("INSERT INTO testimonials (client_name, role, company_name, content, avatar_url) VALUES (?, ?, ?, ?, ?)");
-      for (const item of testimonials) stmtTestimonials.run(item.client_name, item.role, item.company_name, item.content, item.avatar_url);
+      const stmtTestimonials = db.prepare("INSERT INTO testimonials (client_name, role, company_name, content, avatar_url, logo_url) VALUES (?, ?, ?, ?, ?, ?)");
+      for (const item of testimonials) stmtTestimonials.run(item.client_name, item.role, item.company_name, item.content, item.avatar_url, item.logo_url);
 
       // 4. Eksekusi Team
       db.prepare("DELETE FROM team_members").run();

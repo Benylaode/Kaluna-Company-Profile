@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -14,10 +14,62 @@ export interface ServiceData {
 }
 
 export default function OurServices({ services }: { services: ServiceData[] }) {
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(services.length); // Start at middle copy
+  const [isTransitioning, setIsTransitioning] = useState(true);
+  const [paused, setPaused] = useState(false);
+  const [cardWidth, setCardWidth] = useState(330);
+  const isResetting = useRef(false);
 
-  const scrollLeft = () => scrollRef.current?.scrollBy({ left: -320, behavior: "smooth" });
-  const scrollRight = () => scrollRef.current?.scrollBy({ left: 320, behavior: "smooth" });
+  // Triple clone data to construct seamless infinite scroll loops
+  const extendedServices = [...services, ...services, ...services];
+
+  useEffect(() => {
+    const updateWidth = () => {
+      const isMobile = window.innerWidth < 768;
+      // mobile: 280px card + 20px gap. desktop: 310px card + 20px gap.
+      setCardWidth(isMobile ? 280 + 20 : 310 + 20);
+    };
+    updateWidth();
+    window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);
+  }, []);
+
+  const nextSlide = () => {
+    if (isResetting.current) return;
+    setIsTransitioning(true);
+    setActiveIndex((prev) => prev + 1);
+  };
+
+  const prevSlide = () => {
+    if (isResetting.current) return;
+    setIsTransitioning(true);
+    setActiveIndex((prev) => prev - 1);
+  };
+
+  const handleTransitionEnd = () => {
+    if (activeIndex >= services.length * 2) {
+      isResetting.current = true;
+      setIsTransitioning(false);
+      setActiveIndex(services.length);
+      setTimeout(() => {
+        isResetting.current = false;
+      }, 50);
+    } else if (activeIndex < services.length) {
+      isResetting.current = true;
+      setIsTransitioning(false);
+      setActiveIndex(services.length * 2 - 1);
+      setTimeout(() => {
+        isResetting.current = false;
+      }, 50);
+    }
+  };
+
+  // Autoplay handler with cleanup
+  useEffect(() => {
+    if (paused) return;
+    const timer = setInterval(nextSlide, 2500);
+    return () => clearInterval(timer);
+  }, [paused, activeIndex, services.length]);
 
   if (!services || services.length === 0) return null;
 
@@ -44,13 +96,13 @@ export default function OurServices({ services }: { services: ServiceData[] }) {
 
           <div className="hidden md:flex gap-3">
             <button
-              onClick={scrollLeft}
+              onClick={prevSlide}
               className="p-3.5 rounded-full bg-white border border-[#D7E6F8] shadow-sm hover:bg-[#0E2A54] hover:text-white transition-colors duration-300 group cursor-pointer"
             >
               <ChevronLeft size={20} className="group-hover:-translate-x-0.5 transition-transform" />
             </button>
             <button
-              onClick={scrollRight}
+              onClick={nextSlide}
               className="p-3.5 rounded-full bg-[#0E2A54] text-white shadow-md hover:bg-[#163A70] transition-colors duration-300 group cursor-pointer"
             >
               <ChevronRight size={20} className="group-hover:translate-x-0.5 transition-transform" />
@@ -58,34 +110,69 @@ export default function OurServices({ services }: { services: ServiceData[] }) {
           </div>
         </div>
 
-        <div ref={scrollRef} className="flex gap-5 overflow-x-auto pb-8 hide-scrollbar snap-x snap-mandatory">
-          {services.map((service) => (
-            <div
-              key={service.id}
-              className="relative flex-shrink-0 w-[280px] md:w-[310px] h-[360px] rounded-[24px] overflow-hidden group shadow-md snap-start"
-            >
-              <img
-                src={service.image_url}
-                alt={service.title}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
-              />
+        {/* SLIDER VIEWPORT */}
+        <div
+          className="relative overflow-hidden w-full pb-8"
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+        >
+          <div
+            className={`flex gap-5 ${isTransitioning ? "transition-transform duration-500 ease-out" : ""}`}
+            style={{ transform: `translateX(-${activeIndex * cardWidth}px)` }}
+            onTransitionEnd={handleTransitionEnd}
+          >
+            {extendedServices.map((service, index) => {
+              const isActive = index === activeIndex;
 
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0A192F]/95 via-[#0A192F]/40 to-transparent" />
-
-              <div className="absolute bottom-6 left-6 right-6 text-white flex flex-col h-full justify-end">
-                <h3 className="text-xl font-bold leading-snug mb-2 tracking-tight group-hover:-translate-y-2 transition-transform duration-300">
-                  {service.title}
-                </h3>
-
-                <Link
-                  href={`/services/${service.slug}`}
-                  className="w-10 h-10 bg-[#299EED] rounded-full flex items-center justify-center hover:bg-white hover:text-[#299EED] transition-colors duration-300 absolute right-0 bottom-0 shadow-lg"
+              return (
+                <div
+                  key={`${service.id}-${index}`}
+                  onClick={() => {
+                    setIsTransitioning(true);
+                    setActiveIndex(index);
+                  }}
+                  className="relative flex-shrink-0 w-[280px] md:w-[310px] h-[360px] rounded-[24px] overflow-hidden group shadow-md cursor-pointer"
                 >
-                  <ArrowRight size={18} strokeWidth={2.5} className="-rotate-45 group-hover:rotate-0 transition-transform duration-300" />
-                </Link>
-              </div>
-            </div>
-          ))}
+                  <img
+                    src={service.image_url}
+                    alt={service.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
+                  />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A192F]/95 via-[#0A192F]/40 to-transparent" />
+
+                  <div className="absolute bottom-6 left-6 right-6 text-white flex flex-col h-full justify-end">
+                    <h3 className="text-xl font-bold leading-snug mb-2 tracking-tight pr-14 group-hover:-translate-y-2 transition-transform duration-300">
+                      {service.title.trim()}
+                    </h3>
+
+                    <Link
+                      href={`/services/${service.slug}`}
+                      className="w-10 h-10 bg-[#299EED] rounded-full flex items-center justify-center hover:bg-white hover:text-[#299EED] transition-colors duration-300 absolute right-0 bottom-0 shadow-lg"
+                    >
+                      <ArrowRight size={18} strokeWidth={2.5} className="-rotate-45 group-hover:rotate-0 transition-transform duration-300" />
+                    </Link>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Mobile controls */}
+        <div className="flex md:hidden justify-center gap-4 mt-4">
+          <button
+            onClick={prevSlide}
+            className="p-3.5 rounded-full bg-white border border-[#D7E6F8] shadow-sm text-[#0E2A54] hover:bg-[#0E2A54] hover:text-white active:bg-[#0E2A54] active:text-white transition-colors duration-300"
+          >
+            <ChevronLeft size={20} />
+          </button>
+          <button
+            onClick={nextSlide}
+            className="p-3.5 rounded-full bg-[#0E2A54] text-white shadow-md hover:bg-[#163A70] active:bg-[#163A70] transition-colors duration-300"
+          >
+            <ChevronRight size={20} />
+          </button>
         </div>
       </div>
     </section>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { testimonials as dummyTestimonials } from "../lib/dummy";
 
 export interface TestimonialData {
@@ -10,30 +10,55 @@ export interface TestimonialData {
   company_name: string;
   content: string;
   avatar_url: string;
+  logo_url?: string;
 }
 
 const getCompanyLogo = (companyName: string) => {
   const name = companyName.toLowerCase();
-  if (name.includes("sinau print")) return "/image/mitra/1.png";
-  if (name.includes("suara merdeka")) return "/image/mitra/6.png";
-  if (name.includes("plaza kamera") || name.includes("plaza")) return "/image/mitra/2.png";
-  if (name.includes("atc")) return "/image/mitra/4.png";
-  if (name.includes("queen city") || name.includes("queen")) return "/image/mitra/5.png";
+  if (name.includes("sinau print")) return "/image/mitra/12.png";
+  if (name.includes("aspoo")) return "/image/mitra/17.png";
+  if (name.includes("top toy") || name.includes("aliansea")) return "/image/mitra/16.png";
+  if (name.includes("queen city") || name.includes("queen") || name.includes("semarang center")) return "/image/mitra/15.png";
+  if (name.includes("bsp") || name.includes("bahtera sapta")) return "/image/mitra/2.png";
+  if (name.includes("x-1 tire") || name.includes("x1 tire")) return "/image/mitra/14.png";
+  if (name.includes("suara merdeka")) return "/image/mitra/13.png";
   return null;
 };
 
 export default function Deliver({ testimonials }: { testimonials?: TestimonialData[] }) {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(2);
+  const [isTransitioning, setIsTransitioning] = useState(true);
+  const [paused, setPaused] = useState(false);
+  const isResetting = useRef(false);
 
-  const displayTestimonials = dummyTestimonials.map((item, idx) => ({
-    id: idx + 1,
-    client_name: item.client_name,
-    role: item.role,
-    company_name: item.company_name,
-    content: item.content,
-    avatar_url: item.avatar_url || "/image/default-avatar.svg"
-  }));
+  const displayTestimonials = testimonials && testimonials.length > 0
+    ? testimonials.map((item, idx) => ({
+        id: item.id || idx + 1,
+        client_name: item.client_name,
+        role: item.role,
+        company_name: item.company_name,
+        content: item.content,
+        avatar_url: item.avatar_url || "/image/default-avatar.svg",
+        logo_url: item.logo_url
+      }))
+    : dummyTestimonials.map((item, idx) => ({
+        id: idx + 1,
+        client_name: item.client_name,
+        role: item.role,
+        company_name: item.company_name,
+        content: item.content,
+        avatar_url: item.avatar_url || "/image/default-avatar.svg",
+        logo_url: item.logo_url
+      }));
+
+  // Triple clone data to construct seamless infinite scroll loops
+  const extendedTestimonials = [...displayTestimonials, ...displayTestimonials, ...displayTestimonials];
+
+  // Initialize activeIndex to the middle copy
+  useEffect(() => {
+    setActiveIndex(displayTestimonials.length);
+  }, [displayTestimonials.length]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -45,13 +70,47 @@ export default function Deliver({ testimonials }: { testimonials?: TestimonialDa
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const nextSlide = () => {
+    if (isResetting.current) return;
+    setIsTransitioning(true);
+    setActiveIndex((prev) => prev + 1);
+  };
+
+  const prevSlide = () => {
+    if (isResetting.current) return;
+    setIsTransitioning(true);
+    setActiveIndex((prev) => prev - 1);
+  };
+
+  const handleTransitionEnd = () => {
+    if (activeIndex >= displayTestimonials.length * 2) {
+      isResetting.current = true;
+      setIsTransitioning(false);
+      setActiveIndex(displayTestimonials.length);
+      setTimeout(() => {
+        isResetting.current = false;
+      }, 50);
+    } else if (activeIndex < displayTestimonials.length) {
+      isResetting.current = true;
+      setIsTransitioning(false);
+      setActiveIndex(displayTestimonials.length * 2 - 1);
+      setTimeout(() => {
+        isResetting.current = false;
+      }, 50);
+    }
+  };
+
+  // Autoplay handler with cleanup
+  useEffect(() => {
+    if (paused) return;
+    const timer = setInterval(nextSlide, 5000);
+    return () => clearInterval(timer);
+  }, [paused, activeIndex, displayTestimonials.length]);
+
   if (!displayTestimonials || displayTestimonials.length === 0) return null;
 
-  const maxIndex = Math.max(0, displayTestimonials.length - itemsPerView);
-  const slideOffset = itemsPerView === 1 ? `${currentIndex * 280}px` : `${currentIndex * 50}%`;
-
-  const handleNext = () => setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
-  const handlePrev = () => setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
+  const progressIndex = ((activeIndex % displayTestimonials.length) + displayTestimonials.length) % displayTestimonials.length;
+  const slideOffset = itemsPerView === 1 ? `${activeIndex * 280}px` : `${activeIndex * 50}%`;
 
   return (
     <section className="relative overflow-hidden bg-[#FAFAFA] py-20 md:py-28">
@@ -69,26 +128,37 @@ export default function Deliver({ testimonials }: { testimonials?: TestimonialDa
         </div>
 
         <div className="flex items-center gap-1.5">
-          <button onClick={handlePrev} className="flex h-10 w-10 items-center justify-center rounded-full border border-[#0E2A54] text-[#0E2A54] transition-colors hover:bg-[#0E2A54] hover:text-white md:h-[46px] md:w-[46px]">
+          <button onClick={prevSlide} className="flex h-10 w-10 items-center justify-center rounded-full border border-[#0E2A54] text-[#0E2A54] transition-colors hover:bg-[#0E2A54] hover:text-white md:h-[46px] md:w-[46px]">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5"><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
           </button>
-          <button onClick={handleNext} className="flex h-10 w-10 items-center justify-center rounded-full bg-[#0E2A54] text-white transition-colors hover:bg-[#163A70] md:h-[46px] md:w-[46px]">
+          <button onClick={nextSlide} className="flex h-10 w-10 items-center justify-center rounded-full bg-[#0E2A54] text-white transition-colors hover:bg-[#163A70] md:h-[46px] md:w-[46px]">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5"><path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
           </button>
         </div>
       </div>
 
-      <div className="kaluna-container relative z-10 overflow-hidden">
+      <div 
+        className="kaluna-container relative z-10 overflow-hidden"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+      >
         <div 
-          className="flex gap-5 transition-transform duration-500 ease-in-out md:gap-8"
+          className={`flex gap-5 ${isTransitioning ? "transition-transform duration-500 ease-in-out" : ""} md:gap-8`}
           style={{ transform: `translateX(-${slideOffset})` }}
+          onTransitionEnd={handleTransitionEnd}
         >
-          {displayTestimonials.map((item) => (
-            <div key={item.id} className="w-[260px] shrink-0 md:w-[calc(50%_-_16px)]">
+          {extendedTestimonials.map((item, index) => (
+            <div key={`${item.id}-${index}`} className="w-[260px] shrink-0 md:w-[calc(50%_-_16px)]">
               <div className="flex h-[280px] flex-col justify-between rounded-[24px] bg-[#F5F5F5] p-6 md:h-[310px] md:p-8">
                 <div>
                   <div className="mb-4 flex h-8 items-center md:mb-5">
-                    {getCompanyLogo(item.company_name) ? (
+                    {item.logo_url ? (
+                      <img 
+                        src={item.logo_url} 
+                        alt={item.company_name} 
+                        className="h-7 md:h-8 object-contain"
+                      />
+                    ) : getCompanyLogo(item.company_name) ? (
                       <img 
                         src={getCompanyLogo(item.company_name)!} 
                         alt={item.company_name} 
@@ -124,18 +194,21 @@ export default function Deliver({ testimonials }: { testimonials?: TestimonialDa
 
       <div className="kaluna-container mt-6 flex items-center justify-start">
         <div className="flex items-center gap-2">
-          {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
+          {displayTestimonials.map((_, idx) => (
             <button
               key={idx}
-              onClick={() => setCurrentIndex(idx)}
+              onClick={() => {
+                setIsTransitioning(true);
+                setActiveIndex(displayTestimonials.length + idx);
+              }}
               className={`flex items-center justify-center transition-all duration-300 ${
-                currentIndex === idx
+                progressIndex === idx
                   ? "h-5 w-5 rounded-full border border-[#299EED] bg-[#299EED]/10"
                   : "h-2 w-2 rounded-full bg-gray-200 hover:bg-gray-300"
               }`}
               aria-label={`Go to slide ${idx + 1}`}
             >
-              {currentIndex === idx && (
+              {progressIndex === idx && (
                 <span className="h-1.5 w-1.5 rounded-full bg-[#299EED]" />
               )}
             </button>

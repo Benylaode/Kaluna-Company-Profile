@@ -26,10 +26,17 @@ export default function ContactPage() {
     <main className="min-h-screen bg-white text-[#0D2342]">
       <Navbar />
 
-      {/* Hero Banner */}
-      <section className="pt-18 px-4 md:px-10 mb-16">
-        <div className="w-full h-[220px] bg-[#0D2342] rounded-[32px] flex items-center justify-center">
-          <h1 className="text-4xl md:text-5xl font-black text-white">Contact Us</h1>
+      {/* Hero Banner Section */}
+      <section className="w-full bg-white pt-[100px] mb-12">
+        <div className="mx-auto max-w-[1440px] px-5 md:px-4">
+          <div
+            className="relative w-full h-[170px] md:h-[180px] rounded-[20px] overflow-hidden flex items-center justify-center bg-cover bg-center"
+            style={{ backgroundImage: "url('/image/works-banner-bg.svg')" }}
+          >
+            <h1 className="relative z-10 text-3xl md:text-[52px] font-bold text-white tracking-wide">
+              Contact Us
+            </h1>
+          </div>
         </div>
       </section>
 
@@ -39,11 +46,11 @@ export default function ContactPage() {
           <h2 className="text-3xl font-bold mb-8">Let's Discuss Your Technology Needs</h2>
           <div className="mb-8">
             <h4 className="font-bold uppercase text-xs tracking-widest mb-2">Our Office</h4>
-            {/* Teks alamat sudah diperbarui */}
+            {/* Teks alamat sudah disesuaikan dengan Footer */}
             <p className="text-sm text-gray-600 leading-relaxed">
-              Menara Rajawali, Jl. DR. Ide Anak Agung Gde Agung, RT.5/RW.2, Kuningan, 
-              Kuningan Tim., Kecamatan Setiabudi, Kota Jakarta Selatan, 
-              Daerah Khusus Ibukota Jakarta 12950, Indonesia
+              PT Sinergi Muda Arsa Office<br />
+              Menara Rajawali, 26th Floor<br />
+              Kuningan Business District, South Jakarta, Indonesia
             </p>
           </div>
           

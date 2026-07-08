@@ -103,12 +103,12 @@ export default function Footer() {
             <div className="md:col-span-4 lg:col-span-3">
               <h4 className="mb-5 text-sm font-bold uppercase tracking-wider text-[#0E2A54]">Visit Our Office</h4>
               <p className="mb-4 text-sm font-medium leading-relaxed text-[#3F3F3F]">
-                PT Sinergi Muda Arsa Office
-                Menara Rajawali, 26th Floor
+                PT Sinergi Muda Arsa Office<br />
+                Menara Rajawali, 26th Floor<br />
                 Kuningan Business District, South Jakarta, Indonesia
               </p>
               <a
-                href="https://maps.google.com/?q=Semarang+Central+Java"
+                href="https://maps.google.com/maps?q=Menara+Rajawali,+Jl.+DR.+Ide+Anak+Agung+Gde+Agung,+Jakarta+Selatan"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1 text-sm font-bold text-[#299EED] hover:underline"

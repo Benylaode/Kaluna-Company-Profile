@@ -66,6 +66,7 @@ const initDb = () => {
       company_name TEXT,
       content TEXT NOT NULL,
       avatar_url TEXT,
+      logo_url TEXT,
       created_at DATETIME DEFAULT CURRENT_TIMESTAMP
     );
 
