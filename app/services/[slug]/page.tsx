@@ -81,20 +81,6 @@ export default async function ServiceDetailPage({ params }: PageProps) {
     <main className="min-h-screen bg-white font-sans text-[#0D2342] overflow-x-hidden">
       <Navbar />
 
-      {/* Floating WA Button */}
-      <a 
-        href="https://wa.me/6281234567890" 
-        target="_blank" 
-        rel="noreferrer" 
-        className="fixed bottom-6 right-6 z-50 group"
-      >
-        <img 
-          src="/Frame WA.webp" 
-          alt="WhatsApp" 
-          className="w-14 h-14 md:w-16 md:h-16 drop-shadow-xl cursor-pointer hover:scale-110 transition-transform duration-300" 
-        />
-      </a>
-
       {/* 1. HERO HEADER — standardized banner layout without overlays */}
       <section className="w-full bg-white pt-[100px]">
         <div className="mx-auto max-w-[1440px] px-5 md:px-4">
