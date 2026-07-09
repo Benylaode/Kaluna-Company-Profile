@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import LazyImage from "./LazyImage";
 
 export interface ProjectData {
   id: number;
@@ -108,7 +109,7 @@ export default function ProjectCarousel({ projects }: { projects: ProjectData[] 
                 }`}
               >
                 {project.images?.[0] && (
-                  <img
+                  <LazyImage
                     src={project.images[0]}
                     alt={project.title}
                     className="absolute inset-0 h-full w-full object-cover"

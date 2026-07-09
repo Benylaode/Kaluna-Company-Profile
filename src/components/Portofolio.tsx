@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import LazyImage from "./LazyImage";
 
 export interface ProjectData {
   id: number;
@@ -68,7 +69,7 @@ export default function Portfolio({
             >
               <Link href={`/works/${project.slug}`}>
                 <div className="relative h-[220px] rounded-[24px] overflow-hidden shadow-sm bg-gray-900 group cursor-pointer">
-                  <img
+                  <LazyImage
                     src={project.images[0]}
                     alt={project.title}
                     className="absolute inset-0 w-full h-full object-cover opacity-60 transition-transform duration-300 group-hover:scale-105"

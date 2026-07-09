@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import LazyImage from "./LazyImage";
 
 export interface ServiceData {
   id: number;
@@ -133,7 +134,7 @@ export default function OurServices({ services }: { services: ServiceData[] }) {
                   }}
                   className="relative flex-shrink-0 w-[280px] md:w-[310px] h-[360px] rounded-[24px] overflow-hidden group shadow-md cursor-pointer"
                 >
-                  <img
+                  <LazyImage
                     src={service.image_url}
                     alt={service.title}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"

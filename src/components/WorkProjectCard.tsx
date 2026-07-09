@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { ProjectData } from "./ProjectCarousel";
+import LazyImage from "./LazyImage";
 
 interface WorkProjectCardProps {
   projects: ProjectData[];
@@ -110,7 +111,7 @@ export default function WorkProjectCard({
                     }`}
                 >
                   {project.images?.[0] && (
-                    <img
+                    <LazyImage
                       src={project.images[0]}
                       alt={project.title}
                       className="absolute inset-0 h-full w-full object-cover"
