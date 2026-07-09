@@ -103,8 +103,9 @@ export async function submitLead(formData: FormData) {
 
     // 2. Kirim Email Notifikasi
     await transporter.sendMail({
-      from: '"Kaluna Website" <corporate@kalunatechnology.com>',
-      to: 'corporate@kalunatechnology.com',
+      from: `"Kaluna Website" <${process.env.EMAIL_USER}>`,
+      to: process.env.EMAIL_RECEIVER || process.env.EMAIL_USER,
+      replyTo: email,
       subject: `New Inquiry: ${inquiry} - ${name}`,
       html: `
         <h2>New Inquiry Received</h2>

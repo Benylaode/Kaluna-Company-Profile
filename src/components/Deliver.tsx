@@ -15,7 +15,7 @@ export interface TestimonialData {
 
 const getCompanyLogo = (companyName: string) => {
   const name = companyName.toLowerCase();
-  if (name.includes("sinau print")) return "/image/mitra/12.webp";
+  if (name.includes("sinau print")) return "/image/mitra/11.webp";
   if (name.includes("aspoo")) return "/image/mitra/17.webp";
   if (name.includes("top toy") || name.includes("aliansea")) return "/image/mitra/16.webp";
   if (name.includes("queen city") || name.includes("queen") || name.includes("semarang center")) return "/image/mitra/15.webp";
@@ -34,23 +34,23 @@ export default function Deliver({ testimonials }: { testimonials?: TestimonialDa
 
   const displayTestimonials = testimonials && testimonials.length > 0
     ? testimonials.map((item, idx) => ({
-        id: item.id || idx + 1,
-        client_name: item.client_name,
-        role: item.role,
-        company_name: item.company_name,
-        content: item.content,
-        avatar_url: item.avatar_url || "/image/default-avatar.svg",
-        logo_url: item.logo_url
-      }))
+      id: item.id || idx + 1,
+      client_name: item.client_name,
+      role: item.role,
+      company_name: item.company_name,
+      content: item.content,
+      avatar_url: item.avatar_url || "/image/default-avatar.svg",
+      logo_url: item.logo_url
+    }))
     : dummyTestimonials.map((item, idx) => ({
-        id: idx + 1,
-        client_name: item.client_name,
-        role: item.role,
-        company_name: item.company_name,
-        content: item.content,
-        avatar_url: item.avatar_url || "/image/default-avatar.svg",
-        logo_url: item.logo_url
-      }));
+      id: idx + 1,
+      client_name: item.client_name,
+      role: item.role,
+      company_name: item.company_name,
+      content: item.content,
+      avatar_url: item.avatar_url || "/image/default-avatar.svg",
+      logo_url: item.logo_url
+    }));
 
   // Triple clone data to construct seamless infinite scroll loops
   const extendedTestimonials = [...displayTestimonials, ...displayTestimonials, ...displayTestimonials];
@@ -65,7 +65,7 @@ export default function Deliver({ testimonials }: { testimonials?: TestimonialDa
       if (window.innerWidth < 768) setItemsPerView(1);
       else setItemsPerView(2);
     };
-    handleResize(); 
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -137,12 +137,12 @@ export default function Deliver({ testimonials }: { testimonials?: TestimonialDa
         </div>
       </div>
 
-      <div 
+      <div
         className="kaluna-container relative z-10 overflow-hidden"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >
-        <div 
+        <div
           className={`flex gap-5 ${isTransitioning ? "transition-transform duration-500 ease-in-out" : ""} md:gap-8`}
           style={{ transform: `translateX(-${slideOffset})` }}
           onTransitionEnd={handleTransitionEnd}
@@ -153,15 +153,15 @@ export default function Deliver({ testimonials }: { testimonials?: TestimonialDa
                 <div>
                   <div className="mb-4 flex h-8 items-center md:mb-5">
                     {item.logo_url ? (
-                      <img 
-                        src={item.logo_url} 
-                        alt={item.company_name} 
+                      <img
+                        src={item.logo_url}
+                        alt={item.company_name}
                         className="h-7 md:h-8 object-contain"
                       />
                     ) : getCompanyLogo(item.company_name) ? (
-                      <img 
-                        src={getCompanyLogo(item.company_name)!} 
-                        alt={item.company_name} 
+                      <img
+                        src={getCompanyLogo(item.company_name)!}
+                        alt={item.company_name}
                         className="h-7 md:h-8 object-contain"
                       />
                     ) : (
@@ -176,9 +176,9 @@ export default function Deliver({ testimonials }: { testimonials?: TestimonialDa
                 </div>
 
                 <div className="mt-4 flex items-center gap-3 md:gap-4">
-                  <img 
-                    src={item.avatar_url} 
-                    alt={item.client_name} 
+                  <img
+                    src={item.avatar_url}
+                    alt={item.client_name}
                     className="h-12 w-12 rounded-xl bg-gray-200 object-cover md:h-14 md:w-14"
                   />
                   <div className="flex flex-col">
@@ -201,11 +201,10 @@ export default function Deliver({ testimonials }: { testimonials?: TestimonialDa
                 setIsTransitioning(true);
                 setActiveIndex(displayTestimonials.length + idx);
               }}
-              className={`flex items-center justify-center transition-all duration-300 ${
-                progressIndex === idx
+              className={`flex items-center justify-center transition-all duration-300 ${progressIndex === idx
                   ? "h-5 w-5 rounded-full border border-[#299EED] bg-[#299EED]/10"
                   : "h-2 w-2 rounded-full bg-gray-200 hover:bg-gray-300"
-              }`}
+                }`}
               aria-label={`Go to slide ${idx + 1}`}
             >
               {progressIndex === idx && (
@@ -215,7 +214,7 @@ export default function Deliver({ testimonials }: { testimonials?: TestimonialDa
           ))}
         </div>
       </div>
-      
+
     </section>
   );
 }
