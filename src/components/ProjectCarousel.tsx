@@ -41,7 +41,7 @@ export default function ProjectCarousel({ projects }: { projects: ProjectData[] 
               </div>
 
               {/* Mobile Label */}
-              <div className="kaluna-label mb-6 md:hidden">LATEST WORK</div>
+              {/* <div className="kaluna-label mb-6 md:hidden">LATEST WORK</div> */}
  
               {/* Project Title */}
               <h2 className="text-[28px] md:text-[36px] lg:text-[44px] font-bold leading-[1.15] tracking-[-0.015em] text-[#0E2A54]">
