@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Navbar from "../../src/components/Navbar";
 import Footer from "../../src/components/Footer";
@@ -40,12 +40,83 @@ const ImageSlider = ({ images, title }: { images: string[], title: string }) => 
   );
 };
 
+const types = [
+  "Web & Application Development",
+  "IoT System Development",
+  "ERP & System Integration",
+  "Industrial & Automation Solutions",
+  "Data Dashboard & Analytics",
+  "IT Consulting & Digital Strategy"
+];
+
+const industries = [
+  "Corporate",
+  "Finance & Banking",
+  "Government Organizations",
+  "UMKM",
+  "Agency/Studio",
+  "Infrastructure & Engineering",
+  "Other Industries"
+];
+
+const getProjectDetails = (slug: string, category: string) => {
+  const s = slug.toLowerCase();
+  
+  if (s.includes("x-1-tire")) {
+    return {
+      type: "Web & Application Development",
+      industry: "Corporate"
+    };
+  }
+  if (s.includes("navicom")) {
+    return {
+      type: "IoT System Development",
+      industry: "Infrastructure & Engineering"
+    };
+  }
+  if (s.includes("sinau-print")) {
+    return {
+      type: "Web & Application Development",
+      industry: "UMKM"
+    };
+  }
+  if (s.includes("suara-merdeka")) {
+    return {
+      type: "Web & Application Development",
+      industry: "Agency/Studio"
+    };
+  }
+  if (s.includes("korlantas")) {
+    return {
+      type: "IoT System Development",
+      industry: "Government Organizations"
+    };
+  }
+  
+  // Fallbacks based on category
+  let type = "Web & Application Development";
+  if (category.toLowerCase().includes("iot")) {
+    type = "IoT System Development";
+  }
+  
+  return {
+    type,
+    industry: "Other Industries"
+  };
+};
+
 export default function WorksPage() {
   const [projects, setProjects] = useState<ProjectData[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Filter state (matches Figma pills: All Works, Web & App, IoT System)
-  const [activeFilter, setActiveFilter] = useState<"All Works" | "Web & App" | "IoT System">("All Works");
+  // Dropdown filter state
+  const [selectedType, setSelectedType] = useState<string | null>(null);
+  const [selectedIndustry, setSelectedIndustry] = useState<string | null>(null);
+  const [isTypeOpen, setIsTypeOpen] = useState(false);
+  const [isIndustryOpen, setIsIndustryOpen] = useState(false);
+
+  const typeDropdownRef = useRef<HTMLDivElement>(null);
+  const industryDropdownRef = useRef<HTMLDivElement>(null);
 
   // State untuk mengatur Load More (Default tampilkan 5: 1 Besar + 4 Grid)
   const [visibleCount, setVisibleCount] = useState(5);
@@ -66,7 +137,29 @@ export default function WorksPage() {
 
   useEffect(() => {
     setVisibleCount(5);
-  }, [activeFilter]);
+  }, [selectedType, selectedIndustry]);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        typeDropdownRef.current &&
+        !typeDropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsTypeOpen(false);
+      }
+      if (
+        industryDropdownRef.current &&
+        !industryDropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsIndustryOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   // Helper mapping untuk filter
   const getProjectType = (category: string) => {
@@ -102,25 +195,24 @@ export default function WorksPage() {
 
   // Filter Logic
   const filteredProjects = projects.filter((p) => {
-    if (activeFilter === "All Works") return true;
-    if (activeFilter === "Web & App") {
-      return p.category === "Website Development" || p.category === "Software Development";
-    }
-    if (activeFilter === "IoT System") {
-      return p.category === "IoT System" || p.category === "Backend & IoT";
-    }
-    return true;
+    const details = getProjectDetails(p.slug, p.category);
+    const matchesType = selectedType ? details.type === selectedType : true;
+    const matchesIndustry = selectedIndustry ? details.industry === selectedIndustry : true;
+    return matchesType && matchesIndustry;
   });
 
   const visibleProjects = filteredProjects.slice(0, visibleCount);
   const hasMore = visibleCount < filteredProjects.length;
 
-  const isDefaultFilter = activeFilter === "All Works";
+  const isDefaultFilter = !selectedType && !selectedIndustry;
   const featuredProject = visibleProjects.length > 0 && isDefaultFilter ? visibleProjects[0] : null;
   const gridProjects = featuredProject ? visibleProjects.slice(1) : visibleProjects;
 
   const handleLoadMore = () => setVisibleCount((prev) => prev + 4);
-  const handleResetFilters = () => setActiveFilter("All Works");
+  const handleResetFilters = () => {
+    setSelectedType(null);
+    setSelectedIndustry(null);
+  };
 
   return (
     <main className="min-h-screen bg-[#FAFAFA] font-sans overflow-x-hidden">
@@ -153,22 +245,115 @@ export default function WorksPage() {
             <h2 className="text-3xl md:text-4xl lg:text-[38px] font-semibold text-[#0D2342] tracking-tight max-w-md leading-tight">
               Create Meaningful Digital Solutions
             </h2>
-            <div className="flex md:flex-wrap items-center gap-3 overflow-x-auto hide-scrollbar whitespace-nowrap -mx-5 px-5 pb-2">
-              {(["All Works", "Web & App", "IoT System"] as const).map((filter) => {
-                const isActive = activeFilter === filter;
-                return (
-                  <button
-                    key={filter}
-                    onClick={() => setActiveFilter(filter)}
-                    className={`px-6 py-2.5 rounded-full border transition-all text-xs md:text-sm font-semibold cursor-pointer shrink-0 ${isActive
-                      ? "bg-[#EAF3FF] text-[#299EED] border-[#DCEBFF]"
+            <div className="flex flex-wrap items-center gap-3 overflow-visible whitespace-nowrap -mx-5 px-5 pb-2">
+              {/* 1. All Works Button */}
+              <button
+                onClick={() => {
+                  setSelectedType(null);
+                  setSelectedIndustry(null);
+                  setIsTypeOpen(false);
+                  setIsIndustryOpen(false);
+                }}
+                className={`flex items-center gap-2 px-6 py-2.5 rounded-full border transition-all text-xs md:text-sm font-semibold cursor-pointer shrink-0 ${
+                  !selectedType && !selectedIndustry
+                    ? "bg-[#EAF3FF] text-[#299EED] border-[#DCEBFF]"
+                    : "bg-white text-gray-500 border-gray-200 hover:bg-gray-50 hover:text-gray-700"
+                }`}
+              >
+                All Works
+              </button>
+
+              {/* 2. Select Type Dropdown */}
+              <div className="relative" ref={typeDropdownRef}>
+                <button
+                  onClick={() => {
+                    setIsTypeOpen(!isTypeOpen);
+                    setIsIndustryOpen(false);
+                  }}
+                  className={`flex items-center gap-2 px-6 py-2.5 rounded-full border transition-all text-xs md:text-sm font-semibold cursor-pointer shrink-0 ${
+                    selectedType
+                      ? "bg-[#EAF3FF] text-[#299EED] border-[#299EED]"
                       : "bg-white text-gray-500 border-gray-200 hover:bg-gray-50 hover:text-gray-700"
-                      }`}
+                  }`}
+                >
+                  {selectedType || "Select Type"}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={2.5}
+                    stroke="currentColor"
+                    className="w-3.5 h-3.5"
                   >
-                    {filter}
-                  </button>
-                );
-              })}
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                  </svg>
+                </button>
+
+                {isTypeOpen && (
+                  <div className="absolute left-0 mt-2 w-[280px] bg-white border border-[#E9E9E9] rounded-[18px] shadow-[0_10px_30px_rgba(0,0,0,0.08)] py-2 z-50 overflow-hidden">
+                    {types.map((type) => (
+                      <div
+                        key={type}
+                        onClick={() => {
+                          setSelectedType(type);
+                          setIsTypeOpen(false);
+                        }}
+                        className={`px-5 py-3 text-sm font-semibold text-[#0E2A54] hover:bg-[#F5F9FF] cursor-pointer transition-colors ${
+                          selectedType === type ? "bg-[#EAF3FF]/40 text-[#299EED]" : ""
+                        }`}
+                      >
+                        {type}
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* 3. Select Industry Dropdown */}
+              <div className="relative" ref={industryDropdownRef}>
+                <button
+                  onClick={() => {
+                    setIsIndustryOpen(!isIndustryOpen);
+                    setIsTypeOpen(false);
+                  }}
+                  className={`flex items-center gap-2 px-6 py-2.5 rounded-full border transition-all text-xs md:text-sm font-semibold cursor-pointer shrink-0 ${
+                    selectedIndustry
+                      ? "bg-[#EAF3FF] text-[#299EED] border-[#299EED]"
+                      : "bg-white text-gray-500 border-gray-200 hover:bg-gray-50 hover:text-gray-700"
+                  }`}
+                >
+                  {selectedIndustry || "Select Industry"}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={2.5}
+                    stroke="currentColor"
+                    className="w-3.5 h-3.5"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                  </svg>
+                </button>
+
+                {isIndustryOpen && (
+                  <div className="absolute right-0 md:right-auto md:left-0 mt-2 w-[280px] bg-white border border-[#E9E9E9] rounded-[18px] shadow-[0_10px_30px_rgba(0,0,0,0.08)] py-2 z-50 overflow-hidden">
+                    {industries.map((ind) => (
+                      <div
+                        key={ind}
+                        onClick={() => {
+                          setSelectedIndustry(ind);
+                          setIsIndustryOpen(false);
+                        }}
+                        className={`px-5 py-3 text-sm font-semibold text-[#0E2A54] hover:bg-[#F5F9FF] cursor-pointer transition-colors ${
+                          selectedIndustry === ind ? "bg-[#EAF3FF]/40 text-[#299EED]" : ""
+                        }`}
+                      >
+                        {ind}
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>

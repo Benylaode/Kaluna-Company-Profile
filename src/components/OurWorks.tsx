@@ -101,23 +101,94 @@ export default function OurWorks() {
   const progress = (progressIndex / (WORK_STEPS.length - 1)) * 100;
 
   return (
-    <section id="works-section" className="bg-[#FAFAFA] py-20 md:py-28">
+    <section id="works-section" className="bg-[#FAFAFA] py-20 md:py-0">
       <style>{`
-        .kaluna-diagonal {
-          background: linear-gradient(135deg, #0B1E36 0%, #0D2342 40%, #1a3a6e 100%);
-        }
-        .blur-mask-extended {
-          backdrop-filter: blur(4px);
-          mask-image: linear-gradient(to right, transparent 0%, black 40px);
-          -webkit-mask-image: linear-gradient(to right, transparent 0%, black 40px);
-        }
-      `}</style>
+  .kaluna-diagonal {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(180deg, #0E2A54 0%, #1F5DBA 153.91%);
+  }
+
+  .kaluna-graphic-k {
+    position: absolute;
+    left: -20px;
+    top: 0;
+    width: 70%;
+    height: 100%;
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .kaluna-graphic-k::before {
+    content: "";
+    position: absolute;
+    left: -9%;
+    top: -62%;
+    width: 78%;
+    height: 170%;
+    background: #203560;
+    transform: rotate(45deg);
+    transform-origin: center;
+  }
+
+  .kaluna-graphic-k::after {
+    content: "";
+    position: absolute;
+    left: -7%;
+    top: 16%;
+    width: 18%;
+    height: 28%;
+    background: #2C87B8;
+    transform: rotate(45deg);
+    transform-origin: center;
+  }
+
+  .kaluna-graphic-k span {
+    position: absolute;
+    left: 20%;
+    top: 50%;
+    width: 70%;
+    height: 38%;
+    background: #203560;
+    transform: rotate(45deg);
+    transform-origin: center;
+    display: block;
+  }
+
+  .kaluna-right-linear {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 84%;
+    height: 100%;
+    background: linear-gradient(270deg, #0E2A54 0%, rgba(14, 42, 84, 0) 100%);
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .kaluna-right-linear-slider {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: calc(300px + 24px);
+    background: linear-gradient(270deg, #0E2A54 0%, rgba(14, 42, 84, 0) 100%);
+    pointer-events: none;
+    z-index: 20;
+  }
+`}</style>
 
       <div className="kaluna-wide-container">
         <div className="relative overflow-hidden rounded-[24px] kaluna-diagonal px-6 py-10 text-white md:px-12 md:py-16 lg:px-16 lg:py-20">
+          <div className="kaluna-graphic-k">
+            <span />
+          </div>
+
+          <div className="kaluna-right-linear" />
 
           {/* HEADER */}
-          <div className="mb-8 flex items-center justify-between">
+          <div className="relative z-20 mb-8 flex items-center justify-between">
             <span className="inline-flex items-center gap-2.5 text-xs font-semibold uppercase tracking-wider">
               <span className="h-4 w-[3px] bg-[#299EED] rounded-full" />
               IMPLEMENTATION PROCESS
@@ -141,7 +212,7 @@ export default function OurWorks() {
 
           {/* SLIDER */}
           <div
-            className="relative overflow-hidden"
+            className="relative z-10 overflow-hidden"
             onMouseEnter={() => setPaused(true)}
             onMouseLeave={() => setPaused(false)}
           >
@@ -163,21 +234,29 @@ export default function OurWorks() {
                       setActiveIndex(index);
                     }}
                     className={`group relative flex-shrink-0 w-[300px] h-[360px] rounded-[24px] p-3 transition-all duration-500 ${isActive
-                      ? "bg-white text-[#0D0D0D] shadow-xl"
-                      : "bg-[#253F69]/60 text-white"
+                      ? "z-30 bg-white text-[#0D0D0D] shadow-xl"
+                      : "z-10 bg-white/50 text-[#0E2A54]"
                       }`}
                   >
-                    <div className="h-[180px] overflow-hidden rounded-[16px]">
+                    <div className="relative h-[180px] overflow-hidden rounded-[16px]">
                       <LazyImage
                         src={item.image_url}
                         alt={item.title}
                         className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
                       />
+
+                      {!isActive && (
+                        <div className="absolute inset-0 bg-black/50" />
+                      )}
                     </div>
 
                     <div className="flex flex-1 flex-col justify-between pt-4 px-2 pb-1">
                       <div className="flex justify-between gap-3">
-                        <h3 className={`text-[20px] leading-[1.3] ${isActive ? "font-semibold" : "font-normal"}`}>
+                        <h3
+                          className={`text-[20px] leading-[1.3] ${
+                            isActive ? "font-semibold text-[#0E2A54]" : "font-normal text-[#0E2A54]"
+                          }`}
+                        >
                           {item.title}
                         </h3>
                         <span className="flex h-7 w-7 items-center justify-center rounded-full text-xs bg-[#0E2A54] text-white">
@@ -185,7 +264,7 @@ export default function OurWorks() {
                         </span>
                       </div>
 
-                      <p className={`text-sm mt-2 ${isActive ? "text-[#555]" : "text-white/60"}`}>
+                      <p className={`text-sm mt-2 ${isActive ? "text-[#3F3F3F]" : "text-[#3F3F3F]"}`}>
                         {item.category}
                       </p>
                     </div>
@@ -194,27 +273,11 @@ export default function OurWorks() {
               })}
             </div>
 
-            {/* MEKANISME OVERLAY BLUR TOTAL YANG DIMULAI TEPAT DI BELAKANG KOTAK PERTAMA */}
-            <div
-              className="pointer-events-none absolute bottom-0 top-0 z-10 hidden rounded-r-[24px] md:block"
-              style={{ left: "calc(300px + 24px)", right: 0 }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-l from-[#1a3a6e] via-[#0D2342]/70 to-transparent opacity-80" />
-              <div className="blur-mask-extended absolute inset-0 rounded-r-[24px]" />
-            </div>
-
-            {/* Versi Mobile Overlay Blur */}
-            <div
-              className="pointer-events-none absolute bottom-0 top-0 z-10 block md:hidden"
-              style={{ left: "calc(240px + 24px)", right: 0 }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-l from-[#1a3a6e] via-[#0D2342]/70 to-transparent opacity-80" />
-              <div className="blur-mask-extended absolute inset-0 rounded-r-[24px]" />
-            </div>
+            <div className="kaluna-right-linear-slider" />
           </div>
 
           {/* PROGRESS */}
-          <div className="mt-10 h-1 max-w-3xl bg-white/20 rounded-full relative">
+          <div className="relative z-20 mt-10 h-1 max-w-3xl bg-[#304674] rounded-full">
             <div
               className="absolute left-0 top-0 h-full bg-[#299EED] rounded-full transition-all duration-300"
               style={{ width: `${progress}%` }}

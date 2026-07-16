@@ -341,15 +341,70 @@ export const seedDatabase = (db: any) => {
       ]
     }
   ];
-
   const testimonials = [
-    { client_name: "Pak Hari", role: "Owner", company_name: "Sinau Print", content: "Sebagai pemilik Sinau Print, saya sangat puas dengan hasil kerja Kaluna dalam mendigitalisasi sistem kasir dan print order kami. Manajemen transaksi harian kini berjalan jauh lebih efisien, rapi, dan cepat.", avatar_url: "/image/default-avatar.svg", logo_url: "/image/mitra/12.webp" },
-    { client_name: "Pak Asrofi", role: "Ketua Pengurus", company_name: "ASPOO Jateng", content: "Kaluna membangun portal database keanggotaan dan forum komunikasi untuk pengusaha sablon ASPOO Jateng. Koordinasi antar daerah kini jauh lebih terstruktur dan pendaftaran anggota baru dapat terverifikasi secara instan.", avatar_url: "/image/default-avatar.svg", logo_url: "/image/mitra/17.webp" },
-    { client_name: "Ko Simon", role: "Founder", company_name: "Top Toy", content: "Sistem e-commerce retail mainan yang didevelop oleh Kaluna membantu bisnis kami menjangkau pasar nasional secara digital. Sinkronisasi stok produk fisik dengan toko online berjalan real-time dan bebas kendala.", avatar_url: "/image/default-avatar.svg", logo_url: "/image/mitra/16.webp" },
-    { client_name: "Pak Ishaq", role: "Property Manager", company_name: "Queen City Mall", content: "Integrasi sistem penagihan tenant dan manajemen utilitas gedung mall di Semarang Center berjalan sukses berkat ERP kustom dari Kaluna. Semua data operasional mall kini terpusat dan mudah diakses tim manajemen.", avatar_url: "/image/default-avatar.svg", logo_url: "/image/mitra/15.webp" },
-    { client_name: "Pak Todi", role: "General Manager", company_name: "PT. BSP", content: "Otomasi sistem logistik dan pemantauan sensor pabrik (IoT) dari Kaluna membantu meningkatkan output produksi kami. Tim engineer Kaluna sangat ahli, solutif, dan profesional dalam mendampingi instalasi di lapangan.", avatar_url: "/image/default-avatar.svg", logo_url: "/image/mitra/2.webp" },
-    { client_name: "Maya Kharta", role: "Marketing Director", company_name: "X-1 Tire", content: "Revitalisasi company profile website X-1 Tire oleh Kaluna sukses mendatangkan prospek B2B baru dari luar kota. Desain visualnya modern, performa load speed sangat kencang, dan sangat mobile-friendly.", avatar_url: "/image/default-avatar.svg", logo_url: "/image/mitra/14.webp" },
-    { client_name: "Pak Hermawan", role: "Head of IT", company_name: "Suara Merdeka", content: "Kami mempercayakan refresh total website portal media harian Suara Merdeka kepada tim Kaluna. Hasilnya adalah portal berita yang sangat responsif, andal dalam menangani traffic tinggi, dan nyaman dibaca dari smartphone.", avatar_url: "/image/default-avatar.svg", logo_url: "/image/mitra/13.webp" }
+    {
+      client_name: "Ibnu Sapto Adi",
+      role: "General Manager",
+      company_name: "PT Bahtera Sapta Permata",
+      content:
+        "Kaluna Technology quickly understood our operational needs. Their team was responsive, easy to communicate with, and able to provide solutions that fit BSP’s business processes.",
+      avatar_url: "/image/default-avatar.svg",
+      logo_url: "/image/mitra/2.webp",
+    },
+    {
+      client_name: "Gunawan Premadi",
+      role: "Editor-in-Chief",
+      company_name: "Suara Merdeka Network",
+      content:
+        "Kaluna Technology helped us develop a professional and informative enterprise company profile website. The development process was well managed, and communication with the team went smoothly.",
+      avatar_url: "/image/default-avatar.svg",
+      logo_url: "/image/mitra/13.webp",
+    },
+    {
+      client_name: "Simon Agung Hoedoyo",
+      role: "Project Leader – IoT & Digital Signage",
+      company_name: "Top Toy",
+      content:
+        "Kaluna Technology supported the implementation of our videotron and digital signage system for Top Toy’s advertising needs. Their team understood the technical requirements and handled the installation process well.",
+      avatar_url: "/image/default-avatar.svg",
+      logo_url: "/image/mitra/16.webp",
+    },
+    {
+      client_name: "Ishaq Nfarara",
+      role: "Building System Manager",
+      company_name: "Queen City Mall",
+      content:
+        "Kaluna Technology helped us develop an IoT-based solution for our building management needs. The solution was practical and well suited to our day-to-day operations.",
+      avatar_url: "/image/default-avatar.svg",
+      logo_url: "/image/mitra/15.webp",
+    },
+    {
+      client_name: "Anisa Apriani",
+      role: "Business Development Manager",
+      company_name: "Sinau Print",
+      content:
+        "The ERP system developed by Kaluna Technology has helped make our workflows more structured. Their team also took the time to understand the needs of each department.",
+      avatar_url: "/image/default-avatar.svg",
+      logo_url: "/image/mitra/11.webp",
+    },
+    {
+      client_name: "Sisca Kristina Dewi",
+      role: "General Manager",
+      company_name: "Mandiri Pribumi",
+      content:
+        "The company profile website developed by Kaluna Technology met our expectations. It looks professional, and the entire development process went smoothly.",
+      avatar_url: "/image/default-avatar.svg",
+      logo_url: "/image/mitra/18.webp",
+    },
+    {
+      client_name: "Mayakharta Siahaan",
+      role: "Marketing Manager",
+      company_name: "X1-Tire",
+      content:
+        "The dashboard developed by Kaluna Technology has made it easier for our team to monitor and manage data. The system is practical and easy to use in our daily activities.",
+      avatar_url: "/image/default-avatar.svg",
+      logo_url: "/image/mitra/14.webp",
+    },
   ];
 
   const team = [
