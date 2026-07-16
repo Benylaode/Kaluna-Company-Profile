@@ -35,9 +35,9 @@ export default function ProjectCarousel({ projects }: { projects: ProjectData[] 
             <div key={`text-${currentIndex}`} className="animate-fade-in">
               {/* Pagination/Paging Indicator */}
               <div className="hidden md:flex mb-6 items-baseline text-[#C7C7CC] text-[16px] font-bold">
-                <span className="text-[#000000]">{String(currentIndex + 1).padStart(1, "0")}</span>
+                <span className="text-[#000000]">{currentIndex + 1}</span>
                 <span className="mx-2 text-gray-300">/</span>
-                <span className="text-[#C7C7CC]">{String(projects.length).padStart(1, "0")}</span>
+                <span className="text-[#C7C7CC]">{projects.length}</span>
               </div>
 
               {/* Mobile Label */}

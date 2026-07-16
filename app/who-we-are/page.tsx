@@ -49,16 +49,48 @@ export default async function WhoWeArePage() {
       <Navbar />
 
       {/* ── 1. Hero Banner — same design as Our Works ────────────── */}
-      <section className="w-full bg-white pt-[100px]">
-        <div className="mx-auto max-w-[1440px] px-5 md:px-4">
-          <div
-            className="relative w-full h-[170px] md:h-[180px] rounded-[20px] overflow-hidden flex items-center justify-center bg-cover bg-center"
-            style={{ backgroundImage: "url('/image/works-banner-bg.svg')" }}
-          >
-            <h1 className="relative z-10 text-3xl md:text-[52px] font-bold text-white tracking-wide">Who We Are</h1>
-          </div>
-        </div>
-      </section>
+<section className="w-full bg-white pt-[100px]">
+  <div className="mx-auto max-w-[1640px] px-5 md:px-4">
+    <div
+      className="
+        relative
+        w-full
+        h-[240px]
+        md:h-[260px]
+        rounded-[20px]
+        overflow-hidden
+        flex
+        items-center
+        justify-center
+        bg-cover
+        bg-center
+      "
+      style={{
+        backgroundImage: "url('/image/works-banner-bg.svg')",
+      }}
+    >
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-[#0E2A54]/15" />
+
+      <h1
+        className="
+          relative
+          z-10
+          text-[40px]
+          md:text-[56px]
+          lg:text-[64px]
+          font-bold
+          tracking-[-0.02em]
+          text-white
+          text-center
+          px-4
+        "
+      >
+        Who We Are
+      </h1>
+    </div>
+  </div>
+</section>
 
       {/* ── 2. About Us ─────────────────────────────────────────── */}
       <section className="w-full bg-white">
@@ -66,7 +98,7 @@ export default async function WhoWeArePage() {
           <div className="w-full md:w-1/2">
             <div className="flex items-center gap-2.5 mb-4">
               <span className="h-3.5 w-[2.5px] bg-[#299EED] rounded-full" />
-              <span className="text-xs font-semibold tracking-[0.08em] text-[#0E2A54] uppercase">About Us</span>
+              <span className="text-xs font-semibold tracking-[0.08em] text-[#0E2A54] uppercase">Overview</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#0D2342] leading-tight">
               Crafting Digital Solutions<br className="hidden md:block" /> For Your Needs
@@ -124,29 +156,114 @@ export default async function WhoWeArePage() {
       </section>
 
       {/* ── 4. Vision & Mission ─────────────────────────────────── */}
-      <section className="w-full bg-[#0D2342] py-20 md:py-32 relative overflow-hidden flex flex-col items-center justify-center text-center">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0D2342] to-[#122c54]" />
-        <div className="absolute top-0 right-0 w-2/3 h-full bg-[#1E88E5]/10 transform skew-x-[-35deg] translate-x-1/4" />
-        <div className="absolute bottom-0 left-0 w-1/2 h-full bg-[#1E88E5]/5 transform skew-x-[-35deg] -translate-x-1/4" />
+<section className="relative overflow-hidden bg-[linear-gradient(182.26deg,#0E2A54_14.5%,#1F5DBA_98.1%)] py-24 md:py-28 lg:py-32">
 
-        <div className="relative z-10 max-w-4xl mx-auto px-5 md:px-12">
-          <div className="flex items-center gap-2.5 mb-4 justify-center">
-            <span className="h-3.5 w-[2.5px] bg-[#299EED] rounded-full" />
-            <span className="text-xs font-semibold tracking-[0.08em] text-[#299EED] uppercase">Our Vision</span>
-          </div>
-          <h2 className="text-2xl md:text-4xl font-medium text-white mb-16 leading-snug md:leading-normal">
-            To empower enterprises with reliable and<br className="hidden md:block" /> future-ready technology systems
-          </h2>
+  {/* Background Graphics */}
+  <div className="absolute inset-0 overflow-hidden pointer-events-none">
 
-          <div className="flex items-center gap-2.5 mb-4 justify-center">
-            <span className="h-3.5 w-[2.5px] bg-[#299EED] rounded-full" />
-            <span className="text-xs font-semibold tracking-[0.08em] text-[#299EED] uppercase">Our Mission</span>
-          </div>
-          <p className="text-base md:text-xl text-gray-300 font-light">
-            Deliver structured, scalable, and performance-driven IT solutions.
-          </p>
-        </div>
-      </section>
+    {/* Dark Shape */}
+    <div
+      className="absolute opacity-40"
+      style={{
+        width: "1100px",
+        height: "900px",
+        background: "#203560",
+        clipPath: "polygon(42% 0%,100% 0%,68% 100%,8% 100%)",
+        top: "-520px",
+        right: "-120px",
+      }}
+    />
+
+    {/* Blue Shape */}
+    <div
+      className="absolute opacity-35"
+      style={{
+        width: "950px",
+        height: "950px",
+        background: "#375CA9",
+        clipPath: "polygon(38% 0%,100% 0%,62% 100%,0% 100%)",
+        top: "-180px",
+        right: "-90px",
+      }}
+    />
+
+    {/* Small Triangle */}
+    <div
+      className="absolute opacity-80"
+      style={{
+        width: "180px",
+        height: "180px",
+        background: "#2C9FDD",
+        clipPath: "polygon(100% 0%,0% 100%,100% 100%)",
+        right: "110px",
+        bottom: "70px",
+      }}
+    />
+  </div>
+
+  {/* Content */}
+  <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-10 flex flex-col items-center gap-16">
+
+    {/* Vision */}
+    <div className="flex flex-col items-center gap-6">
+
+      <div className="flex items-center gap-3">
+        <span className="w-[4px] h-[15px] bg-[#299EED]" />
+        <span className="text-[12px] font-semibold tracking-[0.05em] uppercase text-white">
+          OUR VISION
+        </span>
+      </div>
+
+      <h2
+        className="
+          max-w-5xl
+          text-center
+          text-[38px]
+          md:text-[32px]
+          lg:text-[46px]
+          font-medium
+          leading-[110%]
+          tracking-[-0.01em]
+          text-white
+        "
+      >
+        To empower enterprises with reliable and
+        <br className="hidden md:block" />
+        future-ready technology systems
+      </h2>
+
+    </div>
+
+    {/* Mission */}
+    <div className="flex flex-col items-center gap-6">
+
+      <div className="flex items-center gap-3">
+        <span className="w-[4px] h-[15px] bg-[#299EED]" />
+        <span className="text-[12px] font-semibold tracking-[0.05em] uppercase text-white">
+          OUR MISSION
+        </span>
+      </div>
+
+      <p
+        className="
+          max-w-4xl
+          text-center
+          text-xl
+          md:text-2xl
+          lg:text-[25px]
+          leading-[120%]
+          font-normal
+          text-white/90
+        "
+      >
+        Deliver structured, scalable, and performance-driven IT solutions.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
 
       {/* ── 5. Expertise ────────────────────────────────────────── */}
       <section className="w-full bg-white py-16 md:py-24">

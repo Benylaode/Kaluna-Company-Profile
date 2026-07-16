@@ -41,9 +41,9 @@ export default function WorkProjectCard({
               <div key={`text-${currentIndex}`} className="animate-fade-in">
                 {/* Pagination Indicator */}
                 <div className="hidden md:flex mb-6 items-baseline text-[#A5A5A5] text-[16px] font-bold">
-                  <span className="text-[#000000]">{pad(currentIndex + 1)}</span>
-                  <span className="mx-2 text-gray-300">|</span>
-                  <span>{pad(projects.length)}</span>
+                  <span className="text-[#000000]">{currentIndex + 1}</span>
+                  <span className="mx-2 text-gray-300">/</span>
+                  <span className="text-[#C7C7CC]">{projects.length}</span>
                 </div>
 
                 {/* Project Title */}

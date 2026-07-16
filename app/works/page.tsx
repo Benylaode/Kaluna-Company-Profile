@@ -218,19 +218,36 @@ export default function WorksPage() {
     <main className="min-h-screen bg-[#FAFAFA] font-sans overflow-x-hidden">
       <Navbar />
 
-      {/* 1. Hero Banner Section */}
-      <section className="w-full bg-white pt-[100px]">
-        <div className="mx-auto max-w-[1440px] px-5 md:px-4">
-          <div
-            className="relative w-full h-[170px] md:h-[180px] rounded-[20px] overflow-hidden flex items-center justify-center bg-cover bg-center"
-            style={{ backgroundImage: "url('/image/works-banner-bg.svg')" }}
-          >
-            <h1 className="relative z-10 text-3xl md:text-[52px] font-bold text-white tracking-wide">
-              Our Works
-            </h1>
-          </div>
-        </div>
-      </section>
+{/* 1. Hero Banner Section */}
+<section className="w-full bg-white pt-[100px]">
+  <div className="mx-auto max-w-[1640px] px-5 md:px-4">
+  <div
+    className="
+      relative
+      w-full
+      h-[240px]
+      md:h-[260px]
+      rounded-[20px]
+      overflow-hidden
+      flex
+      items-center
+      justify-center
+      bg-cover
+      bg-center
+    "
+    style={{
+      backgroundImage: "url('/image/works-banner-bg.svg')",
+    }}
+  >
+      {/* Optional dark overlay */}
+      <div className="absolute inset-0 bg-[#0E2A54]/15"></div>
+
+      <h1 className="relative z-10 text-[40px] md:text-[56px] lg:text-[64px] font-bold tracking-[-0.02em] text-white">
+        Our Works
+      </h1>
+    </div>
+  </div>
+</section>
 
       {/* Featured WorkProjectCard — shows Sinau Print with interactive prev/next */}
       {!isLoading && projects.length > 2 && isDefaultFilter && (

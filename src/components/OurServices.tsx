@@ -90,7 +90,7 @@ export default function OurServices({ services }: { services: ServiceData[] }) {
                 Our Service
               </span>
             </div>
-            <h2 className="text-[28px] md:text-[36px] lg:text-[44px] font-bold text-[#0E2A54] tracking-tight leading-[1.15]">
+            <h2 className="text-[28px] md:text-[32px] lg:text-[40px]  text-[#0E2A54] tracking-tight leading-[1.15]">
               What We Actually Do
             </h2>
           </div>

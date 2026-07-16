@@ -115,17 +115,20 @@ export default function Deliver({ testimonials }: { testimonials?: TestimonialDa
   return (
     <section className="relative overflow-hidden bg-[#FAFAFA] py-20 md:py-28">
       <div className="kaluna-container mb-8 flex items-end justify-between gap-4 md:mb-10">
-        <div>
-          <div className="flex items-center gap-2.5 mb-3">
-            <span className="h-3.5 w-[2.5px] bg-[#299EED] rounded-full"></span>
-            <span className="text-xs font-semibold tracking-[0.08em] text-[#0E2A54] uppercase">
-              Testimonials
-            </span>
-          </div>
-          <h2 className="mt-3 max-w-[560px] text-[28px] md:text-[36px] lg:text-[44px] font-bold leading-[1.2] tracking-[-0.015em] text-[#0E2A54]">
-            What They Say About Kaluna
-          </h2>
+      <div className="flex items-start gap-10 lg:gap-10">
+        {/* Left */}
+        <div className="flex items-center gap-2.5 shrink-0 pt-2">
+          <span className="h-3.5 w-[2.5px] rounded-full bg-[#299EED]" />
+          <span className="text-xs font-semibold uppercase tracking-[0.08em] text-[#0E2A54]">
+            Testimonials
+          </span>
         </div>
+
+        {/* Right */}
+        <h2 className="text-[28px] md:text-[32px] lg:text-[40px] leading-[1.2] tracking-[-0.015em] text-[#0E2A54]">
+          What They Say About Kaluna
+        </h2>
+      </div>
 
         <div className="flex items-center gap-1.5">
           <button onClick={prevSlide} className="flex h-10 w-10 items-center justify-center rounded-full border border-[#0E2A54] text-[#0E2A54] transition-colors hover:bg-[#0E2A54] hover:text-white md:h-[46px] md:w-[46px]">
