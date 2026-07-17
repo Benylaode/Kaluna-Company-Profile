@@ -19,7 +19,7 @@ export default async function Home() {
   const servicesData = await getServices();
 
   return (
-    <main className="min-h-screen bg-[#FFFFFF] scroll-smooth overflow-x-hidden" style={{ zoom: 0.88 } as any}>
+    <main className="min-h-screen bg-[#FFFFFF] scroll-smooth overflow-x-hidden">
       <HashScroll />
       <Navbar />
       

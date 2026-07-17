@@ -66,7 +66,7 @@ export default function Footer() {
         <div className="w-full bg-[#EAF3FF] px-16 pt-12 pb-6 lg:px-18 lg:pt-14 lg:pb-0 rounded-[24px]">
           
           {/* 5. Menggunakan lg:gap-14 untuk jarak antar kolom yang lebih lega */}
-          <div className="grid grid-cols-1 gap-8 border-b border-[#D7E6F8] pb-10 md:grid-cols-12 md:gap-6 lg:gap-14">
+          <div className="grid grid-cols-1 gap-8 border-b border-[#D7E6F8] pb-6 md:grid-cols-12 md:gap-6 lg:gap-14">
             
             {/* 4. Memperbesar ukuran logo hingga lg:w-[300px] agar lebih terlihat */}
             <div className="flex flex-col items-start md:col-span-12 lg:col-span-4 lg:pr-6">
@@ -232,7 +232,7 @@ export default function Footer() {
           </div>
 
           {/* 2 & 8. Copyright Section yang ditaruh di luar/bawah section kontak, dibatasi border-t & py-7 */}
-          <div className="mt-10 border-t border-[#D7E6F8] py-7">
+          <div className="mt-10 border-t border-[#D7E6F8] py-3">
             <p className="text-center text-[13px] font-medium tracking-wide text-[#1A1A1A]/80">
               © 2026 PT. KALUNA TECHNOLOGY DIGITAL
             </p>

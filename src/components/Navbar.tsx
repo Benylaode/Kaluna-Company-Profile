@@ -11,6 +11,7 @@ export default function Navbar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesExpanded, setIsServicesExpanded] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -21,6 +22,19 @@ export default function Navbar() {
     }
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Run once initially
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const services = [
@@ -40,9 +54,14 @@ export default function Navbar() {
     }
   };
 
+  const isHome = pathname === "/";
+  const headerBgClass = isHome
+    ? (isScrolled ? "bg-white" : "bg-transparent")
+    : "bg-white";
+
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-50 bg-white/80 md:bg-transparent backdrop-blur-md md:backdrop-blur-none transition-all">
+      <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${headerBgClass}`}>
         <nav className="mx-auto max-w-[1440px] px-5 md:px-[48px] lg:px-[80px] py-4 relative">
           <div className="flex items-center justify-between md:grid md:grid-cols-[1fr_auto_1fr]">
 
@@ -52,9 +71,9 @@ export default function Navbar() {
                 <Image
                   src="/logo.svg"
                   alt="Kaluna Logo"
-                  width={42.00004577636719}
-                  height={42.00004577636719}
-                  className="w-10 h-10 md:w-12 md:h-12 transition hover:scale-105"
+                  width={27}
+                  height={27}
+                  className="w-[22px] h-[22px] md:w-[27px] md:h-[27px] transition hover:scale-105"
                   priority
                 />
               </Link>
@@ -62,7 +81,7 @@ export default function Navbar() {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex justify-center">
-              <div className="flex items-center rounded-full border border-gray-200/60 bg-white/70 p-1.5 backdrop-blur-xl shadow-sm">
+              <div className="flex items-center rounded-full border border-gray-100 bg-white/70 p-1.5 backdrop-blur-xl">
                 <Link
                   href="/"
                   className={`rounded-full px-6 py-2 text-sm font-medium transition-all ${pathname === "/" ? "bg-[#EFF6FF] text-[#1E88E5]" : "text-[#0D2342] hover:bg-gray-50"
@@ -121,7 +140,7 @@ export default function Navbar() {
             <div className="hidden md:flex justify-end">
               <button
                 onClick={scrollToFooter}
-                className="group flex items-center rounded-full bg-[#0D2342] py-1.5 pl-5 pr-1.5 text-white shadow-md transition-all duration-300 hover:bg-[#163A70]"
+                className="group flex items-center rounded-full bg-[#0D2342] py-1.5 pl-5 pr-1.5 text-white transition-all duration-300 hover:bg-[#163A70]"
               >
                 <span className="mr-3 text-sm font-medium">Contact Us</span>
                 <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#1E88E5] group-hover:scale-105 transition-transform">
@@ -156,9 +175,9 @@ export default function Navbar() {
               <Image
                 src="/logo.svg"
                 alt="Kaluna Logo"
-                width={40}
-                height={40}
-                className="w-10 h-10"
+                width={22}
+                height={22}
+                className="w-[22px] h-[22px]"
               />
             </Link>
             <button

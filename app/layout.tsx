@@ -31,7 +31,9 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col relative">
         <CustomCursor />
-        {children}
+        <div style={{ zoom: 0.88 } as any} className="flex-1 flex flex-col">
+          {children}
+        </div>
         <WhatsAppButton />
       </body>
     </html>

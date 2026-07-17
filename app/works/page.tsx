@@ -214,40 +214,48 @@ export default function WorksPage() {
     setSelectedIndustry(null);
   };
 
+  const imagePosition: Record<string, string> = {
+    "x-1-tire-company-profile": "center 40%",
+    "navicom-smart-home": "center 35%",
+    "sinau-print-pos-system": "center center",
+    "suara-merdeka-refresh": "center 30%",
+    "korlantas-polri-edrives": "center center",
+  };
+
   return (
-    <main className="min-h-screen bg-[#FAFAFA] font-sans overflow-x-hidden">
+    <main className="min-h-screen bg-[#FFFFFF] font-sans overflow-x-hidden">
       <Navbar />
 
-{/* 1. Hero Banner Section */}
-<section className="w-full bg-white pt-[100px]">
-  <div className="mx-auto max-w-[1640px] px-5 md:px-4">
-  <div
-    className="
-      relative
-      w-full
-      h-[240px]
-      md:h-[260px]
-      rounded-[20px]
-      overflow-hidden
-      flex
-      items-center
-      justify-center
-      bg-cover
-      bg-center
-    "
-    style={{
-      backgroundImage: "url('/image/works-banner-bg.svg')",
-    }}
-  >
-      {/* Optional dark overlay */}
-      <div className="absolute inset-0 bg-[#0E2A54]/15"></div>
+      {/* 1. Hero Banner Section */}
+      <section className="w-full bg-white pt-[100px] md:pt-[80px]">
+        <div className="kaluna-wide-container">
+          <div
+            className="
+              relative
+              w-full
+              h-[240px]
+              md:h-[260px]
+              rounded-[12px]
+              overflow-hidden
+              flex
+              items-center
+              justify-center
+              bg-cover
+              bg-center
+            "
+            style={{
+              backgroundImage: "url('/image/works-banner-bg.svg')",
+            }}
+          >
+            {/* Optional dark overlay */}
+            <div className="absolute inset-0 bg-[#0E2A54]/15"></div>
 
-      <h1 className="relative z-10 text-[40px] md:text-[56px] lg:text-[64px] font-bold tracking-[-0.02em] text-white">
-        Our Works
-      </h1>
-    </div>
-  </div>
-</section>
+            <h1 className="relative z-10 text-[40px] md:text-[56px] lg:text-[64px] font-bold tracking-[-0.02em] text-white">
+              Our Works
+            </h1>
+          </div>
+        </div>
+      </section>
 
       {/* Featured WorkProjectCard — shows Sinau Print with interactive prev/next */}
       {!isLoading && projects.length > 2 && isDefaultFilter && (
@@ -255,14 +263,14 @@ export default function WorksPage() {
       )}
 
       {/* Main Projects Section */}
-      <section className="relative bg-white pt-[100px] pb-[120px]">
-        {/* Title & Filter Pills — own independent container, decoupled from CTA padding */}
-        <div className="mx-auto w-full max-w-[1700px] px-10 xl:px-[110px] mb-20">
+      <section className="relative bg-white pt-[72px] pb-[120px]">
+        {/* Title & Filter Pills — aligned to layout grid */}
+        <div className="kaluna-container mb-20">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10">
-            <h2 className="text-3xl md:text-4xl lg:text-[54px] font-medium text-[#0D2342] tracking-[-0.01em] max-w-xl leading-[110%]">
+            <h2 className="text-[28px] md:text-[px] lg:text-[44px] leading-[1.15] font-medium text-[#0D0D0D] tracking-[-0.015em] max-w-xl">
               Create Meaningful Digital Solutions
             </h2>
-            <div className="flex flex-wrap items-center gap-3 overflow-visible whitespace-nowrap -mx-5 px-5 pb-2">
+            <div className="flex flex-wrap items-center lg:justify-end gap-3 overflow-visible whitespace-nowrap -mx-5 px-5 pb-2">
               {/* 1. All Works Button */}
               <button
                 onClick={() => {
@@ -271,7 +279,7 @@ export default function WorksPage() {
                   setIsTypeOpen(false);
                   setIsIndustryOpen(false);
                 }}
-                className={`flex items-center gap-2 px-6 py-3.5 rounded-full border transition-all text-xs md:text-[18px] font-semibold cursor-pointer shrink-0 ${
+                className={`flex items-center gap-2.5 px-8 py-4 rounded-full border-[0.5px] transition-all text-xs md:text-[16px] font-medium cursor-pointer shrink-0 ${
                   !selectedType && !selectedIndustry
                     ? "bg-[#EAF3FF] text-[#299EED] border-[#DCEBFF]"
                     : "bg-white text-gray-500 border-gray-200 hover:bg-gray-50 hover:text-gray-700"
@@ -287,7 +295,7 @@ export default function WorksPage() {
                     setIsTypeOpen(!isTypeOpen);
                     setIsIndustryOpen(false);
                   }}
-                  className={`flex items-center gap-2 px-6 py-3.5 rounded-full border transition-all text-xs md:text-[18px] font-semibold cursor-pointer shrink-0 ${
+                  className={`flex items-center gap-2.5 px-8 py-4 rounded-full border-[0.5px] transition-all text-xs md:text-[16px] font-medium cursor-pointer shrink-0 ${
                     selectedType
                       ? "bg-[#EAF3FF] text-[#299EED] border-[#299EED]"
                       : "bg-white text-gray-500 border-gray-200 hover:bg-gray-50 hover:text-gray-700"
@@ -315,7 +323,7 @@ export default function WorksPage() {
                           setSelectedType(type);
                           setIsTypeOpen(false);
                         }}
-                        className={`px-5 py-3 text-sm md:text-[18px] font-semibold text-[#0E2A54] hover:bg-[#F5F9FF] cursor-pointer transition-colors ${
+                        className={`px-5 py-3 text-sm md:text-[16px] font-medium text-[#0E2A54] hover:bg-[#F5F9FF] cursor-pointer transition-colors ${
                           selectedType === type ? "bg-[#EAF3FF]/40 text-[#299EED]" : ""
                         }`}
                       >
@@ -333,7 +341,7 @@ export default function WorksPage() {
                     setIsIndustryOpen(!isIndustryOpen);
                     setIsTypeOpen(false);
                   }}
-                  className={`flex items-center gap-2 px-6 py-3.5 rounded-full border transition-all text-xs md:text-[18px] font-semibold cursor-pointer shrink-0 ${
+                  className={`flex items-center gap-2.5 px-8 py-4 rounded-full border-[0.5px] transition-all text-xs md:text-[16px] font-medium cursor-pointer shrink-0 ${
                     selectedIndustry
                       ? "bg-[#EAF3FF] text-[#299EED] border-[#299EED]"
                       : "bg-white text-gray-500 border-gray-200 hover:bg-gray-50 hover:text-gray-700"
@@ -361,7 +369,7 @@ export default function WorksPage() {
                           setSelectedIndustry(ind);
                           setIsIndustryOpen(false);
                         }}
-                        className={`px-5 py-3 text-sm md:text-[18px] font-semibold text-[#0E2A54] hover:bg-[#F5F9FF] cursor-pointer transition-colors ${
+                        className={`px-5 py-3 text-sm md:text-[16px] font-medium text-[#0E2A54] hover:bg-[#F5F9FF] cursor-pointer transition-colors ${
                           selectedIndustry === ind ? "bg-[#EAF3FF]/40 text-[#299EED]" : ""
                         }`}
                       >
@@ -375,8 +383,8 @@ export default function WorksPage() {
           </div>
         </div>
 
-        {/* Projects content — own independent container */}
-        <div className="mx-auto w-full max-w-[1700px] px-10 xl:px-[110px]">
+        {/* Projects content — aligned to layout grid */}
+        <div className="kaluna-container">
           {isLoading ? (
             <div className="flex justify-center items-center py-24 text-gray-400 font-medium">
               Loading works...
@@ -409,12 +417,15 @@ export default function WorksPage() {
               {/* Featured Large Card (full-width, only on All Works) */}
               {featuredProject && (
                 <Link href={`/works/${featuredProject.slug}`}>
-                  <div className="relative w-full aspect-[4/3] md:aspect-[1700/712] rounded-[24px] overflow-hidden mb-[64px] group cursor-pointer block bg-[#F5F5F5]">
+                  <div className="relative w-full aspect-[4/3] md:aspect-[1700/712] rounded-[18px] overflow-hidden mb-[64px] group cursor-pointer block bg-[#F5F5F5]">
                     <div className="absolute inset-0 w-full h-full">
                       <img
                         src={featuredProject.images[0]}
                         alt={featuredProject.title}
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                        style={{
+                          objectPosition: imagePosition[featuredProject.slug] || "center center",
+                        }}
                       />
                     </div>
 
@@ -432,7 +443,7 @@ export default function WorksPage() {
                       "
                     />
 
-                    <div className="absolute bottom-0 left-0 p-6 md:p-10 lg:p-[110px] pb-6 md:pb-10 lg:pb-[110px] flex flex-col items-start justify-end z-30 pointer-events-none w-full">
+                    <div className="absolute bottom-0 left-0 p-6 md:p-10 lg:p-[80px] pb-6 md:pb-10 lg:pb-[80px] flex flex-col items-start justify-end z-30 pointer-events-none w-full">
                       <div className="flex flex-wrap gap-2 md:gap-3 mb-4 md:mb-6">
                         {(getMockupData(featuredProject.slug).category.length > 0
                           ? getMockupData(featuredProject.slug).category
@@ -440,7 +451,7 @@ export default function WorksPage() {
                         ).map((cat, idx) => (
                           <span
                             key={idx}
-                            className="bg-white text-[#299EED] text-xs md:text-base font-normal px-4 md:px-8 h-8 md:h-[54px] flex items-center justify-center rounded-full shadow-sm"
+                            className="bg-white text-[#0E2A54] text-xs md:text-sm font-semibold px-4 md:px-6 h-8 md:h-[38px] flex items-center justify-center rounded-full shadow-sm"
                           >
                             {cat}
                           </span>
@@ -456,31 +467,42 @@ export default function WorksPage() {
 
               {/* 2-Column Grid */}
               {gridProjects.length > 0 && (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-[60px] gap-y-[64px]">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-[48px] gap-y-[64px]">
                   {gridProjects.map((project) => {
                     const mockup = getMockupData(project.slug);
                     const displayTitle = mockup.title || project.title;
                     const displayCategories = mockup.category.length > 0 ? mockup.category : [project.category];
 
                     return (
-                      <Link key={project.id} href={`/works/${project.slug}`}>
-                        <div className="flex flex-col group cursor-pointer w-full h-auto md:h-[547px] overflow-hidden">
-                          <div className="relative w-full aspect-[835/421] bg-[#F5F5F5] rounded-[24px] overflow-hidden mb-7">
+                      <Link key={project.id} href={`/works/${project.slug}`} className="flex flex-col h-full">
+                        <div className="flex flex-col group cursor-pointer w-full h-full overflow-hidden">
+                          <div className="relative w-full aspect-[835/421] bg-[#F5F5F5] rounded-[18px] overflow-hidden mb-6 transition-all duration-300 group-hover:shadow-[0_20px_40px_rgba(8,18,40,0.08)] group-hover:-translate-y-1 shrink-0">
                             <img
                               src={project.images[0]}
                               alt={project.title}
                               className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                              style={{
+                                objectPosition: imagePosition[project.slug] || "center center",
+                              }}
+                            />
+
+                            {/* Premium overlay to enhance color depth */}
+                            <div 
+                              className="absolute inset-0 z-10 pointer-events-none" 
+                              style={{
+                                background: "linear-gradient(transparent, rgba(8, 18, 40, 0.12))",
+                              }}
                             />
 
                             {/* Gradient bottom */}
-                            <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/40 to-transparent z-10 pointer-events-none" />
+                            <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/40 to-transparent z-15 pointer-events-none" />
 
                             {/* Category tag — bottom left */}
                             <div className="absolute bottom-[33px] left-[33px] z-20 flex flex-wrap gap-2">
                               {displayCategories.map((cat, idx) => (
                                 <span
                                   key={idx}
-                                  className="bg-white text-[#299EED] text-xs md:text-base font-normal px-4 md:px-8 h-8 md:h-[54px] flex items-center justify-center rounded-full shadow-sm"
+                                  className="bg-white text-[#0E2A54] text-[11px] md:text-xs font-semibold px-3.5 h-7 md:h-[34px] flex items-center justify-center rounded-full shadow-sm"
                                 >
                                   {cat}
                                 </span>
@@ -488,7 +510,7 @@ export default function WorksPage() {
                             </div>
 
                             {/* Arrow button — bottom right */}
-                            <div className="absolute bottom-[33px] right-[33px] w-9 h-9 md:w-12 md:h-12 rounded-full bg-[#299EED] text-white flex items-center justify-center transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 z-20 shadow-lg">
+                            <div className="absolute bottom-[33px] right-[33px] w-9 h-9 md:w-12 md:h-12 rounded-full bg-[#299EED] text-white flex items-center justify-center transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 z-20">
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 fill="none"
@@ -502,12 +524,14 @@ export default function WorksPage() {
                             </div>
                           </div>
 
-                          <h4 className="text-xl md:text-[32px] font-semibold text-[#0D2342] mb-3 tracking-tight leading-[120%] group-hover:text-[#299EED] transition-colors line-clamp-2 pr-4">
-                            {displayTitle}
-                          </h4>
-                          <p className="text-gray-500 text-sm md:text-[16px] leading-[150%] font-medium line-clamp-2 pr-4">
-                            {project.desc}
-                          </p>
+                          <div className="flex flex-col flex-1">
+                            <h4 className="text-xl md:text-[28px] lg:text-[32px] font-semibold text-[#0D2342] mb-5 tracking-tight leading-[120%] group-hover:text-[#299EED] transition-colors line-clamp-2 pr-4 min-h-[58px] md:min-h-[76px]">
+                              {displayTitle}
+                            </h4>
+                            <p className="text-gray-500 text-sm md:text-[16px] leading-[150%] font-medium line-clamp-2 pr-4">
+                              {project.desc}
+                            </p>
+                          </div>
                         </div>
                       </Link>
                     );
@@ -519,10 +543,10 @@ export default function WorksPage() {
 
           {/* Load More Button */}
           {!isLoading && hasMore && (
-            <div className="flex justify-center mt-[100px]">
+            <div className="flex justify-center mt-24">
               <button
                 onClick={handleLoadMore}
-                className="px-10 py-3 md:px-12 md:py-3.5 border border-[#299EED] text-[#299EED] hover:bg-[#299EED]/5 font-semibold text-sm rounded-full transition-all bg-white cursor-pointer"
+                className="px-10 py-3 md:px-12 md:py-3.5 border border-[#0E2A54] text-[#0E2A54] hover:bg-[#0E2A54]/5 font-semibold text-sm rounded-full transition-all bg-white cursor-pointer"
               >
                 Load More
               </button>
