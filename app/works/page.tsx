@@ -257,9 +257,9 @@ export default function WorksPage() {
       {/* Main Projects Section */}
       <section className="relative bg-white pt-[100px] pb-[120px]">
         {/* Title & Filter Pills — own independent container, decoupled from CTA padding */}
-        <div className="mx-auto w-full max-w-[1440px] px-5 md:px-12 mb-16">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-            <h2 className="text-3xl md:text-4xl lg:text-[38px] font-semibold text-[#0D2342] tracking-tight max-w-md leading-tight">
+        <div className="mx-auto w-full max-w-[1700px] px-10 xl:px-[110px] mb-20">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10">
+            <h2 className="text-3xl md:text-4xl lg:text-[54px] font-medium text-[#0D2342] tracking-[-0.01em] max-w-xl leading-[110%]">
               Create Meaningful Digital Solutions
             </h2>
             <div className="flex flex-wrap items-center gap-3 overflow-visible whitespace-nowrap -mx-5 px-5 pb-2">
@@ -271,7 +271,7 @@ export default function WorksPage() {
                   setIsTypeOpen(false);
                   setIsIndustryOpen(false);
                 }}
-                className={`flex items-center gap-2 px-6 py-2.5 rounded-full border transition-all text-xs md:text-sm font-semibold cursor-pointer shrink-0 ${
+                className={`flex items-center gap-2 px-6 py-3.5 rounded-full border transition-all text-xs md:text-[18px] font-semibold cursor-pointer shrink-0 ${
                   !selectedType && !selectedIndustry
                     ? "bg-[#EAF3FF] text-[#299EED] border-[#DCEBFF]"
                     : "bg-white text-gray-500 border-gray-200 hover:bg-gray-50 hover:text-gray-700"
@@ -287,7 +287,7 @@ export default function WorksPage() {
                     setIsTypeOpen(!isTypeOpen);
                     setIsIndustryOpen(false);
                   }}
-                  className={`flex items-center gap-2 px-6 py-2.5 rounded-full border transition-all text-xs md:text-sm font-semibold cursor-pointer shrink-0 ${
+                  className={`flex items-center gap-2 px-6 py-3.5 rounded-full border transition-all text-xs md:text-[18px] font-semibold cursor-pointer shrink-0 ${
                     selectedType
                       ? "bg-[#EAF3FF] text-[#299EED] border-[#299EED]"
                       : "bg-white text-gray-500 border-gray-200 hover:bg-gray-50 hover:text-gray-700"
@@ -315,7 +315,7 @@ export default function WorksPage() {
                           setSelectedType(type);
                           setIsTypeOpen(false);
                         }}
-                        className={`px-5 py-3 text-sm font-semibold text-[#0E2A54] hover:bg-[#F5F9FF] cursor-pointer transition-colors ${
+                        className={`px-5 py-3 text-sm md:text-[18px] font-semibold text-[#0E2A54] hover:bg-[#F5F9FF] cursor-pointer transition-colors ${
                           selectedType === type ? "bg-[#EAF3FF]/40 text-[#299EED]" : ""
                         }`}
                       >
@@ -333,7 +333,7 @@ export default function WorksPage() {
                     setIsIndustryOpen(!isIndustryOpen);
                     setIsTypeOpen(false);
                   }}
-                  className={`flex items-center gap-2 px-6 py-2.5 rounded-full border transition-all text-xs md:text-sm font-semibold cursor-pointer shrink-0 ${
+                  className={`flex items-center gap-2 px-6 py-3.5 rounded-full border transition-all text-xs md:text-[18px] font-semibold cursor-pointer shrink-0 ${
                     selectedIndustry
                       ? "bg-[#EAF3FF] text-[#299EED] border-[#299EED]"
                       : "bg-white text-gray-500 border-gray-200 hover:bg-gray-50 hover:text-gray-700"
@@ -361,7 +361,7 @@ export default function WorksPage() {
                           setSelectedIndustry(ind);
                           setIsIndustryOpen(false);
                         }}
-                        className={`px-5 py-3 text-sm font-semibold text-[#0E2A54] hover:bg-[#F5F9FF] cursor-pointer transition-colors ${
+                        className={`px-5 py-3 text-sm md:text-[18px] font-semibold text-[#0E2A54] hover:bg-[#F5F9FF] cursor-pointer transition-colors ${
                           selectedIndustry === ind ? "bg-[#EAF3FF]/40 text-[#299EED]" : ""
                         }`}
                       >
@@ -376,7 +376,7 @@ export default function WorksPage() {
         </div>
 
         {/* Projects content — own independent container */}
-        <div className="mx-auto w-full max-w-[1440px] px-5 md:px-12">
+        <div className="mx-auto w-full max-w-[1700px] px-10 xl:px-[110px]">
           {isLoading ? (
             <div className="flex justify-center items-center py-24 text-gray-400 font-medium">
               Loading works...
@@ -409,33 +409,44 @@ export default function WorksPage() {
               {/* Featured Large Card (full-width, only on All Works) */}
               {featuredProject && (
                 <Link href={`/works/${featuredProject.slug}`}>
-                  <div className="relative w-full h-[280px] sm:h-[360px] md:h-[440px] rounded-[20px] overflow-hidden mb-16 group cursor-pointer block bg-[#F5F5F5]">
-                    <div className="absolute inset-0 w-full h-full transition-transform duration-700 ease-out group-hover:scale-105">
+                  <div className="relative w-full aspect-[4/3] md:aspect-[1700/712] rounded-[24px] overflow-hidden mb-[64px] group cursor-pointer block bg-[#F5F5F5]">
+                    <div className="absolute inset-0 w-full h-full">
                       <img
                         src={featuredProject.images[0]}
                         alt={featuredProject.title}
-                        className="w-full h-full object-cover"
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                       />
                     </div>
 
                     {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0D2342]/95 via-[#0D2342]/40 to-transparent z-20 pointer-events-none" />
+                    <div
+                      className="
+                        absolute inset-x-0 bottom-0
+                        h-[58%]
+                        bg-gradient-to-t
+                        from-[#0E2A54]
+                        via-[#0E2A54]/55
+                        to-transparent
+                        z-20
+                        pointer-events-none
+                      "
+                    />
 
-                    <div className="absolute bottom-0 left-0 p-6 md:p-10 flex flex-col items-start justify-end z-30 pointer-events-none w-full">
-                      <div className="flex flex-wrap gap-2 mb-3">
+                    <div className="absolute bottom-0 left-0 p-6 md:p-10 lg:p-[110px] pb-6 md:pb-10 lg:pb-[110px] flex flex-col items-start justify-end z-30 pointer-events-none w-full">
+                      <div className="flex flex-wrap gap-2 md:gap-3 mb-4 md:mb-6">
                         {(getMockupData(featuredProject.slug).category.length > 0
                           ? getMockupData(featuredProject.slug).category
                           : [featuredProject.category]
                         ).map((cat, idx) => (
                           <span
                             key={idx}
-                            className="bg-white text-[#299EED] text-[11px] md:text-xs font-semibold px-4 py-2 rounded-full shadow-sm"
+                            className="bg-white text-[#299EED] text-xs md:text-base font-normal px-4 md:px-8 h-8 md:h-[54px] flex items-center justify-center rounded-full shadow-sm"
                           >
                             {cat}
                           </span>
                         ))}
                       </div>
-                      <h3 className="text-xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-tight max-w-3xl drop-shadow-md">
+                      <h3 className="text-xl md:text-3xl lg:text-[54px] font-medium text-white tracking-[-0.01em] leading-[110%] max-w-3xl drop-shadow-md">
                         {getMockupData(featuredProject.slug).title || featuredProject.title}
                       </h3>
                     </div>
@@ -445,7 +456,7 @@ export default function WorksPage() {
 
               {/* 2-Column Grid */}
               {gridProjects.length > 0 && (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-[60px] gap-y-[64px]">
                   {gridProjects.map((project) => {
                     const mockup = getMockupData(project.slug);
                     const displayTitle = mockup.title || project.title;
@@ -453,25 +464,23 @@ export default function WorksPage() {
 
                     return (
                       <Link key={project.id} href={`/works/${project.slug}`}>
-                        <div className="flex flex-col group cursor-pointer h-full">
-                          <div className="relative w-full h-[180px] sm:h-[240px] md:h-[280px] bg-[#F5F5F5] rounded-[20px] overflow-hidden mb-5 md:mb-6">
-                            <div className="absolute inset-0 w-full h-full transition-transform duration-700 ease-out group-hover:scale-105">
-                              <img
-                                src={project.images[0]}
-                                alt={project.title}
-                                className="w-full h-full object-cover"
-                              />
-                            </div>
+                        <div className="flex flex-col group cursor-pointer w-full h-auto md:h-[547px] overflow-hidden">
+                          <div className="relative w-full aspect-[835/421] bg-[#F5F5F5] rounded-[24px] overflow-hidden mb-7">
+                            <img
+                              src={project.images[0]}
+                              alt={project.title}
+                              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            />
 
                             {/* Gradient bottom */}
                             <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/40 to-transparent z-10 pointer-events-none" />
 
                             {/* Category tag — bottom left */}
-                            <div className="absolute bottom-4 md:bottom-6 left-4 md:left-6 z-20 flex flex-wrap gap-2">
+                            <div className="absolute bottom-[33px] left-[33px] z-20 flex flex-wrap gap-2">
                               {displayCategories.map((cat, idx) => (
                                 <span
                                   key={idx}
-                                  className="bg-white text-[#299EED] text-[11px] md:text-xs font-semibold px-3 py-1.5 md:px-4 md:py-2 rounded-full shadow-sm"
+                                  className="bg-white text-[#299EED] text-xs md:text-base font-normal px-4 md:px-8 h-8 md:h-[54px] flex items-center justify-center rounded-full shadow-sm"
                                 >
                                   {cat}
                                 </span>
@@ -479,7 +488,7 @@ export default function WorksPage() {
                             </div>
 
                             {/* Arrow button — bottom right */}
-                            <div className="absolute bottom-4 md:bottom-6 right-4 md:right-6 w-9 h-9 md:w-11 md:h-11 rounded-full bg-[#299EED] text-white flex items-center justify-center transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 z-20 shadow-lg">
+                            <div className="absolute bottom-[33px] right-[33px] w-9 h-9 md:w-12 md:h-12 rounded-full bg-[#299EED] text-white flex items-center justify-center transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 z-20 shadow-lg">
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 fill="none"
@@ -493,10 +502,10 @@ export default function WorksPage() {
                             </div>
                           </div>
 
-                          <h4 className="text-xl md:text-[22px] font-semibold text-[#0D2342] mb-2 md:mb-3 tracking-tight leading-snug group-hover:text-[#299EED] transition-colors">
+                          <h4 className="text-xl md:text-[32px] font-semibold text-[#0D2342] mb-3 tracking-tight leading-[120%] group-hover:text-[#299EED] transition-colors line-clamp-2 pr-4">
                             {displayTitle}
                           </h4>
-                          <p className="text-gray-500 text-sm md:text-[15px] leading-relaxed font-medium line-clamp-2 md:line-clamp-3 pr-4">
+                          <p className="text-gray-500 text-sm md:text-[16px] leading-[150%] font-medium line-clamp-2 pr-4">
                             {project.desc}
                           </p>
                         </div>

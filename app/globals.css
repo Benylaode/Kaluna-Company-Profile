@@ -53,25 +53,37 @@ body {
   width: 100%;
   max-width: 1440px;
   margin-inline: auto;
-  padding-inline: 32px;
+  padding-inline: 20px;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .kaluna-container {
-    padding-inline: 20px;
+    padding-inline: 48px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .kaluna-container {
+    padding-inline: 80px;
   }
 }
 
 .kaluna-wide-container {
   width: 100%;
-  max-width: 1440px;
+  max-width: auto;
   margin-inline: auto;
-  padding-inline: 12px;
+  padding-inline: 10px;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .kaluna-wide-container {
-    padding-inline: 20px;
+    padding-inline: 12px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .kaluna-wide-container {
+    padding-inline: 12px;
   }
 }
 
@@ -303,6 +315,84 @@ a, button, [role="button"], select, option, input[type="submit"], input[type="bu
 
 .animate-page-enter {
   animation: page-transition-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ============================================================
+   KALUNA BUTTON SYSTEM
+   ============================================================ */
+
+/* Primary Button */
+.btn-kaluna-primary {
+  background-color: #0E2A54;
+  color: #ffffff;
+  transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s ease;
+}
+.btn-kaluna-primary:hover {
+  background-color: #304674;
+  transform: scale(1.02);
+}
+.btn-kaluna-primary:active {
+  transform: scale(0.97);
+}
+.btn-kaluna-primary .icon-circle {
+  background-color: #299EED;
+  color: #ffffff;
+  transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-kaluna-primary:hover .icon-circle {
+  background-color: #ffffff;
+  color: #0E2A54;
+}
+.btn-kaluna-primary .icon-circle svg {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-kaluna-primary:hover .icon-circle svg {
+  transform: translateX(2px);
+}
+
+/* Primary White Button */
+.btn-kaluna-primary-white {
+  background-color: transparent;
+  color: #0E2A54;
+  transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s ease;
+}
+.btn-kaluna-primary-white:hover {
+  background-color: #DDEEFF;
+  transform: scale(1.02);
+}
+.btn-kaluna-primary-white:active {
+  transform: scale(0.97);
+}
+.btn-kaluna-primary-white .icon-circle {
+  background-color: #299EED;
+  color: #ffffff;
+  transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-kaluna-primary-white:hover .icon-circle {
+  background-color: #ffffff;
+  color: #0E2A54;
+}
+.btn-kaluna-primary-white .icon-circle svg {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-kaluna-primary-white:hover .icon-circle svg {
+  transform: translateX(2px);
+}
+
+/* Secondary Button */
+.btn-kaluna-secondary {
+  background-color: transparent;
+  border: 1px solid #0E2A54;
+  color: #0E2A54;
+  transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s ease;
+}
+.btn-kaluna-secondary:hover {
+  background-color: #90D3F5;
+  border-color: transparent;
+  transform: scale(1.02);
+}
+.btn-kaluna-secondary:active {
+  transform: scale(0.97);
 }
 
 /* Prefers Reduced Motion */

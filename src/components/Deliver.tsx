@@ -113,24 +113,25 @@ export default function Deliver({ testimonials }: { testimonials?: TestimonialDa
   const slideOffset = itemsPerView === 1 ? `${activeIndex * 280}px` : `${activeIndex * 50}%`;
 
   return (
-    <section className="relative overflow-hidden bg-[#FAFAFA] py-20 md:py-28">
-      <div className="kaluna-container mb-8 flex items-end justify-between gap-4 md:mb-10">
-      <div className="flex items-start gap-10 lg:gap-10">
-        {/* Left */}
-        <div className="flex items-center gap-2.5 shrink-0 pt-2">
-          <span className="h-3.5 w-[2.5px] rounded-full bg-[#299EED]" />
-          <span className="text-xs font-semibold uppercase tracking-[0.08em] text-[#0E2A54]">
-            Testimonials
-          </span>
+    <section className="relative overflow-hidden bg-[#FFFFFF] py-20 md:py-28">
+      <div className="kaluna-container mb-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-6 md:mb-10">
+        <div className="flex items-start gap-6 md:gap-8 lg:gap-10">
+          {/* Label */}
+          <div className="flex items-center gap-3 pt-2 shrink-0">
+            <span className="h-2.5 w-[2.5px] rounded-full bg-[#299EED]" />
+
+            <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#173A69]">
+              Testimonials
+            </span>
+          </div>
+
+          {/* Title */}
+          <h2 className="text-[12px] md:text-[20px] lg:text-[32px] font-medium leading-[1.15] tracking-normal text-[#171717]">
+            What They Say About Kaluna
+          </h2>
         </div>
 
-        {/* Right */}
-        <h2 className="text-[28px] md:text-[32px] lg:text-[40px] leading-[1.2] tracking-[-0.015em] text-[#0E2A54]">
-          What They Say About Kaluna
-        </h2>
-      </div>
-
-        <div className="flex items-center gap-1.5">
+        <div className="flex items-center gap-1.5 mb-2">
           <button onClick={prevSlide} className="flex h-10 w-10 items-center justify-center rounded-full border border-[#0E2A54] text-[#0E2A54] transition-colors hover:bg-[#0E2A54] hover:text-white md:h-[46px] md:w-[46px]">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5"><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
           </button>

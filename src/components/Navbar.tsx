@@ -43,7 +43,7 @@ export default function Navbar() {
   return (
     <>
       <header className="fixed inset-x-0 top-0 z-50 bg-white/80 md:bg-transparent backdrop-blur-md md:backdrop-blur-none transition-all">
-        <nav className="mx-auto max-w-[1440px] px-6 lg:px-10 py-4 relative">
+        <nav className="mx-auto max-w-[1440px] px-5 md:px-[48px] lg:px-[80px] py-4 relative">
           <div className="flex items-center justify-between md:grid md:grid-cols-[1fr_auto_1fr]">
 
             {/* Logo */}
@@ -52,8 +52,8 @@ export default function Navbar() {
                 <Image
                   src="/logo.svg"
                   alt="Kaluna Logo"
-                  width={48}
-                  height={48}
+                  width={42.00004577636719}
+                  height={42.00004577636719}
                   className="w-10 h-10 md:w-12 md:h-12 transition hover:scale-105"
                   priority
                 />
@@ -65,17 +65,15 @@ export default function Navbar() {
               <div className="flex items-center rounded-full border border-gray-200/60 bg-white/70 p-1.5 backdrop-blur-xl shadow-sm">
                 <Link
                   href="/"
-                  className={`rounded-full px-6 py-2 text-sm font-medium transition-all ${
-                    pathname === "/" ? "bg-[#EFF6FF] text-[#1E88E5]" : "text-[#0D2342] hover:bg-gray-50"
-                  }`}
+                  className={`rounded-full px-6 py-2 text-sm font-medium transition-all ${pathname === "/" ? "bg-[#EFF6FF] text-[#1E88E5]" : "text-[#0D2342] hover:bg-gray-50"
+                    }`}
                 >
                   Home
                 </Link>
                 <Link
                   href="/works"
-                  className={`rounded-full px-6 py-2 text-sm font-medium transition-all ${
-                    pathname === "/works" ? "bg-[#EFF6FF] text-[#1E88E5]" : "text-[#0D2342] hover:bg-gray-50"
-                  }`}
+                  className={`rounded-full px-6 py-2 text-sm font-medium transition-all ${pathname === "/works" ? "bg-[#EFF6FF] text-[#1E88E5]" : "text-[#0D2342] hover:bg-gray-50"
+                    }`}
                 >
                   Our Works
                 </Link>
@@ -84,11 +82,10 @@ export default function Navbar() {
                   <button
                     type="button"
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                    className={`flex items-center gap-1.5 rounded-full px-6 py-2 text-sm font-medium transition-all ${
-                      isDropdownOpen || pathname.startsWith("/services")
-                        ? "bg-[#EFF6FF] text-[#1E88E5]"
-                        : "text-[#0D2342] hover:bg-gray-50"
-                    }`}
+                    className={`flex items-center gap-1.5 rounded-full px-6 py-2 text-sm font-medium transition-all ${isDropdownOpen || pathname.startsWith("/services")
+                      ? "bg-[#EFF6FF] text-[#1E88E5]"
+                      : "text-[#0D2342] hover:bg-gray-50"
+                      }`}
                   >
                     Our Service
                     <ChevronDown size={16} className={`transition-transform duration-200 ${isDropdownOpen ? "rotate-180" : ""}`} />
@@ -112,9 +109,8 @@ export default function Navbar() {
 
                 <Link
                   href="/who-we-are"
-                  className={`rounded-full px-6 py-2 text-sm font-medium transition-all ${
-                    pathname === "/who-we-are" ? "bg-[#EFF6FF] text-[#1E88E5]" : "text-[#0D2342] hover:bg-gray-50"
-                  }`}
+                  className={`rounded-full px-6 py-2 text-sm font-medium transition-all ${pathname === "/who-we-are" ? "bg-[#EFF6FF] text-[#1E88E5]" : "text-[#0D2342] hover:bg-gray-50"
+                    }`}
                 >
                   Who We Are
                 </Link>
@@ -136,8 +132,8 @@ export default function Navbar() {
 
             {/* Mobile Menu Toggle */}
             <div className="md:hidden flex items-center">
-              <button 
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} 
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="text-[#0D2342] p-2 outline-none focus:outline-none [-webkit-tap-highlight-color:transparent]"
               >
                 {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -148,12 +144,11 @@ export default function Navbar() {
       </header>
 
       {/* Mobile Navigation Drawer (Full-page slide-over matching user image) */}
-      <div 
-        className={`md:hidden fixed inset-0 z-50 bg-[#F4F9FF] flex flex-col justify-between p-6 overflow-y-auto transition-all duration-300 ease-in-out ${
-          isMobileMenuOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0 pointer-events-none"
-        }`}
+      <div
+        className={`md:hidden fixed inset-0 z-50 bg-[#F4F9FF] flex flex-col justify-between p-6 overflow-y-auto transition-all duration-300 ease-in-out ${isMobileMenuOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0 pointer-events-none"
+          }`}
       >
-        
+
         <div>
           {/* Drawer Header */}
           <div className="flex items-center justify-between">
@@ -166,7 +161,7 @@ export default function Navbar() {
                 className="w-10 h-10"
               />
             </Link>
-            <button 
+            <button
               onClick={() => setIsMobileMenuOpen(false)}
               className="text-[#0D2342] hover:text-[#299EED] transition-colors p-1 outline-none focus:outline-none [-webkit-tap-highlight-color:transparent]"
             >
@@ -179,27 +174,25 @@ export default function Navbar() {
           {/* Menu Items */}
           <div className="mt-8 flex flex-col gap-2.5">
             {/* Home Link */}
-            <Link 
-              href="/" 
+            <Link
+              href="/"
               onClick={() => setIsMobileMenuOpen(false)}
-              className={`flex items-center w-full px-5 py-3 rounded-xl text-base font-semibold transition-all ${
-                pathname === "/" 
-                  ? "bg-[#EAF3FF] text-[#299EED]" 
-                  : "text-[#0D2342] hover:bg-gray-100/50"
-              }`}
+              className={`flex items-center w-full px-5 py-3 rounded-xl text-base font-semibold transition-all ${pathname === "/"
+                ? "bg-[#EAF3FF] text-[#299EED]"
+                : "text-[#0D2342] hover:bg-gray-100/50"
+                }`}
             >
               Home
             </Link>
 
             {/* Our Works Link */}
-            <Link 
-              href="/works" 
+            <Link
+              href="/works"
               onClick={() => setIsMobileMenuOpen(false)}
-              className={`flex items-center w-full px-5 py-3 rounded-xl text-base font-semibold transition-all ${
-                pathname === "/works" 
-                  ? "bg-[#EAF3FF] text-[#299EED]" 
-                  : "text-[#0D2342] hover:bg-gray-100/50"
-              }`}
+              className={`flex items-center w-full px-5 py-3 rounded-xl text-base font-semibold transition-all ${pathname === "/works"
+                ? "bg-[#EAF3FF] text-[#299EED]"
+                : "text-[#0D2342] hover:bg-gray-100/50"
+                }`}
             >
               Our Works
             </Link>
@@ -208,16 +201,15 @@ export default function Navbar() {
             <div className="flex flex-col">
               <button
                 onClick={() => setIsServicesExpanded(!isServicesExpanded)}
-                className={`flex items-center justify-between w-full px-5 py-3 rounded-xl text-base font-semibold transition-all outline-none focus:outline-none [-webkit-tap-highlight-color:transparent] ${
-                  pathname.startsWith("/services") 
-                    ? "bg-[#EAF3FF] text-[#299EED]" 
-                    : "text-[#0D2342] hover:bg-gray-100/50"
-                }`}
+                className={`flex items-center justify-between w-full px-5 py-3 rounded-xl text-base font-semibold transition-all outline-none focus:outline-none [-webkit-tap-highlight-color:transparent] ${pathname.startsWith("/services")
+                  ? "bg-[#EAF3FF] text-[#299EED]"
+                  : "text-[#0D2342] hover:bg-gray-100/50"
+                  }`}
               >
                 <span>Our Service</span>
-                <ChevronDown 
-                  size={16} 
-                  className={`transition-transform duration-300 ${isServicesExpanded ? "rotate-180 text-[#299EED]" : "text-gray-400"}`} 
+                <ChevronDown
+                  size={16}
+                  className={`transition-transform duration-300 ${isServicesExpanded ? "rotate-180 text-[#299EED]" : "text-gray-400"}`}
                 />
               </button>
 
@@ -230,11 +222,10 @@ export default function Navbar() {
                         key={index}
                         href={service.href}
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className={`block py-3 px-4 rounded-xl text-sm font-medium transition-colors ${
-                          isServiceActive 
-                            ? "bg-[#EAF3FF]/60 text-[#299EED]" 
-                            : "text-[#3F3F3F]/85 hover:bg-gray-100/30"
-                        }`}
+                        className={`block py-3 px-4 rounded-xl text-sm font-medium transition-colors ${isServiceActive
+                          ? "bg-[#EAF3FF]/60 text-[#299EED]"
+                          : "text-[#3F3F3F]/85 hover:bg-gray-100/30"
+                          }`}
                       >
                         {service.name}
                       </Link>
@@ -245,14 +236,13 @@ export default function Navbar() {
             </div>
 
             {/* Who We Are Link */}
-            <Link 
-              href="/who-we-are" 
+            <Link
+              href="/who-we-are"
               onClick={() => setIsMobileMenuOpen(false)}
-              className={`flex items-center w-full px-5 py-3 rounded-xl text-base font-semibold transition-all ${
-                pathname === "/who-we-are" 
-                  ? "bg-[#EAF3FF] text-[#299EED]" 
-                  : "text-[#0D2342] hover:bg-gray-100/50"
-              }`}
+              className={`flex items-center w-full px-5 py-3 rounded-xl text-base font-semibold transition-all ${pathname === "/who-we-are"
+                ? "bg-[#EAF3FF] text-[#299EED]"
+                : "text-[#0D2342] hover:bg-gray-100/50"
+                }`}
             >
               Who We Are
             </Link>
@@ -273,7 +263,7 @@ export default function Navbar() {
           </button>
 
           {/* Email Box */}
-          <a 
+          <a
             href="mailto:kalunatechnology@gmail.com"
             className="flex items-center justify-between w-full h-12 px-6 rounded-full border border-gray-200 bg-white text-sm font-semibold text-[#0E2A54] hover:bg-gray-50 transition-colors"
           >
@@ -284,7 +274,7 @@ export default function Navbar() {
           </a>
 
           {/* Telephone/Chat Box */}
-          <a 
+          <a
             href="https://wa.me/6281234567890"
             target="_blank"
             rel="noreferrer"

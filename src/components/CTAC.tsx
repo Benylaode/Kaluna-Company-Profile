@@ -1,5 +1,6 @@
 "use client"
 import { useRouter } from "next/navigation";
+import Button from "./ui/Button";
 
 export default function CTAC() {
   const router = useRouter();
@@ -24,18 +25,12 @@ export default function CTAC() {
           </div>
 
           <div className="relative z-10 flex w-full flex-shrink-0 justify-center md:w-auto md:justify-end">
-            <button
-              type="button"
+            <Button
+              variant="primary-white"
+              label="See Our Work"
               onClick={() => router.push("/works")}
-              className="group inline-flex h-14 w-full md:w-auto items-center justify-between gap-4 rounded-full bg-white py-2 pl-8 pr-2 shadow-md transition-all hover:bg-gray-50 cursor-pointer"
-            >
-              <span className="text-sm font-medium tracking-[0.02em] md:text-base text-[#111111]">See Our Work</span>
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#299EED] text-white transition-transform group-hover:translate-x-1">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-4 h-4 md:w-5 md:h-5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                </svg>
-              </div>
-            </button>
+              className="w-full md:w-auto bg-white hover:bg-[#DDEEFF] text-[#0E2A54] shadow-md border-0"
+            />
           </div>
         </div>
       </div>

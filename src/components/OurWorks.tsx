@@ -97,90 +97,92 @@ export default function OurWorks() {
     return () => clearInterval(timer);
   }, [paused, activeIndex]);
 
+  // Perhitungan persentase progress bar (hanya untuk mengisi bar biru)
   const progressIndex = ((activeIndex % WORK_STEPS.length) + WORK_STEPS.length) % WORK_STEPS.length;
-  const progress = (progressIndex / (WORK_STEPS.length - 1)) * 100;
+  const stepWidth = 100 / WORK_STEPS.length;
+  const progress = progressIndex * stepWidth + stepWidth / 2;
 
   return (
     <section id="works-section" className="bg-[#FAFAFA] py-20 md:py-0">
       <style>{`
-  .kaluna-diagonal {
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(180deg, #0E2A54 0%, #1F5DBA 153.91%);
-  }
+        .kaluna-diagonal {
+          position: relative;
+          overflow: hidden;
+          background: linear-gradient(180deg, #0E2A54 0%, #1F5DBA 153.91%);
+        }
 
-  .kaluna-graphic-k {
-    position: absolute;
-    left: -20px;
-    top: 0;
-    width: 70%;
-    height: 100%;
-    opacity: 0.5;
-    pointer-events: none;
-    z-index: 0;
-  }
+        .kaluna-graphic-k {
+          position: absolute;
+          left: -20px;
+          top: 0;
+          width: 70%;
+          height: 100%;
+          opacity: 0.5;
+          pointer-events: none;
+          z-index: 0;
+        }
 
-  .kaluna-graphic-k::before {
-    content: "";
-    position: absolute;
-    left: -9%;
-    top: -62%;
-    width: 78%;
-    height: 170%;
-    background: #203560;
-    transform: rotate(45deg);
-    transform-origin: center;
-  }
+        .kaluna-graphic-k::before {
+          content: "";
+          position: absolute;
+          left: -9%;
+          top: -62%;
+          width: 78%;
+          height: 170%;
+          background: #203560;
+          transform: rotate(45deg);
+          transform-origin: center;
+        }
 
-  .kaluna-graphic-k::after {
-    content: "";
-    position: absolute;
-    left: -7%;
-    top: 16%;
-    width: 18%;
-    height: 28%;
-    background: #2C87B8;
-    transform: rotate(45deg);
-    transform-origin: center;
-  }
+        .kaluna-graphic-k::after {
+          content: "";
+          position: absolute;
+          left: -7%;
+          top: 16%;
+          width: 18%;
+          height: 28%;
+          background: #2C87B8;
+          transform: rotate(45deg);
+          transform-origin: center;
+        }
 
-  .kaluna-graphic-k span {
-    position: absolute;
-    left: 20%;
-    top: 50%;
-    width: 70%;
-    height: 38%;
-    background: #203560;
-    transform: rotate(45deg);
-    transform-origin: center;
-    display: block;
-  }
+        .kaluna-graphic-k span {
+          position: absolute;
+          left: 20%;
+          top: 50%;
+          width: 70%;
+          height: 38%;
+          background: #203560;
+          transform: rotate(45deg);
+          transform-origin: center;
+          display: block;
+        }
 
-  .kaluna-right-linear {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 84%;
-    height: 100%;
-    background: linear-gradient(270deg, #0E2A54 0%, rgba(14, 42, 84, 0) 100%);
-    pointer-events: none;
-    z-index: 2;
-  }
+        .kaluna-right-linear {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 84%;
+          height: 100%;
+          background: linear-gradient(270deg, #0E2A54 0%, rgba(14, 42, 84, 0) 100%);
+          pointer-events: none;
+          z-index: 2;
+        }
 
-  .kaluna-right-linear-slider {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: calc(300px + 24px);
-    background: linear-gradient(270deg, #0E2A54 0%, rgba(14, 42, 84, 0) 100%);
-    pointer-events: none;
-    z-index: 20;
-  }
-`}</style>
+        .kaluna-right-linear-slider {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: calc(300px + 24px);
+          background: linear-gradient(270deg, #0E2A54 0%, rgba(14, 42, 84, 0) 100%);
+          pointer-events: none;
+          z-index: 20;
+        }
+      `}</style>
 
       <div className="kaluna-wide-container">
-        <div className="relative overflow-hidden rounded-[24px] kaluna-diagonal px-6 py-10 text-white md:px-12 md:py-16 lg:px-16 lg:py-20">
+        <div className="relative overflow-hidden rounded-[24px] kaluna-diagonal px-6 py-10 text-white md:px-6 md:py-16 lg:px-12 lg:py-20">
           <div className="kaluna-graphic-k">
             <span />
           </div>
@@ -233,10 +235,11 @@ export default function OurWorks() {
                       setIsTransitioning(true);
                       setActiveIndex(index);
                     }}
-                    className={`group relative flex-shrink-0 w-[300px] h-[360px] rounded-[24px] p-3 transition-all duration-500 ${isActive
-                      ? "z-30 bg-white text-[#0D0D0D] shadow-xl"
-                      : "z-10 bg-white/50 text-[#0E2A54]"
-                      }`}
+                    className={`group relative flex-shrink-0 w-[300px] h-[360px] rounded-[24px] p-3 transition-all duration-500 cursor-pointer ${
+                      isActive
+                        ? "z-30 bg-white text-[#0D0D0D] shadow-xl"
+                        : "z-10 bg-white/50 text-[#0E2A54]"
+                    }`}
                   >
                     <div className="relative h-[180px] overflow-hidden rounded-[16px]">
                       <LazyImage
@@ -264,7 +267,7 @@ export default function OurWorks() {
                         </span>
                       </div>
 
-                      <p className={`text-sm mt-2 ${isActive ? "text-[#3F3F3F]" : "text-[#3F3F3F]"}`}>
+                      <p className="text-sm mt-2 text-[#3F3F3F]">
                         {item.category}
                       </p>
                     </div>
@@ -276,15 +279,24 @@ export default function OurWorks() {
             <div className="kaluna-right-linear-slider" />
           </div>
 
-          {/* PROGRESS */}
-          <div className="relative z-20 mt-10 h-1 max-w-3xl bg-[#304674] rounded-full">
+          {/* PROGRESS BAR DENGAN PANAH PROGRES YANG DIKUNCI (STATIS) */}
+          <div className="relative z-20 mt-10 max-w-3xl">
+            {/* Jalur Progress - Lebar bar biru berubah mengikuti slide aktif */}
+            <div className="h-[4px] rounded-full bg-[#304674]">
+              <div
+                className="h-full rounded-full bg-[#299EED] transition-all duration-500 ease-out"
+                style={{
+                  width: `${progress}%`,
+                }}
+              />
+            </div>
+
+            {/* Indikator Segitiga (Mati/Statis di bawah tengah-tengah card pertama) */}
             <div
-              className="absolute left-0 top-0 h-full bg-[#299EED] rounded-full transition-all duration-300"
-              style={{ width: `${progress}%` }}
-            />
-            <div
-              className="absolute -top-[14px] transition-all duration-300"
-              style={{ left: `${progress}%` }}
+              className="absolute -top-[10px]"
+              style={{
+                left: "144px", // Didapat dari: (Lebar Card 300px / 2) - 6px radius segitiga agar simetris
+              }}
             >
               <div className="h-0 w-0 border-l-[6px] border-r-[6px] border-b-[8px] border-l-transparent border-r-transparent border-b-[#299EED]" />
             </div>

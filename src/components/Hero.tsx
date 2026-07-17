@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
+import Button from "./ui/Button";
 
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -29,7 +29,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-[linear-gradient(312deg,#f3f8ff_58%,#fff_92%)] pt-12 pb-12 md:pt-12 md:pb-20 lg:pt-12 lg:pb-24">
+    <section className="relative overflow-hidden bg-[linear-gradient(312deg,#f3f8ff_58%,#fff_92%)] pt-6 pb-6 md:pt-8 md:pb-8 lg:pt-12 lg:pb-12">
       <style>{`
         @keyframes fillProgress { 0% { width: 0%; } 100% { width: 100%; } }
         @keyframes floatUp { 0% { opacity: 0; transform: translateY(10px); } 100% { opacity: 1; transform: translateY(0); } }
@@ -58,14 +58,15 @@ export default function Hero() {
               key={slide.id}
               src={slide.image}
               alt={`Kaluna portfolio ${index + 1}`}
-              className={`absolute left-1/2 top-[-26px] h-[461px] w-[614px] max-w-none -translate-x-[55%] object-cover transition-opacity duration-1000 ${index === currentSlide ? "opacity-100" : "opacity-0"
-                }`}
+              className={`absolute left-1/2 top-[-26px] h-[461px] w-[614px] max-w-none -translate-x-[55%] object-cover object-center transition-opacity duration-1000 ${
+                index === currentSlide ? "opacity-100" : "opacity-0"
+              }`}
             />
           ))}
           <div className="absolute inset-x-0 bottom-0 h-[296px] bg-gradient-to-b from-[#0E2A54]/0 to-[#0E2A54]" />
         </div>
 
-        <div className="absolute inset-x-0 bottom-0 h-1 bg-[#299EED]/20">
+        <div className="absolute inset-x-0 bottom-0 h-[5px] bg-[#D6ECFF]">
           <div className="h-full bg-[#299EED]" style={{ width: `${((currentSlide + 1) / slides.length) * 100}%` }} />
         </div>
 
@@ -78,31 +79,28 @@ export default function Hero() {
           </p>
 
           <div className="hero-animate-buttons mt-4 flex flex-col gap-3">
-            <button
+            <Button
+              variant="primary-white"
+              label="Start a Consultation"
               onClick={() => router.push("/contact")}
-              className="group flex h-14 w-full items-center justify-between rounded-full bg-white py-2 pl-8 pr-2 text-[#0E2A54]"
-            >
-              <span className="text-base font-medium tracking-[0.02em]">Start a Consultation</span>
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#299EED] text-white transition-transform duration-300 group-hover:translate-x-1">
-                <ArrowRight size={18} />
-              </span>
-            </button>
+              className="w-full bg-white hover:bg-[#DDEEFF] text-[#0E2A54] border-0 h-14"
+            />
 
-            <button
+            <Button
+              variant="secondary"
+              label="Explore Our Work"
               onClick={scrollToWorks}
-              className="group flex h-14 w-full items-center justify-between rounded-full border border-white py-3 pl-8 pr-2 text-white transition hover:bg-white/5"
-            >
-              <span className="text-base font-medium tracking-[0.02em]">Learn Our Work</span>
-              <span className="flex h-10 w-10 items-center justify-center rounded-full border border-white text-white transition-transform group-hover:translate-x-1">
-                <ArrowRight size={18} />
-              </span>
-            </button>
+              className="w-full border-white text-white hover:bg-white/10 hover:text-white active:bg-white/20 h-14"
+            />
           </div>
         </div>
       </div>
 
-      {/* Desktop Layout */}
-      <div className="kaluna-container hidden md:grid min-h-[600px] lg:min-h-[640px] grid-cols-[1.1fr_1fr] items-center gap-10 lg:gap-16 pt-2">
+     {/* Desktop Layout (Perfected Grid Ratio & Slighly Wider Slider) */}
+{/* Desktop Layout (Perfect 50:50 Balanced Grid & Wider Slider) */}
+      <div className="kaluna-container hidden md:grid min-h-[520px] lg:min-h-[580px] grid-cols-2 items-center gap-10 lg:gap-16 pt-3 pb-3 md:pt-4 md:pb-4 lg:pt-6 lg:pb-6">
+        
+        {/* Left Column: Text Content */}
         <div className="flex flex-col items-start gap-6">
           <div className="flex items-center gap-2.5">
             <span className="h-4 w-[2.5px] bg-[#299EED] rounded-full"></span>
@@ -122,53 +120,56 @@ export default function Hero() {
           </p>
 
           <div className="hero-animate-buttons flex items-center gap-4">
-            <button
+            <Button
+              variant="primary"
+              label="Start a Consultation"
               onClick={() => router.push("/contact")}
-              className="group flex h-14 items-center rounded-full bg-[#0E2A54] py-2 pl-8 pr-2 text-white transition hover:bg-[#163A70]"
-            >
-              <span className="mr-6 text-sm font-medium tracking-[0.02em] md:text-base">Start a Consultation</span>
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#299EED] text-white transition-transform duration-300 group-hover:translate-x-1">
-                <ArrowRight size={18} />
-              </span>
-            </button>
+              className="h-14"
+            />
 
-            <button
+            <Button
+              variant="secondary"
+              label="Explore Our Work"
               onClick={scrollToWorks}
-              className="group flex h-14 items-center rounded-full border border-[#0E2A54] py-2 pl-8 pr-2 text-[#0E2A54] transition hover:bg-[#0E2A54]/5"
-            >
-              <span className="mr-6 text-sm font-medium tracking-[0.02em] md:text-base">Learn Our Work</span>
-              <span className="flex h-10 w-10 items-center justify-center rounded-full border border-[#0E2A54] text-[#0E2A54] transition-transform group-hover:translate-x-1">
-                <ArrowRight size={18} />
-              </span>
-            </button>
+              className="h-14"
+            />
           </div>
         </div>
 
+        {/* Right Column: Slider Container (Expanded to perfect 50% width) */}
         <div className="w-full">
-          <div className="relative ml-auto h-[380px] w-full max-w-[620px] overflow-hidden rounded-[24px] bg-[#0E2A54] lg:h-[460px] xl:h-[500px]">
+          {/* Height remains tall & premium: h-[420px] (md) -> lg:h-[560px] (lg) -> xl:h-[580px] (xl) */}
+          <div className="relative ml-auto h-[420px] lg:h-[560px] xl:h-[580px] w-full overflow-hidden rounded-[32px] bg-[#0E2A54] shadow-xl">
             {slides.map((slide, index) => (
               <img
                 key={slide.id}
                 src={slide.image}
                 alt={`Kaluna Tech Portfolio ${index + 1}`}
-                className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-in-out ${index === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
-                  }`}
+                className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-1000 ease-in-out ${
+                  index === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
+                }`}
               />
             ))}
 
-            <div className="absolute bottom-6 left-6 z-20 flex flex-wrap gap-2.5 md:bottom-8 md:left-8">
+            {/* Premium Tags */}
+            <div className="absolute bottom-5 left-6 z-20 flex flex-wrap gap-3">
               {slides[currentSlide].tags.map((tag, index) => (
                 <span
                   key={`tag-${currentSlide}-${index}`}
-                  className="rounded-full bg-white px-5 py-2.5 text-xs font-medium tracking-[0.01em] text-[#0E2A54] shadow-md md:px-6 md:py-3 md:text-sm"
-                  style={{ animation: `floatUp 0.5s ease-out forwards`, animationDelay: `${index * 0.1}s`, opacity: 0 }}
+                  className="rounded-full bg-white px-6 py-3.5 text-xs lg:text-sm font-semibold tracking-[0.01em] text-[#0E2A54] shadow-lg"
+                  style={{
+                    animation: `floatUp 0.5s ease-out forwards`,
+                    animationDelay: `${index * 0.1}s`,
+                    opacity: 0
+                  }}
                 >
                   {tag}
                 </span>
               ))}
             </div>
 
-            <div className="absolute bottom-0 left-0 z-20 flex h-1 w-full bg-[#299EED]/20">
+            {/* Modern Progress Bar */}
+            <div className="absolute bottom-0 left-0 z-20 flex h-[5px] w-full bg-[#D6ECFF]">
               {slides.map((_, index) => (
                 <div key={index} onClick={() => setCurrentSlide(index)} className="relative h-full flex-1 cursor-pointer">
                   {index === currentSlide && (

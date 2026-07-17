@@ -149,7 +149,7 @@ export default function Clients() {
   }, []);
 
   return (
-    <section className="bg-[#FAFAFA] py-16 md:py-20 overflow-hidden">
+    <section className="bg-[#FFFFFF] py-16 md:py-20 overflow-hidden">
       <style>{`
         .hide-scrollbar::-webkit-scrollbar { display: none; }
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
@@ -176,18 +176,18 @@ export default function Clients() {
           </span>
         </div>
 
-        <h2 className="mt-2 text-[28px] font-medium leading-[1.2] tracking-[-0.015em] text-[#0E2A54] md:text-[36px] lg:text-[42px]">
+        <h2 className="mt-2 text-[28px] font-medium leading-[1.2] tracking-[-0.015em] text-[#0D0D0D] md:text-[24px] lg:text-[30px]">
           Companies That Trust Our Solutions
         </h2>
 
-        <p className="mt-3 text-sm leading-[1.5] text-gray-500 md:text-[16px] max-w-xl mx-auto">
+        <p className="mt-3 text-[12px] leading-[1.5] text-[#3F3F3F] md:text-[12px] max-w-xl mx-auto">
           We have collaborated with forward-thinking organizations across industries
         </p>
       </div>
 
       {/* Desktop & Tablet view: Slots transition layout with flexible non-wrapping horizontal saf */}
-      <div className="hidden md:block w-full px-6 lg:px-8">
-        <div className="flex flex-row justify-center items-center gap-4 lg:gap-5 w-full max-w-[1700px] mx-auto">
+      <div className="kaluna-container hidden md:block">
+        <div className="flex flex-row justify-center items-center gap-2 lg:gap-2 w-full mx-auto">
           {slots.map((slotLogos, index) => {
             const logoIndex = slotCurrentIndices[index];
             const logo = slotLogos[logoIndex];
@@ -198,7 +198,7 @@ export default function Clients() {
             return (
               <div
                 key={index}
-                className="relative w-full aspect-[327/220] max-w-[327px] rounded-[18px] border border-[#EBEBEB] bg-white flex items-center justify-center transition-all duration-500 hover:-translate-y-1 hover:border-[#299EED] hover:shadow-[0_10px_30px_rgba(41,158,237,0.08)]"
+                className="relative w-full aspect-[327/220] max-w-[327px] rounded-[12px] border border-[#EBEBEB] bg-white flex items-center justify-center transition-all duration-500 hover:-translate-y-1 hover:border-[#299EED] hover:shadow-[0_10px_30px_rgba(41,158,237,0.08)]"
               >
                 <div
                   className="absolute inset-0 m-auto flex items-center justify-center transition-opacity duration-[1000ms] ease-in-out"
