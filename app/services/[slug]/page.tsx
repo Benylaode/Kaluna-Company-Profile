@@ -80,50 +80,35 @@ export default async function ServiceDetailPage({ params }: PageProps) {
   return (
     <main className="min-h-screen bg-white font-sans text-[#0D2342] overflow-x-hidden">
       <Navbar />
-
-      {/* 1. HERO HEADER — standardized banner layout without overlays */}
-    <section className="w-full bg-white pt-[100px]">
-      <div className="mx-auto max-w-[1640px] px-5 md:px-4">
-        <div
-          className="
-            relative
-            w-full
-            h-[240px]
-            md:h-[260px]
-            rounded-[20px]
-            overflow-hidden
-            flex
-            items-center
-            justify-center
-            bg-cover
-            bg-center
-          "
-          style={{
-            backgroundImage: "url('/image/works-banner-bg.svg')",
-          }}
-        >
-          {/* Dark Overlay */}
-          <div className="absolute inset-0 bg-[#0E2A54]/15" />
-
-          <h1
+          <section className="w-full bg-white pt-[100px] md:pt-[80px]">
+        <div className="kaluna-wide-container">
+          <div
             className="
               relative
-              z-10
-              text-[40px]
-              md:text-[56px]
-              lg:text-[64px]
-              font-bold
-              tracking-[-0.02em]
-              text-white
-              text-center
-              px-4
+              w-full
+              h-[240px]
+              md:h-[260px]
+              rounded-[12px]
+              overflow-hidden
+              flex
+              items-center
+              justify-center
+              bg-cover
+              bg-center
             "
+            style={{
+              backgroundImage: "url('/image/works-banner-bg.svg')",
+            }}
           >
-            {serviceData.title}
-          </h1>
+            {/* Optional dark overlay */}
+            <div className="absolute inset-0 bg-[#0E2A54]/15"></div>
+
+            <h1 className="relative z-10 text-[40px] md:text-[56px] lg:text-[64px] font-bold tracking-[-0.02em] text-white">
+              {serviceData.title}
+            </h1>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
       {/* 2. VALUE PROPOSITION SECTION — WorkProjectCard-style showcase layout */}
       <section className="w-full bg-white py-16 md:py-24">

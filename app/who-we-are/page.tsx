@@ -49,112 +49,478 @@ export default async function WhoWeArePage() {
       <Navbar />
 
       {/* ── 1. Hero Banner — same design as Our Works ────────────── */}
-<section className="w-full bg-white pt-[100px]">
-  <div className="mx-auto max-w-[1640px] px-5 md:px-4">
+      <section className="w-full bg-white pt-[72px] md:pt-[82px]">
+        <div className="kaluna-wide-container">
+          <div
+            className="
+              relative
+              w-full
+              h-[240px]
+              md:h-[260px]
+              rounded-[12px]
+              overflow-hidden
+              flex
+              items-center
+              justify-center
+              bg-cover
+              bg-center
+            "
+            style={{
+              backgroundImage: "url('/image/works-banner-bg.svg')",
+            }}
+          >
+            {/* Optional dark overlay */}
+            <div className="absolute inset-0 bg-[#0E2A54]/15"></div>
+
+            <h1 className="relative z-10 text-[40px] md:text-[56px] lg:text-[64px] font-bold tracking-[-0.02em] text-white">
+              Who We Are
+            </h1>
+          </div>
+        </div>
+      </section>
+
+{/* ── 2. About Us ─────────────────────────────────────────── */}
+<section className="w-full bg-white">
+  <div
+    className="
+      mx-auto
+      max-w-[1600px]
+      px-5
+      md:px-10
+      lg:px-[72px]
+      xl:px-[88px]
+      pt-12
+      pb-14
+      md:pt-16
+      md:pb-20
+      lg:pt-[52px]
+      lg:pb-[72px]
+    "
+  >
     <div
       className="
-        relative
-        w-full
-        h-[240px]
-        md:h-[260px]
-        rounded-[20px]
-        overflow-hidden
         flex
-        items-center
-        justify-center
-        bg-cover
-        bg-center
+        flex-col
+        lg:grid
+        lg:grid-cols-[40%_60%]
+        items-start
+        gap-10
+        lg:gap-12
+        xl:gap-16
       "
-      style={{
-        backgroundImage: "url('/image/works-banner-bg.svg')",
-      }}
     >
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-[#0E2A54]/15" />
+      {/* Left Content */}
+      <div className="w-full lg:pt-[52px]">
+        {/* Section Label */}
+        <div className="mb-8 flex items-center gap-3">
+          <span className="h-[14px] w-[3px] shrink-0 rounded-full bg-[#299EED]" />
 
-      <h1
+          <span
+            className="
+              text-[8px]
+              md:text-[10px]
+              font-semibold
+              uppercase
+              tracking-[0.06em]
+              text-[#0E2A54]
+            "
+          >
+            Overview
+          </span>
+        </div>
+
+        {/* Heading */}
+        <h2
+          className="
+            max-w-[550px]
+            text-[32px]
+            sm:text-[36px]
+            md:text-[40px]
+            lg:text-[42px]
+            font-medium
+            leading-[1.12]
+            tracking-[-0.025em]
+            text-[#0D0D0D]
+          "
+        >
+          Crafting Digital Solutions
+          <br className="hidden sm:block" />
+          <span className="sm:hidden"> </span>
+          For Your Needs
+        </h2>
+
+        {/* Description */}
+        <div
+          className="
+            mt-8
+            max-w-[510px]
+            space-y-6
+            text-[12px]
+            md:text-[14px]
+            leading-[1.6]
+            text-[#4A4A4A]
+          "
+        >
+          <p>
+            Kaluna Technology is a technology and digital solutions company
+            under PT. Sinergi Mulia Arsa, focused on developing integrated
+            systems, custom software, and scalable technology infrastructures
+            to support business digital transformation.
+          </p>
+
+          <p>
+            We help organizations overcome operational challenges, disconnected
+            systems, inefficient manual processes, and the growing need for
+            structured, scalable digital ecosystems.
+          </p>
+        </div>
+      </div>
+
+      {/* Right Image */}
+      <div
         className="
           relative
-          z-10
-          text-[40px]
-          md:text-[56px]
-          lg:text-[64px]
-          font-bold
-          tracking-[-0.02em]
-          text-white
-          text-center
-          px-4
+          h-[300px]
+          w-full
+          overflow-hidden
+          rounded-[20px]
+          bg-[#EAF3FF]
+          sm:h-[400px]
+          md:h-[480px]
+          lg:h-[540px]
+          xl:h-[560px]
         "
       >
-        Who We Are
-      </h1>
+        <img
+          src="image/kaluna-office.webp"
+          alt="Kaluna Technology Office"
+          className="h-full w-full object-cover object-center"
+        />
+      </div>
     </div>
   </div>
 </section>
 
-      {/* ── 2. About Us ─────────────────────────────────────────── */}
-      <section className="w-full bg-white">
-        <div className="mx-auto max-w-[1440px] px-5 md:px-12 py-16 md:py-24 flex flex-col md:flex-row gap-10 md:gap-16 items-center">
-          <div className="w-full md:w-1/2">
-            <div className="flex items-center gap-2.5 mb-4">
-              <span className="h-3.5 w-[2.5px] bg-[#299EED] rounded-full" />
-              <span className="text-xs font-semibold tracking-[0.08em] text-[#0E2A54] uppercase">Overview</span>
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#0D2342] leading-tight">
-              Crafting Digital Solutions<br className="hidden md:block" /> For Your Needs
-            </h2>
-            <p className="text-gray-600 mb-5 leading-relaxed text-sm md:text-base">
-              Kaluna Technology is an enterprise-grade IT solutions company aimed at driving digital transformation. We integrate best-in-class engineering with strategic business planning to bring your vision into reality.
-            </p>
-            <p className="text-gray-600 leading-relaxed text-sm md:text-base">
-              We empower businesses with seamless integrations, scalable architectures, and future-ready tech ecosystems. Your journey towards the digital forefront begins with us.
-            </p>
-          </div>
+{/* ── 3. Why Kaluna ───────────────────────────────────────── */}
+<section className="w-full bg-[#F6F9FC]">
+  <div
+    className="
+      mx-auto
+      max-w-[1600px]
+      px-5
+      md:px-10
+      lg:px-[72px]
+      xl:px-[88px]
+      pt-[72px]
+      pb-[74px]
+      md:pt-[84px]
+      md:pb-[88px]
+    "
+  >
+    {/* Heading */}
+    <div className="mx-auto max-w-[760px] text-center">
+      <div className="mb-5 flex items-center justify-center gap-3">
+        <span className="h-[15px] w-[3px] rounded-full bg-[#299EED]" />
 
-          <div className="w-full md:w-1/2 relative h-[250px] md:h-[380px] rounded-[20px] md:rounded-[24px] overflow-hidden shadow-md">
-            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200" alt="Kaluna Technology Office" className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-black/10 flex items-center justify-center">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-white flex items-center justify-center rounded">
-                  <span className="text-[#0D2342] font-black text-3xl leading-none">K</span>
-                </div>
-                <div className="flex flex-col text-white">
-                  <span className="font-bold text-3xl leading-none tracking-wider">KALUNA</span>
-                  <span className="text-sm font-light tracking-widest mt-1">TECHNOLOGY</span>
-                </div>
-              </div>
-            </div>
-          </div>
+        <span
+          className="
+            text-[11px]
+            md:text-[12px]
+            font-semibold
+            uppercase
+            tracking-[0.07em]
+            text-[#0E2A54]
+          "
+        >
+          Why Kaluna IT
+        </span>
+      </div>
+
+      <h2
+        className="
+          text-[30px]
+          sm:text-[34px]
+          md:text-[38px]
+          lg:text-[42px]
+          font-bold
+          leading-[1.2]
+          tracking-[-0.025em]
+          text-[#0E2A54]
+        "
+      >
+        Turning Complex Problems
+        <br />
+        Into Scalable Solutions
+      </h2>
+    </div>
+
+    {/* Cards */}
+    <div
+      className="
+        mt-14
+        grid
+        grid-cols-1
+        gap-5
+        sm:grid-cols-2
+        lg:mt-16
+        lg:grid-cols-4
+        lg:gap-5
+      "
+    >
+      {/* Card 1 */}
+      <div
+        className="
+          min-h-[280px]
+          rounded-[20px]
+          border
+          border-[#E5EAF0]
+          bg-white
+          p-7
+          shadow-[0_2px_8px_rgba(14,42,84,0.06)]
+          transition-all
+          duration-300
+          hover:-translate-y-1
+          hover:shadow-[0_10px_25px_rgba(14,42,84,0.09)]
+          md:p-8
+        "
+      >
+        <div
+          className="
+            mb-5
+            flex
+            h-[54px]
+            w-[54px]
+            items-center
+            justify-center
+            rounded-[12px]
+            bg-[#EEF6FF]
+          "
+        >
+          <img
+            src="/image/why/1.svg"
+            alt=""
+            className="h-[28px] w-[28px] object-contain"
+          />
         </div>
-      </section>
 
-      {/* ── 3. Why Kaluna IT ────────────────────────────────────── */}
-      <section className="w-full bg-[#F8FAFC] py-16 md:py-24">
-        <div className="mx-auto max-w-[1440px] px-5 md:px-12">
-          <div className="text-left md:text-center mb-10 md:mb-16">
-            <div className="flex items-center gap-2.5 mb-4 md:justify-center">
-              <span className="h-3.5 w-[2.5px] bg-[#299EED] rounded-full" />
-              <span className="text-xs font-semibold tracking-[0.08em] text-[#0E2A54] uppercase">Why Kaluna IT</span>
-            </div>
-            <h2 className="text-2xl md:text-4xl font-bold text-[#0D2342] leading-tight">
-              Turning Complex Problems<br className="hidden md:block" /> Into Scalable Solutions
-            </h2>
-          </div>
+        <h3
+          className="
+            text-[18px]
+            md:text-[19px]
+            font-semibold
+            leading-[1.3]
+            tracking-[-0.015em]
+            text-[#0E2A54]
+          "
+        >
+          Fragmented Business Systems
+        </h3>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {whyReasons.map((reason, idx) => (
-              <div key={idx} className="bg-white p-7 rounded-[20px] shadow-sm border border-gray-100">
-                <div className="w-12 h-12 bg-[#F0F7FF] rounded-lg flex items-center justify-center mb-6 text-[#299EED]">
-                  {reason.icon}
-                </div>
-                <h3 className="font-bold text-[#0D2342] text-base mb-3 leading-snug">{reason.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{reason.desc}</p>
-              </div>
-            ))}
-          </div>
+        <p
+          className="
+            mt-4
+            text-[14px]
+            md:text-[15px]
+            leading-[1.65]
+            text-[#667085]
+          "
+        >
+          Many enterprises struggle with siloed legacy systems that slow down
+          operations and make data exchange difficult.
+        </p>
+      </div>
+
+      {/* Card 2 */}
+      <div
+        className="
+          min-h-[280px]
+          rounded-[20px]
+          border
+          border-[#E5EAF0]
+          bg-white
+          p-7
+          shadow-[0_2px_8px_rgba(14,42,84,0.06)]
+          transition-all
+          duration-300
+          hover:-translate-y-1
+          hover:shadow-[0_10px_25px_rgba(14,42,84,0.09)]
+          md:p-8
+        "
+      >
+        <div
+          className="
+            mb-5
+            flex
+            h-[54px]
+            w-[54px]
+            items-center
+            justify-center
+            rounded-[12px]
+            bg-[#EEF6FF]
+          "
+        >
+          <img
+            src="/image/why/2.svg"
+            alt=""
+            className="h-[28px] w-[28px] object-contain"
+          />
         </div>
-      </section>
 
+        <h3
+          className="
+            text-[18px]
+            md:text-[19px]
+            font-semibold
+            leading-[1.3]
+            tracking-[-0.015em]
+            text-[#0E2A54]
+          "
+        >
+          Lack of Real-Time Operations Visibility
+        </h3>
+
+        <p
+          className="
+            mt-4
+            text-[14px]
+            md:text-[15px]
+            leading-[1.65]
+            text-[#667085]
+          "
+        >
+          Without unified dashboards, management lacks real-time insights,
+          delaying critical business decisions and lowering agility.
+        </p>
+      </div>
+
+      {/* Card 3 */}
+      <div
+        className="
+          min-h-[280px]
+          rounded-[20px]
+          border
+          border-[#E5EAF0]
+          bg-white
+          p-7
+          shadow-[0_2px_8px_rgba(14,42,84,0.06)]
+          transition-all
+          duration-300
+          hover:-translate-y-1
+          hover:shadow-[0_10px_25px_rgba(14,42,84,0.09)]
+          md:p-8
+        "
+      >
+        <div
+          className="
+            mb-5
+            flex
+            h-[54px]
+            w-[54px]
+            items-center
+            justify-center
+            rounded-[12px]
+            bg-[#EEF6FF]
+          "
+        >
+          <img
+            src="/image/why/3.svg"
+            alt=""
+            className="h-[28px] w-[28px] object-contain"
+          />
+        </div>
+
+        <h3
+          className="
+            text-[18px]
+            md:text-[19px]
+            font-semibold
+            leading-[1.3]
+            tracking-[-0.015em]
+            text-[#0E2A54]
+          "
+        >
+          Businesses Struggle to Turn Data Into Insights
+        </h3>
+
+        <p
+          className="
+            mt-4
+            text-[14px]
+            md:text-[15px]
+            leading-[1.65]
+            text-[#667085]
+          "
+        >
+          Vast amounts of data are generated, but without proper analytics
+          infrastructure, businesses fail to leverage it for growth.
+        </p>
+      </div>
+
+      {/* Card 4 */}
+      <div
+        className="
+          min-h-[280px]
+          rounded-[20px]
+          border
+          border-[#E5EAF0]
+          bg-white
+          p-7
+          shadow-[0_2px_8px_rgba(14,42,84,0.06)]
+          transition-all
+          duration-300
+          hover:-translate-y-1
+          hover:shadow-[0_10px_25px_rgba(14,42,84,0.09)]
+          md:p-8
+        "
+      >
+        <div
+          className="
+            mb-5
+            flex
+            h-[54px]
+            w-[54px]
+            items-center
+            justify-center
+            rounded-[12px]
+            bg-[#EEF6FF]
+          "
+        >
+          <img
+            src="/image/why/4.svg"
+            alt=""
+            className="h-[28px] w-[28px] object-contain"
+          />
+        </div>
+
+        <h3
+          className="
+            text-[18px]
+            md:text-[19px]
+            font-semibold
+            leading-[1.3]
+            tracking-[-0.015em]
+            text-[#0E2A54]
+          "
+        >
+          Outdated or Inefficient Digital Platforms
+        </h3>
+
+        <p
+          className="
+            mt-4
+            text-[14px]
+            md:text-[15px]
+            leading-[1.65]
+            text-[#667085]
+          "
+        >
+          Relying on outdated applications slows down processes and creates poor
+          experiences for both employees and customers.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
       {/* ── 4. Vision & Mission ─────────────────────────────────── */}
 <section className="relative overflow-hidden bg-[linear-gradient(182.26deg,#0E2A54_14.5%,#1F5DBA_98.1%)] py-24 md:py-28 lg:py-32">
 
@@ -266,15 +632,15 @@ export default async function WhoWeArePage() {
 </section>
 
       {/* ── 5. Expertise ────────────────────────────────────────── */}
-      <section className="w-full bg-white py-16 md:py-24">
-        <div className="mx-auto max-w-[1440px] px-5 md:px-12">
-          <div className="flex items-center gap-2.5 mb-4">
+      <section className="w-full bg-white py-12 md:py-16">
+        <div className="mx-auto max-w-[1440px] px-5 md:px-[48px] lg:px-[80px]">
+          <div className="flex items-center gap-2.5 mb-3">
             <span className="h-3.5 w-[2.5px] bg-[#299EED] rounded-full" />
             <span className="text-xs font-semibold tracking-[0.08em] text-[#0E2A54] uppercase">Expertise</span>
           </div>
-          <h2 className="text-2xl md:text-4xl font-bold mb-8 md:mb-12 text-[#0D2342]">Our Technology Expertise</h2>
+          <h2 className="text-2xl md:text-4xl font-bold mb-6 md:mb-8 text-[#0D2342]">Our Technology Expertise</h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
             {expertise.map((item, idx) => (
               <div key={idx} className="relative w-full h-[160px] md:h-[220px] rounded-[16px] overflow-hidden group cursor-pointer">
                 <img src={item.img} alt={item.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
@@ -288,18 +654,18 @@ export default async function WhoWeArePage() {
       </section>
 
       {/* ── 6. Team Members ─────────────────────────────────────── */}
-      <section className="w-full bg-white pb-20">
-        <div className="mx-auto max-w-[1440px] px-5 md:px-12">
-          <div className="flex items-center gap-2.5 mb-4">
+      <section className="w-full bg-white pb-12 md:pb-16">
+        <div className="mx-auto max-w-[1440px] px-5 md:px-[48px] lg:px-[80px]">
+          <div className="flex items-center gap-2.5 mb-3">
             <span className="h-3.5 w-[2.5px] bg-[#299EED] rounded-full" />
             <span className="text-xs font-semibold tracking-[0.08em] text-[#0E2A54] uppercase">Our Team</span>
           </div>
-          <h2 className="text-2xl md:text-4xl font-bold mb-10 md:mb-12 text-[#0D2342]">Expert Behind The Works</h2>
+          <h2 className="text-2xl md:text-4xl font-bold mb-6 md:mb-8 text-[#0D2342]">Expert Behind The Works</h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-7 gap-4 lg:gap-5">
+          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-2 md:gap-3 lg:gap-4">
             {team.map((member) => (
               <div key={member.id} className="flex flex-col">
-                <div className="w-full aspect-[3/4] rounded-[16px] overflow-hidden mb-4 bg-gray-200">
+                <div className="w-full aspect-[3/4] rounded-[12px] overflow-hidden mb-2 bg-gray-200">
                   <img
                     src={member.image_url}
                     alt={member.full_name}
@@ -311,7 +677,7 @@ export default async function WhoWeArePage() {
                     <h4 className="font-bold text-xs md:text-xs lg:text-sm text-[#0D2342] leading-tight">{member.full_name}</h4>
                     <span className="text-[9px] font-semibold text-gray-500 uppercase mt-1 tracking-wide">{member.position}</span>
                   </div>
-                  <a href={member.linkedin_url} target="_blank" rel="noreferrer" className="w-6 h-6 shrink-0 bg-[#0D2342] text-white rounded-full flex items-center justify-center hover:bg-[#299EED] transition-colors mt-0.5">
+                  <a href={member.linkedin_url} target="_blank" rel="noreferrer" className="w-5 h-5 shrink-0 bg-[#0D2342] text-white rounded-full flex items-center justify-center hover:bg-[#299EED] transition-colors mt-0.5">
                     <svg className="w-2.5 h-2.5 fill-current" viewBox="0 0 24 24">
                       <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                     </svg>

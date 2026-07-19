@@ -263,130 +263,399 @@ export default function WorksPage() {
       )}
 
       {/* Main Projects Section */}
-      <section className="relative bg-white pt-[72px] pb-[120px]">
-        {/* Title & Filter Pills — aligned to layout grid */}
-        <div className="kaluna-container mb-20">
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10">
-            <h2 className="text-[28px] md:text-[px] lg:text-[44px] leading-[1.15] font-medium text-[#0D0D0D] tracking-[-0.015em] max-w-xl">
-              Create Meaningful Digital Solutions
-            </h2>
-            <div className="flex flex-wrap items-center lg:justify-end gap-3 overflow-visible whitespace-nowrap -mx-5 px-5 pb-2">
-              {/* 1. All Works Button */}
+      <section className="relative bg-white pt-[72px] md:pt-[80px] pb-[120px] md:pb-[140px]">
+{/* Title & Filter Pills */}
+<div className="kaluna-container mb-12 md:mb-16">
+  <div
+    className="
+      flex
+      flex-col
+      gap-8
+      lg:grid
+      lg:grid-cols-[2fr_3fr]
+      lg:items-center
+      lg:gap-10
+    "
+  >
+    {/* Section Heading — 40% */}
+    <div className="w-full">
+      <h2
+        className="
+          max-w-[600px]
+          text-[32px]
+          md:text-[38px]
+          lg:text-[44px]
+          leading-[1.08]
+          font-medium
+          text-[#0D0D0D]
+          tracking-[-0.025em]
+        "
+      >
+        Create Meaningful Digital Solutions
+      </h2>
+    </div>
+
+    {/* Filters — 60% */}
+    <div
+      className="
+        flex
+        w-full
+        flex-wrap
+        items-center
+        gap-2
+        overflow-visible
+        lg:justify-end
+      "
+    >
+      {/* All Works */}
+      <button
+        type="button"
+        onClick={() => {
+          setSelectedType(null);
+          setSelectedIndustry(null);
+          setIsTypeOpen(false);
+          setIsIndustryOpen(false);
+        }}
+        className={`
+          flex
+          h-[40px]
+          min-w-[124px]
+          shrink-0
+          cursor-pointer
+          items-center
+          justify-center
+          gap-2
+          whitespace-nowrap
+          rounded-full
+          border
+          px-4
+          text-[13px]
+          font-normal
+          transition-all
+          duration-300
+          md:h-[42px]
+          md:min-w-[132px]
+          md:px-5
+          md:text-[14px]
+          ${
+            !selectedType && !selectedIndustry
+              ? `
+                border-[#299EED]
+                bg-[#EAF3FF]
+                text-[#299EED]
+              `
+              : `
+                border-[#E4E7EC]
+                bg-white
+                text-[#8C929D]
+                hover:border-[#BFD9FA]
+                hover:bg-[#F8FBFF]
+                hover:text-[#299EED]
+              `
+          }
+        `}
+      >
+        <span>All Works</span>
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={2}
+          stroke="currentColor"
+          className="h-3 w-3 shrink-0"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+          />
+        </svg>
+      </button>
+
+      {/* Select Type */}
+      <div className="relative" ref={typeDropdownRef}>
+        <button
+          type="button"
+          onClick={() => {
+            setIsTypeOpen((prev) => !prev);
+            setIsIndustryOpen(false);
+          }}
+          className={`
+            flex
+            h-[40px]
+            min-w-[142px]
+            shrink-0
+            cursor-pointer
+            items-center
+            justify-between
+            gap-2
+            whitespace-nowrap
+            rounded-full
+            border
+            px-4
+            text-[13px]
+            font-normal
+            transition-all
+            duration-300
+            md:h-[42px]
+            md:min-w-[150px]
+            md:px-5
+            md:text-[14px]
+            ${
+              selectedType
+                ? `
+                  border-[#299EED]
+                  bg-[#EAF3FF]
+                  text-[#299EED]
+                `
+                : `
+                  border-[#E4E7EC]
+                  bg-white
+                  text-[#969BA4]
+                  hover:border-[#BFD9FA]
+                  hover:bg-[#F8FBFF]
+                  hover:text-[#299EED]
+                `
+            }
+          `}
+        >
+          <span className="max-w-[112px] truncate">
+            {selectedType || "Select Type"}
+          </span>
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2}
+            stroke="currentColor"
+            className={`
+              h-3
+              w-3
+              shrink-0
+              transition-transform
+              duration-300
+              ${isTypeOpen ? "rotate-180" : ""}
+            `}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+            />
+          </svg>
+        </button>
+
+        {/* Type Dropdown */}
+        {isTypeOpen && (
+          <div
+            className="
+              absolute
+              left-0
+              top-full
+              z-50
+              mt-2
+              w-[270px]
+              max-w-[calc(100vw-40px)]
+              overflow-hidden
+              rounded-[12px]
+              border
+              border-[#E8ECF2]
+              bg-white
+              py-2.5
+              shadow-[0_16px_40px_rgba(14,42,84,0.12)]
+              md:w-[300px]
+            "
+          >
+            {types.map((type) => (
               <button
+                type="button"
+                key={type}
                 onClick={() => {
-                  setSelectedType(null);
-                  setSelectedIndustry(null);
+                  setSelectedType(type);
                   setIsTypeOpen(false);
+                }}
+                className={`
+                  mx-2
+                  block
+                  w-[calc(100%-16px)]
+                  cursor-pointer
+                  rounded-[9px]
+                  px-4
+                  py-2.5
+                  text-left
+                  text-[13px]
+                  font-normal
+                  transition-all
+                  duration-200
+                  md:text-[14px]
+                  ${
+                    selectedType === type
+                      ? `
+                        bg-[#EAF3FF]
+                        text-[#299EED]
+                      `
+                      : `
+                        text-[#17366A]
+                        hover:bg-[#F4F8FD]
+                        hover:text-[#299EED]
+                      `
+                  }
+                `}
+              >
+                {type}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Select Industry */}
+      <div className="relative" ref={industryDropdownRef}>
+        <button
+          type="button"
+          onClick={() => {
+            setIsIndustryOpen((prev) => !prev);
+            setIsTypeOpen(false);
+          }}
+          className={`
+            flex
+            h-[40px]
+            min-w-[158px]
+            shrink-0
+            cursor-pointer
+            items-center
+            justify-between
+            gap-2
+            whitespace-nowrap
+            rounded-full
+            border
+            px-4
+            text-[13px]
+            font-normal
+            transition-all
+            duration-300
+            md:h-[42px]
+            md:min-w-[166px]
+            md:px-5
+            md:text-[14px]
+            ${
+              selectedIndustry
+                ? `
+                  border-[#299EED]
+                  bg-[#EAF3FF]
+                  text-[#299EED]
+                `
+                : `
+                  border-[#E4E7EC]
+                  bg-white
+                  text-[#969BA4]
+                  hover:border-[#BFD9FA]
+                  hover:bg-[#F8FBFF]
+                  hover:text-[#299EED]
+                `
+            }
+          `}
+        >
+          <span className="max-w-[128px] truncate">
+            {selectedIndustry || "Select Industry"}
+          </span>
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2}
+            stroke="currentColor"
+            className={`
+              h-3
+              w-3
+              shrink-0
+              transition-transform
+              duration-300
+              ${isIndustryOpen ? "rotate-180" : ""}
+            `}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+            />
+          </svg>
+        </button>
+
+        {/* Industry Dropdown */}
+        {isIndustryOpen && (
+          <div
+            className="
+              absolute
+              right-0
+              top-full
+              z-50
+              mt-2
+              w-[270px]
+              max-w-[calc(100vw-40px)]
+              overflow-hidden
+              rounded-[12px]
+              border
+              border-[#E8ECF2]
+              bg-white
+              py-2.5
+              shadow-[0_16px_40px_rgba(14,42,84,0.12)]
+              md:w-[290px]
+            "
+          >
+            {industries.map((industry) => (
+              <button
+                type="button"
+                key={industry}
+                onClick={() => {
+                  setSelectedIndustry(industry);
                   setIsIndustryOpen(false);
                 }}
-                className={`flex items-center gap-2.5 px-8 py-4 rounded-full border-[0.5px] transition-all text-xs md:text-[16px] font-medium cursor-pointer shrink-0 ${
-                  !selectedType && !selectedIndustry
-                    ? "bg-[#EAF3FF] text-[#299EED] border-[#DCEBFF]"
-                    : "bg-white text-gray-500 border-gray-200 hover:bg-gray-50 hover:text-gray-700"
-                }`}
+                className={`
+                  mx-2
+                  block
+                  w-[calc(100%-16px)]
+                  cursor-pointer
+                  rounded-[9px]
+                  px-4
+                  py-2.5
+                  text-left
+                  text-[13px]
+                  font-normal
+                  transition-all
+                  duration-200
+                  md:text-[14px]
+                  ${
+                    selectedIndustry === industry
+                      ? `
+                        bg-[#EAF3FF]
+                        text-[#299EED]
+                      `
+                      : `
+                        text-[#17366A]
+                        hover:bg-[#F4F8FD]
+                        hover:text-[#299EED]
+                      `
+                  }
+                `}
               >
-                All Works
+                {industry}
               </button>
-
-              {/* 2. Select Type Dropdown */}
-              <div className="relative" ref={typeDropdownRef}>
-                <button
-                  onClick={() => {
-                    setIsTypeOpen(!isTypeOpen);
-                    setIsIndustryOpen(false);
-                  }}
-                  className={`flex items-center gap-2.5 px-8 py-4 rounded-full border-[0.5px] transition-all text-xs md:text-[16px] font-medium cursor-pointer shrink-0 ${
-                    selectedType
-                      ? "bg-[#EAF3FF] text-[#299EED] border-[#299EED]"
-                      : "bg-white text-gray-500 border-gray-200 hover:bg-gray-50 hover:text-gray-700"
-                  }`}
-                >
-                  {selectedType || "Select Type"}
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={2.5}
-                    stroke="currentColor"
-                    className="w-3.5 h-3.5"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                  </svg>
-                </button>
-
-                {isTypeOpen && (
-                  <div className="absolute left-0 mt-2 w-[280px] bg-white border border-[#E9E9E9] rounded-[18px] shadow-[0_10px_30px_rgba(0,0,0,0.08)] py-2 z-50 overflow-hidden">
-                    {types.map((type) => (
-                      <div
-                        key={type}
-                        onClick={() => {
-                          setSelectedType(type);
-                          setIsTypeOpen(false);
-                        }}
-                        className={`px-5 py-3 text-sm md:text-[16px] font-medium text-[#0E2A54] hover:bg-[#F5F9FF] cursor-pointer transition-colors ${
-                          selectedType === type ? "bg-[#EAF3FF]/40 text-[#299EED]" : ""
-                        }`}
-                      >
-                        {type}
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              {/* 3. Select Industry Dropdown */}
-              <div className="relative" ref={industryDropdownRef}>
-                <button
-                  onClick={() => {
-                    setIsIndustryOpen(!isIndustryOpen);
-                    setIsTypeOpen(false);
-                  }}
-                  className={`flex items-center gap-2.5 px-8 py-4 rounded-full border-[0.5px] transition-all text-xs md:text-[16px] font-medium cursor-pointer shrink-0 ${
-                    selectedIndustry
-                      ? "bg-[#EAF3FF] text-[#299EED] border-[#299EED]"
-                      : "bg-white text-gray-500 border-gray-200 hover:bg-gray-50 hover:text-gray-700"
-                  }`}
-                >
-                  {selectedIndustry || "Select Industry"}
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={2.5}
-                    stroke="currentColor"
-                    className="w-3.5 h-3.5"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                  </svg>
-                </button>
-
-                {isIndustryOpen && (
-                  <div className="absolute right-0 md:right-auto md:left-0 mt-2 w-[280px] bg-white border border-[#E9E9E9] rounded-[18px] shadow-[0_10px_30px_rgba(0,0,0,0.08)] py-2 z-50 overflow-hidden">
-                    {industries.map((ind) => (
-                      <div
-                        key={ind}
-                        onClick={() => {
-                          setSelectedIndustry(ind);
-                          setIsIndustryOpen(false);
-                        }}
-                        className={`px-5 py-3 text-sm md:text-[16px] font-medium text-[#0E2A54] hover:bg-[#F5F9FF] cursor-pointer transition-colors ${
-                          selectedIndustry === ind ? "bg-[#EAF3FF]/40 text-[#299EED]" : ""
-                        }`}
-                      >
-                        {ind}
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </div>
+            ))}
           </div>
-        </div>
+        )}
+      </div>
+    </div>
+  </div>
+</div>
 
-        {/* Projects content — aligned to layout grid */}
+        {/* Projects Content */}
         <div className="kaluna-container">
           {isLoading ? (
-            <div className="flex justify-center items-center py-24 text-gray-400 font-medium">
+            <div className="flex min-h-[320px] items-center justify-center text-[#8A94A6] font-medium">
               Loading works...
             </div>
           ) : (
@@ -397,147 +666,418 @@ export default function WorksPage() {
                   <img
                     src="/image/empty-work.svg"
                     alt="No Project Found Illustration"
-                    className="w-[200px] h-[166px]"
+                    className="w-[180px] md:w-[200px] h-auto"
                   />
-                  <h3 className="text-[26px] font-semibold text-[#0D2342] mt-6 tracking-tight">
+
+                  <h3 className="mt-6 text-[24px] md:text-[26px] font-semibold text-[#0D2342] tracking-[-0.02em]">
                     No Project Found
                   </h3>
-                  <p className="mt-4 text-sm md:text-[15px] text-gray-500 max-w-md leading-relaxed">
-                    It looks like there are no projects under the current filter selection. Try another category or clear the filters to see all our work.
+
+                  <p className="mt-4 max-w-md text-[14px] md:text-[15px] text-[#667085] leading-[1.65]">
+                    It looks like there are no projects under the current filter
+                    selection. Try another category or clear the filters to see all
+                    our work.
                   </p>
+
                   <button
+                    type="button"
                     onClick={handleResetFilters}
-                    className="mt-8 px-8 py-3 bg-[#299EED] text-white hover:bg-[#1E88E5] font-semibold text-sm rounded-full transition-all cursor-pointer border-0"
+                    className="
+                      mt-8
+                      h-[48px]
+                      px-8
+                      bg-[#299EED]
+                      text-white
+                      hover:bg-[#1E88E5]
+                      font-semibold
+                      text-[14px]
+                      rounded-full
+                      transition-all
+                      duration-300
+                      cursor-pointer
+                      border-0
+                    "
                   >
                     Clear Filters
                   </button>
                 </div>
               )}
 
-              {/* Featured Large Card (full-width, only on All Works) */}
+              {/* Featured Large Card */}
               {featuredProject && (
-                <Link href={`/works/${featuredProject.slug}`}>
-                  <div className="relative w-full aspect-[4/3] md:aspect-[1700/712] rounded-[18px] overflow-hidden mb-[64px] group cursor-pointer block bg-[#F5F5F5]">
-                    <div className="absolute inset-0 w-full h-full">
-                      <img
-                        src={featuredProject.images[0]}
-                        alt={featuredProject.title}
-                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                        style={{
-                          objectPosition: imagePosition[featuredProject.slug] || "center center",
-                        }}
-                      />
-                    </div>
+                <Link
+                  href={`/works/${featuredProject.slug}`}
+                  className="block"
+                >
+                  <article
+                    className="
+                      relative
+                      w-full
+                      aspect-[4/3]
+                      md:aspect-[1700/712]
+                      rounded-[12px]
+                      overflow-hidden
+                      mb-[64px]
+                      md:mb-[72px]
+                      group
+                      cursor-pointer
+                      bg-[#F5F5F5]
+                      transition-all
+                      duration-500
+                      hover:shadow-[0_24px_70px_rgba(14,42,84,0.14)]
+                    "
+                  >
+                    {/* Featured Image */}
+                    <img
+                      src={featuredProject.images[0]}
+                      alt={featuredProject.title}
+                      className="
+                        absolute
+                        inset-0
+                        w-full
+                        h-full
+                        object-cover
+                        transition-transform
+                        duration-1000
+                        ease-out
+                        group-hover:scale-[1.025]
+                      "
+                      style={{
+                        objectPosition:
+                          imagePosition[featuredProject.slug] || "center center",
+                      }}
+                    />
 
-                    {/* Gradient Overlay */}
+                    {/* Global Dark Overlay */}
                     <div
                       className="
-                        absolute inset-x-0 bottom-0
-                        h-[58%]
-                        bg-gradient-to-t
-                        from-[#0E2A54]
-                        via-[#0E2A54]/55
-                        to-transparent
-                        z-20
+                        absolute
+                        inset-0
+                        z-10
+                        bg-[#071A35]/10
+                        transition-colors
+                        duration-500
+                        group-hover:bg-[#071A35]/5
                         pointer-events-none
                       "
                     />
 
-                    <div className="absolute bottom-0 left-0 p-6 md:p-10 lg:p-[80px] pb-6 md:pb-10 lg:pb-[80px] flex flex-col items-start justify-end z-30 pointer-events-none w-full">
-                      <div className="flex flex-wrap gap-2 md:gap-3 mb-4 md:mb-6">
+                    {/* Bottom Gradient */}
+                    <div
+                      className="
+                        absolute
+                        inset-x-0
+                        bottom-0
+                        h-[48%]
+                        md:h-[44%]
+                        bg-gradient-to-t
+                        from-[#0E2A54]/95
+                        via-[#0E2A54]/50
+                        to-transparent
+                        z-20
+                        pointer-events-none
+                        transition-opacity
+                        duration-500
+                        group-hover:opacity-90
+                      "
+                    />
+
+                    {/* Featured Content */}
+                    <div
+                      className="
+                        absolute
+                        inset-x-0
+                        bottom-0
+                        z-30
+                        flex
+                        flex-col
+                        items-start
+                        justify-end
+                        p-6
+                        md:p-10
+                        lg:p-[56px]
+                        pointer-events-none
+                      "
+                    >
+                      {/* Featured Categories */}
+                      <div
+                        className="
+                          flex
+                          flex-wrap
+                          gap-2.5
+                          mb-4
+                          transition-transform
+                          duration-300
+                          group-hover:-translate-y-1
+                        "
+                      >
                         {(getMockupData(featuredProject.slug).category.length > 0
                           ? getMockupData(featuredProject.slug).category
                           : [featuredProject.category]
-                        ).map((cat, idx) => (
+                        ).map((category, index) => (
                           <span
-                            key={idx}
-                            className="bg-white text-[#0E2A54] text-xs md:text-sm font-semibold px-4 md:px-6 h-8 md:h-[38px] flex items-center justify-center rounded-full shadow-sm"
+                            key={`${category}-${index}`}
+                            className="
+                              flex
+                              h-[40px]
+                              md:h-[46px]
+                              items-center
+                              justify-center
+                              rounded-full
+                              bg-white
+                              px-5
+                              md:px-7
+                              text-[13px]
+                              md:text-[15px]
+                              font-medium
+                              text-[#0E2A54]
+                              whitespace-nowrap
+                            "
                           >
-                            {cat}
+                            {category}
                           </span>
                         ))}
                       </div>
-                      <h3 className="text-xl md:text-3xl lg:text-[54px] font-medium text-white tracking-[-0.01em] leading-[110%] max-w-3xl drop-shadow-md">
-                        {getMockupData(featuredProject.slug).title || featuredProject.title}
+
+                      {/* Featured Title */}
+                      <h3
+                        className="
+                          max-w-[860px]
+                          text-[30px]
+                          md:text-[40px]
+                          lg:text-[48px]
+                          font-medium
+                          text-white
+                          tracking-[-0.025em]
+                          leading-[1.08]
+                          transition-transform
+                          duration-500
+                          group-hover:-translate-y-1
+                        "
+                      >
+                        {getMockupData(featuredProject.slug).title ||
+                          featuredProject.title}
                       </h3>
                     </div>
-                  </div>
+                  </article>
                 </Link>
               )}
 
-              {/* 2-Column Grid */}
+              {/* Two-Column Project Grid */}
               {gridProjects.length > 0 && (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-[48px] gap-y-[64px]">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-[16px] lg:gap-x-[24px] gap-y-[32px] md:gap-y-[40px]">
                   {gridProjects.map((project) => {
                     const mockup = getMockupData(project.slug);
                     const displayTitle = mockup.title || project.title;
-                    const displayCategories = mockup.category.length > 0 ? mockup.category : [project.category];
+
+                    const displayCategories =
+                      mockup.category.length > 0
+                        ? mockup.category
+                        : [project.category];
 
                     return (
-                      <Link key={project.id} href={`/works/${project.slug}`} className="flex flex-col h-full">
-                        <div className="flex flex-col group cursor-pointer w-full h-full overflow-hidden">
-                          <div className="relative w-full aspect-[835/421] bg-[#F5F5F5] rounded-[18px] overflow-hidden mb-6 transition-all duration-300 group-hover:shadow-[0_20px_40px_rgba(8,18,40,0.08)] group-hover:-translate-y-1 shrink-0">
+                      <Link
+                        key={project.id}
+                        href={`/works/${project.slug}`}
+                        className="block h-full"
+                      >
+                        <article className="group/card flex h-full w-full cursor-pointer flex-col">
+                          {/* Image Card */}
+                          <div
+                            className="
+                              relative
+                              w-full
+                              aspect-[835/421]
+                              shrink-0
+                              overflow-hidden
+                              rounded-[12px]
+                              bg-[#F5F5F5]
+                              mb-6
+                              transition-shadow
+                              duration-500
+                              ease-out
+                              group-hover/card:shadow-[0_18px_45px_rgba(14,42,84,0.12)]
+                            "
+                          >
+                            {/* Project Image */}
                             <img
                               src={project.images[0]}
                               alt={project.title}
-                              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                              className="
+                                absolute
+                                inset-0
+                                h-full
+                                w-full
+                                object-cover
+                                transition-transform
+                                duration-[900ms]
+                                ease-out
+                                will-change-transform
+                                group-hover/card:scale-[1.025]
+                              "
                               style={{
-                                objectPosition: imagePosition[project.slug] || "center center",
+                                objectPosition:
+                                  imagePosition[project.slug] || "center center",
                               }}
                             />
 
-                            {/* Premium overlay to enhance color depth */}
-                            <div 
-                              className="absolute inset-0 z-10 pointer-events-none" 
-                              style={{
-                                background: "linear-gradient(transparent, rgba(8, 18, 40, 0.12))",
-                              }}
+                            {/* Bottom Gradient Overlay */}
+                            <div
+                              className="
+                                absolute
+                                inset-x-0
+                                bottom-0
+                                z-[15]
+                                h-[38%]
+                                bg-gradient-to-t
+                                from-[#0E2A54]/45
+                                via-[#0E2A54]/10
+                                to-transparent
+                                pointer-events-none
+                                transition-all
+                                duration-500
+                                ease-out
+                                group-hover/card:h-[58%]
+                                group-hover/card:from-[#0E2A54]/70
+                                group-hover/card:via-[#0E2A54]/25
+                              "
                             />
 
-                            {/* Gradient bottom */}
-                            <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/40 to-transparent z-15 pointer-events-none" />
-
-                            {/* Category tag — bottom left */}
-                            <div className="absolute bottom-[33px] left-[33px] z-20 flex flex-wrap gap-2">
-                              {displayCategories.map((cat, idx) => (
+                            {/* Category Tags */}
+                            <div
+                              className="
+                                absolute
+                                bottom-[24px]
+                                left-[24px]
+                                md:bottom-[28px]
+                                md:left-[28px]
+                                z-20
+                                flex
+                                max-w-[calc(100%-100px)]
+                                flex-wrap
+                                gap-2
+                                pointer-events-none
+                              "
+                            >
+                              {displayCategories.map((category, index) => (
                                 <span
-                                  key={idx}
-                                  className="bg-white text-[#0E2A54] text-[11px] md:text-xs font-semibold px-3.5 h-7 md:h-[34px] flex items-center justify-center rounded-full shadow-sm"
+                                  key={`${category}-${index}`}
+                                  className="
+                                    flex
+                                    h-[24px]
+                                    md:h-[30px]
+                                    items-center
+                                    justify-center
+                                    rounded-full
+                                    bg-white
+                                    px-4
+                                    md:px-5
+                                    text-[6px]
+                                    md:text-[14px]
+                                    text-[#0E2A54]
+                                    whitespace-nowrap
+                                    shadow-[0_2px_8px_rgba(14,42,84,0.05)]
+                                  "
                                 >
-                                  {cat}
+                                  {category}
                                 </span>
                               ))}
                             </div>
 
-                            {/* Arrow button — bottom right */}
-                            <div className="absolute bottom-[33px] right-[33px] w-9 h-9 md:w-12 md:h-12 rounded-full bg-[#299EED] text-white flex items-center justify-center transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 z-20">
+                            {/* Arrow Button */}
+                            <div
+                              className="
+                                absolute
+                                bottom-[24px]
+                                right-[24px]
+                                md:bottom-[28px]
+                                md:right-[28px]
+                                z-20
+                                flex
+                                h-8
+                                w-8
+                                md:h-8
+                                md:w-8
+                                items-center
+                                justify-center
+                                rounded-full
+                                bg-[#299EED]
+                                text-white
+                                pointer-events-none
+                                transition-all
+                                duration-300
+                                ease-out
+                                group-hover/card:bg-white
+                                group-hover/card:text-[#0E2A54]
+                                overflow-hidden 
+                              "
+                            >
+                              {/* 1 PANAH BERSIH: Menggunakan utility custom keyframe saat card di-hover */}
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 fill="none"
                                 viewBox="0 0 24 24"
-                                strokeWidth={3}
+                                strokeWidth={2.2}
                                 stroke="currentColor"
-                                className="w-4 h-4 md:w-5 md:h-5"
+                                className="
+                                  h-2
+                                  w-2
+                                  md:h-3
+                                  md:w-3
+                                  group-hover/card:animate-[slideOutIn_0.35s_ease-in-out_forwards]
+                                "
                               >
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                                />
                               </svg>
                             </div>
                           </div>
 
-                          <div className="flex flex-col flex-1">
-                            <h4 className="text-xl md:text-[28px] lg:text-[32px] font-semibold text-[#0D2342] mb-5 tracking-tight leading-[120%] group-hover:text-[#299EED] transition-colors line-clamp-2 pr-4 min-h-[58px] md:min-h-[76px]">
+                          {/* Project Information */}
+                          <div className="flex flex-1 flex-col">
+                            <h4
+                              className="
+                                pr-4
+                                mb-3
+                                text-[24px]
+                                md:text-[28px]
+                                lg:text-[30px]
+                                font-medium
+                                text-[#0D2342]
+                                tracking-[-0.02em]
+                                leading-[1.18]
+                                line-clamp-2
+                                transition-colors
+                                duration-300
+                                ease-out
+                              "
+                            >
                               {displayTitle}
                             </h4>
-                            <p className="text-gray-500 text-sm md:text-[16px] leading-[150%] font-medium line-clamp-2 pr-4">
+
+                            <p
+                              className="
+                                pr-4
+                                text-[14px]
+                                md:text-[16px]
+                                font-normal
+                                text-[#525866]
+                                leading-[1.55]
+                                line-clamp-2
+                              "
+                            >
                               {project.desc}
                             </p>
                           </div>
-                        </div>
+                        </article>
                       </Link>
                     );
                   })}
                 </div>
-              )}
+              )} 
             </>
           )}
 
