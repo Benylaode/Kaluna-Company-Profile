@@ -63,7 +63,7 @@ export default function Footer() {
     <footer id="footer" className="mt-[1px] bg-[#FAFAFA] pb-8 font-sans text-[#3F3F3F]">
       <div className="kaluna-wide-container">
         {/* 1. Mengurangi padding utama agar tinggi background lebih pendek & proporsional */}
-        <div className="w-full bg-[#EAF3FF] px-16 pt-12 pb-6 lg:px-18 lg:pt-14 lg:pb-0 rounded-[24px]">
+        <div className="w-full bg-[#EAF3FF] px-5 sm:px-8 md:px-12 pt-10 pb-6 lg:px-16 lg:pt-14 lg:pb-0 rounded-[20px] md:rounded-[24px]">
           
           {/* 5. Menggunakan lg:gap-14 untuk jarak antar kolom yang lebih lega */}
           <div className="grid grid-cols-1 gap-8 border-b border-[#D7E6F8] pb-6 md:grid-cols-12 md:gap-6 lg:gap-14">
@@ -185,10 +185,13 @@ export default function Footer() {
               {/* Tombol Email */}
               <a
                 href="mailto:corporate@kalunatechnology.com"
-                className="inline-flex h-[49px] items-center justify-between gap-4 rounded-full bg-[#0B2545] pl-5 pr-1.5 text-white shadow-sm transition-all duration-300 hover:bg-[#163A70]"
+                className="inline-flex h-[49px] items-center justify-between gap-3 rounded-full bg-[#0B2545] pl-4 pr-1.5 text-white shadow-sm transition-all duration-300 hover:bg-[#163A70] min-w-0"
               >
-                <span className="text-[14px]  tracking-[0.01em]">
+                <span className="text-[13px] tracking-[0.01em] truncate hidden sm:block">
                   corporate@kalunatechnology.com
+                </span>
+                <span className="text-[13px] tracking-[0.01em] sm:hidden">
+                  Email Us
                 </span>
 
                 <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#299EED] text-white">

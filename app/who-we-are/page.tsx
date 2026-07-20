@@ -61,15 +61,17 @@ export default async function WhoWeArePage() {
       <Navbar />
 
       {/* ── 1. Hero Banner — same design as Our Works ────────────── */}
-      <section className="w-full bg-white pt-[72px] md:pt-[82px]">
+      <section className="w-full bg-white pt-[72px] sm:pt-[80px] md:pt-[82px]">
         <div className="kaluna-wide-container">
           <div
             className="
               relative
               w-full
-              h-[200px]
+              h-[150px]
+              sm:h-[180px]
               md:h-[240px]
-              rounded-[16px]
+              rounded-[12px]
+              sm:rounded-[16px]
               overflow-hidden
               flex
               items-center
@@ -86,7 +88,7 @@ export default async function WhoWeArePage() {
             <div className="absolute inset-0 bg-[linear-gradient(135deg,#02184d_0%,#08297d_100%)] opacity-75 mix-blend-multiply z-[1]" />
             <div className="absolute inset-0 bg-[linear-gradient(135deg,#02184d_0%,#08297d_100%)] opacity-25 z-[1]" />
 
-            <h1 className="relative z-10 text-[36px] md:text-[52px] lg:text-[60px] font-normal md:font-light tracking-[-0.02em] text-white text-center px-4">
+            <h1 className="relative z-10 text-[28px] sm:text-[36px] md:text-[52px] lg:text-[60px] font-normal md:font-light tracking-[-0.02em] text-white text-center px-4">
               Who We Are
             </h1>
           </div>

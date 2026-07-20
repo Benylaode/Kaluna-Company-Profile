@@ -77,34 +77,34 @@ const slides = [
       `}</style>
 
       {/* Mobile Layout */}
-      <div className="md:hidden relative min-h-[847px] bg-[linear-gradient(185deg,#0E2A54_62%,#1F5DBA_115%)]">
-        <div className="absolute inset-x-0 top-20 h-[444px] overflow-hidden">
+      <div className="md:hidden relative min-h-[680px] sm:min-h-[780px] bg-[linear-gradient(185deg,#0E2A54_62%,#1F5DBA_115%)]">
+        <div className="absolute inset-x-0 top-16 sm:top-20 h-[360px] sm:h-[420px] overflow-hidden">
           {slides.map((slide, index) => (
             <img
               key={slide.id}
               src={slide.image}
               alt={`Kaluna portfolio ${index + 1}`}
-              className={`absolute left-1/2 top-[-26px] h-[461px] w-[614px] max-w-none -translate-x-[55%] object-cover object-center transition-opacity duration-1000 ${
+              className={`absolute left-1/2 top-0 h-full w-auto min-w-full -translate-x-1/2 object-cover object-center transition-opacity duration-1000 ${
                 index === currentSlide ? "opacity-100" : "opacity-0"
               }`}
             />
           ))}
-          <div className="absolute inset-x-0 bottom-0 h-[296px] bg-gradient-to-b from-[#0E2A54]/0 to-[#0E2A54]" />
+          <div className="absolute inset-x-0 bottom-0 h-[200px] sm:h-[250px] bg-gradient-to-b from-[#0E2A54]/0 to-[#0E2A54]" />
         </div>
 
         <div className="absolute inset-x-0 bottom-0 h-[5px] bg-[#D6ECFF]">
           <div className="h-full bg-[#299EED]" style={{ width: `${((currentSlide + 1) / slides.length) * 100}%` }} />
         </div>
 
-        <div className="absolute inset-x-0 top-[377px] px-5">
-          <h1 className="hero-animate-title text-[36px] font-medium leading-[1.1] tracking-[-0.01em] text-white">
+        <div className="absolute inset-x-0 top-[300px] sm:top-[360px] px-5">
+          <h1 className="hero-animate-title text-[30px] sm:text-[36px] font-medium leading-[1.1] tracking-[-0.01em] text-white">
             Your Scalable IT Solutions Partner for Modern Enterprises
           </h1>
-          <p className="hero-animate-text mt-4 text-sm leading-[1.4] tracking-[0.02em] text-white">
+          <p className="hero-animate-text mt-3 sm:mt-4 text-[13px] sm:text-sm leading-[1.5] tracking-[0.02em] text-white">
             We design, build, and integrate intelligent software systems that drive operational efficiency and long-term growth.
           </p>
 
-          <div className="hero-animate-buttons mt-4 flex flex-col gap-3">
+          <div className="hero-animate-buttons mt-5 flex flex-col gap-3">
             <Button
               variant="primary-white"
               label="Start a Consultation"

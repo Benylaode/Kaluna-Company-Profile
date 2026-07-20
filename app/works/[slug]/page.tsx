@@ -396,7 +396,7 @@ export default async function CaseStudyPage({
       {/* =====================================
           HERO
       ====================================== */}
-      <section className="pb-[72px] pt-[112px] sm:pt-[124px] lg:pb-[96px] lg:pt-[144px]">
+      <section className="pb-[60px] pt-[90px] sm:pt-[110px] md:pt-[124px] lg:pb-[96px] lg:pt-[144px]">
         <div className="mx-auto max-w-[1440px] px-5 md:px-[48px] lg:px-[80px]">
           <nav className="mb-7 flex flex-wrap items-center gap-2.5 text-[10px] font-medium uppercase tracking-[0.03em] text-[#8A8A8A] sm:text-[11px]">
             <Link href="/" className="transition-colors hover:text-[#299EED]">
@@ -415,7 +415,7 @@ export default async function CaseStudyPage({
             </span>
           </nav>
 
-          <h1 className="text-[38px] font-medium leading-[1.08] tracking-[-0.035em] text-[#111111] sm:text-[48px] md:text-[58px] lg:text-[68px]">
+          <h1 className="text-[28px] font-medium leading-[1.08] tracking-[-0.03em] text-[#111111] sm:text-[38px] md:text-[52px] lg:text-[68px]">
             {project.title}
           </h1>
 
@@ -423,7 +423,7 @@ export default async function CaseStudyPage({
             {[project.client, project.category, year].map((item) => (
               <span
                 key={item}
-                className="inline-flex min-h-[42px] items-center justify-center rounded-full border border-[#DFDFDF] bg-white px-7 text-[12px] font-normal text-[#555555] sm:min-h-[48px] sm:px-9 sm:text-[13px]"
+                className="inline-flex min-h-[36px] items-center justify-center rounded-full border border-[#DFDFDF] bg-white px-5 text-[11px] font-normal text-[#555555] sm:min-h-[42px] sm:px-7 sm:text-[12px] md:min-h-[48px] md:px-9 md:text-[13px]"
               >
                 {item}
               </span>

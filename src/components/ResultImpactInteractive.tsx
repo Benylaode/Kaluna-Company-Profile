@@ -42,10 +42,10 @@ export default function ResultImpactInteractive({
   const activeImage = getCurrentImage();
 
   return (
-    <section className="pb-[110px] lg:pb-[140px]">
+    <section className="pb-[72px] md:pb-[110px] lg:pb-[140px]">
       <div className="mx-auto max-w-[1440px] px-5 md:px-[48px] lg:px-[80px]">
-        <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-[1fr_1.08fr] lg:gap-[90px]">
-          {/* Left Column: Interactive Highlights List matching Screenshot 1 & 2 */}
+        <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-[1fr_1.08fr] md:gap-12 lg:gap-[90px]">
+          {/* Left Column: Interactive Highlights List */}
           <div>
             <div className="flex items-center gap-3">
               <span className="h-[15px] w-[3px] shrink-0 bg-[#299EED]" />
@@ -54,18 +54,29 @@ export default function ResultImpactInteractive({
               </span>
             </div>
 
-            <h2 className="mt-6 max-w-[570px] text-[30px] font-medium leading-[1.17] tracking-[-0.025em] text-[#111111] sm:text-[36px] lg:text-[44px]">
+            <h2 className="mt-5 max-w-[570px] text-[24px] font-medium leading-[1.17] tracking-[-0.025em] text-[#111111] sm:text-[30px] md:text-[36px] lg:text-[44px]">
               {title}
             </h2>
 
             {description && (
-              <p className="mt-5 text-[14px] font-normal leading-[1.7] text-[#626262] lg:text-[15px]">
+              <p className="mt-4 text-[13px] font-normal leading-[1.7] text-[#626262] md:text-[14px] lg:text-[15px]">
                 {description}
               </p>
             )}
 
+            {/* Mobile image preview between title and list */}
+            <div className="relative mt-6 aspect-[16/10] w-full overflow-hidden rounded-[16px] bg-[#E6EAF0] shadow-sm md:hidden">
+              <Image
+                src={activeImage}
+                alt={title}
+                fill
+                sizes="100vw"
+                className="object-cover transition-opacity duration-300 ease-in-out"
+              />
+            </div>
+
             {highlights.length > 0 && (
-              <div className="mt-9">
+              <div className="mt-7 md:mt-9">
                 {highlights.map((item, index) => {
                   const isActive = index === activeIndex;
 
@@ -78,13 +89,13 @@ export default function ResultImpactInteractive({
                         group
                         cursor-pointer
                         border-l-[3px]
-                        pl-5
-                        py-3
+                        pl-4
+                        py-2.5
                         transition-all
                         duration-200
                         ${
                           index < highlights.length - 1
-                            ? "border-b border-b-[#E8E8E8] pb-6 mb-5"
+                            ? "border-b border-b-[#E8E8E8] pb-5 mb-4 md:pb-6 md:mb-5"
                             : ""
                         }
                         ${
@@ -96,12 +107,14 @@ export default function ResultImpactInteractive({
                     >
                       <h3
                         className={`
-                          text-[16px]
+                          text-[14px]
                           font-medium
                           leading-[1.35]
                           transition-colors
                           duration-200
-                          sm:text-[17px]
+                          sm:text-[15px]
+                          md:text-[16px]
+                          lg:text-[17px]
                           ${isActive ? "text-[#111111] font-semibold" : "text-[#555555] group-hover:text-[#111111]"}
                         `}
                       >
@@ -111,7 +124,7 @@ export default function ResultImpactInteractive({
                       {item.desc && (
                         <p
                           className={`
-                            mt-2.5
+                            mt-2
                             text-[12px]
                             font-normal
                             leading-[1.65]
@@ -131,8 +144,8 @@ export default function ResultImpactInteractive({
             )}
           </div>
 
-          {/* Right Column: Dynamic Image Display matching Screenshot 1 & 2 */}
-          <div className="relative aspect-[1.12/1] w-full overflow-hidden rounded-[20px] bg-[#E6EAF0] shadow-sm lg:rounded-[24px]">
+          {/* Right Column: Dynamic Image Display — hidden on mobile (shown inline above instead) */}
+          <div className="relative hidden aspect-[1.12/1] w-full overflow-hidden rounded-[20px] bg-[#E6EAF0] shadow-sm md:block lg:rounded-[24px]">
             <Image
               src={activeImage}
               alt={title}
