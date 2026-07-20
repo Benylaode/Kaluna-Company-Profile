@@ -55,8 +55,13 @@ export default function Navbar() {
   };
 
   const isHome = pathname === "/";
-  const headerBgClass = isHome
-    ? (isScrolled ? "bg-white" : "bg-transparent")
+
+  // Mobile (< md): always solid white — burger icon must be readable
+  // Desktop (md+): transparent on homepage before scroll, white otherwise
+  const headerBgClass = isHome && isScrolled
+    ? "bg-white"
+    : isHome
+    ? "bg-white md:bg-transparent"
     : "bg-white";
 
   return (

@@ -20,7 +20,7 @@ const servicesList = [
 const socials = [
   {
     label: "Instagram",
-    href: "https://www.instagram.com/arsalynk?igsh=am8xZ3FpMncweXYz",
+    href: "https://www.instagram.com/kalunatechnology?igsh=emYxbnkydmR5Mnd1",
     icon: (
       <Image
         src="/image/instagram_icon.svg"
@@ -33,7 +33,7 @@ const socials = [
   },
   {
     label: "YouTube",
-    href: "https://www.youtube.com/channel/UC_U6_-QPHfTJv13ESZR3iMw",
+    href: "https://www.youtube.com/channel/UCovhihQGMo4m6IkkyUbU3bQ",
     icon: <FaYoutube className="h-5 w-5" />,
   },
   {
@@ -45,16 +45,19 @@ const socials = [
     label: "X",
     href: "https://x.com/arsalynk",
     icon: <FaXTwitter className="h-[20px] w-[20px]" />,
+    hidden: true,
   },
   {
     label: "Facebook",
     href: "#",
     icon: <FaFacebookF className="h-[20px] w-[20px]" />,
+    hidden: true,
   },
   {
     label: "TikTok",
     href: "#",
     icon: <FaTiktok className="h-[20px] w-[20px]" />,
+    hidden: true,
   },
 ];
 
@@ -171,7 +174,9 @@ export default function Footer() {
                     target={social.href && social.href !== "#" ? "_blank" : "_self"}
                     rel={social.href && social.href !== "#" ? "noopener noreferrer" : undefined}
                     aria-label={social.label}
-                    className="flex h-10 w-10 items-center justify-center rounded-full bg-[#17366A] text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#299EED]"
+                    className={`flex h-10 w-10 items-center justify-center rounded-full bg-[#17366A] text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#299EED]${
+                      (social as { hidden?: boolean }).hidden ? " hidden" : ""
+                    }`}
                   >
                     {social.icon}
                   </a>

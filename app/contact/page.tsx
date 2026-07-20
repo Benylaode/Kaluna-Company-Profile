@@ -16,15 +16,20 @@ import { submitLead } from "../../src/lib/actions";
 
 export default function ContactPage() {
   const [showPopup, setShowPopup] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
   async function action(formData: FormData) {
-    const result = await submitLead(formData);
-
-    if (result.success) {
-      setShowPopup(true);
-    } else {
-      alert("Terjadi kesalahan, silakan coba lagi.");
+    setIsLoading(true);
+    try {
+      const result = await submitLead(formData);
+      if (result.success) {
+        setShowPopup(true);
+      } else {
+        alert("Terjadi kesalahan, silakan coba lagi.");
+      }
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -429,6 +434,7 @@ export default function ContactPage() {
               {/* Submit Button */}
               <button
                 type="submit"
+                disabled={isLoading}
                 className="
                   group
                   mt-[24px]
@@ -445,36 +451,61 @@ export default function ContactPage() {
                   text-[13px]
                   font-normal
                   text-white
-                  transition-colors
+                  transition-all
                   duration-200
                   hover:bg-[#123768]
+                  disabled:cursor-not-allowed
+                  disabled:opacity-70
                   sm:w-[183px]
                 "
               >
-                <span className="whitespace-nowrap">
-                  Submit Inquiry
-                </span>
-
-                <span
-                  className="
-                    flex
-                    h-[34px]
-                    w-[34px]
-                    shrink-0
-                    items-center
-                    justify-center
-                    rounded-full
-                    bg-[#299EED]
-                    transition-transform
-                    duration-300
-                    group-hover:translate-x-[2px]
-                  "
-                >
-                  <ArrowRight
-                    className="h-[15px] w-[15px]"
-                    strokeWidth={1.8}
-                  />
-                </span>
+                {isLoading ? (
+                  <>
+                    <span className="whitespace-nowrap">Mengirim...</span>
+                    {/* Spinner */}
+                    <span className="flex h-[34px] w-[34px] shrink-0 items-center justify-center rounded-full bg-[#299EED]">
+                      <svg
+                        className="h-[16px] w-[16px] animate-spin text-white"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12" cy="12" r="10"
+                          stroke="currentColor"
+                          strokeWidth="3"
+                        />
+                        <path
+                          className="opacity-90"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                        />
+                      </svg>
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    <span className="whitespace-nowrap">Submit Inquiry</span>
+                    <span
+                      className="
+                        flex
+                        h-[34px]
+                        w-[34px]
+                        shrink-0
+                        items-center
+                        justify-center
+                        rounded-full
+                        bg-[#299EED]
+                        transition-transform
+                        duration-300
+                        group-hover:translate-x-[2px]
+                      "
+                    >
+                      <ArrowRight className="h-[15px] w-[15px]" strokeWidth={1.8} />
+                    </span>
+                  </>
+                )}
               </button>
             </form>
           </div>
@@ -484,163 +515,93 @@ export default function ContactPage() {
       <CTAC />
       <Footer />
 
+      {/* Keyframe Styles */}
+      <style>{`
+        @keyframes popupIn {
+          0% { opacity: 0; transform: scale(0.88) translateY(18px); }
+          100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        @keyframes overlayIn {
+          0% { opacity: 0; }
+          100% { opacity: 1; }
+        }
+        @keyframes checkDraw {
+          0% { stroke-dashoffset: 40; opacity: 0; }
+          40% { opacity: 1; }
+          100% { stroke-dashoffset: 0; opacity: 1; }
+        }
+        @keyframes ringPulse {
+          0% { transform: scale(0.7); opacity: 0; }
+          60% { transform: scale(1.08); opacity: 1; }
+          100% { transform: scale(1); opacity: 1; }
+        }
+        .popup-overlay { animation: overlayIn 0.25s ease forwards; }
+        .popup-card { animation: popupIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .popup-ring { animation: ringPulse 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both; }
+        .popup-check { stroke-dasharray: 40; stroke-dashoffset: 40; animation: checkDraw 0.5s ease 0.35s forwards; opacity: 0; }
+      `}</style>
+
       {/* Success Popup */}
       {showPopup && (
-        <div
-          className="
-            fixed
-            inset-0
-            z-50
-            flex
-            items-center
-            justify-center
-            bg-black/50
-            p-4
-            backdrop-blur-sm
-          "
-        >
-          <div
-            className="
-              relative
-              w-full
-              max-w-[500px]
-              rounded-[24px]
-              bg-white
-              px-7
-              py-10
-              text-center
-              shadow-2xl
-              md:px-12
-              md:py-12
-            "
-          >
+        <div className="popup-overlay fixed inset-0 z-50 flex items-center justify-center bg-black/55 p-4 backdrop-blur-[6px]">
+          <div className="popup-card relative w-full max-w-[480px] overflow-hidden rounded-[28px] bg-white px-7 py-10 text-center shadow-[0_32px_80px_rgba(14,42,84,0.22)] md:px-12 md:py-12">
+
+            {/* Decorative top accent */}
+            <div className="absolute inset-x-0 top-0 h-[5px] bg-[linear-gradient(90deg,#02184d,#299EED,#08297d)]" />
+
+            {/* Close button */}
             <button
               type="button"
               onClick={() => setShowPopup(false)}
               aria-label="Close popup"
-              className="
-                absolute
-                right-5
-                top-5
-                flex
-                h-10
-                w-10
-                items-center
-                justify-center
-                rounded-full
-                text-[#8A8A8A]
-                transition-colors
-                duration-200
-                hover:bg-[#F2F5F9]
-                hover:text-[#0E2A54]
-              "
+              className="absolute right-5 top-5 flex h-9 w-9 items-center justify-center rounded-full text-[#8A8A8A] transition-colors duration-200 hover:bg-[#F2F5F9] hover:text-[#0E2A54]"
             >
-              <X className="h-5 w-5" />
+              <X className="h-[18px] w-[18px]" />
             </button>
 
-            <div
-              className="
-                mx-auto
-                mb-7
-                flex
-                h-[84px]
-                w-[84px]
-                items-center
-                justify-center
-                rounded-full
-                bg-[#0E2A54]
-              "
-            >
+            {/* Animated success ring + checkmark */}
+            <div className="popup-ring mx-auto mb-6 flex h-[88px] w-[88px] items-center justify-center rounded-full bg-[linear-gradient(135deg,#0E2A54_0%,#1F5DBA_100%)] shadow-[0_8px_28px_rgba(14,42,84,0.28)]">
               <svg
-                className="h-10 w-10 text-white"
+                className="h-[42px] w-[42px] text-white"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 aria-hidden="true"
               >
                 <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+                  className="popup-check"
                   strokeWidth={2.5}
                   d="M5 13l4 4L19 7"
                 />
               </svg>
             </div>
 
-            <h2
-              className="
-                mb-4
-                text-[28px]
-                font-semibold
-                leading-[1.2]
-                tracking-[-0.02em]
-                text-[#0E2A54]
-                md:text-[32px]
-              "
-            >
+            {/* Badge label */}
+            <div className="mx-auto mb-4 inline-flex items-center gap-2 rounded-full border border-[#D6ECFF] bg-[#EAF3FF] px-4 py-1.5">
+              <span className="h-[6px] w-[6px] rounded-full bg-[#299EED]" />
+              <span className="text-[11px] font-semibold uppercase tracking-[0.06em] text-[#0E2A54]">
+                Inquiry Submitted
+              </span>
+            </div>
+
+            <h2 className="mb-3 text-[24px] font-semibold leading-[1.2] tracking-[-0.02em] text-[#0E2A54] md:text-[28px]">
               Thank You for Reaching Out!
             </h2>
 
-            <p
-              className="
-                mx-auto
-                mb-8
-                max-w-[400px]
-                text-[15px]
-                font-normal
-                leading-[1.7]
-                text-[#5A5A5A]
-                md:text-[16px]
-              "
-            >
-              Your form has been successfully submitted. Our team will get back
-              to you as soon as possible. Don&apos;t forget to check your inbox
-              and spam folder for our response.
+            <p className="mx-auto mb-8 max-w-[380px] text-[13px] font-normal leading-[1.75] text-[#5A5A5A] md:text-[14px]">
+              Pesan Anda telah berhasil terkirim. Tim kami akan segera menghubungi Anda. Jangan lupa cek folder Inbox dan Spam untuk respons dari kami.
             </p>
 
             <button
               type="button"
               onClick={() => router.push("/")}
-              className="
-                group
-                mx-auto
-                flex
-                h-[58px]
-                items-center
-                gap-[18px]
-                rounded-full
-                bg-[#0E2A54]
-                py-2
-                pl-7
-                pr-2
-                text-[15px]
-                font-normal
-                text-white
-                transition-colors
-                duration-200
-                hover:bg-[#123768]
-              "
+              className="group mx-auto flex h-[52px] items-center gap-[16px] rounded-full bg-[#0E2A54] py-2 pl-6 pr-2 text-[13px] font-normal text-white transition-colors duration-200 hover:bg-[#123768]"
             >
-              <span>Back to Home</span>
-
-              <span
-                className="
-                  flex
-                  h-[42px]
-                  w-[42px]
-                  items-center
-                  justify-center
-                  rounded-full
-                  bg-[#299EED]
-                  transition-transform
-                  duration-300
-                  group-hover:translate-x-[2px]
-                "
-              >
-                <ArrowRight
-                  className="h-[18px] w-[18px]"
-                  strokeWidth={1.8}
-                />
+              <span>Kembali ke Beranda</span>
+              <span className="flex h-[36px] w-[36px] shrink-0 items-center justify-center rounded-full bg-[#299EED] transition-transform duration-300 group-hover:translate-x-[2px]">
+                <ArrowRight className="h-[15px] w-[15px]" strokeWidth={1.8} />
               </span>
             </button>
           </div>

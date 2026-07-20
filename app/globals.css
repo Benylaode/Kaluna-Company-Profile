@@ -10,8 +10,14 @@
     100% { transform: translateX(0); opacity: 1; }
   }
 
+  @keyframes popup-in {
+    from { opacity: 0; transform: scale(0.94) translateY(12px); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
+  }
+
   /* Mengaitkan keyframes ke dalam utility class milik Tailwind */
   --animate-slideOutIn: slideOutIn 0.35s ease-in-out forwards;
+  --animate-popup-in: popup-in 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 :root {
