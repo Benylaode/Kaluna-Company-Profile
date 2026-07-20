@@ -9,12 +9,38 @@ export default function Hero() {
   const slideDuration = 4000;
   const router = useRouter();
 
-  const slides = [
-    { id: 1, image: "/image/Hero/Default.webp", tags: ["Company Profile", "Website Development"] },
-    { id: 2, image: "/image/Hero/1.webp", tags: ["Marketplace", "Point Of Sales"] },
-    { id: 3, image: "/image/Hero/2.webp", tags: ["AI Integration", "Data Analytics"] },
-    { id: 4, image: "/image/Hero/3.webp", tags: ["Mobile App", "UI/UX Design"] }
-  ];
+const slides = [
+  {
+    id: 1,
+    image: "/image/Hero/Default.webp",
+    tags: ["Web & Application Development"]
+  },
+  {
+    id: 2,
+    image: "/image/Hero/1.webp",
+    tags: ["IoT System Development"]
+  },
+  {
+    id: 3,
+    image: "/image/Hero/2.webp",
+    tags: ["ERP & System Integration"]
+  },
+  {
+    id: 4,
+    image: "/image/Hero/3.webp",
+    tags: ["Industrial & Automation Solutions"]
+  },
+  {
+    id: 5,
+    image: "/image/Hero/4.webp",
+    tags: ["Data Dashboard & Analytics"]
+  },
+  {
+    id: 6,
+    image: "/image/Hero/5.webp",
+    tags: ["IT Consulting & Digital Strategy"]
+  }
+];
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -83,14 +109,14 @@ export default function Hero() {
               variant="primary-white"
               label="Start a Consultation"
               onClick={() => router.push("/contact")}
-              className="w-full bg-white hover:bg-[#DDEEFF] text-[#0E2A54] border-0 h-14"
+              className="w-full bg-white hover:bg-[#DDEEFF] text-[#0E2A54] border-0"
             />
 
             <Button
               variant="secondary"
               label="Explore Our Work"
               onClick={scrollToWorks}
-              className="w-full border-white text-white hover:bg-white/10 hover:text-white active:bg-white/20 h-14"
+              className="w-full border-white text-white hover:bg-white/10 hover:text-white active:bg-white/20"
             />
           </div>
         </div>
@@ -124,14 +150,12 @@ export default function Hero() {
               variant="primary"
               label="Start a Consultation"
               onClick={() => router.push("/contact")}
-              className="h-14"
             />
 
             <Button
               variant="secondary"
               label="Explore Our Work"
               onClick={scrollToWorks}
-              className="h-14"
             />
           </div>
         </div>

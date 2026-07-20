@@ -71,9 +71,9 @@ export default function Navbar() {
                 <Image
                   src="/logo.svg"
                   alt="Kaluna Logo"
-                  width={27}
-                  height={27}
-                  className="w-[22px] h-[22px] md:w-[27px] md:h-[27px] transition hover:scale-105"
+                  width={32}
+                  height={32}
+                  className="w-[26px] h-[26px] md:w-[32px] md:h-[32px] transition hover:scale-105"
                   priority
                 />
               </Link>
@@ -84,14 +84,14 @@ export default function Navbar() {
               <div className="flex items-center rounded-full border border-gray-100 bg-white/70 p-1.5 backdrop-blur-xl">
                 <Link
                   href="/"
-                  className={`rounded-full px-6 py-2 text-sm font-medium transition-all ${pathname === "/" ? "bg-[#EFF6FF] text-[#1E88E5]" : "text-[#0D2342] hover:bg-gray-50"
+                  className={`rounded-full px-5 py-1.5 text-sm font-normal transition-all ${pathname === "/" ? "bg-[#EFF6FF] text-[#1E88E5]" : "text-[#0D2342] hover:bg-gray-50"
                     }`}
                 >
                   Home
                 </Link>
                 <Link
                   href="/works"
-                  className={`rounded-full px-6 py-2 text-sm font-medium transition-all ${pathname === "/works" ? "bg-[#EFF6FF] text-[#1E88E5]" : "text-[#0D2342] hover:bg-gray-50"
+                  className={`rounded-full px-5 py-1.5 text-sm font-normal transition-all ${pathname === "/works" ? "bg-[#EFF6FF] text-[#1E88E5]" : "text-[#0D2342] hover:bg-gray-50"
                     }`}
                 >
                   Our Works
@@ -101,13 +101,13 @@ export default function Navbar() {
                   <button
                     type="button"
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                    className={`flex items-center gap-1.5 rounded-full px-6 py-2 text-sm font-medium transition-all ${isDropdownOpen || pathname.startsWith("/services")
+                    className={`flex items-center gap-1.5 rounded-full px-5 py-1.5 text-sm font-normal transition-all ${isDropdownOpen || pathname.startsWith("/services")
                       ? "bg-[#EFF6FF] text-[#1E88E5]"
                       : "text-[#0D2342] hover:bg-gray-50"
                       }`}
                   >
                     Our Service
-                    <ChevronDown size={16} className={`transition-transform duration-200 ${isDropdownOpen ? "rotate-180" : ""}`} />
+                    <ChevronDown size={14} className={`transition-transform duration-200 ${isDropdownOpen ? "rotate-180" : ""}`} />
                   </button>
 
                   {isDropdownOpen && (
@@ -117,7 +117,7 @@ export default function Navbar() {
                           key={index}
                           href={service.href}
                           onClick={() => setIsDropdownOpen(false)}
-                          className="block text-[#4A5568] text-sm font-medium py-3 px-4 rounded-xl hover:bg-[#F4F5F7] hover:text-[#1E88E5] transition-colors"
+                          className="block text-[#4A5568] text-sm font-normal py-3 px-4 rounded-xl hover:bg-[#F4F5F7] hover:text-[#1E88E5] transition-colors"
                         >
                           {service.name}
                         </Link>
@@ -128,7 +128,7 @@ export default function Navbar() {
 
                 <Link
                   href="/who-we-are"
-                  className={`rounded-full px-6 py-2 text-sm font-medium transition-all ${pathname === "/who-we-are" ? "bg-[#EFF6FF] text-[#1E88E5]" : "text-[#0D2342] hover:bg-gray-50"
+                  className={`rounded-full px-5 py-1.5 text-sm font-normal transition-all ${pathname === "/who-we-are" ? "bg-[#EFF6FF] text-[#1E88E5]" : "text-[#0D2342] hover:bg-gray-50"
                     }`}
                 >
                   Who We Are
@@ -140,11 +140,11 @@ export default function Navbar() {
             <div className="hidden md:flex justify-end">
               <button
                 onClick={scrollToFooter}
-                className="group flex items-center rounded-full bg-[#0D2342] py-1.5 pl-5 pr-1.5 text-white transition-all duration-300 hover:bg-[#163A70]"
+                className="group flex items-center rounded-full bg-[#0D2342] py-1 pl-4 pr-1 text-white transition-all duration-300 hover:bg-[#163A70]"
               >
-                <span className="mr-3 text-sm font-medium">Contact Us</span>
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#1E88E5] group-hover:scale-105 transition-transform">
-                  <ArrowRight size={14} strokeWidth={2.5} />
+                <span className="mr-2.5 text-[13px] font-normal">Contact Us</span>
+                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[#1E88E5] group-hover:scale-105 transition-transform">
+                  <ArrowRight size={12} strokeWidth={2} />
                 </div>
               </button>
             </div>

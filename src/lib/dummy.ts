@@ -258,89 +258,89 @@ export const seedDatabase = (db: any) => {
     }
   ];
 
-  const works = [
-    {
-      slug: "x-1-tire-company-profile",
-      client: "X-1 TIRE",
-      title: "Company Profile Revamp for X-1 Tire",
-      desc: "A modern company profile website designed to present X-1 Tire's brand, services, and core initiatives with an integrated product presentation module.",
-      category: "Website Development",
-      images: [
-        "/image/projects/x-1-tire-company-profile/1.webp",
-        "/image/projects/x-1-tire-company-profile/2.webp",
-        "/image/projects/x-1-tire-company-profile/3.webp"
-      ]
-    },
-    {
-      slug: "navicom-smart-home",
-      client: "NAVICOM INDONESIA",
-      title: "Smart Home System for Navicom",
-      desc: "Smart home system managing 3,800+ devices across 240 units, delivering real-time control of lighting, AC, and safety through tablets and mobile apps.",
-      category: "IoT System",
-      images: [
-        "/image/projects/navicom-smart-home/1.webp",
-        "/image/projects/navicom-smart-home/2.webp",
-        "/image/projects/navicom-smart-home/3.webp"
-      ]
-    },
-    {
-      slug: "sinau-print-pos-system",
-      client: "SINAU PRINT",
-      title: "POS System for Sinau Print",
-      desc: "Improved transaction efficiency, enabled real-time stock control to prevent overselling, and increased user engagement for Sinau Print, successfully achieving all KPIs.",
-      category: "Software Development",
-      images: [
-        "/image/projects/sinau-print-pos-system/1.webp",
-        "/image/projects/sinau-print-pos-system/2.webp",
-        "/image/projects/sinau-print-pos-system/3.webp"
+const works = [
+  {
+    slug: "myboss-iot-system",
+    client: "MY BOSS",
+    title: "IoT System for My Boss (Nasmoko)",
+    desc: "A smart IoT system designed to monitor and manage automotive operational devices in real-time.",
+    category: "IoT System Development",
+    images: [
+      "/image/projects/myboss-iot-system/1.webp",
+      "/image/projects/myboss-iot-system/2.webp",
+      "/image/projects/myboss-iot-system/3.webp"
+    ]
+  },
+  {
+    slug: "sinau-print-erp",
+    client: "SINAU PRINT",
+    title: "ERP System for Sinau Print",
+    desc: "Integrated ERP solution to manage printing operations, inventory control, automated workflows, and financial records.",
+    category: "ERP & System Integration",
+    images: [
+      "/image/projects/sinau-print-erp/1.webp",
+      "/image/projects/sinau-print-erp/2.webp",
+      "/image/projects/sinau-print-erp/3.webp"
+    ],
+    content_json: JSON.stringify({
+      overview: "Digitalizing printing services through an all-in-one custom ERP system, transforming manual management into an integrated digital workflow.",
+      features: [
+        { title: "Real-time Inventory", desc: "Automated tracking of paper, ink, and raw supplies." },
+        { title: "Workflow Automation", desc: "Streamlined order lifecycle from intake to production." },
+        { title: "Operational Dashboard", desc: "Centralized control panel for staff and management." },
+        { title: "Financial & Billing", desc: "Integrated invoicing and instant transaction recording." }
       ],
-      content_json: JSON.stringify({
-        overview: "Digitalizing printing services through a custom marketplace platform, transforming manual order processing into a seamless digital experience.",
-        features: [
-          { title: "Online Inventory", desc: "Real-time tracking of paper and ink supplies." },
-          { title: "Automated Workflow", desc: "Streamlined order submission and status updates." },
-          { title: "User Dashboard", desc: "Intuitive interface for customers and staff." },
-          { title: "Payment Integration", desc: "Secure and fast digital payment gateways for seamless transactions." }
+      tech_stack: ["HTML5", "CSS3", "JavaScript", "Next.js", "PostgreSQL", "Git"],
+      result: {
+        title: "Optimizing Operations & Inventory Control",
+        desc: "By deploying a custom ERP platform, Sinau Print successfully automated operational bottlenecks and achieved seamless resource management.",
+        points: [
+          "Reduced manual order processing time by 40%",
+          "Eliminated overselling and stock discrepancies with real-time sync",
+          "Increased team productivity and reporting accuracy"
         ],
-        tech_stack: ["HTML5", "CSS3", "JavaScript", "Next.js", "PostgreSQL", "Git"],
-        result: {
-          title: "Improving Transaction Efficiency and Customer Engagement",
-          desc: "By integrating a custom digital platform, Sinau Print successfully automated their manual workflow, resulting in faster processing times and a much smoother customer experience.",
-          points: [
-            "Reduced manual order processing time by 40%",
-            "Increased overall customer engagement by 25%",
-            "Real-time inventory sync eliminated overselling issues"
-          ],
-          image_url: "/image/projects/sinau-print-pos-system/1.webp"
-        },
-        bottom_image: "/image/projects/sinau-print-pos-system/2.webp"
-      })
-    },
-    {
-      slug: "suara-merdeka-refresh",
-      client: "SUARA MERDEKA",
-      title: "Website Refresh Suara Merdeka",
-      desc: "Modern website refresh to maintain journalism values with an elegant and user-friendly interface.",
-      category: "Website Development",
-      images: [
-        "/image/projects/suara-merdeka-refresh/1.webp",
-        "/image/projects/suara-merdeka-refresh/2.webp",
-        "/image/projects/suara-merdeka-refresh/3.webp"
-      ]
-    },
-    {
-      slug: "korlantas-polri-edrives",
-      client: "KORLANTAS POLRI",
-      title: "E-Drives for Korlantas Polri",
-      desc: "Backend and IoT integration system for E-Drives to support law enforcement and traffic management.",
-      category: "Backend & IoT",
-      images: [
-        "/image/projects/korlantas-polri-edrives/1.webp",
-        "/image/projects/korlantas-polri-edrives/2.webp",
-        "/image/projects/korlantas-polri-edrives/3.webp"
-      ]
-    }
-  ];
+        image_url: "/image/projects/sinau-print-erp/1.webp"
+      },
+      bottom_image: "/image/projects/sinau-print-erp/2.webp"
+    })
+  },
+  {
+    slug: "web-media-profile",
+    client: "WEB MEDIA",
+    title: "Company Profile Website for Web Media",
+    desc: "An elegant, highly responsive company profile page created to build brand presence and showcase digital solutions effectively.",
+    category: "Web & Application Development",
+    images: [
+      "/image/projects/web-media-profile/1.webp",
+      "/image/projects/web-media-profile/2.webp",
+      "/image/projects/web-media-profile/3.webp"
+    ]
+  },
+  {
+    slug: "artic-complex-web",
+    client: "ARTIC",
+    title: "Complex Web Application for Artic",
+    desc: "A scalable, high-performance web platform built to support complex data logic, user management, and seamless integrations.",
+    category: "Web & Application Development",
+    images: [
+      "/image/projects/artic-complex-web/1.webp",
+      "/image/projects/artic-complex-web/2.webp",
+      "/image/projects/artic-complex-web/3.webp"
+    ]
+  },
+  {
+    slug: "altatic-analytic",
+    client: "ALTATIC ANALYTIC",
+    title: "K-Hub Data Dashboard for Altatic Analytic (X-Tire)",
+    desc: "An advanced data dashboard providing real-time analytics, sales tracking, and operational metrics for Altatic Analytic.",
+    category: "Data Dashboard & Analytics",
+    images: [
+      "/image/projects/altatic-analytic/1.webp",
+      "/image/projects/altatic-analytic/2.webp",
+      "/image/projects/altatic-analytic/3.webp"
+    ]
+  }
+];
   const testimonials = [
     {
       client_name: "Ibnu Sapto Adi",

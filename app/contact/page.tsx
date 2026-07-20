@@ -33,31 +33,34 @@ export default function ContactPage() {
       className="
         relative
         w-full
-        h-[240px]
-        md:h-[260px]
-        rounded-[20px]
+        h-[200px]
+        md:h-[240px]
+        rounded-[16px]
         overflow-hidden
         flex
         items-center
         justify-center
         bg-cover
         bg-center
+        bg-[#0E2A54]
       "
       style={{
-        backgroundImage: "url('/image/works-banner-bg.svg')",
+        backgroundImage: "url('/image/banner-title.svg')",
       }}
     >
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-[#0E2A54]/15" />
+      {/* Navy blend overlay: keeps #0E2A54 color while keeping SVG image sharp and clear */}
+      <div className="absolute inset-0 bg-[#0E2A54]/65 mix-blend-multiply z-[1]" />
+      <div className="absolute inset-0 bg-[#0E2A54]/30 z-[1]" />
 
       <h1
         className="
           relative
           z-10
-          text-[40px]
-          md:text-[56px]
-          lg:text-[64px]
-          font-bold
+          text-[36px]
+          md:text-[52px]
+          lg:text-[60px]
+          font-normal
+          md:font-light
           tracking-[-0.02em]
           text-white
           text-center

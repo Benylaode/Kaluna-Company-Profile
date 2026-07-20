@@ -6,13 +6,6 @@ import { getTeam } from "../../src/lib/actions";
 export default async function WhoWeArePage() {
   const team = await getTeam();
 
-  const expertise = [
-    { name: "IoT Systems", img: "https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=600" },
-    { name: "Enterprise Software Development", img: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=600" },
-    { name: "System Integration", img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=600" },
-    { name: "Data Infrastructure", img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=600" },
-  ];
-
   const whyReasons = [
     {
       title: "Fragmented Business Systems",
@@ -44,6 +37,25 @@ export default async function WhoWeArePage() {
     }
   ];
 
+  const expertise = [
+  {
+    name: "IoT\nSystems",
+    img: "image/Expertise/1.svg",
+  },
+  {
+    name: "ERP & System\nIntegration",
+    img: "image/Expertise/2.svg",
+  },
+  {
+    name: "Web & Application\nDevelopment",
+    img: "image/Expertise/3.svg",
+  },
+  {
+    name: "Data Dashboard\n& Analytics",
+    img: "image/Expertise/4.svg",
+  },
+];
+
   return (
     <main className="min-h-screen bg-white font-sans text-[#0D2342] overflow-x-hidden">
       <Navbar />
@@ -55,24 +67,26 @@ export default async function WhoWeArePage() {
             className="
               relative
               w-full
-              h-[240px]
-              md:h-[260px]
-              rounded-[12px]
+              h-[200px]
+              md:h-[240px]
+              rounded-[16px]
               overflow-hidden
               flex
               items-center
               justify-center
               bg-cover
               bg-center
+              bg-[#0E2A54]
             "
             style={{
-              backgroundImage: "url('/image/works-banner-bg.svg')",
+              backgroundImage: "url('/image/banner-title.svg')",
             }}
           >
-            {/* Optional dark overlay */}
-            <div className="absolute inset-0 bg-[#0E2A54]/15"></div>
+            {/* Navy blend overlay: keeps #0E2A54 color while keeping SVG image sharp and clear */}
+            <div className="absolute inset-0 bg-[#0E2A54]/65 mix-blend-multiply z-[1]" />
+            <div className="absolute inset-0 bg-[#0E2A54]/30 z-[1]" />
 
-            <h1 className="relative z-10 text-[40px] md:text-[56px] lg:text-[64px] font-bold tracking-[-0.02em] text-white">
+            <h1 className="relative z-10 text-[36px] md:text-[52px] lg:text-[60px] font-normal md:font-light tracking-[-0.02em] text-white text-center px-4">
               Who We Are
             </h1>
           </div>
@@ -84,11 +98,10 @@ export default async function WhoWeArePage() {
   <div
     className="
       mx-auto
-      max-w-[1600px]
+      max-w-[1440px]
       px-5
-      md:px-10
-      lg:px-[72px]
-      xl:px-[88px]
+      md:px-[48px]
+      lg:px-[80px]
       pt-12
       pb-14
       md:pt-16
@@ -200,435 +213,512 @@ export default async function WhoWeArePage() {
     </div>
   </div>
 </section>
-
-{/* ── 3. Why Kaluna ───────────────────────────────────────── */}
-<section className="w-full bg-[#F6F9FC]">
-  <div
-    className="
-      mx-auto
-      max-w-[1600px]
-      px-5
-      md:px-10
-      lg:px-[72px]
-      xl:px-[88px]
-      pt-[72px]
-      pb-[74px]
-      md:pt-[84px]
-      md:pb-[88px]
-    "
-  >
-    {/* Heading */}
-    <div className="mx-auto max-w-[760px] text-center">
-      <div className="mb-5 flex items-center justify-center gap-3">
-        <span className="h-[15px] w-[3px] rounded-full bg-[#299EED]" />
-
-        <span
-          className="
-            text-[11px]
-            md:text-[12px]
-            font-semibold
-            uppercase
-            tracking-[0.07em]
-            text-[#0E2A54]
-          "
-        >
-          Why Kaluna IT
-        </span>
-      </div>
-
-      <h2
-        className="
-          text-[30px]
-          sm:text-[34px]
-          md:text-[38px]
-          lg:text-[42px]
-          font-bold
-          leading-[1.2]
-          tracking-[-0.025em]
-          text-[#0E2A54]
-        "
-      >
-        Turning Complex Problems
-        <br />
-        Into Scalable Solutions
-      </h2>
-    </div>
-
-    {/* Cards */}
+{/* ── Problem We Solve ───────────────────────────────────── */}
+<section className="w-full overflow-hidden bg-[#FAFAFA] py-20 md:py-16 px-2">
+  <div className="kaluna-wide-container">
     <div
       className="
-        mt-14
-        grid
-        grid-cols-1
-        gap-5
-        sm:grid-cols-2
-        lg:mt-16
-        lg:grid-cols-4
-        lg:gap-5
+        relative
+        overflow-hidden
+        rounded-[15px]
+        bg-[#EAF3FF]
+        py-10
+        md:py-12
+        lg:py-16
       "
     >
-      {/* Card 1 */}
-      <div
-        className="
-          min-h-[280px]
-          rounded-[20px]
-          border
-          border-[#E5EAF0]
-          bg-white
-          p-7
-          shadow-[0_2px_8px_rgba(14,42,84,0.06)]
-          transition-all
-          duration-300
-          hover:-translate-y-1
-          hover:shadow-[0_10px_25px_rgba(14,42,84,0.09)]
-          md:p-8
-        "
-      >
-        <div
-          className="
-            mb-5
-            flex
-            h-[54px]
-            w-[54px]
-            items-center
-            justify-center
-            rounded-[12px]
-            bg-[#EEF6FF]
-          "
-        >
-          <img
-            src="/image/why/1.svg"
-            alt=""
-            className="h-[28px] w-[28px] object-contain"
-          />
+      <div className="mx-auto max-w-[1440px] px-[2px] md:px-[28px] lg:px-[60px] min-[1480px]:px-[80px]">
+        {/* Header */}
+        <div className="mx-auto max-w-[680px] text-center">
+          <div className="mb-4 flex items-center justify-center gap-2.5">
+            <span className="h-3.5 w-[2.5px] rounded-full bg-[#299EED]" />
+
+            <span
+              className="
+                text-[10px]
+                font-semibold
+                uppercase
+                tracking-[0.08em]
+                text-[#0E2A54]
+                md:text-[11px]
+              "
+            >
+              Problem We Solve
+            </span>
+          </div>
+
+          <h2
+            className="
+              text-[26px]
+              font-medium
+              leading-[1.16]
+              tracking-[-0.02em]
+              text-[#0D0D0D]
+              sm:text-[28px]
+              md:text-[32px]
+              lg:text-[34px]
+            "
+          >
+            Turning Complex Problems
+            <br />
+            Into Scalable Solutions
+          </h2>
         </div>
 
-        <h3
-          className="
-            text-[18px]
-            md:text-[19px]
-            font-semibold
-            leading-[1.3]
-            tracking-[-0.015em]
-            text-[#0E2A54]
-          "
-        >
-          Fragmented Business Systems
-        </h3>
-
-        <p
-          className="
-            mt-4
-            text-[14px]
-            md:text-[15px]
-            leading-[1.65]
-            text-[#667085]
-          "
-        >
-          Many enterprises struggle with siloed legacy systems that slow down
-          operations and make data exchange difficult.
-        </p>
-      </div>
-
-      {/* Card 2 */}
-      <div
-        className="
-          min-h-[280px]
-          rounded-[20px]
-          border
-          border-[#E5EAF0]
-          bg-white
-          p-7
-          shadow-[0_2px_8px_rgba(14,42,84,0.06)]
-          transition-all
-          duration-300
-          hover:-translate-y-1
-          hover:shadow-[0_10px_25px_rgba(14,42,84,0.09)]
-          md:p-8
-        "
-      >
+        {/* Problem Cards */}
         <div
           className="
-            mb-5
-            flex
-            h-[54px]
-            w-[54px]
-            items-center
-            justify-center
-            rounded-[12px]
-            bg-[#EEF6FF]
+            mt-10
+            grid
+            grid-cols-1
+            gap-5
+            sm:grid-cols-2
+            md:mt-12
+            lg:grid-cols-4
+            lg:gap-6
           "
         >
-          <img
-            src="/image/why/2.svg"
-            alt=""
-            className="h-[28px] w-[28px] object-contain"
-          />
+          {/* Card 1 */}
+          <div
+            className="
+              min-h-[250px]
+              rounded-[18px]
+              bg-white
+              p-6
+              shadow-[0_12px_35px_rgba(14,42,84,0.05)]
+              transition-all
+              duration-300
+              hover:-translate-y-1
+              hover:shadow-[0_18px_45px_rgba(14,42,84,0.08)]
+              md:p-7
+            "
+          >
+            <div
+              className="
+                mb-6
+                flex
+                h-[50px]
+                w-[50px]
+                items-center
+                justify-center
+                rounded-[11px]
+                bg-[#A3D9F733]
+              "
+            >
+              <img
+                src="/image/Problem/1.svg"
+                alt="Fragmented Business Systems"
+                className="h-[24px] w-[24px] object-contain"
+              />
+            </div>
+
+            <h3
+              className="
+                text-[16px]
+                leading-[1.35]
+                tracking-[-0.01em]
+                text-[#0E2A54]
+                md:text-[20px]
+              "
+            >
+              Fragmented Business Systems
+            </h3>
+
+            <p
+              className="
+                mt-3
+                text-[11px]
+                leading-[1.6]
+                text-[#737373]
+                md:text-[12px]
+              "
+            >
+              Integrates systems through ERP and System Integration, connecting
+              departments into one unified platform for efficient workflows and
+              accurate data.
+            </p>
+          </div>
+
+          {/* Card 2 */}
+          <div
+            className="
+              min-h-[250px]
+              rounded-[18px]
+              bg-white
+              p-6
+              shadow-[0_12px_35px_rgba(14,42,84,0.05)]
+              transition-all
+              duration-300
+              hover:-translate-y-1
+              hover:shadow-[0_18px_45px_rgba(14,42,84,0.08)]
+              md:p-7
+            "
+          >
+            <div
+              className="
+                mb-6
+                flex
+                h-[50px]
+                w-[50px]
+                items-center
+                justify-center
+                rounded-[11px]
+                bg-[#A3D9F733]
+              "
+            >
+              <img
+                src="/image/Problem/2.svg"
+                alt="Lack of Real-Time Operational Visibility"
+                className="h-[24px] w-[24px] object-contain"
+              />
+            </div>
+
+            <h3
+              className="
+                text-[16px]
+                leading-[1.35]
+                tracking-[-0.01em]
+                text-[#0E2A54]
+                md:text-[20px]
+              "
+            >
+              Lack of Real-Time Operational Visibility
+            </h3>
+
+            <p
+              className="
+                mt-3
+                text-[11px]
+                leading-[1.6]
+                text-[#737373]
+                md:text-[12px]
+              "
+            >
+              Using IoT System Development and Industrial Automation, Kaluna
+              builds connected systems that provide real-time monitoring and
+              automated alerts.
+            </p>
+          </div>
+
+          {/* Card 3 */}
+          <div
+            className="
+              min-h-[250px]
+              rounded-[18px]
+              bg-white
+              p-6
+              shadow-[0_12px_35px_rgba(14,42,84,0.05)]
+              transition-all
+              duration-300
+              hover:-translate-y-1
+              hover:shadow-[0_18px_45px_rgba(14,42,84,0.08)]
+              md:p-7
+            "
+          >
+            <div
+              className="
+                mb-6
+                flex
+                h-[50px]
+                w-[50px]
+                items-center
+                justify-center
+                rounded-[11px]
+                bg-[#A3D9F733]
+              "
+            >
+              <img
+                src="/image/Problem/3.svg"
+                alt="Businesses Struggle to Turn Data into Insights"
+                className="h-[24px] w-[24px] object-contain"
+              />
+            </div>
+
+            <h3
+              className="
+                text-[16px]
+                leading-[1.35]
+                tracking-[-0.01em]
+                text-[#0E2A54]
+                md:text-[20px]
+              "
+            >
+              Businesses Struggle to Turn Data into Insights
+            </h3>
+
+            <p
+              className="
+                mt-3
+                text-[11px]
+                leading-[1.6]
+                text-[#737373]
+                md:text-[12px]
+              "
+            >
+              Kaluna develops Data Dashboards and Analytics platforms that
+              transform raw data into clear visual insights for faster and smarter
+              business decisions.
+            </p>
+          </div>
+
+          {/* Card 4 */}
+          <div
+            className="
+              min-h-[250px]
+              rounded-[18px]
+              bg-white
+              p-6
+              shadow-[0_12px_35px_rgba(14,42,84,0.05)]
+              transition-all
+              duration-300
+              hover:-translate-y-1
+              hover:shadow-[0_18px_45px_rgba(14,42,84,0.08)]
+              md:p-7
+            "
+          >
+            <div
+              className="
+                mb-6
+                flex
+                h-[50px]
+                w-[50px]
+                items-center
+                justify-center
+                rounded-[11px]
+                bg-[#A3D9F733]
+              "
+            >
+              <img
+                src="/image/Problem/4.svg"
+                alt="Outdated or Inefficient Digital Platforms"
+                className="h-[24px] w-[24px] object-contain"
+              />
+            </div>
+
+            <h3
+              className="
+                text-[16px]
+                leading-[1.35]
+                tracking-[-0.01em]
+                text-[#0E2A54]
+                md:text-[20px]
+              "
+            >
+              Outdated or Inefficient Digital Platforms
+            </h3>
+
+            <p
+              className="
+                mt-3
+                text-[11px]
+                leading-[1.6]
+                text-[#737373]
+                md:text-[12px]
+              "
+            >
+              Through Web and Application Development, Kaluna builds modern,
+              scalable digital platforms tailored to business needs.
+            </p>
+          </div>
         </div>
-
-        <h3
-          className="
-            text-[18px]
-            md:text-[19px]
-            font-semibold
-            leading-[1.3]
-            tracking-[-0.015em]
-            text-[#0E2A54]
-          "
-        >
-          Lack of Real-Time Operations Visibility
-        </h3>
-
-        <p
-          className="
-            mt-4
-            text-[14px]
-            md:text-[15px]
-            leading-[1.65]
-            text-[#667085]
-          "
-        >
-          Without unified dashboards, management lacks real-time insights,
-          delaying critical business decisions and lowering agility.
-        </p>
-      </div>
-
-      {/* Card 3 */}
-      <div
-        className="
-          min-h-[280px]
-          rounded-[20px]
-          border
-          border-[#E5EAF0]
-          bg-white
-          p-7
-          shadow-[0_2px_8px_rgba(14,42,84,0.06)]
-          transition-all
-          duration-300
-          hover:-translate-y-1
-          hover:shadow-[0_10px_25px_rgba(14,42,84,0.09)]
-          md:p-8
-        "
-      >
-        <div
-          className="
-            mb-5
-            flex
-            h-[54px]
-            w-[54px]
-            items-center
-            justify-center
-            rounded-[12px]
-            bg-[#EEF6FF]
-          "
-        >
-          <img
-            src="/image/why/3.svg"
-            alt=""
-            className="h-[28px] w-[28px] object-contain"
-          />
-        </div>
-
-        <h3
-          className="
-            text-[18px]
-            md:text-[19px]
-            font-semibold
-            leading-[1.3]
-            tracking-[-0.015em]
-            text-[#0E2A54]
-          "
-        >
-          Businesses Struggle to Turn Data Into Insights
-        </h3>
-
-        <p
-          className="
-            mt-4
-            text-[14px]
-            md:text-[15px]
-            leading-[1.65]
-            text-[#667085]
-          "
-        >
-          Vast amounts of data are generated, but without proper analytics
-          infrastructure, businesses fail to leverage it for growth.
-        </p>
-      </div>
-
-      {/* Card 4 */}
-      <div
-        className="
-          min-h-[280px]
-          rounded-[20px]
-          border
-          border-[#E5EAF0]
-          bg-white
-          p-7
-          shadow-[0_2px_8px_rgba(14,42,84,0.06)]
-          transition-all
-          duration-300
-          hover:-translate-y-1
-          hover:shadow-[0_10px_25px_rgba(14,42,84,0.09)]
-          md:p-8
-        "
-      >
-        <div
-          className="
-            mb-5
-            flex
-            h-[54px]
-            w-[54px]
-            items-center
-            justify-center
-            rounded-[12px]
-            bg-[#EEF6FF]
-          "
-        >
-          <img
-            src="/image/why/4.svg"
-            alt=""
-            className="h-[28px] w-[28px] object-contain"
-          />
-        </div>
-
-        <h3
-          className="
-            text-[18px]
-            md:text-[19px]
-            font-semibold
-            leading-[1.3]
-            tracking-[-0.015em]
-            text-[#0E2A54]
-          "
-        >
-          Outdated or Inefficient Digital Platforms
-        </h3>
-
-        <p
-          className="
-            mt-4
-            text-[14px]
-            md:text-[15px]
-            leading-[1.65]
-            text-[#667085]
-          "
-        >
-          Relying on outdated applications slows down processes and creates poor
-          experiences for both employees and customers.
-        </p>
       </div>
     </div>
   </div>
 </section>
-      {/* ── 4. Vision & Mission ─────────────────────────────────── */}
-<section className="relative overflow-hidden bg-[linear-gradient(182.26deg,#0E2A54_14.5%,#1F5DBA_98.1%)] py-24 md:py-28 lg:py-32">
+{/* ── 4. Vision & Mission ─────────────────────────────────── */}
+<section
+  className="
+    relative
+    h-[300px]
+    w-full
+    overflow-hidden
+    sm:h-[340px]
+    md:h-[420px]
+    lg:h-[450px]
+    xl:h-[470px]
+  "
+>
+  {/* ========================================================
+      BACKGROUND
+      Menggunakan path asli dari vision.svg
+  ======================================================== */}
+  <svg
+    aria-hidden="true"
+    className="pointer-events-none absolute inset-0 h-full w-full"
+    viewBox="0 0 1920 634"
+    fill="none"
+    preserveAspectRatio="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <defs>
+      <linearGradient
+        id="vision-gradient"
+        x1="977"
+        y1="83.2328"
+        x2="969.81"
+        y2="634.128"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stopColor="#0E2A54" />
+        <stop offset="1" stopColor="#1F5DBA" />
+      </linearGradient>
+    </defs>
 
-  {/* Background Graphics */}
-  <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    {/* Main gradient */}
+    <rect width="1920" height="634" fill="url(#vision-gradient)" />
 
-    {/* Dark Shape */}
-    <div
-      className="absolute opacity-40"
-      style={{
-        width: "1100px",
-        height: "900px",
-        background: "#203560",
-        clipPath: "polygon(42% 0%,100% 0%,68% 100%,8% 100%)",
-        top: "-520px",
-        right: "-120px",
-      }}
-    />
+    {/* K graphic — exact paths from vision.svg */}
+    <g opacity="0.5">
+      {/* Small lower-right triangle */}
+      <path
+        d="
+          M1599.1 558.413
+          H1801.98
+          C1806.27 558.413 1809.75 554.935 1809.75 550.642
+          V347.615
+          C1809.75 345.312 1806.96 344.149 1805.33 345.777
+          L1597.27 553.992
+          C1595.64 555.621 1596.79 558.413 1599.1 558.413
+          Z
+        "
+        fill="#2C9FDD"
+      />
 
-    {/* Blue Shape */}
-    <div
-      className="absolute opacity-35"
-      style={{
-        width: "950px",
-        height: "950px",
-        background: "#375CA9",
-        clipPath: "polygon(38% 0%,100% 0%,62% 100%,0% 100%)",
-        top: "-180px",
-        right: "-90px",
-      }}
-    />
+      {/* Main lower diagonal of K */}
+      <path
+        d="
+          M83.8965 1599
+          L2640.36 -958.187
+          H3023
+          L467.705 1599
+          H83.8965
+          Z
+        "
+        fill="#375CA9"
+      />
 
-    {/* Small Triangle */}
-    <div
-      className="absolute opacity-80"
-      style={{
-        width: "180px",
-        height: "180px",
-        background: "#2C9FDD",
-        clipPath: "polygon(100% 0%,0% 100%,100% 100%)",
-        right: "110px",
-        bottom: "70px",
-      }}
-    />
-  </div>
+      {/* Main upper diagonal of K */}
+      <path
+        d="
+          M-65.9999 -1121
+          H317.832
+          L1519.66 81.7133
+          C1520.67 82.7253 1520.67 84.3654 1519.66 85.3775
+          L1335.05 270.094
+          C1332.01 273.131 1327.09 273.131 1324.06 270.094
+          L-65.9999 -1121
+          Z
+        "
+        fill="#203560"
+      />
+    </g>
+  </svg>
 
-  {/* Content */}
-  <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-10 flex flex-col items-center gap-16">
-
+  {/* ========================================================
+      CONTENT
+  ======================================================== */}
+  <div
+    className="
+      relative
+      z-10
+      mx-auto
+      flex
+      h-full
+      w-full
+      max-w-[1440px]
+      flex-col
+      items-center
+      justify-center
+      px-5
+      text-center
+      md:px-[48px]
+      lg:px-[80px]
+    "
+  >
     {/* Vision */}
-    <div className="flex flex-col items-center gap-6">
+    <div className="flex flex-col items-center">
+      <div className="mb-[20px] flex items-center gap-[12px]">
+        <span className="h-[15px] w-[4px] bg-[#299EED]" />
 
-      <div className="flex items-center gap-3">
-        <span className="w-[4px] h-[15px] bg-[#299EED]" />
-        <span className="text-[12px] font-semibold tracking-[0.05em] uppercase text-white">
-          OUR VISION
+        <span
+          className="
+            text-[11px]
+            uppercase
+            leading-none
+            tracking-[0.02em]
+            text-white
+            md:text-[12px]
+          "
+        >
+          Our Vision
         </span>
       </div>
 
       <h2
         className="
-          max-w-5xl
-          text-center
-          text-[38px]
-          md:text-[32px]
-          lg:text-[46px]
-          font-medium
-          leading-[110%]
-          tracking-[-0.01em]
+          max-w-[1080px]
+          text-[30px]
+          font-normal
+          leading-[1.08]
+          tracking-[-0.025em]
           text-white
+          sm:text-[28px]
+          md:text-[34px]
+          lg:text-[40px]
+          xl:text-[42px]
         "
       >
         To empower enterprises with reliable and
-        <br className="hidden md:block" />
+        <br className="hidden sm:block" />
         future-ready technology systems
       </h2>
-
     </div>
 
     {/* Mission */}
-    <div className="flex flex-col items-center gap-6">
+    <div
+      className="
+        mt-[42px]
+        flex
+        flex-col
+        items-center
+        md:mt-[46px]
+        lg:mt-[50px]
+      "
+    >
+      <div className="mb-[19px] flex items-center gap-[12px]">
+        <span className="h-[15px] w-[4px] bg-[#299EED]" />
 
-      <div className="flex items-center gap-3">
-        <span className="w-[4px] h-[15px] bg-[#299EED]" />
-        <span className="text-[12px] font-semibold tracking-[0.05em] uppercase text-white">
-          OUR MISSION
+        <span
+          className="
+            text-[11px]
+            uppercase
+            leading-none
+            tracking-[0.02em]
+            text-white
+            md:text-[12px]
+          "
+        >
+          Our Mission
         </span>
       </div>
 
       <p
         className="
-          max-w-4xl
-          text-center
-          text-xl
-          md:text-2xl
-          lg:text-[25px]
-          leading-[120%]
-          font-normal
-          text-white/90
+          max-w-[1000px]
+          text-[17px]
+          leading-[1.3]
+          tracking-[-0.02em]
+          text-white
+          font-light
+          sm:text-[19px]
+          md:text-[22px]
+          lg:text-[24px]
         "
       >
         Deliver structured, scalable, and performance-driven IT solutions.
       </p>
-
     </div>
-
   </div>
-
 </section>
 
       {/* ── 5. Expertise ────────────────────────────────────────── */}
@@ -636,20 +726,104 @@ export default async function WhoWeArePage() {
         <div className="mx-auto max-w-[1440px] px-5 md:px-[48px] lg:px-[80px]">
           <div className="flex items-center gap-2.5 mb-3">
             <span className="h-3.5 w-[2.5px] bg-[#299EED] rounded-full" />
-            <span className="text-xs font-semibold tracking-[0.08em] text-[#0E2A54] uppercase">Expertise</span>
+            <span className="font-semibold text-[10px] tracking-[0.08em] text-[#0E2A54] uppercase">Our Expertise</span>
           </div>
-          <h2 className="text-2xl md:text-4xl font-bold mb-6 md:mb-8 text-[#0D2342]">Our Technology Expertise</h2>
+          <h2 className="text-[24px] md:text-[30px] font-[550] mb-6 md:mb-8 text-[#0D0D0D]">Our Technology Expertise</h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-            {expertise.map((item, idx) => (
-              <div key={idx} className="relative w-full h-[160px] md:h-[220px] rounded-[16px] overflow-hidden group cursor-pointer">
-                <img src={item.img} alt={item.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0D2342]/90 via-[#0D2342]/50 to-transparent flex items-end p-4 md:p-6">
-                  <h4 className="text-white font-semibold text-sm md:text-base leading-snug w-full">{item.name}</h4>
-                </div>
-              </div>
+<div
+  className="
+    grid
+    w-full
+    grid-cols-1
+    gap-4
+    sm:grid-cols-2
+    lg:grid-cols-4
+  "
+>
+  {expertise.map((item, idx) => {
+    const titleLines = item.name.split("\n").slice(0, 2);
+    const firstBaseline = titleLines.length === 1 ? 216 : 175;
+    const gradientId = `expertise-gradient-${idx}`;
+
+    return (
+      <article
+        key={idx}
+        className="
+          relative
+          aspect-[402/266]
+          w-full
+          cursor-pointer
+          overflow-hidden
+          rounded-[18px]
+          bg-[#EAF3FF]
+        "
+      >
+        <img
+          src={item.img}
+          alt={item.name.replace(/\n/g, " ")}
+          className="absolute max-w-none object-cover"
+          style={{
+            width: "127.363072%",
+            height: "131.579%",
+            left: "-13.6816%",
+            top: "-15.7895%",
+          }}
+        />
+
+        <div className="pointer-events-none absolute inset-0 bg-[#299EED]/15" />
+
+        <svg
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 h-full w-full"
+          viewBox="0 0 402 266"
+          fill="none"
+          preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <linearGradient
+              id={gradientId}
+              x1="201"
+              y1="24"
+              x2="180.5"
+              y2="277.5"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="#0E2A54" stopOpacity="0" />
+              <stop offset="1" stopColor="#0E2A54" />
+            </linearGradient>
+          </defs>
+
+          <rect
+            width="402"
+            height="266"
+            fill={`url(#${gradientId})`}
+          />
+
+          <text
+            x="24"
+            y={firstBaseline}
+            fill="white"
+            fontSize="33.2"
+            fontWeight="400"
+            letterSpacing="0"
+            fontFamily="inherit"
+          >
+            {titleLines.map((line, lineIndex) => (
+              <tspan
+                key={`${line}-${lineIndex}`}
+                x="24"
+                y={firstBaseline + lineIndex * 41}
+              >
+                {line}
+              </tspan>
             ))}
-          </div>
+          </text>
+        </svg>
+      </article>
+    );
+  })}
+</div>
         </div>
       </section>
 
@@ -658,9 +832,9 @@ export default async function WhoWeArePage() {
         <div className="mx-auto max-w-[1440px] px-5 md:px-[48px] lg:px-[80px]">
           <div className="flex items-center gap-2.5 mb-3">
             <span className="h-3.5 w-[2.5px] bg-[#299EED] rounded-full" />
-            <span className="text-xs font-semibold tracking-[0.08em] text-[#0E2A54] uppercase">Our Team</span>
+            <span className="font-semibold text-[10px] tracking-[0.08em] text-[#0E2A54] uppercase">Our Team</span>
           </div>
-          <h2 className="text-2xl md:text-4xl font-bold mb-6 md:mb-8 text-[#0D2342]">Expert Behind The Works</h2>
+          <h2 className="text-[24px] md:text-[30px] font-[550] mb-6 md:mb-8 text-[#0D0D0D]">Expert Behind The Works</h2>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-2 md:gap-3 lg:gap-4">
             {team.map((member) => (

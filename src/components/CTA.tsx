@@ -29,7 +29,7 @@ export default function CTA() {
               variant="primary-white"
               label="Start a Consultation"
               onClick={() => router.push("/contact")}
-              className="w-full md:w-auto bg-white hover:bg-[#DDEEFF] text-[#0E2A54] shadow-md border-0"
+              className="w-full md:w-auto"
             />
           </div>
         </div>
