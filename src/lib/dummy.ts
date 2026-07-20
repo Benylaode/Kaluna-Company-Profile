@@ -258,89 +258,899 @@ export const seedDatabase = (db: any) => {
     }
   ];
 
+// ==========================================
+// WORKS / PROJECT DATA
+// ==========================================
+
 const works = [
+  // ========================================
+  // 1. MY BOSS — IoT SYSTEM
+  // ========================================
   {
     slug: "myboss-iot-system",
     client: "MY BOSS",
     title: "IoT System for My Boss (Nasmoko)",
     desc: "A smart IoT system designed to monitor and manage automotive operational devices in real-time.",
     category: "IoT System Development",
+
     images: [
       "/image/projects/myboss-iot-system/1.webp",
       "/image/projects/myboss-iot-system/2.webp",
-      "/image/projects/myboss-iot-system/3.webp"
-    ]
+      "/image/projects/myboss-iot-system/3.webp",
+    ],
+
+    content_json: JSON.stringify({
+      year: "2026",
+
+      overview: {
+        label: "Project Overview",
+        title:
+          "Transforming Automotive Operations Through Connected IoT Technology",
+        description:
+          "Kaluna developed an integrated IoT platform that enables My Boss to monitor automotive equipment, operational activity, and device performance through one centralized system.",
+        gallery: [
+          "/image/projects/myboss-iot-system/2.webp",
+          "/image/projects/myboss-iot-system/3.webp",
+        ],
+      },
+
+      challenges: {
+        label: "The Challenge",
+        title: "Addressing Limitations in Manual Device Monitoring",
+        items: [
+          {
+            icon: "monitoring",
+            title: "Limited Visibility",
+            desc: "Operational device conditions could not be monitored continuously from one centralized platform.",
+          },
+          {
+            icon: "device",
+            title: "Disconnected Devices",
+            desc: "Automotive devices operated independently without synchronized data communication.",
+          },
+          {
+            icon: "alert",
+            title: "Delayed Issue Detection",
+            desc: "Technical problems were often identified only after they affected daily operations.",
+          },
+          {
+            icon: "analytics",
+            title: "Lack of Operational Data",
+            desc: "Management had limited historical information for evaluating device performance.",
+          },
+        ],
+      },
+
+      solutions: {
+        label: "Our Solution",
+        title:
+          "Kaluna designed a connected IoT ecosystem for monitoring and managing automotive operational devices.",
+        background_image:
+          "/image/projects/myboss-iot-system/1.webp",
+
+        items: [
+          {
+            title: "Real-Time Device Monitoring",
+            desc: "Live monitoring of connected equipment status, activity, and operational conditions.",
+            image_url:
+              "/image/projects/myboss-iot-system/1.webp",
+          },
+          {
+            title: "Automated System Alerts",
+            desc: "Instant notifications when devices experience abnormal conditions or operational issues.",
+            image_url:
+              "/image/projects/myboss-iot-system/2.webp",
+          },
+          {
+            title: "Centralized IoT Dashboard",
+            desc: "A unified dashboard for reviewing connected devices, activity history, and performance data.",
+            image_url:
+              "/image/projects/myboss-iot-system/3.webp",
+          },
+        ],
+      },
+
+      tech_stack: [
+        {
+          name: "Next.js",
+          icon: "nextjs",
+        },
+        {
+          name: "Node.js",
+          icon: "nodejs",
+        },
+        {
+          name: "PostgreSQL",
+          icon: "postgresql",
+        },
+        {
+          name: "MQTT",
+          icon: "mqtt",
+        },
+        {
+          name: "Git",
+          icon: "git",
+        },
+      ],
+
+      workflow: {
+        label: "Our Development Process",
+        title: "How We Built the IoT Monitoring System",
+
+        items: [
+          {
+            step: "01",
+            title: "Device Requirement Mapping",
+            desc: "Identifying connected devices, monitoring requirements, and operational conditions.",
+            image_url: "/image/ourworkflow/1.webp",
+          },
+          {
+            step: "02",
+            title: "IoT Architecture Planning",
+            desc: "Designing communication flows between devices, servers, and the monitoring dashboard.",
+            image_url: "/image/ourworkflow/2.webp",
+          },
+          {
+            step: "03",
+            title: "System Development",
+            desc: "Developing device integrations, APIs, dashboards, and automated alerts.",
+            image_url: "/image/ourworkflow/3.webp",
+          },
+          {
+            step: "04",
+            title: "Deployment and Testing",
+            desc: "Testing device connections and deploying the system into the operational environment.",
+            image_url: "/image/ourworkflow/4.webp",
+          },
+        ],
+      },
+
+      result: {
+        label: "Result and Impact",
+        title: "Improving Device Visibility and Operational Response",
+        description:
+          "The IoT platform provides My Boss with better control over connected devices while improving operational responsiveness and maintenance planning.",
+
+        highlights: [
+          {
+            title: "Real-Time Visibility",
+            desc: "Device status and operational activity can be monitored from one dashboard.",
+          },
+          {
+            title: "Faster Issue Response",
+            desc: "Automated alerts help the operational team identify problems earlier.",
+          },
+          {
+            title: "Centralized Device Data",
+            desc: "Historical device information is available for performance evaluation.",
+          },
+        ],
+
+        image_url:
+          "/image/projects/myboss-iot-system/1.webp",
+      },
+
+      showcase: {
+        image_url:
+          "/image/projects/myboss-iot-system/2.webp",
+        alt: "My Boss IoT monitoring system interface",
+      },
+    }),
   },
+
+  // ========================================
+  // 2. SINAU PRINT — ERP SYSTEM
+  // ========================================
   {
     slug: "sinau-print-erp",
     client: "SINAU PRINT",
     title: "ERP System for Sinau Print",
-    desc: "Integrated ERP solution to manage printing operations, inventory control, automated workflows, and financial records.",
+    desc: "An integrated ERP solution designed to manage printing operations, inventory, customer orders, automated workflows, and financial records.",
     category: "ERP & System Integration",
+
     images: [
       "/image/projects/sinau-print-erp/1.webp",
       "/image/projects/sinau-print-erp/2.webp",
-      "/image/projects/sinau-print-erp/3.webp"
+      "/image/projects/sinau-print-erp/3.webp",
     ],
+
     content_json: JSON.stringify({
-      overview: "Digitalizing printing services through an all-in-one custom ERP system, transforming manual management into an integrated digital workflow.",
-      features: [
-        { title: "Real-time Inventory", desc: "Automated tracking of paper, ink, and raw supplies." },
-        { title: "Workflow Automation", desc: "Streamlined order lifecycle from intake to production." },
-        { title: "Operational Dashboard", desc: "Centralized control panel for staff and management." },
-        { title: "Financial & Billing", desc: "Integrated invoicing and instant transaction recording." }
-      ],
-      tech_stack: ["HTML5", "CSS3", "JavaScript", "Next.js", "PostgreSQL", "Git"],
-      result: {
-        title: "Optimizing Operations & Inventory Control",
-        desc: "By deploying a custom ERP platform, Sinau Print successfully automated operational bottlenecks and achieved seamless resource management.",
-        points: [
-          "Reduced manual order processing time by 40%",
-          "Eliminated overselling and stock discrepancies with real-time sync",
-          "Increased team productivity and reporting accuracy"
+      year: "2025",
+
+      overview: {
+        label: "About the Project",
+        title:
+          "Digitizing Printing Services Through a Scalable ERP Platform",
+        description:
+          "Sinau Print needed a digital platform capable of managing printing services, customer orders, product information, inventory, billing, and internal operational processes through one integrated workflow.",
+        gallery: [
+          "/image/projects/sinau-print-erp/2.webp",
+          "/image/projects/sinau-print-erp/3.webp",
         ],
-        image_url: "/image/projects/sinau-print-erp/1.webp"
       },
-      bottom_image: "/image/projects/sinau-print-erp/2.webp"
-    })
+
+      challenges: {
+        label: "The Challenge",
+        title:
+          "Addressing Operational Bottlenecks in Manual Order Processing",
+
+        items: [
+          {
+            icon: "order",
+            title: "Overloaded Manual Entry",
+            desc: "Customer orders and printing specifications were repeatedly recorded and processed manually.",
+          },
+          {
+            icon: "inventory",
+            title: "No Real-Time Tracking",
+            desc: "Production progress and material availability were difficult to monitor accurately.",
+          },
+          {
+            icon: "customer",
+            title: "Unstructured Order Flow",
+            desc: "Customers lacked a clear digital process for selecting and ordering printing products.",
+          },
+          {
+            icon: "workflow",
+            title: "Inefficient Workflow",
+            desc: "Sales, production, inventory, and billing activities were managed through separate processes.",
+          },
+        ],
+      },
+
+      solutions: {
+        label: "Our Solution",
+        title:
+          "Kaluna developed a custom ERP platform designed specifically for printing operations.",
+        background_image:
+          "/image/projects/sinau-print-erp/1.webp",
+
+        items: [
+          {
+            title: "User-Centered Order Interface",
+            desc: "A responsive interface that allows customers and staff to manage printing orders efficiently.",
+            image_url:
+              "/image/projects/sinau-print-erp/2.webp",
+          },
+          {
+            title: "Real-Time Inventory Updates",
+            desc: "Integrated stock monitoring for paper, ink, printing materials, and production supplies.",
+            image_url:
+              "/image/projects/sinau-print-erp/3.webp",
+          },
+          {
+            title: "Modular ERP Architecture",
+            desc: "A scalable architecture that supports additional products, services, and future integrations.",
+            image_url:
+              "/image/projects/sinau-print-erp/1.webp",
+          },
+        ],
+      },
+
+      tech_stack: [
+        {
+          name: "HTML5",
+          icon: "html5",
+        },
+        {
+          name: "CSS3",
+          icon: "css3",
+        },
+        {
+          name: "JavaScript",
+          icon: "javascript",
+        },
+        {
+          name: "MySQL",
+          icon: "mysql",
+        },
+        {
+          name: "Git",
+          icon: "git",
+        },
+      ],
+
+      workflow: {
+        label: "Our Development Process",
+        title: "How We Developed the Sinau Print Platform",
+
+        items: [
+          {
+            step: "01",
+            title: "Discovery and Requirement Mapping",
+            desc: "Mapping printing services, customer journeys, inventory requirements, and internal workflows.",
+            image_url: "/image/ourworkflow/1.webp",
+          },
+          {
+            step: "02",
+            title: "Technical Analysis",
+            desc: "Defining the ERP architecture, database structure, and system integration requirements.",
+            image_url: "/image/ourworkflow/2.webp",
+          },
+          {
+            step: "03",
+            title: "Interface and System Design",
+            desc: "Designing customer-facing interfaces and internal operational management flows.",
+            image_url: "/image/ourworkflow/3.webp",
+          },
+          {
+            step: "04",
+            title: "Development and Integration",
+            desc: "Developing order, inventory, billing, reporting, and workflow automation features.",
+            image_url: "/image/ourworkflow/4.webp",
+          },
+        ],
+      },
+
+      result: {
+        label: "Result and Impact",
+        title:
+          "Improving Transaction Efficiency and Inventory Control",
+        description:
+          "The ERP platform helps Sinau Print provide a more structured ordering experience while simplifying inventory, production, billing, and operational management.",
+
+        highlights: [
+          {
+            title: "Faster Transaction Processing",
+            desc: "Customer orders can be submitted and processed through a structured digital workflow.",
+          },
+          {
+            title: "Real-Time Inventory Visibility",
+            desc: "Material availability and stock movement can be monitored from one system.",
+          },
+          {
+            title: "Centralized Order Management",
+            desc: "Customer requests and printing orders can be managed through an integrated platform.",
+          },
+        ],
+
+        image_url:
+          "/image/projects/sinau-print-erp/1.webp",
+      },
+
+      showcase: {
+        image_url:
+          "/image/projects/sinau-print-erp/2.webp",
+        alt: "Sinau Print ERP system interface",
+      },
+    }),
   },
+
+  // ========================================
+  // 3. WEB MEDIA — COMPANY PROFILE WEBSITE
+  // ========================================
   {
     slug: "web-media-profile",
     client: "WEB MEDIA",
     title: "Company Profile Website for Web Media",
-    desc: "An elegant, highly responsive company profile page created to build brand presence and showcase digital solutions effectively.",
+    desc: "An elegant and highly responsive company profile website created to strengthen brand presence and showcase digital media services.",
     category: "Web & Application Development",
+
     images: [
       "/image/projects/web-media-profile/1.webp",
       "/image/projects/web-media-profile/2.webp",
-      "/image/projects/web-media-profile/3.webp"
-    ]
+      "/image/projects/web-media-profile/3.webp",
+    ],
+
+    content_json: JSON.stringify({
+      year: "2025",
+
+      overview: {
+        label: "Project Overview",
+        title:
+          "Building a Stronger Digital Presence for a Modern Media Company",
+        description:
+          "Kaluna developed a responsive company profile website that presents Web Media's services, portfolio, company information, and brand identity through a clear and professional digital experience.",
+        gallery: [
+          "/image/projects/web-media-profile/2.webp",
+          "/image/projects/web-media-profile/3.webp",
+        ],
+      },
+
+      challenges: {
+        label: "The Challenge",
+        title:
+          "Creating a Clear and Professional Digital Brand Experience",
+
+        items: [
+          {
+            icon: "brand",
+            title: "Limited Brand Presence",
+            desc: "The company did not have a centralized digital platform for presenting its capabilities.",
+          },
+          {
+            icon: "content",
+            title: "Unstructured Information",
+            desc: "Service and company information was not presented through a consistent content structure.",
+          },
+          {
+            icon: "responsive",
+            title: "Inconsistent Experience",
+            desc: "Digital information needed to remain accessible across desktop and mobile devices.",
+          },
+          {
+            icon: "conversion",
+            title: "Limited Lead Generation",
+            desc: "Potential clients did not have a clear path to explore services and contact the company.",
+          },
+        ],
+      },
+
+      solutions: {
+        label: "Our Solution",
+        title:
+          "Kaluna created a responsive company profile platform focused on clarity, credibility, and conversion.",
+        background_image:
+          "/image/projects/web-media-profile/1.webp",
+
+        items: [
+          {
+            title: "Responsive Website Interface",
+            desc: "A consistent browsing experience across desktop, tablet, and mobile devices.",
+            image_url:
+              "/image/projects/web-media-profile/1.webp",
+          },
+          {
+            title: "Structured Service Presentation",
+            desc: "Clear sections for company information, services, portfolio, and client communication.",
+            image_url:
+              "/image/projects/web-media-profile/2.webp",
+          },
+          {
+            title: "Conversion-Oriented Navigation",
+            desc: "Strategic calls to action that guide visitors toward contacting the company.",
+            image_url:
+              "/image/projects/web-media-profile/3.webp",
+          },
+        ],
+      },
+
+      tech_stack: [
+        {
+          name: "Next.js",
+          icon: "nextjs",
+        },
+        {
+          name: "TypeScript",
+          icon: "typescript",
+        },
+        {
+          name: "Tailwind CSS",
+          icon: "tailwind",
+        },
+        {
+          name: "Figma",
+          icon: "figma",
+        },
+        {
+          name: "Git",
+          icon: "git",
+        },
+      ],
+
+      workflow: {
+        label: "Our Development Process",
+        title: "How We Built the Web Media Website",
+
+        items: [
+          {
+            step: "01",
+            title: "Brand Discovery",
+            desc: "Understanding the company identity, target audience, services, and communication objectives.",
+            image_url: "/image/ourworkflow/1.webp",
+          },
+          {
+            step: "02",
+            title: "Content Architecture",
+            desc: "Organizing company information and defining the visitor navigation journey.",
+            image_url: "/image/ourworkflow/2.webp",
+          },
+          {
+            step: "03",
+            title: "UI and UX Design",
+            desc: "Creating responsive layouts aligned with the Web Media visual identity.",
+            image_url: "/image/ourworkflow/3.webp",
+          },
+          {
+            step: "04",
+            title: "Website Development",
+            desc: "Implementing the approved interface and optimizing website responsiveness and performance.",
+            image_url: "/image/ourworkflow/4.webp",
+          },
+        ],
+      },
+
+      result: {
+        label: "Result and Impact",
+        title:
+          "Strengthening Brand Credibility and Digital Accessibility",
+        description:
+          "The new website provides Web Media with a professional digital platform for introducing its business, presenting services, and communicating with potential clients.",
+
+        highlights: [
+          {
+            title: "Stronger Brand Presence",
+            desc: "Company information and services are presented through a consistent visual identity.",
+          },
+          {
+            title: "Improved Accessibility",
+            desc: "Visitors can access the platform comfortably through different screen sizes.",
+          },
+          {
+            title: "Clearer Customer Journey",
+            desc: "Structured navigation helps visitors find information and contact the company.",
+          },
+        ],
+
+        image_url:
+          "/image/projects/web-media-profile/1.webp",
+      },
+
+      showcase: {
+        image_url:
+          "/image/projects/web-media-profile/2.webp",
+        alt: "Web Media company profile website",
+      },
+    }),
   },
+
+  // ========================================
+  // 4. ARTIC — COMPLEX WEB APPLICATION
+  // ========================================
   {
     slug: "artic-complex-web",
     client: "ARTIC",
     title: "Complex Web Application for Artic",
-    desc: "A scalable, high-performance web platform built to support complex data logic, user management, and seamless integrations.",
+    desc: "A scalable web platform developed to support complex data processing, user management, reporting, and system integrations.",
     category: "Web & Application Development",
+
     images: [
       "/image/projects/artic-complex-web/1.webp",
       "/image/projects/artic-complex-web/2.webp",
-      "/image/projects/artic-complex-web/3.webp"
-    ]
+      "/image/projects/artic-complex-web/3.webp",
+    ],
+
+    content_json: JSON.stringify({
+      year: "2026",
+
+      overview: {
+        label: "Project Overview",
+        title:
+          "Building a Scalable Platform for Complex Data and User Operations",
+        description:
+          "Artic required a reliable web application capable of handling structured datasets, multiple user roles, operational reporting, geographic information, and continuously evolving business requirements.",
+        gallery: [
+          "/image/projects/artic-complex-web/2.webp",
+          "/image/projects/artic-complex-web/3.webp",
+        ],
+      },
+
+      challenges: {
+        label: "The Challenge",
+        title:
+          "Managing Complex Data and Multi-Level User Operations",
+
+        items: [
+          {
+            icon: "database",
+            title: "Complex Data Structure",
+            desc: "The platform needed to manage interconnected information across multiple operational categories.",
+          },
+          {
+            icon: "users",
+            title: "Multiple User Roles",
+            desc: "Different users required distinct permissions, dashboards, and operational capabilities.",
+          },
+          {
+            icon: "report",
+            title: "Manual Reporting",
+            desc: "Operational reports required significant manual compilation and verification.",
+          },
+          {
+            icon: "scale",
+            title: "Scalability Requirements",
+            desc: "The application needed to support increasing users, data volume, and future features.",
+          },
+        ],
+      },
+
+      solutions: {
+        label: "Our Solution",
+        title:
+          "Kaluna developed a modular web application designed for complex data management and scalable operations.",
+        background_image:
+          "/image/projects/artic-complex-web/1.webp",
+
+        items: [
+          {
+            title: "Role-Based User Management",
+            desc: "Dedicated permissions and interfaces for administrators, coordinators, and operational users.",
+            image_url:
+              "/image/projects/artic-complex-web/1.webp",
+          },
+          {
+            title: "Integrated Data Management",
+            desc: "Centralized data storage, validation, filtering, visualization, and operational processing.",
+            image_url:
+              "/image/projects/artic-complex-web/2.webp",
+          },
+          {
+            title: "Automated Reporting System",
+            desc: "Dynamic reports and exports generated directly from verified application data.",
+            image_url:
+              "/image/projects/artic-complex-web/3.webp",
+          },
+        ],
+      },
+
+      tech_stack: [
+        {
+          name: "Laravel",
+          icon: "laravel",
+        },
+        {
+          name: "PHP",
+          icon: "php",
+        },
+        {
+          name: "MySQL",
+          icon: "mysql",
+        },
+        {
+          name: "JavaScript",
+          icon: "javascript",
+        },
+        {
+          name: "Git",
+          icon: "git",
+        },
+      ],
+
+      workflow: {
+        label: "Our Development Process",
+        title: "How We Developed the Artic Platform",
+
+        items: [
+          {
+            step: "01",
+            title: "Requirement Analysis",
+            desc: "Mapping user roles, data structures, reports, and operational requirements.",
+            image_url: "/image/ourworkflow/1.webp",
+          },
+          {
+            step: "02",
+            title: "System Architecture",
+            desc: "Designing database relationships, access control, application modules, and data flows.",
+            image_url: "/image/ourworkflow/2.webp",
+          },
+          {
+            step: "03",
+            title: "Platform Development",
+            desc: "Developing dashboards, data management features, visualization, and automated reports.",
+            image_url: "/image/ourworkflow/3.webp",
+          },
+          {
+            step: "04",
+            title: "Testing and Deployment",
+            desc: "Validating system functionality and deploying the application for operational use.",
+            image_url: "/image/ourworkflow/4.webp",
+          },
+        ],
+      },
+
+      result: {
+        label: "Result and Impact",
+        title:
+          "Improving Data Accuracy and Operational Coordination",
+        description:
+          "The platform enables Artic to manage users, operational information, geographic coverage, monitoring activities, and reports through a unified digital system.",
+
+        highlights: [
+          {
+            title: "Centralized Information",
+            desc: "Operational data can be accessed and managed from one application.",
+          },
+          {
+            title: "Faster Reporting",
+            desc: "Reports can be generated automatically from structured and verified system data.",
+          },
+          {
+            title: "Controlled User Access",
+            desc: "Role-based permissions improve security and operational accountability.",
+          },
+        ],
+
+        image_url:
+          "/image/projects/artic-complex-web/1.webp",
+      },
+
+      showcase: {
+        image_url:
+          "/image/projects/artic-complex-web/2.webp",
+        alt: "Artic complex web application dashboard",
+      },
+    }),
   },
+
+  // ========================================
+  // 5. ALTATIC ANALYTIC — DATA DASHBOARD
+  // ========================================
   {
     slug: "altatic-analytic",
     client: "ALTATIC ANALYTIC",
-    title: "K-Hub Data Dashboard for Altatic Analytic (X-Tire)",
-    desc: "An advanced data dashboard providing real-time analytics, sales tracking, and operational metrics for Altatic Analytic.",
+    title: "K-Hub Data Dashboard for Altatic Analytic",
+    desc: "An advanced data dashboard providing real-time analytics, performance tracking, and operational metrics for Altatic Analytic.",
     category: "Data Dashboard & Analytics",
+
     images: [
       "/image/projects/altatic-analytic/1.webp",
       "/image/projects/altatic-analytic/2.webp",
-      "/image/projects/altatic-analytic/3.webp"
-    ]
-  }
+      "/image/projects/altatic-analytic/3.webp",
+    ],
+
+    content_json: JSON.stringify({
+      year: "2026",
+
+      overview: {
+        label: "Project Overview",
+        title:
+          "Turning Complex Operational Data into Actionable Information",
+        description:
+          "Kaluna developed K-Hub as a centralized analytics dashboard that helps Altatic Analytic monitor essential indicators, understand performance trends, and support faster decision-making.",
+        gallery: [
+          "/image/projects/altatic-analytic/2.webp",
+          "/image/projects/altatic-analytic/3.webp",
+        ],
+      },
+
+      challenges: {
+        label: "The Challenge",
+        title:
+          "Simplifying Fragmented Data and Operational Reporting",
+
+        items: [
+          {
+            icon: "database",
+            title: "Fragmented Data Sources",
+            desc: "Operational information was distributed across separate files and systems.",
+          },
+          {
+            icon: "report",
+            title: "Slow Reporting Process",
+            desc: "Reports required manual compilation before they could be reviewed.",
+          },
+          {
+            icon: "visualization",
+            title: "Limited Data Visualization",
+            desc: "Complex datasets were difficult to understand without clear visual presentation.",
+          },
+          {
+            icon: "decision",
+            title: "Delayed Decision-Making",
+            desc: "Management could not access important performance indicators immediately.",
+          },
+        ],
+      },
+
+      solutions: {
+        label: "Our Solution",
+        title:
+          "Kaluna built a centralized dashboard that transforms operational data into clear and actionable insights.",
+        background_image:
+          "/image/projects/altatic-analytic/1.webp",
+
+        items: [
+          {
+            title: "Interactive Data Visualization",
+            desc: "Dynamic charts and indicators make complex performance data easier to understand.",
+            image_url:
+              "/image/projects/altatic-analytic/1.webp",
+          },
+          {
+            title: "Real-Time Metric Monitoring",
+            desc: "Important business and operational indicators can be monitored continuously.",
+            image_url:
+              "/image/projects/altatic-analytic/2.webp",
+          },
+          {
+            title: "Centralized Reporting Dashboard",
+            desc: "Multiple data categories and reports are consolidated into one platform.",
+            image_url:
+              "/image/projects/altatic-analytic/3.webp",
+          },
+        ],
+      },
+
+      tech_stack: [
+        {
+          name: "Next.js",
+          icon: "nextjs",
+        },
+        {
+          name: "TypeScript",
+          icon: "typescript",
+        },
+        {
+          name: "PostgreSQL",
+          icon: "postgresql",
+        },
+        {
+          name: "Python",
+          icon: "python",
+        },
+        {
+          name: "Git",
+          icon: "git",
+        },
+      ],
+
+      workflow: {
+        label: "Our Development Process",
+        title: "How We Developed the K-Hub Dashboard",
+
+        items: [
+          {
+            step: "01",
+            title: "Data Requirement Mapping",
+            desc: "Identifying data sources, indicators, metrics, and reporting requirements.",
+            image_url: "/image/ourworkflow/1.webp",
+          },
+          {
+            step: "02",
+            title: "Dashboard Architecture",
+            desc: "Designing data structures, visualization components, and dashboard navigation.",
+            image_url: "/image/ourworkflow/2.webp",
+          },
+          {
+            step: "03",
+            title: "Data Integration",
+            desc: "Connecting operational datasets with dashboard processing and visualization features.",
+            image_url: "/image/ourworkflow/3.webp",
+          },
+          {
+            step: "04",
+            title: "Testing and Optimization",
+            desc: "Validating dashboard accuracy, performance, responsiveness, and usability.",
+            image_url: "/image/ourworkflow/4.webp",
+          },
+        ],
+      },
+
+      result: {
+        label: "Result and Impact",
+        title:
+          "Accelerating Reporting and Data-Driven Decision-Making",
+        description:
+          "K-Hub provides Altatic Analytic with a centralized platform for monitoring performance, reviewing operational insights, and supporting strategic decisions.",
+
+        highlights: [
+          {
+            title: "Faster Data Analysis",
+            desc: "Important performance indicators can be reviewed without compiling reports manually.",
+          },
+          {
+            title: "Clearer Data Visualization",
+            desc: "Charts and dashboard indicators make complex datasets easier to interpret.",
+          },
+          {
+            title: "Improved Decision Support",
+            desc: "Management receives faster access to relevant operational information.",
+          },
+        ],
+
+        image_url:
+          "/image/projects/altatic-analytic/1.webp",
+      },
+
+      showcase: {
+        image_url:
+          "/image/projects/altatic-analytic/2.webp",
+        alt: "K-Hub data analytics dashboard",
+      },
+    }),
+  },
 ];
+
   const testimonials = [
     {
       client_name: "Ibnu Sapto Adi",

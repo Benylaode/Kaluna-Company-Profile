@@ -144,15 +144,15 @@ export default async function ServiceDetailPage({ params }: PageProps) {
               justify-center
               bg-cover
               bg-center
-              bg-[#0E2A54]
+              bg-[linear-gradient(135deg,#02184d_0%,#08297d_100%)]
             "
             style={{
               backgroundImage: "url('/image/banner-title.svg')",
             }}
           >
-            {/* Navy blend overlay: keeps #0E2A54 color while keeping SVG image sharp and clear */}
-            <div className="absolute inset-0 bg-[#0E2A54]/65 mix-blend-multiply z-[1]" />
-            <div className="absolute inset-0 bg-[#0E2A54]/30 z-[1]" />
+            {/* Color blend overlay spreading from #02184d to #08297d */}
+            <div className="absolute inset-0 bg-[linear-gradient(135deg,#02184d_0%,#08297d_100%)] opacity-75 mix-blend-multiply z-[1]" />
+            <div className="absolute inset-0 bg-[linear-gradient(135deg,#02184d_0%,#08297d_100%)] opacity-25 z-[1]" />
 
             <h1 className="relative z-10 text-[36px] md:text-[52px] lg:text-[60px] font-normal md:font-light tracking-[-0.02em] text-white text-center px-4">
               {serviceData.title}
