@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import OurProcese from "@/src/components/OurProcese";
 import PackageContactButton from "../../../src/components/PackageContactButton";
+import { FaChartLine, FaShieldAlt, FaRocket, FaRegLightbulb } from "react-icons/fa6";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -190,12 +191,6 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                   alt={`${serviceData.title} Preview`}
                   className="absolute inset-0 h-full w-full object-cover"
                 />
-                {/* Browser Window Controls (Top Left) */}
-                <div className="absolute left-6 top-6 z-20 flex items-center gap-1.5 md:left-8 md:top-8">
-                  <div className="h-1.5 w-1.5 rounded-full bg-[#81C3F9]/60" />
-                  <div className="h-1.5 w-1.5 rounded-full bg-[#81C3F9]/60" />
-                  <div className="h-1.5 w-1.5 rounded-full bg-[#81C3F9]/60" />
-                </div>
                 {/* Client Indicator (Bottom Left) */}
                 <div className="absolute bottom-6 left-6 z-20 flex items-center gap-2 md:bottom-8 md:left-8">
                   <div className="h-4 w-[3px] bg-[#299EED] rounded-full" />
@@ -309,9 +304,11 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                     py-7
                     sm:px-8
                     sm:py-8
+                    transition-all
+                    duration-300
                     ${
                       isPopular
-                        ? "bg-[#299EED]/50 text-white"
+                        ? "bg-[#299EED]/50 text-white md:scale-[1.03] shadow-[0_15px_40px_rgba(41,158,237,0.25)] z-10"
                         : "bg-white text-[#0D0D0D]"
                     }
                   `}
@@ -598,6 +595,15 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                       bg-[linear-gradient(180deg,#0E2A54_0%,#1F5DBA_100%)]
                     "
                   >
+                    {(() => {
+                      const icons = [FaChartLine, FaShieldAlt, FaRocket, FaRegLightbulb];
+                      const Icon = icons[idx % icons.length];
+                      return (
+                        <div className="absolute top-[12%] left-[6%] z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm text-white">
+                          <Icon className="h-5 w-5" />
+                        </div>
+                      );
+                    })()}
                     {/* Geometric shapes */}
                     <svg
                       aria-hidden="true"
