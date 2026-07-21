@@ -513,7 +513,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
               w-full
               rounded-[24px]
               bg-[#EAF3FF]
-              px-[calc(min(6.3vw,121px)-12px)]
+              px-[calc(min(6.3vw,121px)-min(2.1vw,40px))]
               py-10
               md:py-16
               lg:py-20
@@ -867,7 +867,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
               w-full
               rounded-[24px]
               bg-[#EAF3FF]
-              px-[calc(min(6.3vw,121px)-12px)]
+              px-[calc(min(6.3vw,121px)-min(2.1vw,40px))]
               py-10
               md:py-16
               flex
