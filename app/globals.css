@@ -74,15 +74,15 @@ body {
    Baseline Target: ~5% visual horizontal padding on desktop
    Container Limit: 1728px max-width (Largest Laptop Viewport - MBP 16")
    
-   Horizontal padding = min(5vw, 86px)
-   • 5vw   → ~5% optical target across desktop viewports
-   • 86px  → 5% cap based on 1728px (largest laptop display width)
+   Horizontal padding = min(6.3vw, 109px)
+   • 6.3vw   → ~6.3% optical target across desktop viewports
+   • 109px  → 5% cap based on 1728px (largest laptop display width)
    
    Optical behavior:
-   • 1280px (Laptop 13")  → 5vw = 64px (5% optical padding)
-   • 1440px (Laptop 15")  → 5vw = 72px (5% optical padding)
-   • 1536px (Laptop 14")  → 5vw = 76.8px (5% optical padding)
-   • 1728px (Laptop 16")  → 5vw = 86.4px (5% optical padding)
+   • 1280px (Laptop 13")  → 6.3vw = 80.6px (6.3% optical padding)
+   • 1440px (Laptop 15")  → 6.3vw = 90.7px (6.3% optical padding)
+   • 1536px (Laptop 14")  → 6.3vw = 96.7px (6.3% optical padding)
+   • 1728px (Laptop 16")  → 6.3vw = 108.8px (6.3% optical padding)
    • >1728px (Monitors)   → Container capped 1728px, background fills outer
    ═══════════════════════════════════════════════════════════════ */
 .kaluna-container {
@@ -94,7 +94,7 @@ body {
 
 @media (min-width: 768px) {
   .kaluna-container {
-    padding-inline: min(5vw, 86px);
+    padding-inline: min(6.3vw, 109px);
   }
 }
 
