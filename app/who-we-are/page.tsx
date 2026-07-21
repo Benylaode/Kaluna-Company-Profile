@@ -216,20 +216,22 @@ export default async function WhoWeArePage() {
   </div>
 </section>
 {/* ── Problem We Solve ───────────────────────────────────── */}
-<section className="w-full overflow-hidden bg-[#FAFAFA] py-20 md:py-16 px-2">
-  <div className="kaluna-container">
+<section className="w-full overflow-hidden bg-[#FAFAFA] py-20 md:py-16">
+  <div className="kaluna-wide-container">
     <div
       className="
         relative
         overflow-hidden
-        rounded-[15px]
+        rounded-[24px]
         bg-[#EAF3FF]
+        px-6
         py-10
-        md:py-12
-        lg:py-16
+        md:px-12
+        md:py-16
+        lg:px-16
       "
     >
-      <div className="kaluna-container px-[2px] md:px-[28px] lg:px-[60px] min-[1480px]:px-[80px]">
+      <div className="w-full">
         {/* Header */}
         <div className="mx-auto max-w-[680px] text-center">
           <div className="mb-4 flex items-center justify-center gap-2.5">

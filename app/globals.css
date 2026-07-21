@@ -366,8 +366,8 @@ a, button, [role="button"], select, option, input[type="submit"], input[type="bu
   }
 }
 
-/* Automatic Zoom Scaling for Screens Larger Than 14-inch IdeaPad Slim 5 (1440px) */
-@media (min-width: 1441px) {
+/* Automatic Zoom Scaling for Screens up to 14-inch IdeaPad Slim 5 (1440px) */
+@media (max-width: 1440px) {
   body > div.flex-1 {
     zoom: 0.88;
   }
