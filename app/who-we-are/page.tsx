@@ -223,11 +223,10 @@ export default async function WhoWeArePage() {
         overflow-hidden
         rounded-[24px]
         bg-[#EAF3FF]
-        px-6
+        px-[10px]
         py-10
-        md:px-12
+        md:px-[calc(min(6.3vw,109px)-12px)]
         md:py-16
-        lg:px-16
       "
     >
       <div className="w-full">
