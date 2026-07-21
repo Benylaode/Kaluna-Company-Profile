@@ -166,79 +166,7 @@ a, button, [role="button"], select, option, input[type="submit"], input[type="bu
   cursor: pointer !important;
 }
 
-/* Base custom pointer cursor styling */
-@media (pointer: fine) {
-  body, a, button, select, input, textarea, [role="button"], .custom-cursor-active {
-    cursor: none !important;
-  }
-}
-
-/* Custom Cursor styles */
-.custom-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 8px;
-  height: 8px;
-  background-color: var(--kaluna-sea);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 99999;
-  transform: translate3d(-50%, -50%, 0);
-  transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
-  will-change: transform;
-}
-
-.custom-cursor-follower {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 36px;
-  height: 36px;
-  border: 1px solid rgba(41, 158, 237, 0.4);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 99998;
-  transform: translate3d(-50%, -50%, 0);
-  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
-              height 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
-              background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform;
-}
-
-/* Cursor Hover states */
-.custom-cursor.hovered {
-  width: 12px;
-  height: 12px;
-  background-color: var(--kaluna-blue);
-}
-
-.custom-cursor-follower.hovered {
-  width: 56px;
-  height: 56px;
-  background-color: rgba(41, 158, 237, 0.08);
-  border-color: var(--kaluna-sea);
-}
-
-.custom-cursor-follower.hovered-card {
-  width: 80px;
-  height: 80px;
-  background-color: rgba(14, 42, 84, 0.9);
-  border-color: var(--kaluna-sea);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.custom-cursor-follower.hovered-card::after {
-  content: "VIEW";
-  color: white;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  font-family: var(--font-geist-sans), sans-serif;
-}
+/* Custom cursor effects removed — browser default cursor is used */
 
 /* WhatsApp breathing pulse & animation keyframes */
 @keyframes wa-pulse {
@@ -425,13 +353,5 @@ a, button, [role="button"], select, option, input[type="submit"], input[type="bu
     scroll-behavior: auto !important;
     transition-duration: 0s !important;
     transition-delay: 0s !important;
-  }
-  
-  .custom-cursor, .custom-cursor-follower {
-    display: none !important;
-  }
-  
-  body {
-    cursor: auto !important;
   }
 }
