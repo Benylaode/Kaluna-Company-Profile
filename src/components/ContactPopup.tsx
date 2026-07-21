@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useCallback } from "react";
+import { useEffect, useCallback, useState } from "react";
+import { createPortal } from "react-dom";
 import { useRouter } from "next/navigation";
 import { X } from "lucide-react";
 
@@ -12,6 +13,9 @@ interface ContactPopupProps {
 
 export default function ContactPopup({ isOpen, onClose, packageName }: ContactPopupProps) {
   const router = useRouter();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
 
   // Lock body scroll when open
   useEffect(() => {
@@ -40,7 +44,7 @@ export default function ContactPopup({ isOpen, onClose, packageName }: ContactPo
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, handleKeyDown]);
 
-  if (!isOpen) return null;
+  if (!isOpen || !mounted) return null;
 
   const waMessage = packageName
     ? encodeURIComponent(`Halo, saya tertarik dengan paket *${packageName}* dari Kaluna Technology. Bisa bantu saya?`)
@@ -48,7 +52,7 @@ export default function ContactPopup({ isOpen, onClose, packageName }: ContactPo
 
   const waUrl = `https://wa.me/628213939569?text=${waMessage}`;
 
-  return (
+  return createPortal(
     <>
       {/* Backdrop blur overlay */}
       <div
@@ -176,6 +180,7 @@ export default function ContactPopup({ isOpen, onClose, packageName }: ContactPo
           animation: popup-in 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
         }
       `}</style>
-    </>
+    </>,
+    document.body
   );
 }

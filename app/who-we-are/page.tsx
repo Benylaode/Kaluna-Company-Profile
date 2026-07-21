@@ -750,6 +750,7 @@ export default async function WhoWeArePage() {
       <article
         key={idx}
         className="
+          group
           relative
           aspect-[402/266]
           w-full
@@ -757,12 +758,16 @@ export default async function WhoWeArePage() {
           overflow-hidden
           rounded-[18px]
           bg-[#EAF3FF]
+          transition-all
+          duration-500
+          hover:-translate-y-1
+          hover:shadow-2xl
         "
       >
         <img
           src={item.img}
           alt={item.name.replace(/\n/g, " ")}
-          className="absolute max-w-none object-cover"
+          className="absolute max-w-none object-cover transition-transform duration-700 ease-out group-hover:scale-110"
           style={{
             width: "127.363072%",
             height: "131.579%",
@@ -771,7 +776,7 @@ export default async function WhoWeArePage() {
           }}
         />
 
-        <div className="pointer-events-none absolute inset-0 bg-[#299EED]/15" />
+        <div className="pointer-events-none absolute inset-0 bg-[#299EED]/15 transition-colors duration-500 group-hover:bg-[#0E2A54]/40" />
 
         <svg
           aria-hidden="true"

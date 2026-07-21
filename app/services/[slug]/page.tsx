@@ -117,7 +117,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
       <section className="w-full bg-white pt-[80px] sm:pt-[110px] md:pt-[90px] pb-2 md:pb-4">
         {/* Dynamic Breadcrumbs matching screenshot styling */}
-        <div className="kaluna-container px-[clamp(20px,5vw,72px)] mb-4 md:mb-5">
+        <div className="kaluna-container mb-4 md:mb-5">
           <div className="flex items-center gap-2 text-[10px] md:text-[11px] font-medium tracking-widest text-[#94A3B8] uppercase">
             <Link href="/" className="hover:text-[#299EED] transition-colors">
               Home
@@ -131,7 +131,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           </div>
         </div>
 
-        <div className="kaluna-container">
+        <div className="kaluna-wide-container">
           <div
             className="
               relative
@@ -658,8 +658,8 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                     />
 
                     {/* Card Icon */}
-                    <div className="absolute top-[15%] left-[6%] z-10 flex h-[38px] w-[38px] md:h-[44px] md:w-[44px] items-center justify-center rounded-full bg-[#8DD0F5]/20 text-[#8DD0F5] transition-transform duration-500 hover:scale-110">
-                      <svg className="w-[18px] h-[18px] md:w-5 md:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
+                    <div className="absolute top-[15%] left-[6%] z-10 flex h-[26px] w-[26px] md:h-[30px] md:w-[30px] items-center justify-center rounded-full bg-[#8DD0F5]/20 text-[#8DD0F5] transition-transform duration-500 hover:scale-110">
+                      <svg className="w-[14px] h-[14px] md:w-[15px] md:h-[15px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
                         {idx % 4 === 0 && <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />}
                         {idx % 4 === 1 && <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />}
                         {idx % 4 === 2 && <path strokeLinecap="round" strokeLinejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />}
