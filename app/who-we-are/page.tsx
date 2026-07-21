@@ -61,7 +61,7 @@ export default async function WhoWeArePage() {
       <Navbar />
 
       {/* ── 1. Hero Banner — same design as Our Works ────────────── */}
-      <section className="w-full bg-white pt-[80px] sm:pt-[100px] md:pt-[80px]">
+      <section className="w-full bg-white pt-[100px] sm:pt-[110px] md:pt-[120px]">
         <div className="kaluna-wide-container">
           <div
             className="
@@ -225,7 +225,7 @@ export default async function WhoWeArePage() {
         bg-[#EAF3FF]
         px-[10px]
         py-10
-        md:px-[calc(min(6.3vw,121px)-min(2vw,38px))]
+        md:px-[calc(min(6.3vw,121px)-min(1.8vw,34px))]
         md:py-16
       "
     >
