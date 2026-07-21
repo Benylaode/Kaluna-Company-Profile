@@ -11,21 +11,18 @@ const files = [
   'app/works/[slug]/page.tsx',
 ];
 
-const target = 'px-5 md:px-[min(5vw,72px)]';
+const targetPadding = 'px-5 md:px-[min(5vw,86px)]';
 
 files.forEach(f => {
   if (!fs.existsSync(f)) return;
   let content = fs.readFileSync(f, 'utf8');
   let updated = content;
 
-  updated = updated.split('px-5 md:px-[min(5.5vw,79px)]').join(target);
-  updated = updated.split('px-5 md:px-[5vw]').join(target);
-  updated = updated.split('px-4 md:px-[5vw]').join(target);
-  updated = updated.split('md:px-[40px] lg:px-[68px]').join('md:px-[min(5vw,72px)]');
+  // Replace max-width 1440px with 1728px
+  updated = updated.split('max-w-[1440px]').join('max-w-[1728px]');
 
-  if (f === 'src/components/Navbar.tsx') {
-    updated = updated.replace(/nav className="[^"]*"/, 'nav className="mx-auto max-w-[1440px] px-5 md:px-[min(5vw,72px)] py-4 relative"');
-  }
+  // Replace old min(5vw,72px) padding with min(5vw,86px)
+  updated = updated.split('min(5vw,72px)').join('min(5vw,86px)');
 
   if (updated !== content) {
     fs.writeFileSync(f, updated, 'utf8');

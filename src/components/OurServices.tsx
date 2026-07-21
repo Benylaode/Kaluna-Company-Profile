@@ -113,7 +113,7 @@ export default function OurServices({ services }: { services: ServiceData[] }) {
           `}</style>
 
           {/* Header tetap diberi padding manual agar sejajar sempurna dengan konten halaman */}
-          <div className="mb-10 md:mb-14 px-5 md:px-[40px] lg:px-[48px] xl:px-[72px]">
+          <div className="mb-10 md:mb-14 px-5 md:px-[min(5vw,86px)]">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
               <div>
                 <div className="flex items-center gap-2.5 mb-3">

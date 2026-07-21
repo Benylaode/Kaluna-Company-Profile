@@ -695,7 +695,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
       <section className="w-full bg-white pt-12 pb-16 md:pt-14 md:pb-20 lg:pb-[88px]">
         <div className="kaluna-container w-full kaluna-container px-[clamp(20px,5vw,72px)]">
-          <div className="mx-auto w-full max-w-[1440px]">
+          <div className="mx-auto w-full max-w-[1728px]">
             {/* Section label */}
             <div className="flex h-[15px] items-center gap-[13px]">
               <span
@@ -1029,7 +1029,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         <div
           className="
             mx-auto
-            max-w-[1440px]
+            max-w-[1728px]
             w-full
             px-5
             md:px-[48px]
