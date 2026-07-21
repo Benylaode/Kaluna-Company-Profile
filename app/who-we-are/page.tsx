@@ -62,7 +62,7 @@ export default async function WhoWeArePage() {
 
       {/* ── 1. Hero Banner — same design as Our Works ────────────── */}
       <section className="w-full bg-white pt-[72px] sm:pt-[80px] md:pt-[82px]">
-        <div className="kaluna-wide-container">
+        <div className="kaluna-container">
           <div
             className="
               relative
@@ -103,7 +103,7 @@ export default async function WhoWeArePage() {
       max-w-[1440px]
       px-5
       md:px-[48px]
-      w-full px-5 md:px-[5vw]
+      kaluna-container px-[clamp(20px,5vw,72px)]
       pt-12
       pb-14
       md:pt-16
@@ -217,7 +217,7 @@ export default async function WhoWeArePage() {
 </section>
 {/* ── Problem We Solve ───────────────────────────────────── */}
 <section className="w-full overflow-hidden bg-[#FAFAFA] py-20 md:py-16 px-2">
-  <div className="kaluna-wide-container">
+  <div className="kaluna-container">
     <div
       className="
         relative
@@ -229,7 +229,7 @@ export default async function WhoWeArePage() {
         lg:py-16
       "
     >
-      <div className="w-full px-5 md:px-[5vw]">
+      <div className="kaluna-container px-[2px] md:px-[28px] lg:px-[60px] min-[1480px]:px-[80px]">
         {/* Header */}
         <div className="mx-auto max-w-[680px] text-center">
           <div className="mb-4 flex items-center justify-center gap-2.5">
@@ -634,7 +634,7 @@ export default async function WhoWeArePage() {
       px-5
       text-center
       md:px-[48px]
-      w-full px-5 md:px-[5vw]
+      kaluna-container px-[clamp(20px,5vw,72px)]
     "
   >
     {/* Vision */}
@@ -725,7 +725,7 @@ export default async function WhoWeArePage() {
 
       {/* ── 5. Expertise ────────────────────────────────────────── */}
       <section className="w-full bg-white py-12 md:py-16">
-        <div className="w-full px-5 md:px-[5vw]">
+        <div className="kaluna-container px-[clamp(20px,5vw,72px)]">
           <div className="flex items-center gap-2.5 mb-3">
             <span className="h-3.5 w-[2.5px] bg-[#299EED] rounded-full" />
             <span className="font-semibold text-[10px] tracking-[0.08em] text-[#0E2A54] uppercase">Our Expertise</span>
@@ -831,7 +831,7 @@ export default async function WhoWeArePage() {
 
       {/* ── 6. Team Members ─────────────────────────────────────── */}
       <section className="w-full bg-white pb-12 md:pb-16">
-        <div className="w-full px-5 md:px-[5vw]">
+        <div className="kaluna-container px-[clamp(20px,5vw,72px)]">
           <div className="flex items-center gap-2.5 mb-3">
             <span className="h-3.5 w-[2.5px] bg-[#299EED] rounded-full" />
             <span className="font-semibold text-[10px] tracking-[0.08em] text-[#0E2A54] uppercase">Our Team</span>

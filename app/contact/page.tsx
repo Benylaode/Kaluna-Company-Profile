@@ -75,7 +75,7 @@ export default function ContactPage() {
 
       {/* Hero Banner Section */}
        <section className="w-full bg-white pt-[80px] sm:pt-[100px] md:pt-[80px]">
-        <div className="kaluna-wide-container">
+        <div className="kaluna-container">
           <div
             className="
               relative

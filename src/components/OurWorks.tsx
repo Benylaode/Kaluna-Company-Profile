@@ -181,7 +181,7 @@ export default function OurWorks() {
         }
       `}</style>
 
-      <div className="kaluna-wide-container">
+      <div className="kaluna-container">
         <div className="relative overflow-hidden rounded-[24px] kaluna-diagonal px-6 py-10 text-white md:px-6 md:py-16 lg:px-12 lg:py-20">
           <div className="kaluna-graphic-k">
             <span />

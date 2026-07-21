@@ -7,7 +7,7 @@ export default function CTA() {
 
   return (
     <section className="bg-[#FAFAFA] pb-12 md:pb-3 lg:pb-3 w-full">
-      <div className="kaluna-wide-container">
+      <div className="kaluna-container">
         <div className="relative flex flex-col justify-between gap-8 overflow-hidden rounded-[24px] bg-[#0E2A54] px-5 py-8 md:flex-row md:items-center md:px-6 md:py-12 lg:px-12 lg:py-16">
           {/* Background Patterns */}
           <div className="absolute inset-0 opacity-40">
