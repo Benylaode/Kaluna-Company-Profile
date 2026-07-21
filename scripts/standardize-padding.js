@@ -3,7 +3,6 @@ const fs = require('fs');
 const files = [
   'src/components/Navbar.tsx',
   'src/components/ResultImpactInteractive.tsx',
-  'src/components/WorkProjectCard.tsx',
   'src/components/OurServices.tsx',
   'app/contact/page.tsx',
   'app/who-we-are/page.tsx',
