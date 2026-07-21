@@ -73,16 +73,16 @@ body {
    ───────────────────────────────────────────────────────────────
    Prinsip: Fluid container + max-width + min() padding
    
-   Horizontal padding = min(5vw, 72px)
-   • 5vw   → selalu 5% dari viewport (konsisten secara visual)
-   • 72px  → cap = 5% dari 1440px (design reference width)
+   Horizontal padding = min(5.5vw, 79px)
+   • 5.5vw → selalu 5.5% dari viewport (konsisten secara visual)
+   • 79px  → cap = 5.5% dari 1440px (design reference width)
    
    Efek pada berbagai desktop:
-   • 1280px  → 5vw=64px  → content 1152px  (5% dari tepi) ✓
-   • 1440px  → 5vw=72px  → content 1296px  (5% dari tepi) ✓
-   • 1728px  → container dikunci 1440px → content 1296px  ✓
-   • 1920px  → container dikunci 1440px → content 1296px  ✓
-   • 4K      → container dikunci 1440px → content 1296px  ✓
+   • 1280px  → 5.5vw≈70px  → content 1140px  (5.5% dari tepi) ✓
+   • 1440px  → 5.5vw=79px  → content 1282px  (5.5% dari tepi) ✓
+   • 1728px  → container dikunci 1440px → content 1282px  ✓
+   • 1920px  → container dikunci 1440px → content 1282px  ✓
+   • 4K      → container dikunci 1440px → content 1282px  ✓
    
    Layar lebih besar = whitespace di luar container.
    Desain visual tetap identik.
@@ -96,7 +96,7 @@ body {
 
 @media (min-width: 768px) {
   .kaluna-container {
-    padding-inline: min(5vw, 72px);  /* desktop — optical 5% */
+    padding-inline: min(5.5vw, 79px);  /* desktop — optical 5.5% */
   }
 }
 
