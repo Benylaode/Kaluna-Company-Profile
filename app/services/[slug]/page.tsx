@@ -7,7 +7,6 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import OurProcese from "@/src/components/OurProcese";
 import PackageContactButton from "../../../src/components/PackageContactButton";
-import { FaChartLine, FaShield, FaRocket, FaRegLightbulb } from "react-icons/fa6";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -191,6 +190,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                   alt={`${serviceData.title} Preview`}
                   className="absolute inset-0 h-full w-full object-cover"
                 />
+                {/* Browser Window Controls (Removed) */}
                 {/* Client Indicator (Bottom Left) */}
                 <div className="absolute bottom-6 left-6 z-20 flex items-center gap-2 md:bottom-8 md:left-8">
                   <div className="h-4 w-[3px] bg-[#299EED] rounded-full" />
@@ -304,11 +304,9 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                     py-7
                     sm:px-8
                     sm:py-8
-                    transition-all
-                    duration-300
                     ${
                       isPopular
-                        ? "bg-[#299EED]/50 text-white md:scale-[1.03] shadow-[0_15px_40px_rgba(41,158,237,0.25)] z-10"
+                        ? "bg-[#299EED]/50 text-white scale-[1.02] shadow-2xl z-10"
                         : "bg-white text-[#0D0D0D]"
                     }
                   `}
@@ -508,22 +506,20 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       </section>
       {/* 4. PROBLEM WE SOLVE */}
       <section className="w-full bg-white py-6 lg:py-[28px]">
-        <div className="kaluna-container">
+        <div className="kaluna-wide-container">
           <div
             className="
               relative
               w-full
               rounded-[24px]
               bg-[#EAF3FF]
-              px-6
+              px-[calc(min(6.3vw,109px)-12px)]
               py-10
-              md:px-6
               md:py-16
-              lg:px-12
               lg:py-20
             "
           >
-            <div className="kaluna-container px-[clamp(20px,5vw,72px)]">
+            <div className="w-full">
               {/* Label */}
               <div className="flex items-center justify-center gap-[11px]">
                 <span
@@ -595,15 +591,6 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                       bg-[linear-gradient(180deg,#0E2A54_0%,#1F5DBA_100%)]
                     "
                   >
-                    {(() => {
-                      const icons = [FaChartLine, FaShield, FaRocket, FaRegLightbulb];
-                      const Icon = icons[idx % icons.length];
-                      return (
-                        <div className="absolute top-[12%] left-[6%] z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm text-white">
-                          <Icon className="h-5 w-5" />
-                        </div>
-                      );
-                    })()}
                     {/* Geometric shapes */}
                     <svg
                       aria-hidden="true"
@@ -669,6 +656,16 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                         top: "-53.52%",
                       }}
                     />
+
+                    {/* Card Icon */}
+                    <div className="absolute top-[15%] left-[6%] z-10 flex h-[38px] w-[38px] md:h-[44px] md:w-[44px] items-center justify-center rounded-full bg-[#8DD0F5]/20 text-[#8DD0F5] transition-transform duration-500 hover:scale-110">
+                      <svg className="w-[18px] h-[18px] md:w-5 md:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
+                        {idx % 4 === 0 && <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />}
+                        {idx % 4 === 1 && <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />}
+                        {idx % 4 === 2 && <path strokeLinecap="round" strokeLinejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />}
+                        {idx % 4 === 3 && <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />}
+                      </svg>
+                    </div>
 
                     {/* Card text */}
                     <p
@@ -862,21 +859,17 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       <OurProcese/>
 
       {/* 6. FAQ */}
-      <section className="w-full bg-white py-6 lg:py-[28px]">
-        <div className="kaluna-container">
+      <section className="w-full bg-white py-12 lg:py-20">
+        <div className="kaluna-wide-container">
           <div
             className="
               relative
               w-full
-              overflow-hidden
               rounded-[24px]
               bg-[#EAF3FF]
-              px-6
+              px-[calc(min(6.3vw,109px)-12px)]
               py-10
-              md:px-6
               md:py-16
-              lg:px-12
-              lg:py-20
               flex
               lg:min-h-[clamp(620px,41.875vw,804px)]
               lg:items-start

@@ -57,7 +57,10 @@ export const seedDatabase = (db: any) => {
           { q: "Do you provide maintenance services?", a: "Yes, we offer ongoing maintenance and support packages to ensure your website remains updated, secure, and running smoothly." },
           { q: "Can I update the content on my own?", a: "Absolutely. We integrate user-friendly Content Management Systems (CMS) so you can edit text, images, and posts easily." },
           { q: "Do I need to pay for domain and hosting?", a: "Our packages generally include domain and hosting for the first year. For custom projects, we will outline these costs transparently." }
-        ]
+        ,
+          { q: "Do you design the UI/UX as well?", a: "Yes, we provide end-to-end services starting from user research and wireframing to high-fidelity UI/UX design before development." },
+          { q: "Is the website optimized for mobile devices?", a: "Absolutely. All our web applications are built with a mobile-first approach, ensuring seamless performance across all screen sizes." },
+          { q: "Can you migrate our existing website?", a: "Yes, we can migrate your data, content, and SEO rankings to a new, modern tech stack without losing your existing progress." }]
       })
     },
     {
@@ -97,7 +100,9 @@ export const seedDatabase = (db: any) => {
           { q: "What protocols do you support for device connectivity?", a: "We primarily support MQTT, HTTP REST, WebSockets, and Modbus depending on the project requirements." },
           { q: "Can we integrate existing legacy hardware?", a: "Yes, we can advise on adapters and edge controllers to bring legacy machinery into modern cloud portals." },
           { q: "How is telemetry data secured?", a: "We enforce device-specific tokens, TLS communication, and isolated virtual network groups." }
-        ]
+        ,
+          { q: "What industries benefit most from your IoT solutions?", a: "Manufacturing, agriculture, logistics, and smart homes are the most common sectors, but our IoT systems are highly adaptable to any industry." },
+          { q: "How secure is the data transmission?", a: "We employ end-to-end encryption, secure MQTT brokers, and robust authentication mechanisms to ensure your data remains protected." }]
       })
     },
     {
@@ -136,7 +141,9 @@ export const seedDatabase = (db: any) => {
         faqs: [
           { q: "Can you integrate custom ERP systems?", a: "Yes, as long as we can access the underlying database or if the system exposes connection endpoints." },
           { q: "What happens if one of the linked systems goes offline?", a: "Our middleware queues the failed transactions and automatically retries them once the target system is back online." }
-        ]
+        ,
+          { q: "Do you provide training for the new ERP system?", a: "Yes, we conduct comprehensive training sessions for your team to ensure a smooth transition and high adoption rate." },
+          { q: "Can the ERP scale as our business grows?", a: "Our systems are built on scalable cloud architectures, meaning you can easily add new modules, users, or resources as your operations expand." }]
       })
     },
     {
@@ -175,7 +182,9 @@ export const seedDatabase = (db: any) => {
         faqs: [
           { q: "Is the control system safe from external cyber threats?", a: "Yes, SCADA portals are deployed behind dedicated VPNs and firewalls, with strict IP-address white-listing." },
           { q: "Do you supply the physical automation hardware?", a: "We act as the software integration partner. We can recommend and specify hardware suppliers to source the PLCs and sensors." }
-        ]
+        ,
+          { q: "What kind of PLCs do you support?", a: "We work with major PLC brands including Siemens, Allen-Bradley, Mitsubishi, and Omron, depending on your factory standards." },
+          { q: "How do you handle maintenance and downtime?", a: "We design systems with high availability and provide regular preventative maintenance schedules to minimize unexpected downtime." }]
       })
     },
     {
@@ -214,7 +223,9 @@ export const seedDatabase = (db: any) => {
         faqs: [
           { q: "How frequently does the dashboard data update?", a: "Depending on your plan, it can update in real-time, hourly, or once per day." },
           { q: "Can we connect tools like Google Sheets or Shopify?", a: "Yes, we support API connectors for popular cloud platforms to pull data automatically." }
-        ]
+        ,
+          { q: "Can we export the reports to PDF or Excel?", a: "Yes, our dashboards include built-in export features allowing you to download reports in various formats." },
+          { q: "Do we own the data collected?", a: "100% yes. You retain full ownership of all data, and we ensure it is securely stored in your preferred cloud or on-premise servers." }]
       })
     },
     {
@@ -253,7 +264,9 @@ export const seedDatabase = (db: any) => {
         faqs: [
           { q: "Can you help oversee our outsourced developers?", a: "Yes, we can serve as your tech advisors to perform code quality reviews and evaluate milestones." },
           { q: "How long does a standard audit take?", a: "A standard infrastructure audit takes between 1 to 2 weeks." }
-        ]
+        ,
+          { q: "Do you offer implementation after consulting?", a: "Yes, we offer full-cycle services. We can seamlessly transition from the strategy phase directly into the implementation and development phase." },
+          { q: "How do you price your consulting services?", a: "Pricing is typically project-based or via a retainer model, depending on the scope and duration of the strategic engagement." }]
       })
     }
   ];
