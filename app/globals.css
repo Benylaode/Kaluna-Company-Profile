@@ -69,27 +69,35 @@ body {
    ============================================================ */
 
 /* ═══════════════════════════════════════════════════════════════
-   KALUNA OPTICAL 5% HORIZONTAL PADDING SYSTEM (MANDATORY)
+   KALUNA CONTAINER SYSTEM
    ───────────────────────────────────────────────────────────────
-   Baseline: Pure 5% (5vw) Horizontal Padding dari tepi layar.
-   
-   Tidak menggunakan max-width / margin auto yang membuat
-   konten terdorong ke tengah dan menghasilkan whitespace
-   berlebihan pada layar lebar (seperti 1710px / 1920px).
-   
-   Hasil pada seluruh viewport desktop:
-   ← 5% → Content ← 5% → (Secara visual 100% konsisten)
+   1. .kaluna-container: Standard 5% (5vw) padding untuk section reguler
+      (Hero, Text Content, Page Headers, Contact, Client, Deliver).
+
+   2. .kaluna-wide-container: Wide container untuk Banner Card sections
+      (Our Works, WorkProjectCard, Our Services, CTA, Footer)
+      dengan padding 16px/24px agar rounded banner card dapat
+      melebar anggun sesuai desain referensi.
    ═══════════════════════════════════════════════════════════════ */
-.kaluna-container,
-.kaluna-wide-container {
+.kaluna-container {
   width: 100%;
   padding-inline: 20px;
 }
 
 @media (min-width: 768px) {
-  .kaluna-container,
-  .kaluna-wide-container {
+  .kaluna-container {
     padding-inline: 5vw;
+  }
+}
+
+.kaluna-wide-container {
+  width: 100%;
+  padding-inline: 16px;
+}
+
+@media (min-width: 768px) {
+  .kaluna-wide-container {
+    padding-inline: 24px;
   }
 }
 
