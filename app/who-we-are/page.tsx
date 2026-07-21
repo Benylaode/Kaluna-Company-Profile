@@ -215,7 +215,7 @@ export default async function WhoWeArePage() {
   </div>
 </section>
 {/* ── Problem We Solve ───────────────────────────────────── */}
-<section className="w-full overflow-hidden bg-[#FAFAFA] py-20 md:py-16">
+<section className="w-full overflow-hidden bg-[#FAFAFA] py-20 md:py-28">
   <div className="kaluna-wide-container">
     <div
       className="
@@ -293,7 +293,7 @@ export default async function WhoWeArePage() {
               duration-300
               hover:-translate-y-1
               hover:shadow-[0_18px_45px_rgba(14,42,84,0.08)]
-              md:p-7
+              md:p-8
             "
           >
             <div
@@ -354,7 +354,7 @@ export default async function WhoWeArePage() {
               duration-300
               hover:-translate-y-1
               hover:shadow-[0_18px_45px_rgba(14,42,84,0.08)]
-              md:p-7
+              md:p-8
             "
           >
             <div
@@ -415,7 +415,7 @@ export default async function WhoWeArePage() {
               duration-300
               hover:-translate-y-1
               hover:shadow-[0_18px_45px_rgba(14,42,84,0.08)]
-              md:p-7
+              md:p-8
             "
           >
             <div
@@ -476,7 +476,7 @@ export default async function WhoWeArePage() {
               duration-300
               hover:-translate-y-1
               hover:shadow-[0_18px_45px_rgba(14,42,84,0.08)]
-              md:p-7
+              md:p-8
             "
           >
             <div
