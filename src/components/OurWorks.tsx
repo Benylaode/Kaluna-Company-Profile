@@ -158,6 +158,11 @@ export default function OurWorks() {
           display: block;
         }
 
+        @keyframes fillProgress {
+          from { width: 0%; }
+          to { width: 100%; }
+        }
+
         .kaluna-right-linear {
           position: absolute;
           top: 0;
@@ -226,7 +231,7 @@ export default function OurWorks() {
               {extendedSteps.map((item, index) => {
                 const realIndex = index % WORK_STEPS.length;
                 const isActive = index === activeIndex;
-                const displayId = String(realIndex + 1).padStart(2, "0");
+                const displayId = String(realIndex + 1);
 
                 return (
                   <div
@@ -262,7 +267,7 @@ export default function OurWorks() {
                         >
                           {item.title}
                         </h3>
-                        <span className="flex h-7 w-7 items-center justify-center rounded-full text-xs bg-[#0E2A54] text-white">
+                        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-medium bg-[#0E2A54] text-white">
                           {displayId}
                         </span>
                       </div>
@@ -271,6 +276,19 @@ export default function OurWorks() {
                         {item.category}
                       </p>
                     </div>
+                    
+                    {/* Active Card Progress Bar */}
+                    {isActive && (
+                      <div className="absolute bottom-0 left-0 h-1 w-full overflow-hidden rounded-b-[24px]">
+                        <div 
+                          className="h-full bg-[#299EED]"
+                          style={{
+                            animation: 'fillProgress 2.5s linear forwards',
+                            animationPlayState: paused ? 'paused' : 'running'
+                          }}
+                        />
+                      </div>
+                    )}
                   </div>
                 );
               })}
