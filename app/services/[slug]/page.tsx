@@ -1027,14 +1027,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         "
       >
         <div
-          className="
-            mx-auto
-            max-w-[1440px]
-            w-full
-            px-5
-            md:px-[48px]
-            mx-auto max-w-[1440px] px-[clamp(20px,5vw,72px)]
-          "
+          className="mx-auto max-w-[1440px] w-full px-[clamp(20px,5vw,72px)]"
         >
           <div className="flex items-center justify-between gap-8">
             <h2

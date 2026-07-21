@@ -229,7 +229,7 @@ export default async function WhoWeArePage() {
         lg:py-16
       "
     >
-      <div className="mx-auto max-w-[1440px] px-[2px] md:px-[28px] lg:px-[60px] min-[1480px]:px-[80px]">
+      <div className="mx-auto max-w-[1440px] px-[clamp(20px,5vw,72px)]">
         {/* Header */}
         <div className="mx-auto max-w-[680px] text-center">
           <div className="mb-4 flex items-center justify-center gap-2.5">

@@ -112,8 +112,8 @@ export default function OurServices({ services }: { services: ServiceData[] }) {
             .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
           `}</style>
 
-          {/* Header tetap diberi padding manual agar sejajar sempurna dengan konten halaman */}
-          <div className="mb-10 md:mb-14 px-5 md:px-[40px] lg:px-[48px] xl:px-[72px]">
+          {/* Header sejajar dengan internal padding card */}
+          <div className="mb-10 md:mb-14 px-6 lg:px-12">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
               <div>
                 <div className="flex items-center gap-2.5 mb-3">
