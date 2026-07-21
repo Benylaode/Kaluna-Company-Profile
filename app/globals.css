@@ -69,23 +69,28 @@ body {
    ============================================================ */
 
 /* ═══════════════════════════════════════════════════════════════
-   KALUNA OPTICAL CONSISTENCY CONTAINER SYSTEM
+   KALUNA OPTICAL 5% HORIZONTAL PADDING SYSTEM (MANDATORY)
    ───────────────────────────────────────────────────────────────
-   Baseline: IdeaPad Slim 5 14" (1440px Reference Width)
+   Baseline: Pure 5% (5vw) Horizontal Padding dari tepi layar.
    
-   Menyelaraskan seluruh container halaman (termasuk wide container)
-   agar memiliki ritme visual 100% konsisten:
-   - Mobile: min 20px (5%)
-   - Dynamic Resize (640px-1440px): 5vw (mulus & proporsional)
-   - Baseline IdeaPad 14" (1440px): Tepat 72px (5vw dari 1440px)
-   - Desktop >1440px: Dikunci max-width 1440px + 72px padding.
-   ─────────────────────────────────────────────────────────────── */
+   Tidak menggunakan max-width / margin auto yang membuat
+   konten terdorong ke tengah dan menghasilkan whitespace
+   berlebihan pada layar lebar (seperti 1710px / 1920px).
+   
+   Hasil pada seluruh viewport desktop:
+   ← 5% → Content ← 5% → (Secara visual 100% konsisten)
+   ═══════════════════════════════════════════════════════════════ */
 .kaluna-container,
 .kaluna-wide-container {
   width: 100%;
-  max-width: 1440px;
-  margin-inline: auto;
-  padding-inline: clamp(20px, 5vw, 72px);
+  padding-inline: 20px;
+}
+
+@media (min-width: 768px) {
+  .kaluna-container,
+  .kaluna-wide-container {
+    padding-inline: 5vw;
+  }
 }
 
 /* Label section kecil di atas heading (e.g., "Our Works", "Testimonials") */
