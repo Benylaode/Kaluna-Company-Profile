@@ -837,10 +837,13 @@ export default async function WhoWeArePage() {
           </div>
           <h2 className="text-[24px] md:text-[30px] font-[550] mb-6 md:mb-8 text-[#0D0D0D]">Expert Behind The Works</h2>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-2 md:gap-3 lg:gap-4">
+          <div className="flex flex-wrap justify-center gap-4 md:gap-6 lg:gap-8">
             {team.map((member) => (
-              <div key={member.id} className="flex flex-col">
-                <div className="w-full aspect-[3/4] rounded-[12px] overflow-hidden mb-2 bg-gray-200">
+              <div 
+                key={member.id} 
+                className="flex flex-col w-[calc(50%-8px)] md:w-[calc(25%-18px)] lg:w-[calc(25%-24px)]"
+              >
+                <div className="w-full aspect-[3/4] rounded-[12px] overflow-hidden mb-3 bg-gray-200 shadow-sm">
                   <img
                     src={member.image_url}
                     alt={member.full_name}
@@ -849,11 +852,11 @@ export default async function WhoWeArePage() {
                 </div>
                 <div className="flex justify-between items-start gap-1">
                   <div className="flex flex-col">
-                    <h4 className="font-bold text-xs md:text-xs lg:text-sm text-[#0D2342] leading-tight">{member.full_name}</h4>
-                    <span className="text-[9px] font-semibold text-gray-500 uppercase mt-1 tracking-wide">{member.position}</span>
+                    <h4 className="font-bold text-sm md:text-base text-[#0D2342] leading-tight mb-1">{member.full_name}</h4>
+                    <span className="text-[10px] md:text-[11px] font-semibold text-gray-500 uppercase tracking-wide">{member.position}</span>
                   </div>
-                  <a href={member.linkedin_url} target="_blank" rel="noreferrer" className="w-5 h-5 shrink-0 bg-[#0D2342] text-white rounded-full flex items-center justify-center hover:bg-[#299EED] transition-colors mt-0.5">
-                    <svg className="w-2.5 h-2.5 fill-current" viewBox="0 0 24 24">
+                  <a href={member.linkedin_url} target="_blank" rel="noreferrer" className="w-6 h-6 md:w-7 md:h-7 shrink-0 bg-[#0D2342] text-white rounded-full flex items-center justify-center hover:bg-[#299EED] transition-colors mt-0.5 shadow-sm">
+                    <svg className="w-3 h-3 md:w-3.5 md:h-3.5 fill-current" viewBox="0 0 24 24">
                       <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                     </svg>
                   </a>
