@@ -198,7 +198,7 @@ export default function Clients() {
             return (
               <div
                 key={index}
-                className="relative w-full aspect-[327/220] max-w-[327px] rounded-[12px] border border-[#EBEBEB] bg-white flex items-center justify-center transition-all duration-500 hover:-translate-y-1 hover:border-[#299EED] hover:shadow-[0_10px_30px_rgba(41,158,237,0.08)]"
+                className="relative w-full aspect-[327/220] max-w-[327px] rounded-[12px] border border-[#EBEBEB] bg-white flex items-center justify-center transition-all duration-500"
               >
                 <div
                   className="absolute inset-0 m-auto flex items-center justify-center transition-opacity duration-[1000ms] ease-in-out"
@@ -239,7 +239,7 @@ export default function Clients() {
           {allLogosList.map((logo, index) => (
             <div
               key={`logo-1-${index}`}
-              className="flex-shrink-0 w-[160px] h-[100px] rounded-[12px] border border-[#EBEBEB] bg-white flex items-center justify-center px-4 transition-all duration-500 hover:-translate-y-1 hover:border-[#299EED] hover:shadow-[0_5px_15px_rgba(41,158,237,0.08)]"
+              className="flex-shrink-0 w-[160px] h-[100px] rounded-[12px] border border-[#EBEBEB] bg-white flex items-center justify-center px-4 transition-all duration-500"
             >
               <img
                 src={logo.src}
@@ -256,7 +256,7 @@ export default function Clients() {
           {allLogosList.map((logo, index) => (
             <div
               key={`logo-2-${index}`}
-              className="flex-shrink-0 w-[160px] h-[100px] rounded-[12px] border border-[#EBEBEB] bg-white flex items-center justify-center px-4 transition-all duration-500 hover:-translate-y-1 hover:border-[#299EED] hover:shadow-[0_5px_15px_rgba(41,158,237,0.08)]"
+              className="flex-shrink-0 w-[160px] h-[100px] rounded-[12px] border border-[#EBEBEB] bg-white flex items-center justify-center px-4 transition-all duration-500"
             >
               <img
                 src={logo.src}
