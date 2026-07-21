@@ -30,7 +30,9 @@ export default function Deliver({ testimonials }: { testimonials?: TestimonialDa
   const [itemsPerView, setItemsPerView] = useState(2);
   const [isTransitioning, setIsTransitioning] = useState(true);
   const [paused, setPaused] = useState(false);
+  const [cardWidth, setCardWidth] = useState(280);
   const isResetting = useRef(false);
+  const cardRef = useRef<HTMLDivElement>(null);
 
   const displayTestimonials = testimonials && testimonials.length > 0
     ? testimonials.map((item, idx) => ({
@@ -64,9 +66,15 @@ export default function Deliver({ testimonials }: { testimonials?: TestimonialDa
     const handleResize = () => {
       if (window.innerWidth < 768) setItemsPerView(1);
       else setItemsPerView(2);
+      
+      if (cardRef.current) {
+        const gap = window.innerWidth < 768 ? 20 : 32;
+        setCardWidth(cardRef.current.offsetWidth + gap);
+      }
     };
     handleResize();
     window.addEventListener("resize", handleResize);
+    setTimeout(handleResize, 100);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
@@ -110,7 +118,7 @@ export default function Deliver({ testimonials }: { testimonials?: TestimonialDa
   if (!displayTestimonials || displayTestimonials.length === 0) return null;
 
   const progressIndex = ((activeIndex % displayTestimonials.length) + displayTestimonials.length) % displayTestimonials.length;
-  const slideOffset = itemsPerView === 1 ? `${activeIndex * 280}px` : `${activeIndex * 50}%`;
+  const slideOffset = `${activeIndex * cardWidth}px`;
 
   return (
     <section className="relative overflow-hidden bg-[#FFFFFF] py-20 md:py-28">
@@ -152,8 +160,8 @@ export default function Deliver({ testimonials }: { testimonials?: TestimonialDa
           onTransitionEnd={handleTransitionEnd}
         >
           {extendedTestimonials.map((item, index) => (
-            <div key={`${item.id}-${index}`} className="w-[260px] shrink-0 md:w-[calc(50%_-_16px)]">
-              <div className="flex h-[280px] flex-col justify-between rounded-[24px] bg-[#F5F5F5] p-6 md:h-[310px] md:p-8">
+            <div ref={index === 0 ? cardRef : null} key={`${item.id}-${index}`} className="w-[260px] shrink-0 md:w-[calc(50%_-_16px)]">
+              <div className="flex h-[280px] flex-col justify-between rounded-[24px] bg-[#F5F5F5] p-6 md:h-[340px] md:p-8">
                 <div>
                   <div className="mb-4 flex h-8 items-center md:mb-5">
                     {item.logo_url ? (
@@ -174,7 +182,7 @@ export default function Deliver({ testimonials }: { testimonials?: TestimonialDa
                       </span>
                     )}
                   </div>
-                  <p className="line-clamp-4 text-sm leading-[1.4] tracking-[0.01em] text-[#3F3F3F] md:line-clamp-5 md:text-base md:leading-[1.5]">
+                  <p className="line-clamp-4 text-[13px] leading-[1.6] tracking-[0.01em] text-[#3F3F3F] md:line-clamp-5 md:text-[17px] md:leading-[1.6]">
                     {item.content}
                   </p>
                 </div>
@@ -186,8 +194,12 @@ export default function Deliver({ testimonials }: { testimonials?: TestimonialDa
                     className="h-12 w-12 rounded-xl bg-gray-200 object-cover md:h-14 md:w-14"
                   />
                   <div className="flex flex-col">
-                    <span className="text-sm font-semibold tracking-[0.02em] text-[#299EED]">{item.client_name}</span>
-                    <span className="mt-0.5 text-xs leading-[1.3] tracking-[0.02em] text-[#555555] md:text-sm">{item.role}, {item.company_name}</span>
+                    <span className="text-sm font-semibold tracking-wide text-[#171717] md:text-[17px]">
+                      {item.client_name}
+                    </span>
+                    <span className="mt-1 text-[11px] uppercase tracking-wider text-[#3F3F3F] md:text-[13px]">
+                      {item.role}
+                    </span>
                   </div>
                 </div>
               </div>

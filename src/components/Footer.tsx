@@ -4,7 +4,8 @@ import {
   FaYoutube, 
   FaLinkedinIn, 
   FaFacebookF, 
-  FaTiktok 
+  FaTiktok,
+  FaWhatsapp
 } from "react-icons/fa6";
 import { FaXTwitter } from "react-icons/fa6";
 
@@ -221,19 +222,11 @@ export default function Footer() {
                 className="inline-flex h-[50px] items-center justify-between gap-4 rounded-full bg-[#0B2545] pl-5 pr-1.5 text-white shadow-sm transition-all duration-300 hover:bg-[#163A70]"
               >
                 <span className="text-[14px]  tracking-[0.01em]">
-                  Chat CS
+                  Chat Us
                 </span>
 
                 <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#299EED] text-white">
-                  <svg
-                    className="h-4 w-4 fill-none stroke-current"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2.3"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7 2 2 0 0 1 2 1.72z" />
-                  </svg>
+                  <FaWhatsapp className="h-5 w-5" />
                 </span>
               </a>
             </div>
