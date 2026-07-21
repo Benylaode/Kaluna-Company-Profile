@@ -115,7 +115,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
     <main className="min-h-screen bg-white font-sans text-[#0D2342] overflow-x-hidden">
       <Navbar />
 
-      <section className="w-full bg-white pt-[100px] sm:pt-[120px] md:pt-[120px] pb-2 md:pb-4">
+      <section className="w-full bg-white pt-[90px] sm:pt-[95px] md:pt-[100px] pb-2 md:pb-4">
         {/* Dynamic Breadcrumbs matching screenshot styling */}
         <div className="kaluna-container mb-4 md:mb-5">
           <div className="flex items-center gap-2 text-[10px] md:text-[11px] font-medium tracking-widest text-[#94A3B8] uppercase">
@@ -136,9 +136,9 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             className="
               relative
               w-full
-              h-[150px]
-              sm:h-[180px]
-              md:h-[240px]
+              h-[180px]
+              sm:h-[230px]
+              md:h-[300px]
               rounded-[12px]
               sm:rounded-[16px]
               overflow-hidden

@@ -61,15 +61,15 @@ export default async function WhoWeArePage() {
       <Navbar />
 
       {/* ── 1. Hero Banner — same design as Our Works ────────────── */}
-      <section className="w-full bg-white pt-[100px] sm:pt-[110px] md:pt-[120px]">
+      <section className="w-full bg-white pt-[90px] sm:pt-[95px] md:pt-[100px]">
         <div className="kaluna-wide-container">
           <div
             className="
               relative
               w-full
-              h-[150px]
-              sm:h-[180px]
-              md:h-[240px]
+              h-[180px]
+              sm:h-[230px]
+              md:h-[300px]
               rounded-[12px]
               sm:rounded-[16px]
               overflow-hidden
