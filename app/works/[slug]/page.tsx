@@ -396,7 +396,7 @@ export default async function CaseStudyPage({
       {/* =====================================
           HERO
       ====================================== */}
-      <section className="pb-[60px] pt-[90px] sm:pt-[110px] md:pt-[124px] lg:pb-[96px] lg:pt-[144px]">
+      <section className="pb-[60px] pt-[72px] sm:pt-[88px] md:pt-[100px] lg:pb-[96px] lg:pt-[115px]">
         <div className="w-full px-5 md:px-[min(5vw,86px)]">
           <nav className="mb-7 flex flex-wrap items-center gap-2.5 text-[10px] font-medium uppercase tracking-[0.03em] text-[#8A8A8A] sm:text-[11px]">
             <Link href="/" className="transition-colors hover:text-[#299EED]">
