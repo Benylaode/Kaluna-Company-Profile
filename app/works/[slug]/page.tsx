@@ -708,7 +708,7 @@ export default async function CaseStudyPage({
       ====================================== */}
       {showcaseImage && (
         <section className="pb-[86px] lg:pb-[112px]">
-          <div className="mx-auto mb-8 max-w-[1728px] w-full px-5 md:px-[min(5vw,86px)]">
+          <div className="mx-auto mb-8 max-w-[1920px] w-full px-5 md:px-[min(5vw,86px)]">
             <SectionLabel>ABOUT PROJECT</SectionLabel>
           </div>
 

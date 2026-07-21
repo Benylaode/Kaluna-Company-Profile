@@ -17,8 +17,8 @@ files.forEach(f => {
   let content = fs.readFileSync(f, 'utf8');
   let updated = content;
 
-  // Replace max-width 1440px with 1728px
-  updated = updated.split('max-w-[1440px]').join('max-w-[1728px]');
+  // Replace max-width 1440px with 1920px
+  updated = updated.split('max-w-[1440px]').join('max-w-[1920px]');
 
   // Replace old min(5vw,72px) padding with min(5vw,86px)
   updated = updated.split('min(5vw,72px)').join('min(5vw,86px)');

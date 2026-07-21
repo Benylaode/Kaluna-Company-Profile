@@ -100,7 +100,7 @@ export default async function WhoWeArePage() {
   <div
     className="
       mx-auto
-      max-w-[1728px]
+      max-w-[1920px]
       px-5
       kaluna-container
       pt-12
@@ -225,7 +225,7 @@ export default async function WhoWeArePage() {
         bg-[#EAF3FF]
         px-[10px]
         py-10
-        md:px-[calc(min(6.3vw,109px)-12px)]
+        md:px-[calc(min(6.3vw,121px)-12px)]
         md:py-16
       "
     >
@@ -627,7 +627,7 @@ export default async function WhoWeArePage() {
       flex
       h-full
       w-full
-      max-w-[1728px]
+      max-w-[1920px]
       flex-col
       items-center
       justify-center

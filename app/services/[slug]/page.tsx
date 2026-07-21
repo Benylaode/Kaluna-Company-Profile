@@ -513,7 +513,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
               w-full
               rounded-[24px]
               bg-[#EAF3FF]
-              px-[calc(min(6.3vw,109px)-12px)]
+              px-[calc(min(6.3vw,121px)-12px)]
               py-10
               md:py-16
               lg:py-20
@@ -698,7 +698,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
       <section className="w-full bg-white pt-12 pb-16 md:pt-14 md:pb-20 lg:pb-[88px]">
         <div className="kaluna-container w-full kaluna-container px-[clamp(20px,5vw,72px)]">
-          <div className="mx-auto w-full max-w-[1728px]">
+          <div className="mx-auto w-full max-w-[1920px]">
             {/* Section label */}
             <div className="flex h-[15px] items-center gap-[13px]">
               <span
@@ -867,7 +867,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
               w-full
               rounded-[24px]
               bg-[#EAF3FF]
-              px-[calc(min(6.3vw,109px)-12px)]
+              px-[calc(min(6.3vw,121px)-12px)]
               py-10
               md:py-16
               flex
@@ -1028,7 +1028,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         <div
           className="
             mx-auto
-            max-w-[1728px]
+            max-w-[1920px]
             w-full
             px-5
             md:px-[48px]
