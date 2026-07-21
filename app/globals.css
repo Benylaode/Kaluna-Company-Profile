@@ -68,7 +68,9 @@ body {
    KALUNA DESIGN SYSTEM — Global Utility Classes
    ============================================================ */
 
-/* Container utama — padding konsisten: 16px mobile, 32px semua desktop */
+/* Container utama
+   Mobile : 16px fixed
+   Desktop: 5vw  → selalu 5% lebar layar, terlihat SAMA di semua ukuran desktop */
 .kaluna-container {
   width: 100%;
   max-width: 1440px;
@@ -78,7 +80,7 @@ body {
 
 @media (min-width: 768px) {
   .kaluna-container {
-    padding-inline: 32px;   /* fixed untuk semua desktop — tidak berubah */
+    padding-inline: 5vw;
   }
 }
 
