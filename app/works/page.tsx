@@ -361,20 +361,6 @@ export default function WorksPage() {
       >
         <span>All Works</span>
 
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={2}
-          stroke="currentColor"
-          className="h-3 w-3 shrink-0"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-          />
-        </svg>
       </button>
 
       {/* Select Type */}
@@ -472,6 +458,35 @@ export default function WorksPage() {
               md:w-[300px]
             "
           >
+            <button
+              type="button"
+              onClick={() => {
+                setSelectedType(null);
+                setIsTypeOpen(false);
+              }}
+              className={`
+                mx-2
+                block
+                w-[calc(100%-16px)]
+                cursor-pointer
+                rounded-[9px]
+                px-4
+                py-2.5
+                text-left
+                text-[13px]
+                font-normal
+                transition-all
+                duration-200
+                md:text-[14px]
+                ${
+                  !selectedType
+                    ? 'bg-[#EAF3FF] text-[#299EED]'
+                    : 'text-[#17366A] hover:bg-[#F4F8FD] hover:text-[#299EED]'
+                }
+              `}
+            >
+              All Type
+            </button>
             {types.map((type) => (
               <button
                 type="button"
@@ -610,6 +625,35 @@ export default function WorksPage() {
               md:w-[290px]
             "
           >
+            <button
+              type="button"
+              onClick={() => {
+                setSelectedIndustry(null);
+                setIsIndustryOpen(false);
+              }}
+              className={`
+                mx-2
+                block
+                w-[calc(100%-16px)]
+                cursor-pointer
+                rounded-[9px]
+                px-4
+                py-2.5
+                text-left
+                text-[13px]
+                font-normal
+                transition-all
+                duration-200
+                md:text-[14px]
+                ${
+                  !selectedIndustry
+                    ? 'bg-[#EAF3FF] text-[#299EED]'
+                    : 'text-[#17366A] hover:bg-[#F4F8FD] hover:text-[#299EED]'
+                }
+              `}
+            >
+              All Industry
+            </button>
             {industries.map((industry) => (
               <button
                 type="button"
