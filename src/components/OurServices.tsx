@@ -36,17 +36,17 @@ export default function OurServices({ services }: { services: ServiceData[] }) {
     const updateDimensions = () => {
       const width = window.innerWidth;
       if (width >= 1280) {
-        // Desktop XL (sejajar dengan lg:px-12 yang bernilai 48px)
-        setCardConfig({ cardWidth: 436, gap: 24, viewportOffset: 48 });
+        // Desktop XL: cardWidth 380px, offset 48px (px-12)
+        setCardConfig({ cardWidth: 380, gap: 24, viewportOffset: 48 });
       } else if (width >= 1024) {
-        // Desktop Standard (sejajar dengan lg:px-12 / 48px)
-        setCardConfig({ cardWidth: 400, gap: 20, viewportOffset: 48 });
+        // Desktop Standard: cardWidth 340px, offset 40px (px-10)
+        setCardConfig({ cardWidth: 340, gap: 20, viewportOffset: 40 });
       } else if (width >= 768) {
-        // Tablet (sejajar dengan md:px-6 / 24px)
-        setCardConfig({ cardWidth: 340, gap: 20, viewportOffset: 24 });
+        // Tablet: cardWidth 310px, offset 32px (px-8)
+        setCardConfig({ cardWidth: 310, gap: 20, viewportOffset: 32 });
       } else {
-        // Mobile (sejajar dengan px-5 / 20px)
-        setCardConfig({ cardWidth: 290, gap: 16, viewportOffset: 20 });
+        // Mobile: cardWidth 280px, offset 20px (px-5)
+        setCardConfig({ cardWidth: 280, gap: 16, viewportOffset: 20 });
       }
     };
 
@@ -112,8 +112,8 @@ export default function OurServices({ services }: { services: ServiceData[] }) {
             .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
           `}</style>
 
-          {/* Header sejajar dengan internal padding card */}
-          <div className="mb-10 md:mb-14 px-6 lg:px-12">
+          {/* Header tegak lurus sejajar dengan offset kartu pertama */}
+          <div className="mb-10 md:mb-14 px-5 md:px-8 lg:px-10 xl:px-12">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
               <div>
                 <div className="flex items-center gap-2.5 mb-3">
