@@ -69,12 +69,12 @@ body {
    ============================================================ */
 
 /* Container utama dengan max-width dan padding horizontal konsisten */
-/* clamp(min, preferred, max): fluid dari 20px (mobile) → 5vw → 72px (desktop) */
+/* clamp(min, preferred, max): fluid dari 16px (mobile) → 4vw → 60px (desktop) */
 .kaluna-container {
   width: 100%;
   max-width: 1440px;
   margin-inline: auto;
-  padding-inline: clamp(20px, 5vw, 72px);
+  padding-inline: clamp(16px, 4vw, 60px);
 }
 
 .kaluna-wide-container {

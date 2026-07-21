@@ -124,7 +124,7 @@ const slides = [
 
      {/* Desktop Layout (Perfected Grid Ratio & Slighly Wider Slider) */}
 {/* Desktop Layout (Perfect 50:50 Balanced Grid & Wider Slider) */}
-      <div className="kaluna-container hidden md:grid min-h-[520px] lg:min-h-[580px] grid-cols-2 items-center gap-10 lg:gap-16 pt-3 pb-3 md:pt-4 md:pb-4 lg:pt-6 lg:pb-6">
+      <div className="kaluna-container hidden md:grid min-h-[520px] lg:min-h-[580px] grid-cols-2 items-center gap-8 lg:gap-12 pt-3 pb-3 md:pt-4 md:pb-4 lg:pt-6 lg:pb-6">
         
         {/* Left Column: Text Content */}
         <div className="flex flex-col items-start gap-6">

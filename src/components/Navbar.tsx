@@ -67,7 +67,7 @@ export default function Navbar() {
   return (
     <>
       <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${headerBgClass}`}>
-        <nav className="mx-auto max-w-[1440px] px-[clamp(20px,5vw,72px)] py-4 relative">
+        <nav className="mx-auto max-w-[1440px] px-[clamp(16px,4vw,60px)] py-4 relative">
           <div className="flex items-center justify-between md:grid md:grid-cols-[1fr_auto_1fr]">
 
             {/* Logo */}

@@ -100,7 +100,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col relative">
-        <div style={{ zoom: 0.88 } as any} className="flex-1 flex flex-col">
+        <div className="flex-1 flex flex-col">
           {children}
         </div>
         <WhatsAppButton />
