@@ -365,3 +365,10 @@ a, button, [role="button"], select, option, input[type="submit"], input[type="bu
     transition-delay: 0s !important;
   }
 }
+
+/* Automatic Zoom Scaling for Screens Larger Than 14-inch IdeaPad Slim 5 (1440px) */
+@media (min-width: 1441px) {
+  body > div.flex-1 {
+    zoom: 0.88;
+  }
+}

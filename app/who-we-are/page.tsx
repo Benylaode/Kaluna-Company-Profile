@@ -1,6 +1,6 @@
 import Navbar from "../../src/components/Navbar";
 import Footer from "../../src/components/Footer";
-import CTAC from "../../src/components/CTAC";
+import CTAW from "../../src/components/CTAW";
 import { getTeam } from "../../src/lib/actions";
 
 export default async function WhoWeArePage() {
@@ -866,7 +866,7 @@ export default async function WhoWeArePage() {
       </section>
 
       {/* ── 7. CTA & Footer ─────────────────────────────────────── */}
-      <CTAC />
+      <CTAW />
       <Footer />
     </main>
   );
