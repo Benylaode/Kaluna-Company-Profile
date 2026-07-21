@@ -7,7 +7,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import OurProcese from "@/src/components/OurProcese";
 import PackageContactButton from "../../../src/components/PackageContactButton";
-import { FaChartLine, FaShieldAlt, FaRocket, FaRegLightbulb } from "react-icons/fa6";
+import { FaChartLine, FaShield, FaRocket, FaRegLightbulb } from "react-icons/fa6";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -596,7 +596,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                     "
                   >
                     {(() => {
-                      const icons = [FaChartLine, FaShieldAlt, FaRocket, FaRegLightbulb];
+                      const icons = [FaChartLine, FaShield, FaRocket, FaRegLightbulb];
                       const Icon = icons[idx % icons.length];
                       return (
                         <div className="absolute top-[12%] left-[6%] z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm text-white">
