@@ -100,18 +100,20 @@ export default function OurServices({ services }: { services: ServiceData[] }) {
 
   return (
     <section className="bg-[#FAFAFA] py-20 md:py-0 overflow-hidden w-full">
-      <div className="kaluna-container">
+      <div className="kaluna-wide-container">
         {/* 
           Container Utama diselaraskan dengan kelengkungan CTA (rounded-[24px]).
+          PENTING: Di sini kita hanya menggunakan padding vertikal (py), sedangkan padding horizontal (px) 
+          dihapus agar slider bisa meluncur menembus kontainer biru ke arah kanan tanpa terpotong.
         */}
-        <div className="relative overflow-visible rounded-[24px] bg-[#EAF3FF] py-8 md:py-12 lg:py-16 px-6 md:px-10 lg:px-12">
+        <div className="relative overflow-visible rounded-[24px] bg-[#EAF3FF] py-8 md:py-12 lg:py-16">
           <style>{`
             .hide-scrollbar::-webkit-scrollbar { display: none; }
             .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
           `}</style>
 
-          {/* Header */}
-          <div className="mb-10 md:mb-14">
+          {/* Header tetap diberi padding manual agar sejajar sempurna dengan konten halaman */}
+          <div className="mb-10 md:mb-14 px-5 md:px-[40px] lg:px-[48px] xl:px-[72px]">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
               <div>
                 <div className="flex items-center gap-2.5 mb-3">

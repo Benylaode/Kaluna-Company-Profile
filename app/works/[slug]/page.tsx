@@ -397,7 +397,7 @@ export default async function CaseStudyPage({
           HERO
       ====================================== */}
       <section className="pb-[60px] pt-[90px] sm:pt-[110px] md:pt-[124px] lg:pb-[96px] lg:pt-[144px]">
-        <div className="w-full px-5 md:px-[5vw]">
+        <div className="w-full px-5 md:px-[min(5vw,72px)]">
           <nav className="mb-7 flex flex-wrap items-center gap-2.5 text-[10px] font-medium uppercase tracking-[0.03em] text-[#8A8A8A] sm:text-[11px]">
             <Link href="/" className="transition-colors hover:text-[#299EED]">
               Home
@@ -451,7 +451,7 @@ export default async function CaseStudyPage({
           OVERVIEW
       ====================================== */}
       <section className="pb-[92px] lg:pb-[120px]">
-        <div className="w-full px-5 md:px-[5vw]">
+        <div className="w-full px-5 md:px-[min(5vw,72px)]">
           <SectionLabel>{overview.label || "ABOUT PROJECT"}</SectionLabel>
 
           <h2 className="mt-8 max-w-[850px] text-[30px] font-medium leading-[1.16] tracking-[-0.025em] text-[#111111] sm:text-[36px] lg:text-[43px]">
@@ -472,7 +472,7 @@ export default async function CaseStudyPage({
       {project.challenges && project.challenges.items.length > 0 && (
         <section className="mx-auto max-w-[1880px] px-4 pb-[64px] sm:px-5 lg:pb-[78px]">
           <div className="w-full rounded-[20px] bg-[#EAF3FF] py-[68px] lg:rounded-[24px] lg:py-[92px]">
-            <div className="w-full px-5 md:px-[5vw]">
+            <div className="w-full px-5 md:px-[min(5vw,72px)]">
               <SectionLabel centered>
                 PROBLEM STATEMENT
               </SectionLabel>
@@ -524,7 +524,7 @@ export default async function CaseStudyPage({
           <div className="absolute inset-0 bg-gradient-to-b from-[#06182D]/65 via-[#0B274F]/88 to-[#0B2B5C]/95" />
           <div className="absolute inset-0 bg-[linear-gradient(120deg,transparent_0%,transparent_48%,rgba(41,158,237,0.08)_48%,rgba(41,158,237,0.08)_64%,transparent_64%)]" />
 
-          <div className="relative z-10 w-full px-5 md:px-[5vw]">
+          <div className="relative z-10 w-full px-5 md:px-[min(5vw,72px)]">
             <SectionLabel light>
               TECHNICAL APPROACH
             </SectionLabel>
@@ -569,7 +569,7 @@ export default async function CaseStudyPage({
       ====================================== */}
       {project.tech_stack && project.tech_stack.length > 0 && (
         <section className="bg-[#FAFAFA] py-[86px] sm:py-[104px] lg:py-[126px]">
-          <div className="w-full px-5 md:px-[5vw]">
+          <div className="w-full px-5 md:px-[min(5vw,72px)]">
             <SectionLabel>TECH STACK</SectionLabel>
 
             <h2 className="mt-7 text-[30px] font-medium leading-tight tracking-[-0.025em] text-[#111111] sm:text-[38px] lg:text-[44px]">
@@ -620,7 +620,7 @@ export default async function CaseStudyPage({
             <div className="pointer-events-none absolute -left-[90px] top-[115px] h-[360px] w-[360px] rotate-45 border-[70px] border-[#299EED]/20" />
             <div className="pointer-events-none absolute right-[8%] top-[-260px] h-[520px] w-[520px] rotate-45 border-[90px] border-white/[0.025]" />
 
-            <div className="w-full px-5 md:px-[5vw]">
+            <div className="w-full px-5 md:px-[min(5vw,72px)]">
               <div className="relative z-10 flex items-center justify-between gap-6">
                 <SectionLabel light>
                   OUR IMPLEMENTATION PROCESS
@@ -708,7 +708,7 @@ export default async function CaseStudyPage({
       ====================================== */}
       {showcaseImage && (
         <section className="pb-[86px] lg:pb-[112px]">
-          <div className="mx-auto mb-8 max-w-[1440px] w-full px-5 md:px-[5vw]">
+          <div className="mx-auto mb-8 max-w-[1440px] w-full px-5 md:px-[min(5vw,72px)]">
             <SectionLabel>ABOUT PROJECT</SectionLabel>
           </div>
 
@@ -751,7 +751,7 @@ export default async function CaseStudyPage({
       ====================================== */}
       {otherWorks.length > 0 && (
         <section className="bg-[#EAF3FF] py-[80px] sm:py-[100px] lg:py-[118px]">
-          <div className="w-full px-5 md:px-[5vw]">
+          <div className="w-full px-5 md:px-[min(5vw,72px)]">
             <div className="flex items-center justify-between gap-8">
               <h2 className="text-[33px] font-medium leading-tight tracking-[-0.03em] text-[#111111] sm:text-[42px] lg:text-[50px]">
                 Explore Other Works
