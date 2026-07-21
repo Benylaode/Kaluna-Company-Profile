@@ -6,9 +6,9 @@ export default function CTAW() {
   const router = useRouter();
 
   return (
-    <section className="bg-[#FAFAFA] pb-12 md:pb-6 w-full">
+    <section className="bg-[#FAFAFA] pb-12 md:pb-3 lg:pb-3 w-full">
       <div className="kaluna-wide-container">
-        <div className="relative flex flex-col justify-between gap-8 overflow-hidden rounded-[24px] bg-[#0E2A54] px-5 py-8 md:flex-row md:items-center md:px-14 md:py-12">
+        <div className="relative flex flex-col justify-between gap-8 overflow-hidden rounded-[24px] bg-[#0E2A54] px-5 py-8 md:flex-row md:items-center md:px-6 md:py-12 lg:px-12 lg:py-16">
           {/* Background Patterns */}
           <div className="absolute inset-0 opacity-40">
             <div className="absolute bottom-0 right-[15%] h-full w-[45%] skew-x-[-35deg] bg-[#183E75]/80"></div>
@@ -16,10 +16,10 @@ export default function CTAW() {
           </div>
 
           <div className="relative z-10 text-center md:text-left">
-            <h2 className="text-[28px] font-bold leading-[1.2] tracking-[-0.01em] text-white md:text-[38px]">
+            <h2 className="text-[28px] leading-[1.2] tracking-[-0.01em] text-white md:text-[38px]">
               Interested in collaborating with us?
             </h2>
-            <p className="text-[28px] font-bold leading-[1.2] tracking-[-0.01em] text-[#A3D9F7] md:text-[38px]">
+            <p className="text-[28px] leading-[1.2] tracking-[-0.01em] text-[#A3D9F7] md:text-[38px]">
               Let&apos;s build something great together
             </p>
           </div>
@@ -29,7 +29,7 @@ export default function CTAW() {
               variant="primary-white"
               label="Contact Our Team"
               onClick={() => router.push("/contact")}
-              className="w-full md:w-auto bg-white hover:bg-[#DDEEFF] text-[#0E2A54] shadow-md border-0"
+              className="w-full md:w-auto"
             />
           </div>
         </div>
