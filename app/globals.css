@@ -69,35 +69,24 @@ body {
    ============================================================ */
 
 /* ═══════════════════════════════════════════════════════════════
-   KALUNA CONTAINER SYSTEM (Baseline: IdeaPad 14" Proportional Scale)
+   KALUNA DYNAMIC CONTAINER SYSTEM
    ───────────────────────────────────────────────────────────────
-   Container dikunci max-width: 1440px dengan margin: auto.
-   Menjaga hierarki visual item, rasio gambar, dan ukuran card
-   tetap 100% konsisten sesuai baseline IdeaPad Slim 5 (14").
+   Baseline: IdeaPad Slim 5 14" (1440px Reference Width)
+   
+   Menggunakan dynamic fluid scaling clamp(20px, 5vw, 72px):
+   - Mobile: min 20px
+   - Dynamic: 5vw (mulus mengikuti resize viewport)
+   - 1440px Baseline: Tepat 72px (5vw dari 1440px)
+   - Desktop >1440px: Dikunci max 72px padding & max-width 1440px
+   
+   Memastikan proporsi visual, rasio gambar, dan hierarki card
+   tetap 100% seimbang dan tidak pernah terlalu besar/kecil.
    ─────────────────────────────────────────────────────────────── */
 .kaluna-container {
   width: 100%;
   max-width: 1440px;
   margin-inline: auto;
-  padding-inline: 20px;
-}
-
-@media (min-width: 768px) {
-  .kaluna-container {
-    padding-inline: 40px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .kaluna-container {
-    padding-inline: 48px;
-  }
-}
-
-@media (min-width: 1440px) {
-  .kaluna-container {
-    padding-inline: 72px;
-  }
+  padding-inline: clamp(20px, 5vw, 72px);
 }
 
 .kaluna-wide-container {
