@@ -43,7 +43,7 @@ export default function WorkProjectCard({
       <div className="kaluna-wide-container">
         
         {/* Light-blue rounded card wrapper */}
-        <div className="bg-[#EAF3FF] rounded-[16px] py-12 px-6 md:py-[80px] md:px-[60px] lg:px-[60px] xl:px-[72px] 2xl:px-[80px]">
+        <div className="bg-[#EAF3FF] rounded-[16px] py-12 px-6 md:py-[80px] md:px-[60px] px-[clamp(20px,5vw,72px)]">
           
           {/* Parent Grid dengan items-stretch seperti ProjectCarousel */}
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-20 w-full items-stretch">

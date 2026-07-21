@@ -43,7 +43,7 @@ export default function ResultImpactInteractive({
 
   return (
     <section className="pb-[72px] md:pb-[110px] lg:pb-[140px]">
-      <div className="mx-auto max-w-[1440px] px-5 md:px-[48px] lg:px-[60px] xl:px-[72px] 2xl:px-[80px]">
+      <div className="mx-auto max-w-[1440px] px-[clamp(20px,5vw,72px)]">
         <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-[1fr_1.08fr] md:gap-12 lg:gap-[90px]">
           {/* Left Column: Interactive Highlights List */}
           <div>
