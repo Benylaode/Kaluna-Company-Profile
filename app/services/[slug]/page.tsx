@@ -117,7 +117,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
       <section className="w-full bg-white pt-[80px] sm:pt-[110px] md:pt-[90px] pb-2 md:pb-4">
         {/* Dynamic Breadcrumbs matching screenshot styling */}
-        <div className="mx-auto max-w-[1440px] px-5 md:px-[48px] lg:px-[48px] mb-4 md:mb-5">
+        <div className="mx-auto max-w-[1440px] px-5 md:px-[48px] lg:px-[60px] xl:px-[72px] 2xl:px-[80px] mb-4 md:mb-5">
           <div className="flex items-center gap-2 text-[10px] md:text-[11px] font-medium tracking-widest text-[#94A3B8] uppercase">
             <Link href="/" className="hover:text-[#299EED] transition-colors">
               Home
@@ -165,7 +165,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       </section>
 
       <section className="w-full bg-white">
-        <div className="mx-auto max-w-[1440px] px-5 md:px-[48px] lg:px-[48px] pt-10 pb-12 md:pt-12 md:pb-16 lg:pt-[44px] lg:pb-[60px]">
+        <div className="mx-auto max-w-[1440px] px-5 md:px-[48px] lg:px-[60px] xl:px-[72px] 2xl:px-[80px] pt-10 pb-12 md:pt-12 md:pb-16 lg:pt-[44px] lg:pb-[60px]">
           <div className="flex flex-col lg:grid lg:grid-cols-[40%_60%] items-start gap-8 lg:gap-12 xl:gap-16">
             <div className="w-full lg:pt-[44px] order-2 lg:order-1">
               <div className="mb-6 flex items-center gap-3">
@@ -221,7 +221,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           lg:py-20
         "
       >
-        <div className="mx-auto max-w-[1440px] w-full px-5 md:px-[48px] lg:px-[48px]">
+        <div className="mx-auto max-w-[1440px] w-full px-5 md:px-[48px] lg:px-[60px] xl:px-[72px] 2xl:px-[80px]">
           {/* Section label */}
           <div className="flex h-[15px] items-center justify-center gap-[13px]">
             <span
@@ -526,7 +526,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
               lg:py-20
             "
           >
-            <div className="mx-auto max-w-[1440px] px-5 md:px-[48px] lg:px-[48px]">
+            <div className="mx-auto max-w-[1440px] px-5 md:px-[48px] lg:px-[60px] xl:px-[72px] 2xl:px-[80px]">
               {/* Label */}
               <div className="flex items-center justify-center gap-[11px]">
                 <span
@@ -694,7 +694,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       </section>
 
       <section className="w-full bg-white pt-12 pb-16 md:pt-14 md:pb-20 lg:pb-[88px]">
-        <div className="mx-auto max-w-[1440px] w-full px-5 md:px-[48px] lg:px-[48px]">
+        <div className="mx-auto max-w-[1440px] w-full px-5 md:px-[48px] lg:px-[60px] xl:px-[72px] 2xl:px-[80px]">
           <div className="mx-auto w-full max-w-[1440px]">
             {/* Section label */}
             <div className="flex h-[15px] items-center gap-[13px]">
@@ -1033,7 +1033,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             w-full
             px-5
             md:px-[48px]
-            lg:px-[48px]
+            lg:px-[60px] xl:px-[72px] 2xl:px-[80px]
           "
         >
           <div className="flex items-center justify-between gap-8">

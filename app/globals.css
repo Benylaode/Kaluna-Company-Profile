@@ -84,13 +84,19 @@ body {
 
 @media (min-width: 1024px) {
   .kaluna-container {
-    padding-inline: 48px;
+    padding-inline: 60px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .kaluna-container {
+    padding-inline: 72px;
   }
 }
 
 @media (min-width: 1440px) {
   .kaluna-container {
-    padding-inline: 72px;
+    padding-inline: 80px;
   }
 }
 

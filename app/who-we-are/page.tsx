@@ -103,7 +103,7 @@ export default async function WhoWeArePage() {
       max-w-[1440px]
       px-5
       md:px-[48px]
-      lg:px-[48px]
+      lg:px-[60px] xl:px-[72px] 2xl:px-[80px]
       pt-12
       pb-14
       md:pt-16
@@ -634,7 +634,7 @@ export default async function WhoWeArePage() {
       px-5
       text-center
       md:px-[48px]
-      lg:px-[48px]
+      lg:px-[60px] xl:px-[72px] 2xl:px-[80px]
     "
   >
     {/* Vision */}
@@ -725,7 +725,7 @@ export default async function WhoWeArePage() {
 
       {/* ── 5. Expertise ────────────────────────────────────────── */}
       <section className="w-full bg-white py-12 md:py-16">
-        <div className="mx-auto max-w-[1440px] px-5 md:px-[48px] lg:px-[48px]">
+        <div className="mx-auto max-w-[1440px] px-5 md:px-[48px] lg:px-[60px] xl:px-[72px] 2xl:px-[80px]">
           <div className="flex items-center gap-2.5 mb-3">
             <span className="h-3.5 w-[2.5px] bg-[#299EED] rounded-full" />
             <span className="font-semibold text-[10px] tracking-[0.08em] text-[#0E2A54] uppercase">Our Expertise</span>
@@ -831,7 +831,7 @@ export default async function WhoWeArePage() {
 
       {/* ── 6. Team Members ─────────────────────────────────────── */}
       <section className="w-full bg-white pb-12 md:pb-16">
-        <div className="mx-auto max-w-[1440px] px-5 md:px-[48px] lg:px-[48px]">
+        <div className="mx-auto max-w-[1440px] px-5 md:px-[48px] lg:px-[60px] xl:px-[72px] 2xl:px-[80px]">
           <div className="flex items-center gap-2.5 mb-3">
             <span className="h-3.5 w-[2.5px] bg-[#299EED] rounded-full" />
             <span className="font-semibold text-[10px] tracking-[0.08em] text-[#0E2A54] uppercase">Our Team</span>
