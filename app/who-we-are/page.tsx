@@ -225,7 +225,7 @@ export default async function WhoWeArePage() {
         bg-[#EAF3FF]
         px-[10px]
         py-10
-        md:px-[calc(min(6.3vw,121px)-min(2.2vw,42px))]
+        md:px-[calc(min(6.3vw,121px)-min(2vw,38px))]
         md:py-16
       "
     >

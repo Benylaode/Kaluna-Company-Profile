@@ -107,13 +107,13 @@ body {
 
 @media (min-width: 768px) {
   .kaluna-wide-container {
-    padding-inline: min(2.2vw, 42px);
+    padding-inline: min(2vw, 38px);
   }
 }
 
 @media (min-width: 1024px) {
   .kaluna-wide-container {
-    padding-inline: min(2.2vw, 42px);
+    padding-inline: min(2vw, 38px);
   }
 }
 
