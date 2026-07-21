@@ -69,27 +69,24 @@ body {
    ============================================================ */
 
 /* ═══════════════════════════════════════════════════════════════
-   OPTICAL CONSISTENCY CONTAINER SYSTEM
-   ───────────────────────────────────────────────────────────────
-   Padding PURE 5.5vw — selalu tepat 5.5% dari tepi viewport.
-   TIDAK menggunakan max-width+margin:auto pada container,
-   karena centering margin merusak proporsi visual 5.5%.
-   
-   Hasil:
-   • 1280px → 5.5vw = 70px  → content 1140px  (5.5% dari tepi) ✓
-   • 1440px → 5.5vw = 79px  → content 1282px  (5.5% dari tepi) ✓
-   • 1710px → 5.5vw = 94px  → content 1522px  (5.5% dari tepi) ✓
-   • 1920px → 5.5vw = 105px → content 1710px  (5.5% dari tepi) ✓
+   KALUNA CONTAINER — Padding berbasis breakpoint
+   Baseline visual: IdeaPad Slim 5 14" (CSS viewport ~1536px → lg)
    ═══════════════════════════════════════════════════════════════ */
 .kaluna-container {
   width: 100%;
-  padding-inline: 20px;              /* mobile  */
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: 20px;    /* mobile */
 }
 
 @media (min-width: 768px) {
-  .kaluna-container {
-    padding-inline: 5.5vw;           /* desktop — pure 5.5% dari viewport */
-  }
+  .kaluna-container { padding-inline: 40px; }   /* tablet     */
+}
+@media (min-width: 1024px) {
+  .kaluna-container { padding-inline: 48px; }   /* desktop 14"–15" (IdeaPad baseline) */
+}
+@media (min-width: 1440px) {
+  .kaluna-container { padding-inline: 72px; }   /* desktop ≥ 1440px (Mac Air 15", 16", monitor) */
 }
 
 .kaluna-wide-container {

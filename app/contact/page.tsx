@@ -110,7 +110,7 @@ export default function ContactPage() {
 
       {/* Main Contact Section */}
       <section className="w-full bg-white py-10 md:py-14 lg:py-16">
-        <div className="mx-auto max-w-[1440px] px-5 md:px-[5.5vw]">
+        <div className="mx-auto max-w-[1440px] px-5 md:px-[40px] lg:px-[48px] xl:px-[72px]">
           <div
             className="
               grid
