@@ -68,13 +68,25 @@ body {
    KALUNA DESIGN SYSTEM — Global Utility Classes
    ============================================================ */
 
-/* Container utama dengan max-width dan padding horizontal konsisten */
-/* clamp(min, preferred, max): fluid dari 16px (mobile) → 4vw → 60px (desktop) */
+/* Container utama — padding horizontal responsif per breakpoint */
 .kaluna-container {
   width: 100%;
   max-width: 1440px;
   margin-inline: auto;
-  padding-inline: clamp(16px, 4vw, 60px);
+  padding-inline: 16px;          /* mobile default */
+}
+
+@media (min-width: 640px) {
+  .kaluna-container { padding-inline: 32px; }   /* sm  */
+}
+@media (min-width: 768px) {
+  .kaluna-container { padding-inline: 40px; }   /* md  */
+}
+@media (min-width: 1024px) {
+  .kaluna-container { padding-inline: 48px; }   /* lg  */
+}
+@media (min-width: 1280px) {
+  .kaluna-container { padding-inline: 56px; }   /* xl  — Mac Air 15" */
 }
 
 .kaluna-wide-container {
