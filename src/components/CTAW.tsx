@@ -16,18 +16,16 @@ export default function CTAW() {
           </div>
 
           <div className="relative z-10 text-center md:text-left">
-            <h2 className="text-[28px] leading-[1.2] tracking-[-0.01em] text-white md:text-[38px]">
-              Interested in collaborating with us?
+            <h2 className="text-[28px] leading-[1.3] tracking-[-0.01em] text-white md:text-[36px] font-medium">
+              Start Building Your Next
+              <span className="block">Digital Experience</span>
             </h2>
-            <p className="text-[28px] leading-[1.2] tracking-[-0.01em] text-[#A3D9F7] md:text-[38px]">
-              Let&apos;s build something great together
-            </p>
           </div>
 
           <div className="relative z-10 flex w-full flex-shrink-0 justify-center md:w-auto md:justify-end">
             <Button
               variant="primary-white"
-              label="Contact Our Team"
+              label="Start a Consultation"
               onClick={() => router.push("/contact")}
               className="w-full md:w-auto"
             />
