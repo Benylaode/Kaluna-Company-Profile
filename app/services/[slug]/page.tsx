@@ -138,9 +138,9 @@ export default async function ServiceDetailPage({ params }: PageProps) {
               w-full
               h-[180px]
               sm:h-[230px]
-              md:h-[300px]
+              md:h-[270px]
               rounded-[12px]
-              sm:rounded-[16px]
+              sm:rounded-[18px]
               overflow-hidden
               flex
               items-center
