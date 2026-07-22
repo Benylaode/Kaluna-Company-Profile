@@ -88,7 +88,7 @@ export default async function WhoWeArePage() {
             <div className="absolute inset-0 bg-[linear-gradient(135deg,#02184d_0%,#08297d_100%)] opacity-75 mix-blend-multiply z-[1]" />
             <div className="absolute inset-0 bg-[linear-gradient(135deg,#02184d_0%,#08297d_100%)] opacity-25 z-[1]" />
 
-            <h1 className="relative z-10 text-[28px] sm:text-[36px] md:text-[52px] lg:text-[60px] font-normal md:font-light tracking-[-0.02em] text-white text-center px-4">
+            <h1 className="relative z-10 text-[24px] sm:text-[32px] md:text-[48px] lg:text-[56px] font-semibold md:font-semibold tracking-[-0.02em] text-white text-center px-4">
               Who We Are
             </h1>
           </div>

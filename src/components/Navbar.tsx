@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { ArrowRight, ChevronDown, Menu, X, Mail, Phone } from "lucide-react";
+import ContactPopup from "./ContactPopup";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -12,6 +13,7 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesExpanded, setIsServicesExpanded] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isContactOpen, setIsContactOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -144,7 +146,7 @@ export default function Navbar() {
             {/* Desktop Contact Button */}
             <div className="hidden md:flex justify-end">
               <button
-                onClick={scrollToFooter}
+                onClick={() => setIsContactOpen(true)}
                 className="group flex items-center rounded-full bg-[#0D2342] py-1 pl-4 pr-1 text-white transition-all duration-300 hover:bg-[#163A70]"
               >
                 <span className="mr-2.5 text-[13px] font-normal">Contact Us</span>
@@ -277,7 +279,10 @@ export default function Navbar() {
         <div className="mt-8 flex flex-col gap-4 border-t border-gray-100 pt-6">
           {/* Contact Us Button */}
           <button
-            onClick={scrollToFooter}
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              setIsContactOpen(true);
+            }}
             className="group flex h-14 w-full items-center justify-between gap-4 rounded-full bg-[#0E2A54] py-2 pl-8 pr-2 text-white shadow-md transition hover:bg-[#163A70]"
           >
             <span className="text-sm font-medium tracking-[0.02em] text-white">Contact Us</span>
@@ -317,6 +322,11 @@ export default function Navbar() {
         </div>
 
       </div>
+
+      <ContactPopup
+        isOpen={isContactOpen}
+        onClose={() => setIsContactOpen(false)}
+      />
     </>
   );
 }

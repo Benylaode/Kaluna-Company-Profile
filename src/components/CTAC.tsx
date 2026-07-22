@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useRouter } from "next/navigation";
 import Button from "./ui/Button";
 
@@ -6,9 +6,9 @@ export default function CTAC() {
   const router = useRouter();
 
   return (
-    <section className="bg-[#FAFAFA] pb-12 md:pb-6">
+    <section className="bg-[#FAFAFA] pb-12 md:pb-3 lg:pb-3 w-full">
       <div className="kaluna-wide-container">
-        <div className="relative flex flex-col justify-between gap-8 overflow-hidden rounded-[24px] bg-[#0E2A54] p-8 md:flex-row md:items-center md:px-14 md:py-12">
+        <div className="relative flex flex-col justify-between gap-8 overflow-hidden rounded-[24px] bg-[#0E2A54] px-5 py-8 md:flex-row md:items-center md:px-6 md:py-12 lg:px-12 lg:py-16">
           {/* Background Patterns */}
           <div className="absolute inset-0 opacity-40">
             <div className="absolute bottom-0 right-[15%] h-full w-[45%] skew-x-[-35deg] bg-[#183E75]/80"></div>
@@ -16,12 +16,12 @@ export default function CTAC() {
           </div>
 
           <div className="relative z-10 text-center md:text-left">
-            <h2 className="text-[28px] font-bold leading-[1.2] tracking-[-0.01em] text-white md:text-[38px]">
+            <h2 className="text-[28px] leading-[1.3] tracking-[-0.01em] text-white md:text-[36px] font-medium">
               Not sure yet? Take a look at our work
-            </h2>
-            <p className="text-[28px] font-bold leading-[1.2] tracking-[-0.01em] text-[#A3D9F7] md:text-[38px]">
+            <p className="text-[28px] font-normal leading-[1.2] tracking-[-0.01em] text-[#A3D9F7] md:text-[38px]">
               and see what we've built
             </p>
+            </h2>
           </div>
 
           <div className="relative z-10 flex w-full flex-shrink-0 justify-center md:w-auto md:justify-end">
@@ -29,7 +29,7 @@ export default function CTAC() {
               variant="primary-white"
               label="See Our Work"
               onClick={() => router.push("/works")}
-              className="w-full md:w-auto bg-white hover:bg-[#DDEEFF] text-[#0E2A54] shadow-md border-0"
+              className="w-full md:w-auto"
             />
           </div>
         </div>

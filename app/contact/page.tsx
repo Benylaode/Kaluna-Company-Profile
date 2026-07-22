@@ -74,17 +74,17 @@ export default function ContactPage() {
       <Navbar />
 
       {/* Hero Banner Section */}
-       <section className="w-full bg-white pt-[72px] sm:pt-[76px] md:pt-[80px]">
-        <div className="kaluna-container">
+      <section className="w-full bg-white pt-[72px] sm:pt-[76px] md:pt-[80px]">
+        <div className="kaluna-wide-container">
           <div
             className="
               relative
               w-full
               h-[180px]
               sm:h-[230px]
-              md:h-[300px]
+              md:h-[270px]
               rounded-[12px]
-              sm:rounded-[16px]
+              sm:rounded-[18px]
               overflow-hidden
               flex
               items-center
@@ -101,8 +101,8 @@ export default function ContactPage() {
             <div className="absolute inset-0 bg-[linear-gradient(135deg,#02184d_0%,#08297d_100%)] opacity-75 mix-blend-multiply z-[1]" />
             <div className="absolute inset-0 bg-[linear-gradient(135deg,#02184d_0%,#08297d_100%)] opacity-25 z-[1]" />
 
-            <h1 className="relative z-10 text-[28px] sm:text-[36px] md:text-[52px] lg:text-[60px] font-normal md:font-light tracking-[-0.02em] text-white text-center px-4">
-              Contacts Us
+            <h1 className="relative z-10 text-[24px] sm:text-[32px] md:text-[48px] lg:text-[56px] font-semibold md:font-semibold tracking-[-0.02em] text-white text-center px-4">
+             Contacts Us
             </h1>
           </div>
         </div>
