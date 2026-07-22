@@ -174,7 +174,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                   Overview
                 </span>
               </div>
-              <h2 className="max-w-[550px] text-[24px] sm:text-[20px] md:text-[24px] lg:text-[30px] font-medium leading-[1.12] tracking-[-0.025em] text-[#0D0D0D]">
+              <h2 className="max-w-[550px] text-[20px] sm:text-[24px] md:text-[28px] lg:text-[30px] font-medium leading-[1.15] tracking-[-0.025em] text-[#0D0D0D]">
                 {serviceData.heroDesc}
               </h2>
               <div className="mt-6 max-w-[510px] space-y-5 text-[12px] md:text-[14px] leading-[1.6] text-[#4A4A4A]">

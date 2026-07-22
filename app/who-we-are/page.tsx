@@ -215,7 +215,7 @@ export default async function WhoWeArePage() {
   </div>
 </section>
 {/* ── Problem We Solve ───────────────────────────────────── */}
-<section className="w-full overflow-hidden bg-[#FAFAFA] py-20 md:py-28">
+<section className="w-full overflow-hidden bg-[#FAFAFA] py-12 md:py-20">
   <div className="kaluna-wide-container">
     <div
       className="
@@ -223,8 +223,9 @@ export default async function WhoWeArePage() {
         overflow-hidden
         rounded-[24px]
         bg-[#EAF3FF]
-        px-[10px]
+        px-5
         py-10
+        sm:px-8
         md:px-[calc(min(6.3vw,121px)-min(1.8vw,34px))]
         md:py-16
       "
@@ -531,11 +532,11 @@ export default async function WhoWeArePage() {
 <section
   className="
     relative
-    h-[300px]
+    min-h-[340px]
     w-full
     overflow-hidden
-    sm:h-[340px]
-    md:h-[420px]
+    py-10
+    md:py-16
     lg:h-[450px]
     xl:h-[470px]
   "
@@ -658,9 +659,9 @@ export default async function WhoWeArePage() {
       <h2
         className="
           max-w-[1080px]
-          text-[30px]
+          text-[22px]
           font-normal
-          leading-[1.08]
+          leading-[1.15]
           tracking-[-0.025em]
           text-white
           sm:text-[28px]
@@ -706,12 +707,12 @@ export default async function WhoWeArePage() {
       <p
         className="
           max-w-[1000px]
-          text-[17px]
-          leading-[1.3]
+          text-[14px]
+          leading-[1.4]
           tracking-[-0.02em]
           text-white
           font-light
-          sm:text-[19px]
+          sm:text-[18px]
           md:text-[22px]
           lg:text-[24px]
         "

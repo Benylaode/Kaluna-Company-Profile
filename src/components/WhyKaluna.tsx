@@ -33,7 +33,7 @@ export default function WhyKaluna() {
   ];
 
   return (
-    <section className="bg-white py-20 md:py-28">
+    <section className="bg-white py-12 md:py-20">
       <div className="kaluna-container">
         <ScrollReveal duration={800} direction="up">
           <div className="text-center mb-12 md:mb-16">

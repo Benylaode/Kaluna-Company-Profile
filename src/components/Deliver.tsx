@@ -134,7 +134,7 @@ export default function Deliver({ testimonials }: { testimonials?: TestimonialDa
           </div>
 
           {/* Title */}
-          <h2 className="text-[12px] md:text-[20px] lg:text-[32px] font-medium leading-[1.15] tracking-normal text-[#171717]">
+          <h2 className="text-[20px] sm:text-[24px] md:text-[28px] lg:text-[32px] font-medium leading-[1.15] tracking-normal text-[#171717]">
             What They Say About Kaluna
           </h2>
         </div>

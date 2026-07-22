@@ -6,9 +6,9 @@ export default function CTAW() {
   const router = useRouter();
 
   return (
-    <section className="bg-[#FAFAFA] pb-12 md:pb-3 lg:pb-3 w-full">
+    <section className="bg-transparent pb-12 md:pb-3 lg:pb-3 w-full border-none outline-none">
       <div className="kaluna-wide-container">
-        <div className="relative flex flex-col justify-between gap-8 overflow-hidden rounded-[24px] bg-[#0E2A54] px-5 py-8 md:flex-row md:items-center md:px-6 md:py-12 lg:px-12 lg:py-16">
+        <div className="relative flex flex-col justify-between gap-8 overflow-hidden rounded-[24px] bg-[#0E2A54] px-5 py-8 md:flex-row md:items-center md:px-6 md:py-12 lg:px-12 lg:py-16 border-none outline-none">
           {/* Background Patterns */}
           <div className="absolute inset-0 opacity-40">
             <div className="absolute bottom-0 right-[15%] h-full w-[45%] skew-x-[-35deg] bg-[#183E75]/80"></div>

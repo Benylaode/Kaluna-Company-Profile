@@ -1175,7 +1175,7 @@ const works = [
       logo_url: "/image/mitra/2.webp",
     },
     {
-      client_name: "Goenawan Premadi",
+      client_name: "Goenawan Permadi",
       role: "Editor-in-Chief",
       company_name: "Suara Merdeka Network",
       content:
@@ -1233,10 +1233,10 @@ const works = [
   const team = [
     { full_name: "Laode Hidayat", position: "FULL STACK DEVELOPER", image_url: "/image/default-avatar.svg", linkedin_url: "#" },
     { full_name: "Ilyas Kurnia", position: "FULL STACK DEVELOPER", image_url: "/image/default-avatar.svg", linkedin_url: "#" },
-    { full_name: "Irfan", position: "FRONT END DEVELOPER", image_url: "/image/default-avatar.svg", linkedin_url: "#" },
+    { full_name: "Irfan Zidni", position: "FRONT END DEVELOPER", image_url: "/image/default-avatar.svg", linkedin_url: "#" },
     { full_name: "M. Afifudin", position: "BACK END DEVELOPER", image_url: "/image/default-avatar.svg", linkedin_url: "#" },
     { full_name: "Jundy Isham", position: "UI UX DESIGNER", image_url: "/image/default-avatar.svg", linkedin_url: "#" },
-    { full_name: "Teguh", position: "UI UX DESIGNER", image_url: "/image/default-avatar.svg", linkedin_url: "#" },
+    { full_name: "Teguh Bhagaskara", position: "UI UX DESIGNER", image_url: "/image/default-avatar.svg", linkedin_url: "#" },
     { full_name: "Ahmad Arof", position: "PROJECT MANAGER", image_url: "/image/default-avatar.svg", linkedin_url: "#" }
   ];
 
