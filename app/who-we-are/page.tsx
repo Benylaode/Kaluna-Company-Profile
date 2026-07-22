@@ -176,8 +176,8 @@ export default async function WhoWeArePage() {
           "
         >
           <p>
-            Kaluna Technology is a technology and digital solutions company
-            under PT. Sinergi Mulia Arsa, focused on developing integrated
+            Kaluna Technology is a technology and digital solutions brand
+            operated by PT SINERGI MUDA ARSA (ARSALYNK), focused on developing integrated
             systems, custom software, and scalable technology infrastructures
             to support business digital transformation.
           </p>

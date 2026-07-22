@@ -166,7 +166,7 @@ export default function ContactPage() {
                     md:text-[14px]
                   "
                 >
-                  PT Sinergi Muda Arsa Office
+                  PT SINERGI MUDA ARSA (ARSALYNK) Office
                   <br />
                   Menara Rajawali, 26th Floor
                   <br />
@@ -189,7 +189,7 @@ export default function ContactPage() {
                   src="https://maps.google.com/maps?q=Menara%20Rajawali%2C%20Jl.%20DR.%20Ide%20Anak%20Agung%20Gde%20Agung%2C%20Jakarta%20Selatan&t=&z=16&ie=UTF8&iwloc=&output=embed"
                   width="100%"
                   height="100%"
-                  title="PT Sinergi Muda Arsa Office Location"
+                  title="PT SINERGI MUDA ARSA (ARSALYNK) Office Location"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"

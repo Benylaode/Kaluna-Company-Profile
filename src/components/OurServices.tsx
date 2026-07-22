@@ -18,6 +18,7 @@ export default function OurServices({ services }: { services: ServiceData[] }) {
   const [activeIndex, setActiveIndex] = useState(services.length);
   const [isTransitioning, setIsTransitioning] = useState(true);
   const [paused, setPaused] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
   
   // Card & Gap Dinamis Berdasarkan Breakpoint
   const [cardConfig, setCardConfig] = useState({
@@ -45,8 +46,11 @@ export default function OurServices({ services }: { services: ServiceData[] }) {
         // Tablet (sejajar dengan md:px-6 / 24px)
         setCardConfig({ cardWidth: 340, gap: 20, viewportOffset: 24 });
       } else {
-        // Mobile (sejajar dengan px-5 / 20px)
-        setCardConfig({ cardWidth: 290, gap: 16, viewportOffset: 20 });
+        // Mobile: Tampilkan tepat 1 card penuh tanpa terpotong di dalam kontainer
+        const containerWidth = containerRef.current ? containerRef.current.clientWidth : (width - 32);
+        const mobilePadding = 20; // px-5 = 20px
+        const singleCardWidth = Math.max(240, containerWidth - (mobilePadding * 2));
+        setCardConfig({ cardWidth: singleCardWidth, gap: 16, viewportOffset: mobilePadding });
       }
     };
 
@@ -99,21 +103,19 @@ export default function OurServices({ services }: { services: ServiceData[] }) {
   if (!services || services.length === 0) return null;
 
   return (
-    <section className="bg-[#FAFAFA] py-20 md:py-0 overflow-hidden w-full">
+    <section className="bg-[#FAFAFA] py-12 md:py-0 overflow-hidden w-full">
       <div className="kaluna-wide-container">
         {/* 
           Container Utama diselaraskan dengan kelengkungan CTA (rounded-[24px]).
-          PENTING: Di sini kita hanya menggunakan padding vertikal (py), sedangkan padding horizontal (px) 
-          dihapus agar slider bisa meluncur menembus kontainer biru ke arah kanan tanpa terpotong.
         */}
-        <div className="relative overflow-visible rounded-[24px] bg-[#EAF3FF] py-8 md:py-12 lg:py-16">
+        <div ref={containerRef} className="relative overflow-visible rounded-[24px] bg-[#EAF3FF] py-8 md:py-12 lg:py-16">
           <style>{`
             .hide-scrollbar::-webkit-scrollbar { display: none; }
             .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
           `}</style>
 
           {/* Header tetap diberi padding manual agar sejajar sempurna dengan konten halaman */}
-          <div className="mb-10 md:mb-14 px-5 md:px-[min(6.3vw,121px)]">
+          <div className="mb-8 md:mb-14 px-5 md:px-[min(6.3vw,121px)]">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
               <div>
                 <div className="flex items-center gap-2.5 mb-3">
@@ -122,7 +124,7 @@ export default function OurServices({ services }: { services: ServiceData[] }) {
                     Our Service
                   </span>
                 </div>
-                <h2 className="text-[28px] md:text-[32px] font-medium lg:text-[32px] text-[#0D0D0D] tracking-tight leading-[1.15]">
+                <h2 className="text-[24px] sm:text-[28px] md:text-[32px] font-medium lg:text-[32px] text-[#0D0D0D] tracking-tight leading-[1.15]">
                   What We Actually Do
                 </h2>
               </div>
@@ -147,9 +149,9 @@ export default function OurServices({ services }: { services: ServiceData[] }) {
             </div>
           </div>
 
-          {/* SLIDER VIEWPORT (Menggunakan overflow-visible agar card bisa keluar meluncur ke kanan layar) */}
+          {/* SLIDER VIEWPORT: overflow-hidden pada mobile agar tepat 1 card yang muncul, md:overflow-visible pada desktop */}
           <div
-            className="relative w-full pb-4 overflow-visible"
+            className="relative w-full pb-4 overflow-hidden md:overflow-visible"
             onMouseEnter={() => setPaused(true)}
             onMouseLeave={() => setPaused(false)}
           >
@@ -173,10 +175,9 @@ export default function OurServices({ services }: { services: ServiceData[] }) {
                       setIsTransitioning(true);
                       setActiveIndex(index);
                     }}
-                    className="relative flex-shrink-0 rounded-[18px] overflow-hidden group cursor-pointer"
+                    className="relative flex-shrink-0 rounded-[18px] overflow-hidden group cursor-pointer h-[330px] sm:h-[360px] md:h-[386px]"
                     style={{
                       width: `${cardConfig.cardWidth}px`,  
-                      height: "386px",
                       boxShadow: "0 20px 60px rgba(14, 42, 84, 0.08)",
                     }}
                   >
@@ -188,14 +189,14 @@ export default function OurServices({ services }: { services: ServiceData[] }) {
 
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0A192F]/82 via-[#0A192F]/28 to-transparent" />
 
-                    <div className="absolute bottom-8 left-8 right-8 text-white flex flex-col h-full justify-end">
-                      <h3 className="text-lg md:text-xl font-semibold leading-[1.15] mb-2 tracking-tight pr-14 group-hover:-translate-y-1.5 transition-transform duration-300">
+                    <div className="absolute bottom-6 sm:bottom-8 left-6 sm:left-8 right-6 sm:right-8 text-white flex flex-col h-full justify-end">
+                      <h3 className="text-base sm:text-lg md:text-xl font-semibold leading-[1.15] mb-2 tracking-tight pr-14 group-hover:-translate-y-1.5 transition-transform duration-300">
                         {service.title.trim()}
                       </h3>
 
                       <Link
                         href={`/services/${service.slug}`}
-                        className="w-11 h-11 bg-[#299EED] rounded-full flex items-center justify-center hover:bg-white hover:text-[#299EED] transition-all duration-300 absolute right-0 bottom-0 shadow-lg group-hover:-translate-y-1 group-hover:translate-x-[-2px]"
+                        className="w-10 h-10 sm:w-11 sm:h-11 bg-[#299EED] rounded-full flex items-center justify-center hover:bg-white hover:text-[#299EED] transition-all duration-300 absolute right-0 bottom-0 shadow-lg group-hover:-translate-y-1 group-hover:translate-x-[-2px]"
                       >
                         <ArrowRight size={18} strokeWidth={2.5} className="-rotate-45 group-hover:rotate-0 transition-transform duration-300" />
                       </Link>
@@ -206,18 +207,18 @@ export default function OurServices({ services }: { services: ServiceData[] }) {
             </div>
           </div>
 
-          {/* Kontrol Navigasi Mobile tetap memiliki padding agar tidak menempel di pojok layar */}
-          <div className="flex md:hidden justify-center gap-4 mt-8 px-5">
+          {/* Kontrol Navigasi Mobile */}
+          <div className="flex md:hidden justify-center gap-4 mt-6 px-5">
             <button
               onClick={prevSlide}
-              className="p-3.5 rounded-full bg-white border border-[#D7E6F8] shadow-sm text-[#0E2A54] hover:bg-[#0E2A54] hover:text-white transition-colors duration-300"
+              className="p-3 rounded-full bg-white border border-[#D7E6F8] shadow-sm text-[#0E2A54] hover:bg-[#0E2A54] hover:text-white transition-colors duration-300"
               aria-label="Previous slide"
             >
               <ChevronLeft size={20} />
             </button>
             <button
               onClick={nextSlide}
-              className="p-3.5 rounded-full bg-[#0E2A54] text-white shadow-md hover:bg-[#163A70] transition-colors duration-300"
+              className="p-3 rounded-full bg-[#0E2A54] text-white shadow-md hover:bg-[#163A70] transition-colors duration-300"
               aria-label="Next slide"
             >
               <ChevronRight size={20} />

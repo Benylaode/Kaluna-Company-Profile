@@ -144,7 +144,7 @@ export default function Footer() {
                 Visit Our Office
               </h4>
               <p className="mb-3.5 text-[13px] font-medium leading-relaxed text-[#3F3F3F]">
-                PT Sinergi Muda Arsa Office Menara Rajawali, 26th Floor Kuningan Business District, South Jakarta, Indonesia
+                PT SINERGI MUDA ARSA (ARSALYNK) Office Menara Rajawali, 26th Floor Kuningan Business District, South Jakarta, Indonesia
               </p>
               <a
                 href="https://maps.google.com/maps?q=Menara+Rajawali,+Jl.+DR.+Ide+Anak+Agung+Gde+Agung,+Jakarta+Selatan"
@@ -235,7 +235,7 @@ export default function Footer() {
           {/* 2 & 8. Copyright Section yang ditaruh di luar/bawah section kontak, dibatasi border-t & py-7 */}
           <div className="mt-10 border-t border-[#D7E6F8] py-3">
             <p className="text-center text-[13px] font-medium tracking-wide text-[#1A1A1A]/80">
-              © 2026 PT. KALUNA TECHNOLOGY DIGITAL
+              © 2026 PT SINERGI MUDA ARSA (ARSALYNK). All rights reserved.
             </p>
           </div>
 
