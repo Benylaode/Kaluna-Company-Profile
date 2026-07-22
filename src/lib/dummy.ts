@@ -282,7 +282,7 @@ const works = [
   {
     slug: "myboss-iot-system",
     client: "MY BOSS",
-    title: "IoT System for My Boss (Nasmoko)",
+    title: "IoT System for My Boss (Nasmoco)",
     desc: "A smart IoT system designed to monitor and manage automotive operational devices in real-time.",
     category: "IoT System Development",
 
@@ -1175,7 +1175,7 @@ const works = [
       logo_url: "/image/mitra/2.webp",
     },
     {
-      client_name: "Gunawan Premadi",
+      client_name: "Goenawan Premadi",
       role: "Editor-in-Chief",
       company_name: "Suara Merdeka Network",
       content:

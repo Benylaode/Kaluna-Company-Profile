@@ -721,118 +721,134 @@ export default async function WhoWeArePage() {
     </div>
   </div>
 </section>
+<section className="w-full bg-white py-12 md:py-16">
+  <div className="kaluna-container">
+    <div className="mb-3 flex items-center gap-2.5">
+      <span className="h-3.5 w-[2.5px] rounded-full bg-[#299EED]" />
+      <span className="text-[10px] font-semibold uppercase tracking-[0.08em] text-[#0E2A54]">
+        Our Expertise
+      </span>
+    </div>
 
-      {/* ── 5. Expertise ────────────────────────────────────────── */}
-      <section className="w-full bg-white py-12 md:py-16">
-        <div className="kaluna-container">
-          <div className="flex items-center gap-2.5 mb-3">
-            <span className="h-3.5 w-[2.5px] bg-[#299EED] rounded-full" />
-            <span className="font-semibold text-[10px] tracking-[0.08em] text-[#0E2A54] uppercase">Our Expertise</span>
-          </div>
-          <h2 className="text-[24px] md:text-[30px] font-[550] mb-6 md:mb-8 text-[#0D0D0D]">Our Technology Expertise</h2>
+    <h2 className="mb-6 text-[24px] font-[550] text-[#0D0D0D] md:mb-8 md:text-[30px]">
+      Our Technology Expertise
+    </h2>
 
-<div
-  className="
-    grid
-    w-full
-    grid-cols-1
-    gap-4
-    sm:grid-cols-2
-    lg:grid-cols-4
-  "
->
-  {expertise.map((item, idx) => {
-    const titleLines = item.name.split("\n").slice(0, 2);
-    const firstBaseline = titleLines.length === 1 ? 216 : 175;
-    const gradientId = `expertise-gradient-${idx}`;
+    <div
+      className="
+        grid
+        w-full
+        max-w-[1690px]
+        grid-cols-1
+        items-stretch
+        justify-items-start
+        text-left
+        gap-x-[30px]
+        gap-y-[30px]
+        sm:grid-cols-2
+        lg:grid-cols-4
+      "
+    >
+      {expertise.map((item, idx) => {
+        const titleLines = item.name.split("\n").slice(0, 2);
+        const firstBaseline = titleLines.length === 1 ? 160 : 130;
+        const gradientId = `expertise-gradient-${idx}`;
 
-    return (
-      <article
-        key={idx}
-        className="
-          group
-          relative
-          aspect-[402/266]
-          w-full
-          cursor-pointer
-          overflow-hidden
-          rounded-[18px]
-          bg-[#EAF3FF]
-          transition-all
-          duration-500
-          hover:-translate-y-1
-          hover:shadow-2xl
-        "
-      >
-        <img
-          src={item.img}
-          alt={item.name.replace(/\n/g, " ")}
-          className="absolute max-w-none object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-          style={{
-            width: "127.363072%",
-            height: "131.579%",
-            left: "-13.6816%",
-            top: "-15.7895%",
-          }}
-        />
-
-        <div className="pointer-events-none absolute inset-0 bg-[#299EED]/15 transition-colors duration-500 group-hover:bg-[#0E2A54]/40" />
-
-        <svg
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 h-full w-full"
-          viewBox="0 0 402 266"
-          fill="none"
-          preserveAspectRatio="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <defs>
-            <linearGradient
-              id={gradientId}
-              x1="201"
-              y1="24"
-              x2="180.5"
-              y2="277.5"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop stopColor="#0E2A54" stopOpacity="0" />
-              <stop offset="1" stopColor="#0E2A54" />
-            </linearGradient>
-          </defs>
-
-          <rect
-            width="402"
-            height="266"
-            fill={`url(#${gradientId})`}
-          />
-
-          <text
-            x="24"
-            y={firstBaseline}
-            fill="white"
-            fontSize="33.2"
-            fontWeight="400"
-            letterSpacing="0"
-            fontFamily="inherit"
+        return (
+          <article
+            key={idx}
+            className="
+              group
+              relative
+              aspect-[3/2]
+              min-w-0
+              w-full
+              cursor-pointer
+              overflow-hidden
+              rounded-[12px]
+              bg-[#EAF3FF]
+              transition-all
+              duration-500
+              hover:-translate-y-1
+              hover:shadow-2xl
+            "
           >
-            {titleLines.map((line, lineIndex) => (
-              <tspan
-                key={`${line}-${lineIndex}`}
-                x="24"
-                y={firstBaseline + lineIndex * 41}
-              >
-                {line}
-              </tspan>
-            ))}
-          </text>
-        </svg>
-      </article>
-    );
-  })}
-</div>
-        </div>
-      </section>
+            <img
+              src={item.img}
+              alt={item.name.replace(/\n/g, " ")}
+              className="
+                absolute
+                inset-0
+                w-full
+                h-full
+                object-cover
+                object-top
+                transition-transform
+                duration-700
+                ease-out
+                group-hover:scale-110
+              "
+              style={{
+                objectPosition: "top center",
+              }}
+            />
 
+            <div className="pointer-events-none absolute inset-0 bg-[#299EED]/15 transition-colors duration-500 group-hover:bg-[#0E2A54]/40" />
+
+            <svg
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 h-full w-full"
+              viewBox="0 0 300 200"
+              fill="none"
+              preserveAspectRatio="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <linearGradient
+                  id={gradientId}
+                  x1="150"
+                  y1="18"
+                  x2="135"
+                  y2="208"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stopColor="#0E2A54" stopOpacity="0" />
+                  <stop offset="1" stopColor="#0E2A54" />
+                </linearGradient>
+              </defs>
+
+              <rect
+                width="300"
+                height="200"
+                fill={`url(#${gradientId})`}
+              />
+
+              <text
+                x="20"
+                y={firstBaseline}
+                fill="white"
+                fontSize="22"
+                fontWeight="400"
+                letterSpacing="0"
+                fontFamily="inherit"
+              >
+                {titleLines.map((line, lineIndex) => (
+                  <tspan
+                    key={`${line}-${lineIndex}`}
+                    x="20"
+                    y={firstBaseline + lineIndex * 26}
+                  >
+                    {line}
+                  </tspan>
+                ))}
+              </text>
+            </svg>
+          </article>
+        );
+      })}
+    </div>
+  </div>
+</section>
       {/* ── 6. Team Members ─────────────────────────────────────── */}
       <section className="w-full bg-white pb-12 md:pb-16">
         <div className="kaluna-container">
@@ -842,17 +858,18 @@ export default async function WhoWeArePage() {
           </div>
           <h2 className="text-[24px] md:text-[30px] font-[550] mb-6 md:mb-8 text-[#0D0D0D]">Expert Behind The Works</h2>
 
-          <div className="flex flex-wrap justify-center gap-4 md:gap-6 lg:gap-8">
+          <div className="flex flex-wrap justify-start gap-4 md:gap-6 lg:gap-8">
             {team.map((member) => (
               <div 
                 key={member.id} 
                 className="flex flex-col w-[calc(50%-8px)] md:w-[calc(25%-18px)] lg:w-[calc(25%-24px)]"
               >
-                <div className="w-full aspect-[3/4] rounded-[12px] overflow-hidden mb-3 bg-gray-200 shadow-sm">
+                <div className="w-full aspect-[3/2] rounded-[12px] overflow-hidden mb-3 bg-gray-200 shadow-sm">
                   <img
                     src={member.image_url}
                     alt={member.full_name}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
+                    style={{ objectPosition: "top center" }}
                   />
                 </div>
                 <div className="flex justify-between items-start gap-1">
