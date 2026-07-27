@@ -11,12 +11,11 @@ import CTA from '../src/components/CTA';
 import HashScroll from '../src/components/HashScroll';
 import ScrollReveal from '../src/components/ScrollReveal';
 
-import { getWorks, getTestimonials, getServices } from '../src/lib/actions';
+import { getWorks, getTestimonials } from '../src/lib/actions';
 
 export default async function Home() {
   const worksData = await getWorks();
   const testimonialsData = await getTestimonials();
-  const servicesData = await getServices();
 
   return (
     <main className="min-h-screen bg-[#FFFFFF] scroll-smooth overflow-x-hidden">
@@ -32,7 +31,7 @@ export default async function Home() {
         </ScrollReveal>
         
         <ScrollReveal duration={1000} direction="up" distance={40}>
-          <OurServices services={servicesData} />
+          <OurServices />
         </ScrollReveal>
         
         <WhyKaluna />

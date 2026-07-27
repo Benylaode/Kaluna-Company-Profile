@@ -6,27 +6,27 @@ export default function WhyKaluna() {
   const features = [
     {
       title: "Business-Oriented Development",
-      description: "We develop systems based on your real business needs",
+      description: "We develop and customize ERP systems based on your actual business processes and operational needs.",
       icon: "/image/why/1.svg",
       iconSize: 20,
     },
     {
       title: "A Dedicated Technical Team For You",
       description:
-        "Our experienced team focuses on quality, security, and performance",
+        "Our experienced engineers focus on software quality, enterprise-grade security, and system performance.",
       icon: "/image/why/2.svg",
       iconSize: 30,
     },
     {
       title: "Scalable and Integrated Solutions",
-      description: "Every solution is designed to grow alongside your business",
+      description: "Architected to adapt and expand smoothly as your business grows and your operational complexity increases.",
       icon: "/image/why/3.svg",
       iconSize: 25,
     },
     {
       title: "Long-Term Technology Partnership",
       description:
-        "We provide continuous support and long-term collaboration",
+        "Beyond initial deployment, we provide continuous support, monitoring, and system optimization.",
       icon: "/image/why/4.svg",
       iconSize: 30,
     },

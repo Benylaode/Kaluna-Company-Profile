@@ -10,12 +10,12 @@ import {
 import { FaXTwitter } from "react-icons/fa6";
 
 const servicesList = [
-  { name: "Web & Application Development", href: "/services/web-application-development" },
-  { name: "IoT System Development", href: "/services/iot-system-development" },
-  { name: "ERP & System Integration", href: "/services/erp-system-integration" },
-  { name: "Industrial & Automation Solutions", href: "/services/industrial-automation-solutions" },
-  { name: "Data Dashboard & Analytics", href: "/services/data-dashboard-analytics" },
-  { name: "IT Strategy & Consulting", href: "/services/it-strategy-consulting" },
+  { name: "ERP & System Integration", href: "/services" },
+  { name: "Point of Sale & Retail ERP", href: "/services" },
+  { name: "Human Resource & Payroll ERP", href: "/services" },
+  { name: "Financial & Accounting ERP", href: "/services" },
+  { name: "Supply Chain & Inventory ERP", href: "/services" },
+  { name: "Logistics & Fleet Management ERP", href: "/services" },
 ];
 
 const socials = [
@@ -39,7 +39,7 @@ const socials = [
   },
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/company/pt-sinergi-muda-arsa-arsalynk/",
+    href: "https://www.linkedin.com/company/kalunatechnology/",
     icon: <FaLinkedinIn className="h-[20px] w-[20px]" />,
   },
   {

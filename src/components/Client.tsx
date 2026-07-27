@@ -9,35 +9,61 @@ interface Logo {
 
 const slots = [
   [
-    { name: "BSP", src: "/image/mitra/2.webp" },
+    // Logo utama slot 1
+    { name: "Nasmoco", src: "/image/mitra/19.webp" },
+
+    // Logo berikutnya
     { name: "ASPROG Jateng", src: "/image/mitra/17.webp" },
     { name: "Aliansea", src: "/image/mitra/1.webp" },
   ],
   [
-    { name: "Suara Merdeka Generation", src: "/image/mitra/13.webp" },
+    // Logo utama slot 2
+    { name: "Pemkot Semarang", src: "/image/mitra/12.webp" },
+
+    // Logo berikutnya
     { name: "Presstasi", src: "/image/mitra/7.webp" },
     { name: "Catatanesia", src: "/image/mitra/3.webp" },
   ],
   [
-    { name: "TOP TOY", src: "/image/mitra/16.webp" },
+    // Logo utama slot 3
+    { name: "BSP", src: "/image/mitra/2.webp" },
+
+    // Logo berikutnya
     { name: "SemarGo", src: "/image/mitra/10.webp" },
     { name: "CityLabNews", src: "/image/mitra/4.webp" },
   ],
   [
-    { name: "Queen City Mall", src: "/image/mitra/15.webp" },
+    // Logo utama slot 4
+    {
+      name: "Suara Merdeka Generation",
+      src: "/image/mitra/13.webp",
+    },
+
+    // Logo berikutnya
     { name: "X-1 Tire", src: "/image/mitra/14.webp" },
     { name: "Jateng View", src: "/image/mitra/6.webp" },
   ],
   [
+    // Logo utama slot 5
+    { name: "TOP TOY", src: "/image/mitra/16.webp" },
+
+    // Logo berikutnya
+    { name: "Queen City Mall", src: "/image/mitra/15.webp" },
     { name: "Sinau Print", src: "/image/mitra/11.webp" },
-    { name: "Aliansea", src: "/image/mitra/1.webp" },
-    { name: "Presstasi", src: "/image/mitra/7.webp" },
   ],
 ];
 
 const allLogosList = [
+  // Logo utama ditampilkan paling awal pada mobile
+  { name: "Nasmoco", src: "/image/mitra/19.webp" },
+  { name: "Pemkot Semarang", src: "/image/mitra/12.webp" },
+
+  // Logo lainnya
   { name: "BSP", src: "/image/mitra/2.webp" },
-  { name: "Suara Merdeka Generation", src: "/image/mitra/13.webp" },
+  {
+    name: "Suara Merdeka Generation",
+    src: "/image/mitra/13.webp",
+  },
   { name: "TOP TOY", src: "/image/mitra/16.webp" },
   { name: "Queen City Mall", src: "/image/mitra/15.webp" },
   { name: "Sinau Print", src: "/image/mitra/11.webp" },
@@ -55,12 +81,14 @@ const getLogoSizingPercent = (name: string, src: string) => {
   const n = name.toLowerCase();
   const s = src.toLowerCase();
 
-  // Explicit branding heights as percentages of 220px card height
+  // Logo utama
+  if (n.includes("pemkot semarang") || s.includes("12.webp")) return "140%";
+  if (n.includes("nasmoco") || s.includes("19.webp")) return "42%";
+
   if (n.includes("top toy") || s.includes("16.webp")) return "52%";
   if (n.includes("queen city") || s.includes("15.webp")) return "57%";
   if (n.includes("bsp") || s.includes("2.webp")) return "36%";
 
-  // Other logos from the new 13-logo list
   if (n.includes("sinau print") || s.includes("11.webp")) return "23%";
   if (n.includes("suara merdeka") || s.includes("13.webp")) return "27%";
   if (n.includes("asprog") || s.includes("17.webp")) return "39%";
@@ -74,7 +102,6 @@ const getLogoSizingPercent = (name: string, src: string) => {
 
   return "32%";
 };
-
 export default function Clients() {
   const [slotCurrentIndices, setSlotCurrentIndices] = useState([0, 0, 0, 0, 0]);
   const [isSlotLogoVisible, setIsSlotLogoVisible] = useState([true, true, true, true, true]);
@@ -213,7 +240,7 @@ export default function Clients() {
                       className="object-contain"
                       style={{
                         height: heightPercent,
-                        maxWidth: "85%",
+                        maxWidth: logo.name.toLowerCase().includes("pemkot") || logo.src.includes("12.webp") ? "100%" : "85%",
                       }}
                     />
                   ) : (
@@ -247,8 +274,8 @@ export default function Clients() {
                 className="object-contain"
                 style={{
                   height: `${getLogoSizingPercent(logo.name, logo.src)}`,
-                  maxHeight: "50px",
-                  maxWidth: "90%",
+                  maxHeight: logo.name.toLowerCase().includes("pemkot") || logo.src.includes("12.webp") ? "90px" : "50px",
+                  maxWidth: logo.name.toLowerCase().includes("pemkot") || logo.src.includes("12.webp") ? "100%" : "90%",
                 }}
               />
             </div>
@@ -264,8 +291,8 @@ export default function Clients() {
                 className="object-contain"
                 style={{
                   height: `${getLogoSizingPercent(logo.name, logo.src)}`,
-                  maxHeight: "50px",
-                  maxWidth: "90%",
+                  maxHeight: logo.name.toLowerCase().includes("pemkot") || logo.src.includes("12.webp") ? "90px" : "50px",
+                  maxWidth: logo.name.toLowerCase().includes("pemkot") || logo.src.includes("12.webp") ? "100%" : "90%",
                 }}
               />
             </div>

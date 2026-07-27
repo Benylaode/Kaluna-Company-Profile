@@ -17,7 +17,6 @@ export interface WorkData {
 }
 
 import { TestimonialData } from '../components/Deliver';
-import { ServiceData } from '../components/OurServices';
 
 export interface TeamMember {
   id: number;
@@ -207,17 +206,7 @@ export async function getTestimonials(): Promise<TestimonialData[]> {
   return stmt.all() as TestimonialData[];
 }
 
-export async function getServices(): Promise<ServiceData[]> {
-  const stmt = db.prepare('SELECT * FROM services ORDER BY created_at ASC');
-  return stmt.all() as ServiceData[];
-}
 
-export async function getServiceBySlug(slug: string): Promise<ServiceData | undefined> {
-  const stmt = db.prepare('SELECT * FROM services WHERE slug = ?');
-  const row = stmt.get(slug) as any;
-  if (!row) return undefined;
-  return row as ServiceData;
-}
 
 export async function getTeam(): Promise<TeamMember[]> {
   const stmt = db.prepare('SELECT * FROM team_members');

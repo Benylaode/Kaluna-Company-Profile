@@ -40,12 +40,19 @@ export default function Navbar() {
   }, []);
 
   const services = [
+    { name: "ERP & System Integration", href: "/services/erp-system-integration" },
+    { name: "Point of Sale & Retail ERP", href: "/services/pos-retail-erp" },
+    { name: "Human Resource & Payroll ERP", href: "/services/hr-payroll-erp" },
+    { name: "Financial & Accounting ERP", href: "/services/financial-accounting-erp" },
+    { name: "Supply Chain & Inventory ERP", href: "/services/supply-chain-inventory-erp" },
+    { name: "Logistics & Fleet Management ERP", href: "/services/logistics-fleet-erp" },
+    /*
+    { name: "Industrial & Automation Solutions", href: "/services/industrial-automation-solutions" },
     { name: "Web & Application Development", href: "/services/web-application-development" },
     { name: "IoT System Development", href: "/services/iot-system-development" },
-    { name: "ERP & System Integration", href: "/services/erp-system-integration" },
-    { name: "Industrial & Automation Solutions", href: "/services/industrial-automation-solutions" },
     { name: "Data Dashboard & Analytics", href: "/services/data-dashboard-analytics" },
     { name: "IT Consulting & Digital Strategy", href: "/services/it-strategy-consulting" },
+    */
   ];
 
   const scrollToFooter = () => {
@@ -104,34 +111,16 @@ export default function Navbar() {
                   Our Works
                 </Link>
 
-                <div className="relative" ref={dropdownRef}>
-                  <button
-                    type="button"
-                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                    className={`flex items-center gap-1.5 rounded-full px-5 py-1.5 text-sm font-normal transition-all ${isDropdownOpen || pathname.startsWith("/services")
+                <Link
+                  href="/services"
+                  className={`rounded-full px-5 py-1.5 text-sm font-normal transition-all ${
+                    pathname.startsWith("/services")
                       ? "bg-[#EFF6FF] text-[#1E88E5]"
                       : "text-[#0D2342] hover:bg-gray-50"
-                      }`}
-                  >
-                    Our Service
-                    <ChevronDown size={14} className={`transition-transform duration-200 ${isDropdownOpen ? "rotate-180" : ""}`} />
-                  </button>
-
-                  {isDropdownOpen && (
-                    <div className="absolute left-1/2 transform -translate-x-1/2 mt-4 w-[320px] bg-white rounded-2xl p-4 shadow-xl border border-gray-100 z-50">
-                      {services.map((service, index) => (
-                        <Link
-                          key={index}
-                          href={service.href}
-                          onClick={() => setIsDropdownOpen(false)}
-                          className="block text-[#4A5568] text-sm font-normal py-3 px-4 rounded-xl hover:bg-[#F4F5F7] hover:text-[#1E88E5] transition-colors"
-                        >
-                          {service.name}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
+                  }`}
+                >
+                  Our Service
+                </Link>
 
                 <Link
                   href="/who-we-are"
@@ -223,43 +212,17 @@ export default function Navbar() {
               Our Works
             </Link>
 
-            {/* Our Service (With Dropdown Accordion) */}
-            <div className="flex flex-col">
-              <button
-                onClick={() => setIsServicesExpanded(!isServicesExpanded)}
-                className={`flex items-center justify-between w-full px-5 py-3 rounded-xl text-base font-semibold transition-all outline-none focus:outline-none [-webkit-tap-highlight-color:transparent] ${pathname.startsWith("/services")
+            <Link
+              href="/services"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`flex items-center w-full px-5 py-3 rounded-xl text-base font-semibold transition-all ${
+                pathname.startsWith("/services")
                   ? "bg-[#EAF3FF] text-[#299EED]"
                   : "text-[#0D2342] hover:bg-gray-100/50"
-                  }`}
-              >
-                <span>Our Service</span>
-                <ChevronDown
-                  size={16}
-                  className={`transition-transform duration-300 ${isServicesExpanded ? "rotate-180 text-[#299EED]" : "text-gray-400"}`}
-                />
-              </button>
-
-              {isServicesExpanded && (
-                <div className="mt-1.5 pl-6 pr-2 flex flex-col gap-1 transition-all">
-                  {services.map((service, index) => {
-                    const isServiceActive = pathname === service.href;
-                    return (
-                      <Link
-                        key={index}
-                        href={service.href}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className={`block py-3 px-4 rounded-xl text-sm font-medium transition-colors ${isServiceActive
-                          ? "bg-[#EAF3FF]/60 text-[#299EED]"
-                          : "text-[#3F3F3F]/85 hover:bg-gray-100/30"
-                          }`}
-                      >
-                        {service.name}
-                      </Link>
-                    );
-                  })}
-                </div>
-              )}
-            </div>
+              }`}
+            >
+              Our Service
+            </Link>
 
             {/* Who We Are Link */}
             <Link

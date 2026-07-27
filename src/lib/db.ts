@@ -28,16 +28,6 @@ const initDb = () => {
   dbInstance.pragma('journal_mode = WAL');
 
   dbInstance.exec(`
-    CREATE TABLE IF NOT EXISTS services (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      slug TEXT UNIQUE NOT NULL,
-      title TEXT NOT NULL,
-      description TEXT NOT NULL,
-      image_url TEXT,
-      content_json TEXT,
-      created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-    );
-
     CREATE TABLE IF NOT EXISTS works (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       client TEXT,          

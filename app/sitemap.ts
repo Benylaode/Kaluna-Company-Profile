@@ -27,34 +27,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Services
     {
-      path: "/services/web-application-development",
+      path: "/services",
       changeFrequency: "monthly" as const,
       priority: 0.9,
-    },
-    {
-      path: "/services/iot-system-development",
-      changeFrequency: "monthly" as const,
-      priority: 0.9,
-    },
-    {
-      path: "/services/erp-system-integration",
-      changeFrequency: "monthly" as const,
-      priority: 0.9,
-    },
-    {
-      path: "/services/industrial-automation-solutions",
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
-    },
-    {
-      path: "/services/data-dashboard-analytics",
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
-    },
-    {
-      path: "/services/it-strategy-consulting",
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
     },
 
     // Works

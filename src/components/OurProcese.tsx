@@ -26,36 +26,41 @@ const DEFAULT_IMAGES = [
   "/image/proses-service/5.jpg",
 ];
 
-const DEFAULT_STEPS: ProcessStep[] = [
+const DEFAULT_STEPS: ProcessStep[] =[
   {
     id: 1,
-    title: "Discovery and Requirement Analysis",
-    category: "Understanding business goals, target audience, and technical requirements",
-    image_url: "/image/proses-service/1.jpg"
+    title: "Business Architecture & Blueprinting",
+    category:
+      "Defining business objectives, gathering requirements, analyzing workflows, and creating a strategic solution blueprint.",
+    image_url: "/image/proses-service/1.webp"
   },
   {
     id: 2,
-    title: "Strategy and Information Architecture",
-    category: "Structuring the website's content, user flow, and key features to ensure a clear navigation",
-    image_url: "/image/proses-service/2.jpg"
+    title: "UX/UI & System Workflow Prototyping",
+    category:
+      "Designing intuitive user experiences, visual interfaces, and interactive system workflows before development.",
+    image_url: "/image/proses-service/2.webp"
   },
   {
     id: 3,
-    title: "Designing The User Interface & Experience",
-    category: "Designing interfaces & visual layouts that reflect the brand, ensuring usability in all devices",
-    image_url: "/image/proses-service/3.jpg"
+    title: "Agile Development & Integration",
+    category:
+      "Developing the solution using agile methodologies while integrating required systems, APIs, and business processes.",
+    image_url: "/image/proses-service/3.webp"
   },
   {
     id: 4,
-    title: "Development and Integration",
-    category: "Building product using modern stack, integrating systems, and ensuring performance",
-    image_url: "/image/proses-service/4.jpg"
+    title: "Security Audit, UAT & Quality Assurance",
+    category:
+      "Conducting security assessments, user acceptance testing, and comprehensive quality assurance to ensure reliability.",
+    image_url: "/image/proses-service/4.webp"
   },
   {
     id: 5,
-    title: "Testing and Deployment",
-    category: "Testing to ensure functionality & performance before deploying the website to live",
-    image_url: "/image/proses-service/5.jpg"
+    title: "Deployment, Staff Training & Continuous Support",
+    category:
+      "Deploying the solution to production, training users, and providing ongoing maintenance, monitoring, and continuous support.",
+    image_url: "/image/proses-service/5.webp"
   }
 ];
 
@@ -316,7 +321,7 @@ export default function OurProcese({ steps, title = "IMPLEMENTATION PROCESS" }: 
                           </span>
                         </div>
 
-                        <p className="mt-2 text-sm leading-[1.5] text-[#3F3F3F]">
+                        <p className="mt-2 text-xs sm:text-sm leading-[1.5] text-[#3F3F3F]">
                           {item.category}
                         </p>
                       </div>

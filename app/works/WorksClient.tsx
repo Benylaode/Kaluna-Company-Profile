@@ -9,6 +9,8 @@ import ProjectCarousel, { ProjectData } from '../../src/components/ProjectCarous
 import WorkProjectCard from '../../src/components/WorkProjectCard';
 import { getWorks } from "../../src/lib/actions";
 
+import ServiceHeroBanner from "@/src/components/ServiceHeroBanner";
+
 // Sub-komponen ImageSlider untuk efek pergantian gambar otomatis di dalam kartu
 const ImageSlider = ({ images, title }: { images: string[], title: string }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -41,12 +43,11 @@ const ImageSlider = ({ images, title }: { images: string[], title: string }) => 
 };
 
 const types = [
-  "Web & Application Development",
-  "IoT System Development",
-  "ERP & System Integration",
-  "Industrial & Automation Solutions",
-  "Data Dashboard & Analytics",
-  "IT Consulting & Digital Strategy"
+  "IoT & Asset Monitoring ERP",
+  "Printing & Operational ERP",
+  "Retail & Point of Sales (POS) ERP",
+  "Analytical Science ERP",
+  "Financial & Accounting ERP"
 ];
 
 const industries = [
@@ -60,48 +61,9 @@ const industries = [
 ];
 
 const getProjectDetails = (slug: string, category: string) => {
-  const s = slug.toLowerCase();
-  
-  if (s.includes("x-1-tire")) {
-    return {
-      type: "Web & Application Development",
-      industry: "Corporate"
-    };
-  }
-  if (s.includes("navicom")) {
-    return {
-      type: "IoT System Development",
-      industry: "Infrastructure & Engineering"
-    };
-  }
-  if (s.includes("sinau-print")) {
-    return {
-      type: "Web & Application Development",
-      industry: "UMKM"
-    };
-  }
-  if (s.includes("suara-merdeka")) {
-    return {
-      type: "Web & Application Development",
-      industry: "Agency/Studio"
-    };
-  }
-  if (s.includes("korlantas")) {
-    return {
-      type: "IoT System Development",
-      industry: "Government Organizations"
-    };
-  }
-  
-  // Fallbacks based on category
-  let type = "Web & Application Development";
-  if (category.toLowerCase().includes("iot")) {
-    type = "IoT System Development";
-  }
-  
   return {
-    type,
-    industry: "Other Industries"
+    type: category,
+    industry: "Corporate"
   };
 };
 
@@ -169,33 +131,11 @@ export default function WorksClient({ initialWorks = [] }: WorksClientProps) {
 
   // Helper mapping untuk filter
   const getProjectType = (category: string) => {
-    if (category === "Website Development" || category === "Software Development") {
-      return "Web & App";
-    }
-    if (category === "IoT System" || category === "Backend & IoT") {
-      return "IoT System";
-    }
-    return "Web & App";
+    return category;
   };
 
-  // Mockup data mapping
+  // Mockup data mapping (Disabled to use real database category & title)
   const getMockupData = (slug: string) => {
-    const s = slug.toLowerCase();
-    if (s.includes("x-1-tire")) {
-      return { title: "Company Profile Revamp for X-1 Tire", category: ["Website Development"] };
-    }
-    if (s.includes("navicom")) {
-      return { title: "Smart Home System for Navicom Indonesia", category: ["IoT"] };
-    }
-    if (s.includes("sinau-print")) {
-      return { title: "Point of Sales System for Sinau Print", category: ["Software"] };
-    }
-    if (s.includes("suara-merdeka")) {
-      return { title: "Website Refresh for Suara Merdeka Generation", category: ["Website Development"] };
-    }
-    if (s.includes("korlantas")) {
-      return { title: "E-Drives Development for Korlantas Polri", category: ["IoT", "Software"] };
-    }
     return { title: "", category: [] };
   };
 
@@ -233,37 +173,13 @@ export default function WorksClient({ initialWorks = [] }: WorksClientProps) {
       <Navbar />
 
       {/* 1. Hero Banner Section */}
-      <section className="w-full bg-white pt-[72px] sm:pt-[76px] md:pt-[80px]">
+      <section className="w-full bg-white pt-[72px] sm:pt-[76px] md:pt-[80px] pb-4 md:pb-6">
         <div className="kaluna-wide-container">
-          <div
-            className="
-              relative
-              w-full
-              h-[180px]
-              sm:h-[230px]
-              md:h-[270px]
-              rounded-[12px]
-              sm:rounded-[18px]
-              overflow-hidden
-              flex
-              items-center
-              justify-center
-              bg-cover
-              bg-center
-              bg-[linear-gradient(135deg,#02184d_0%,#08297d_100%)]
-            "
-            style={{
-              backgroundImage: "url('/image/banner-title.svg')",
-            }}
-          >
-            {/* Color blend overlay spreading from #02184d to #08297d */}
-            <div className="absolute inset-0 bg-[linear-gradient(135deg,#02184d_0%,#08297d_100%)] opacity-75 mix-blend-multiply z-[1]" />
-            <div className="absolute inset-0 bg-[linear-gradient(135deg,#02184d_0%,#08297d_100%)] opacity-25 z-[1]" />
-
-            <h1 className="relative z-10 text-[24px] sm:text-[32px] md:text-[48px] lg:text-[56px] font-semibold md:font-semibold tracking-[-0.02em] text-white text-center px-4">
-              Our Works
-            </h1>
-          </div>
+          <ServiceHeroBanner
+            title="Empowering Enterprises Through Digital Solutions."
+            description="Explore our portfolio of custom Enterprise Resource Planning, POS, HR, and custom software systems built for growing enterprises."
+            className="h-[60vh] min-h-[500px] max-h-[700px] lg:h-[60vh]"
+          />
         </div>
       </section>
 

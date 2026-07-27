@@ -1,7 +1,19 @@
+import Image from "next/image";
 import Navbar from "../../src/components/Navbar";
 import Footer from "../../src/components/Footer";
 import CTAW from "../../src/components/CTAW";
 import { getTeam } from "../../src/lib/actions";
+
+export interface ExpertiseItem {
+  id: string;
+  name: string;
+  category: string;
+  img: string;
+  function: string;
+  impact: string;
+  tags: string[];
+  badge?: string;
+}
 
 export default async function WhoWeArePage() {
   const team = await getTeam();
@@ -37,22 +49,26 @@ export default async function WhoWeArePage() {
     }
   ];
 
-  const expertise = [
+const expertise = [
   {
-    name: "IoT\nSystems",
-    img: "image/Expertise/1.svg",
+    name: "Point of Sale (POS)\n& Retail Management",
+    img: "/image/expertise/pos-retail.webp",
   },
   {
-    name: "ERP & System\nIntegration",
-    img: "image/Expertise/2.svg",
+    name: "HR & Talent\nManagement Engine",
+    img: "/image/expertise/hrms.webp",
   },
   {
-    name: "Web & Application\nDevelopment",
-    img: "image/Expertise/3.svg",
+    name: "Financial & Accounting\nAutomation Hub",
+    img: "/image/expertise/financial-accounting.webp",
   },
   {
-    name: "Data Dashboard\n& Analytics",
-    img: "image/Expertise/4.svg",
+    name: "Supply Chain &\nInventory Control",
+    img: "/image/expertise/supply-chain.webp",
+  },
+  {
+    name: "Logistics & Fleet\nOperations Tracker",
+    img: "/image/expertise/logistics-fleet.webp",
   },
 ];
 
@@ -60,37 +76,323 @@ export default async function WhoWeArePage() {
     <main className="min-h-screen bg-white font-sans text-[#0D2342] overflow-x-hidden">
       <Navbar />
 
-      {/* ── 1. Hero Banner — same design as Our Works ────────────── */}
+      {/* ── 1. Hero Section ────────────────────────────────────────── */}
       <section className="w-full bg-white pt-[72px] sm:pt-[76px] md:pt-[80px]">
         <div className="kaluna-wide-container">
           <div
             className="
+              group
               relative
               w-full
-              h-[180px]
-              sm:h-[230px]
-              md:h-[270px]
-              rounded-[12px]
-              sm:rounded-[18px]
+              h-[60vh]
+              min-h-[500px]
+              max-h-[700px]
+              lg:h-[60vh]
+              rounded-[20px]
+              sm:rounded-[24px]
               overflow-hidden
               flex
-              items-center
-              justify-center
-              bg-cover
-              bg-center
-              bg-[linear-gradient(135deg,#02184d_0%,#08297d_100%)]
+              flex-col
+              lg:flex-row
+              items-stretch
+              justify-between
+              px-6
+              sm:px-10
+              md:px-14
+              lg:pl-[76px]
+              lg:pr-[20px]
+              xl:pl-[88px]
+              xl:pr-[28px]
+              py-7
+              sm:py-9
+              lg:py-10
+              select-none
             "
             style={{
-              backgroundImage: "url('/image/banner-title.svg')",
+              background:
+                "linear-gradient(180deg, #075B8C 0%, #05527F 45%, #003B63 100%)",
             }}
           >
-            {/* Color blend overlay spreading from #02184d to #08297d */}
-            <div className="absolute inset-0 bg-[linear-gradient(135deg,#02184d_0%,#08297d_100%)] opacity-75 mix-blend-multiply z-[1]" />
-            <div className="absolute inset-0 bg-[linear-gradient(135deg,#02184d_0%,#08297d_100%)] opacity-25 z-[1]" />
+            {/* ── RADIAL HIGHLIGHT BACKGROUND (z-0) ─────────────── */}
+            <div
+              className="pointer-events-none absolute inset-0 z-0"
+              style={{
+                background:
+                  "radial-gradient(ellipse at 50% 18%, rgba(39, 145, 216, 0.3) 0%, transparent 65%)",
+              }}
+            />
 
-            <h1 className="relative z-10 text-[24px] sm:text-[32px] md:text-[48px] lg:text-[56px] font-semibold md:font-semibold tracking-[-0.02em] text-white text-center px-4">
-              Who We Are
-            </h1>
+            {/* ── GEOMETRIC DIAGONAL LINES & LIGHT RAYS (z-1 / z-2) ── */}
+            <div className="pointer-events-none absolute inset-0 z-[1] overflow-hidden">
+              <svg
+                className="absolute inset-0 w-full h-full pointer-events-none z-[2]"
+                viewBox="0 0 1200 680"
+                preserveAspectRatio="none"
+                fill="none"
+              >
+                {/* Main Glowing Diagonal Line */}
+                <line
+                  x1="870"
+                  y1="0"
+                  x2="230"
+                  y2="680"
+                  stroke="#8DD0F5"
+                  strokeWidth="2.5"
+                  strokeOpacity="0.5"
+                />
+                <line
+                  x1="870"
+                  y1="0"
+                  x2="230"
+                  y2="680"
+                  stroke="#299EED"
+                  strokeWidth="10"
+                  strokeOpacity="0.25"
+                  filter="blur(5px)"
+                />
+
+                {/* Parallel Diagonal Line 2 */}
+                <line
+                  x1="960"
+                  y1="0"
+                  x2="320"
+                  y2="680"
+                  stroke="#8DD0F5"
+                  strokeWidth="1.5"
+                  strokeOpacity="0.3"
+                />
+
+                {/* Left Side Diagonal Accent Line */}
+                <line
+                  x1="260"
+                  y1="0"
+                  x2="0"
+                  y2="380"
+                  stroke="#8DD0F5"
+                  strokeWidth="1.5"
+                  strokeOpacity="0.25"
+                />
+
+                {/* Diagonal Light Polygon Area */}
+                <polygon
+                  points="620,0 1200,0 1200,380 920,680 460,680"
+                  fill="url(#diagonal-light-grad)"
+                  opacity="0.2"
+                />
+
+                {/* Bottom Left Shade Polygon Area */}
+                <polygon
+                  points="0,220 520,680 0,680"
+                  fill="url(#bottom-left-grad)"
+                  opacity="0.3"
+                />
+
+                <defs>
+                  <linearGradient
+                    id="diagonal-light-grad"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="100%"
+                  >
+                    <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.45" />
+                    <stop offset="50%" stopColor="#79C8F7" stopOpacity="0.2" />
+                    <stop offset="100%" stopColor="#075B8C" stopOpacity="0" />
+                  </linearGradient>
+
+                  <linearGradient
+                    id="bottom-left-grad"
+                    x1="0%"
+                    y1="100%"
+                    x2="100%"
+                    y2="0%"
+                  >
+                    <stop offset="0%" stopColor="#2791D8" stopOpacity="0.35" />
+                    <stop offset="100%" stopColor="#003B63" stopOpacity="0" />
+                  </linearGradient>
+                </defs>
+              </svg>
+
+              {/* Soft blur highlight behind photo */}
+              <div className="absolute top-[15%] right-[8%] w-[52%] h-[70%] rounded-full bg-[#2791D8]/25 blur-3xl opacity-70" />
+            </div>
+
+            {/* ── TRANSPARENT PANEL BEHIND PHOTO (z-5) ───────────── */}
+            <div
+              className="
+                pointer-events-none
+                hidden
+                lg:block
+                absolute
+                right-[4.5%]
+                top-[18%]
+                z-[5]
+                h-[90%]
+                w-[58%]
+                rounded-[44px]
+                border
+                border-[#8DD0F5]/30
+                bg-[#00406C]/25
+                who-we-are-panel-float
+              "
+            />
+
+            {/* ── PHOTO TIM WRAPPER (whoweare.webp) (z-10) ────────── */}
+            <div
+              className="
+                relative
+                w-full
+                mt-6
+                lg:mt-0
+                h-[240px]
+                sm:h-[300px]
+                md:h-[340px]
+                lg:absolute
+                lg:right-[2.5%]
+                lg:top-[12%]
+                lg:z-[10]
+                lg:w-[52%]
+                lg:h-[76%]
+                rounded-[20px]
+                sm:rounded-[24px]
+                overflow-hidden
+                shadow-[0_20px_50px_rgba(0,0,0,0.35)]
+                who-we-are-float
+                transition-transform
+                duration-700
+                ease-out
+                group-hover:-translate-x-[4px]
+                group-hover:scale-[1.01]
+                order-3
+                lg:order-none
+              "
+            >
+              {/* Image tag langsung memastikan foto tampil 100% tanpa delay loader */}
+              <img
+                src="/image/whoweare.webp"
+                alt="Kaluna Technology team"
+                className="w-full h-full object-cover"
+                style={{
+                  objectPosition: "48% center",
+                  filter: "grayscale(1) contrast(1.03) brightness(0.92)",
+                }}
+              />
+
+              {/* Overlay Biru-Keabu-abuan (z-15) */}
+              <div
+                className="pointer-events-none absolute inset-0 z-[15]"
+                style={{
+                  background:
+                    "linear-gradient(135deg, rgba(190, 220, 238, 0.18), rgba(8, 67, 105, 0.12))",
+                }}
+              />
+
+              {/* Diagonal Detail Overlay Atas Foto (z-25) */}
+              <div
+                className="pointer-events-none absolute inset-0 z-[25] opacity-30"
+                style={{
+                  background:
+                    "linear-gradient(135deg, rgba(255,255,255,0.45), transparent 60%)",
+                  clipPath: "polygon(0 0, 35% 0, 0 70%)",
+                }}
+              />
+              <div
+                className="pointer-events-none absolute inset-0 z-[25] opacity-25"
+                style={{
+                  background:
+                    "linear-gradient(225deg, #2791D8, transparent 70%)",
+                  clipPath: "polygon(100% 0, 100% 70%, 62% 32%)",
+                }}
+              />
+            </div>
+
+            {/* ── PANEL KANAN BAWAH (z-20) ────────────────────────── */}
+            <div
+              className="
+                pointer-events-none
+                hidden
+                lg:block
+                absolute
+                bottom-[-16%]
+                right-[-5%]
+                z-[20]
+                h-[240px]
+                w-[38%]
+                rounded-[48px]
+                border
+                border-white/15
+                bg-gradient-to-b
+                from-[#D2EBFB]/85
+                via-[#82B4D3]/70
+                to-[#07507F]/90
+                backdrop-blur-md
+                shadow-xl
+                who-we-are-bottom-panel-float
+              "
+            />
+
+            {/* ── KONTEN TEKS KIRI (z-30) ─────────────────────────── */}
+            <div className="relative z-[30] w-full lg:w-[44%] xl:w-[45%] flex flex-col justify-center my-auto order-1 lg:order-none">
+              {/* Heading */}
+              <h1
+                className="
+                  max-w-[680px]
+                  text-[26px]
+                  sm:text-[34px]
+                  md:text-[42px]
+                  lg:text-[48px]
+                  xl:text-[50px]
+                  font-bold
+                  leading-[1.05]
+                  tracking-[-0.04em]
+                  text-white
+                  font-sans
+                "
+                style={{
+                  fontSize: "clamp(26px, 3.2vw, 50px)",
+                }}
+              >
+                Crafting Digital
+                <br />
+                Solutions
+                <br />
+                <span
+                  className="
+                    bg-gradient-to-b
+                    from-[#C9EBFF]
+                    via-[#79C8F7]
+                    to-[#299EED]
+                    bg-clip-text
+                    text-transparent
+                    inline-block
+                  "
+                >
+                  For Your Needs.
+                </span>
+              </h1>
+
+              {/* Description */}
+              <p
+                className="
+                  mt-3.5
+                  lg:mt-4
+                  max-w-[580px]
+                  text-[13px]
+                  sm:text-[15px]
+                  md:text-[16px]
+                  lg:text-[17px]
+                  xl:text-[18px]
+                  font-normal
+                  leading-[1.3]
+                  text-white/92
+                  order-2
+                  lg:order-none
+                "
+                style={{ fontSize: "clamp(13px, 1.15vw, 17px)", color: "rgba(255, 255, 255, 0.92)" }}
+              >
+                We build end-to-end Enterprise Resource Planning solutions that unify your core operations into a single, intelligent platform.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -157,35 +459,34 @@ export default async function WhoWeArePage() {
             text-[#0D0D0D]
           "
         >
-          Crafting Digital Solutions
+          Engineering the Digital Backbone of  
           <br className="hidden sm:block" />
           <span className="sm:hidden"> </span>
-          For Your Needs
+          Modern Enterprises
         </h2>
 
         {/* Description */}
         <div
           className="
-            mt-8
-            max-w-[510px]
-            space-y-6
-            text-[12px]
+            mt-6
+            max-w-[520px]
+            space-y-4
+            text-[13px]
             md:text-[14px]
-            leading-[1.6]
+            leading-[1.7]
             text-[#4A4A4A]
           "
         >
           <p>
-            Kaluna Technology is a technology and digital solutions brand
-            operated by PT SINERGI MUDA ARSA (ARSALYNK), focused on developing integrated
-            systems, custom software, and scalable technology infrastructures
-            to support business digital transformation.
+            Kaluna Technology is a trusted technology partner specializing in enterprise digitalization and workflow automation.
           </p>
 
           <p>
-            We help organizations overcome operational challenges, disconnected
-            systems, inefficient manual processes, and the growing need for
-            structured, scalable digital ecosystems.
+            We empower growing organizations to replace disjointed tools and fragmented operations with custom, high-performance Enterprise Resource Planning (ERP) systems.
+          </p>
+
+          <p>
+            In today’s fast-moving business environment, operational efficiency is a necessity. At Kaluna, we bridge the gap between complex operational challenges and modern software—enabling enterprises to scale efficiently, protect margins, and unlock full operational transparency.
           </p>
         </div>
       </div>
@@ -262,9 +563,9 @@ export default async function WhoWeArePage() {
               lg:text-[34px]
             "
           >
-            Turning Complex Problems
+            Optimizing Business Workflows
             <br />
-            Into Scalable Solutions
+            Through Integrated ERP Solutions
           </h2>
         </div>
 
@@ -324,7 +625,7 @@ export default async function WhoWeArePage() {
                 md:text-[20px]
               "
             >
-              Fragmented Business Systems
+              Integrated Management Platform
             </h3>
 
             <p
@@ -336,9 +637,7 @@ export default async function WhoWeArePage() {
                 md:text-[12px]
               "
             >
-              Integrates systems through ERP and System Integration, connecting
-              departments into one unified platform for efficient workflows and
-              accurate data.
+              Building unified management platforms that integrate core business processes into a single, reliable source of truth.
             </p>
           </div>
 
@@ -385,7 +684,7 @@ export default async function WhoWeArePage() {
                 md:text-[20px]
               "
             >
-              Lack of Real-Time Operational Visibility
+              Workflow Automation
             </h3>
 
             <p
@@ -397,9 +696,7 @@ export default async function WhoWeArePage() {
                 md:text-[12px]
               "
             >
-              Using IoT System Development and Industrial Automation, Kaluna
-              builds connected systems that provide real-time monitoring and
-              automated alerts.
+              Eliminating manual data entry and administrative bottlenecks with automated, error-free cross-departmental workflows.
             </p>
           </div>
 
@@ -446,7 +743,7 @@ export default async function WhoWeArePage() {
                 md:text-[20px]
               "
             >
-              Businesses Struggle to Turn Data into Insights
+              System Integration
             </h3>
 
             <p
@@ -458,9 +755,7 @@ export default async function WhoWeArePage() {
                 md:text-[12px]
               "
             >
-              Kaluna develops Data Dashboards and Analytics platforms that
-              transform raw data into clear visual insights for faster and smarter
-              business decisions.
+              Connecting legacy software, databases, hardware, and APIs into one cohesive ecosystem for seamless communication.
             </p>
           </div>
 
@@ -507,7 +802,7 @@ export default async function WhoWeArePage() {
                 md:text-[20px]
               "
             >
-              Outdated or Inefficient Digital Platforms
+              Data-Driven Operations
             </h3>
 
             <p
@@ -519,8 +814,7 @@ export default async function WhoWeArePage() {
                 md:text-[12px]
               "
             >
-              Through Web and Application Development, Kaluna builds modern,
-              scalable digital platforms tailored to business needs.
+              Converting operational data into real-time executive dashboards to enable proactive, insight-driven decision making.
             </p>
           </div>
         </div>
@@ -532,19 +826,15 @@ export default async function WhoWeArePage() {
 <section
   className="
     relative
-    min-h-[340px]
+    min-h-[360px]
     w-full
     overflow-hidden
-    py-10
+    py-12
     md:py-16
-    lg:h-[450px]
-    xl:h-[470px]
+    lg:py-20
   "
 >
-  {/* ========================================================
-      BACKGROUND
-      Menggunakan path asli dari vision.svg
-  ======================================================== */}
+  {/* BACKGROUND */}
   <svg
     aria-hidden="true"
     className="pointer-events-none absolute inset-0 h-full w-full"
@@ -567,12 +857,9 @@ export default async function WhoWeArePage() {
       </linearGradient>
     </defs>
 
-    {/* Main gradient */}
     <rect width="1920" height="634" fill="url(#vision-gradient)" />
 
-    {/* K graphic — exact paths from vision.svg */}
     <g opacity="0.5">
-      {/* Small lower-right triangle */}
       <path
         d="
           M1599.1 558.413
@@ -586,8 +873,6 @@ export default async function WhoWeArePage() {
         "
         fill="#2C9FDD"
       />
-
-      {/* Main lower diagonal of K */}
       <path
         d="
           M83.8965 1599
@@ -599,8 +884,6 @@ export default async function WhoWeArePage() {
         "
         fill="#375CA9"
       />
-
-      {/* Main upper diagonal of K */}
       <path
         d="
           M-65.9999 -1121
@@ -617,9 +900,7 @@ export default async function WhoWeArePage() {
     </g>
   </svg>
 
-  {/* ========================================================
-      CONTENT
-  ======================================================== */}
+  {/* CONTENT */}
   <div
     className="
       relative
@@ -639,17 +920,17 @@ export default async function WhoWeArePage() {
   >
     {/* Vision */}
     <div className="flex flex-col items-center">
-      <div className="mb-[20px] flex items-center gap-[12px]">
-        <span className="h-[15px] w-[4px] bg-[#299EED]" />
+      <div className="mb-4 flex items-center gap-3">
+        <span className="h-3.5 w-[3px] bg-[#299EED] rounded-full" />
 
         <span
           className="
-            text-[11px]
+            text-[10px]
+            md:text-[11px]
+            font-semibold
             uppercase
-            leading-none
-            tracking-[0.02em]
+            tracking-[0.08em]
             text-white
-            md:text-[12px]
           "
         >
           Our Vision
@@ -658,46 +939,44 @@ export default async function WhoWeArePage() {
 
       <h2
         className="
-          max-w-[1080px]
-          text-[22px]
+          max-w-[900px]
+          text-[18px]
+          sm:text-[22px]
+          md:text-[26px]
+          lg:text-[28px]
           font-normal
-          leading-[1.15]
-          tracking-[-0.025em]
+          leading-snug
+          tracking-[-0.02em]
           text-white
-          sm:text-[28px]
-          md:text-[34px]
-          lg:text-[40px]
-          xl:text-[42px]
         "
       >
-        To empower enterprises with reliable and
+        To be the most trusted custom ERP partner, 
         <br className="hidden sm:block" />
-        future-ready technology systems
+        driving peak operational efficiency through practical, scalable software. 
       </h2>
     </div>
 
     {/* Mission */}
     <div
       className="
-        mt-[42px]
+        mt-8
+        md:mt-10
         flex
         flex-col
         items-center
-        md:mt-[46px]
-        lg:mt-[50px]
       "
     >
-      <div className="mb-[19px] flex items-center gap-[12px]">
-        <span className="h-[15px] w-[4px] bg-[#299EED]" />
+      <div className="mb-3 flex items-center gap-3">
+        <span className="h-3.5 w-[3px] bg-[#299EED] rounded-full" />
 
         <span
           className="
-            text-[11px]
+            text-[10px]
+            md:text-[11px]
+            font-semibold
             uppercase
-            leading-none
-            tracking-[0.02em]
+            tracking-[0.08em]
             text-white
-            md:text-[12px]
           "
         >
           Our Mission
@@ -706,26 +985,29 @@ export default async function WhoWeArePage() {
 
       <p
         className="
-          max-w-[1000px]
-          text-[14px]
-          leading-[1.4]
-          tracking-[-0.02em]
-          text-white
+          max-w-[850px]
+          text-[13px]
+          sm:text-[15px]
+          md:text-[17px]
+          lg:text-[18px]
+          leading-relaxed
+          tracking-[-0.01em]
+          text-white/90
           font-light
-          sm:text-[18px]
-          md:text-[22px]
-          lg:text-[24px]
         "
       >
-        Deliver structured, scalable, and performance-driven IT solutions.
+      To empower businesses with purpose-built ERP solutions that automate core operations, deliver enterprise reliability, and drive continuous growth through dedicated partnership. 
       </p>
     </div>
   </div>
 </section>
+
+{/* ── 5. Our Expertise ─────────────────────────────────────── */}
 <section className="w-full bg-white py-12 md:py-16">
   <div className="kaluna-container">
     <div className="mb-3 flex items-center gap-2.5">
       <span className="h-3.5 w-[2.5px] rounded-full bg-[#299EED]" />
+
       <span className="text-[10px] font-semibold uppercase tracking-[0.08em] text-[#0E2A54]">
         Our Expertise
       </span>
@@ -739,21 +1021,16 @@ export default async function WhoWeArePage() {
       className="
         grid
         w-full
-        max-w-[1690px]
         grid-cols-1
-        items-stretch
-        justify-items-start
-        text-left
-        gap-x-[30px]
-        gap-y-[30px]
         sm:grid-cols-2
-        lg:grid-cols-4
+        lg:grid-cols-3
+        xl:grid-cols-5
+        gap-6
+        items-stretch
       "
     >
       {expertise.map((item, idx) => {
-        const titleLines = item.name.split("\n").slice(0, 2);
-        const firstBaseline = titleLines.length === 1 ? 160 : 130;
-        const gradientId = `expertise-gradient-${idx}`;
+        const titleLines = item.name.split("\n");
 
         return (
           <article
@@ -762,88 +1039,61 @@ export default async function WhoWeArePage() {
               group
               relative
               aspect-[3/2]
-              min-w-0
               w-full
+              min-w-0
               cursor-pointer
               overflow-hidden
-              rounded-[12px]
-              bg-[#EAF3FF]
+              rounded-[16px]
+              bg-[#0E2A54]
+              shadow-md
               transition-all
               duration-500
-              hover:-translate-y-1
+              hover:-translate-y-1.5
               hover:shadow-2xl
+              hover:shadow-[#0E2A54]/25
             "
           >
+            {/* Background Image */}
             <img
               src={item.img}
               alt={item.name.replace(/\n/g, " ")}
               className="
                 absolute
                 inset-0
-                w-full
                 h-full
+                w-full
                 object-cover
-                object-top
+                object-center
                 transition-transform
                 duration-700
                 ease-out
-                group-hover:scale-110
+                group-hover:scale-105
               "
-              style={{
-                objectPosition: "top center",
-              }}
             />
 
-            <div className="pointer-events-none absolute inset-0 bg-[#299EED]/15 transition-colors duration-500 group-hover:bg-[#0E2A54]/40" />
+            {/* Overlay Linear Gradient: #0E2A54 (Tebal di Bawah, Tipis di Atas) */}
+            <div
+              className="
+                absolute
+                inset-0
+                pointer-events-none
+                transition-opacity
+                duration-500
+                bg-[linear-gradient(to_top,#0E2A54_0%,#0E2A54_35%,rgba(14,42,84,0.75)_65%,rgba(14,42,84,0.15)_100%)]
+                group-hover:bg-[linear-gradient(to_top,#0E2A54_0%,#0E2A54_40%,rgba(14,42,84,0.85)_70%,rgba(14,42,84,0.2)_100%)]
+              "
+            />
 
-            <svg
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-0 h-full w-full"
-              viewBox="0 0 300 200"
-              fill="none"
-              preserveAspectRatio="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <defs>
-                <linearGradient
-                  id={gradientId}
-                  x1="150"
-                  y1="18"
-                  x2="135"
-                  y2="208"
-                  gradientUnits="userSpaceOnUse"
-                >
-                  <stop stopColor="#0E2A54" stopOpacity="0" />
-                  <stop offset="1" stopColor="#0E2A54" />
-                </linearGradient>
-              </defs>
-
-              <rect
-                width="300"
-                height="200"
-                fill={`url(#${gradientId})`}
-              />
-
-              <text
-                x="20"
-                y={firstBaseline}
-                fill="white"
-                fontSize="22"
-                fontWeight="400"
-                letterSpacing="0"
-                fontFamily="inherit"
-              >
-                {titleLines.map((line, lineIndex) => (
-                  <tspan
-                    key={`${line}-${lineIndex}`}
-                    x="20"
-                    y={firstBaseline + lineIndex * 26}
-                  >
+            {/* Title Content */}
+            <div className="relative z-10 flex h-full flex-col justify-end p-6 text-white">
+              <h3 className="text-[18px] sm:text-[20px] md:text-[22px] font-medium leading-[1.25] text-white transition-colors">
+                {titleLines.map((line, lIdx) => (
+                  <span key={lIdx} className="block">
                     {line}
-                  </tspan>
+                  </span>
                 ))}
-              </text>
-            </svg>
+              </h3>
+            </div>
           </article>
         );
       })}

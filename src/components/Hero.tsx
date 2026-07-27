@@ -101,7 +101,7 @@ const slides = [
             Your Scalable IT Solutions Partner for Modern Enterprises
           </h1>
           <p className="hero-animate-text mt-3 sm:mt-4 text-[13px] sm:text-sm leading-[1.5] tracking-[0.02em] text-white">
-            We design, build, and integrate intelligent software systems that drive operational efficiency and long-term growth.
+            We design, build, and integrate intelligent software systems that drive operational efficiency and long-term growth through customized Enterprise Resource Planning (ERP) and seamless system integration.
           </p>
 
           <div className="hero-animate-buttons mt-5 flex flex-col gap-3">

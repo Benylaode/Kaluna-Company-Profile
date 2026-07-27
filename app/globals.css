@@ -27,6 +27,66 @@
   --kaluna-sea: #299EED;
 }
 
+/* ============================================================
+   WHO WE ARE HERO ANIMATION SYSTEM
+   ============================================================ */
+@keyframes whoWeAreFloat {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(-2px, -7px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes whoWeArePanelFloat {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(2px, -4px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes whoWeAreBottomPanelFloat {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -3px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.who-we-are-float {
+  animation: whoWeAreFloat 9s ease-in-out infinite alternate;
+}
+
+.who-we-are-panel-float {
+  animation: whoWeArePanelFloat 12s ease-in-out infinite alternate;
+}
+
+.who-we-are-bottom-panel-float {
+  animation: whoWeAreBottomPanelFloat 10s ease-in-out infinite alternate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .who-we-are-float,
+  .who-we-are-panel-float,
+  .who-we-are-bottom-panel-float {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
