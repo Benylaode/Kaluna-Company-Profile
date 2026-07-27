@@ -112,7 +112,7 @@ export default function ServiceValueSolution() {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-[#0E2A54] py-14 md:py-20 text-white">
+      <section className="relative overflow-hidden bg-[#0E2A54] py-8 sm:py-10 lg:py-12 text-white">
         <style>{`
           @keyframes fillProgress { 0% { width: 0%; } 100% { width: 100%; } }
           @keyframes floatUp { 0% { opacity: 0; transform: translateY(10px); } 100% { opacity: 1; transform: translateY(0); } }
@@ -129,9 +129,9 @@ export default function ServiceValueSolution() {
           }
         `}</style>
 
-        {/* Full Background Card Layout matching reference (16:9 Aspect Ratio) */}
+        {/* Full Background Card Layout matching reference (14:6 Aspect Ratio) */}
         <div className="kaluna-container">
-          <div className="relative w-full aspect-[16/9] min-h-[380px] sm:min-h-[440px] md:min-h-[480px] rounded-[32px] md:rounded-[40px] border border-white/10 shadow-2xl overflow-hidden flex flex-col justify-between p-6 sm:p-10 md:p-12 lg:p-14 bg-[#0E2A54]">
+          <div className="relative w-full aspect-[14/6] min-h-[352px] sm:min-h-[396px] md:min-h-[440px] lg:min-h-[485px] rounded-[24px] md:rounded-[32px] border border-white/10 shadow-2xl overflow-hidden flex flex-col justify-between p-5 sm:p-7 md:p-9 lg:p-11 bg-[#0E2A54]">
             
             {/* Full background images */}
             {valueItems.map((item, index) => (
@@ -151,56 +151,56 @@ export default function ServiceValueSolution() {
               className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(90deg,rgba(14,42,84,0.85)_0%,rgba(14,42,84,0.45)_50%,rgba(14,42,84,0)_80%)] md:w-[65%]"
             />
 
-            {/* Content Container: Left-Aligned Text */}
-            <div className="relative z-10 max-w-[680px] lg:w-[55%]">
-              <div className="flex items-center gap-2.5 mb-4 sm:mb-6">
+            {/* Content Container: Vertically Centered Left-Aligned Text */}
+            <div className="relative z-10 my-auto max-w-[700px] lg:w-[60%] py-3 sm:py-4">
+              <div className="flex items-center gap-2.5 mb-3 sm:mb-4">
                 <span className="h-4 w-[2.5px] bg-[#299EED] rounded-full" />
-                <span className="text-xs font-semibold tracking-wider text-[#D6ECFF] uppercase">
+                <span className="text-[11px] sm:text-xs font-semibold tracking-wider text-[#D6ECFF] uppercase">
                   The Kaluna Solution
                 </span>
               </div>
 
               <h2
                 key={`title-${activeIndex}`}
-                className="kaluna-solution-animate-title text-[32px] sm:text-[40px] md:text-[48px] lg:text-[54px] font-bold leading-[1.1] tracking-[-0.035em] text-white"
+                className="kaluna-solution-animate-title text-[28px] sm:text-[36px] md:text-[44px] lg:text-[50px] font-bold leading-[1.08] tracking-[-0.035em] text-white"
               >
                 {activeItem.title}
               </h2>
 
               <p
                 key={`desc-${activeIndex}`}
-                className="kaluna-solution-animate-text mt-4 sm:mt-6 text-[15px] sm:text-[17px] md:text-[18px] leading-[1.55] text-white/90 max-w-[540px]"
+                className="kaluna-solution-animate-text mt-3 sm:mt-4 text-[14px] sm:text-[16px] md:text-[17.5px] leading-[1.55] text-white/90 max-w-[560px]"
               >
                 {activeItem.desc}
               </p>
             </div>
 
             {/* Bottom Controls & Slide Counter */}
-            <div className="relative z-10 mt-10 sm:mt-12 flex flex-wrap items-center justify-between gap-4">
-              <div className="flex items-center gap-6 text-[13px] font-bold tracking-[0.08em] text-white/70">
+            <div className="relative z-10 mt-5 sm:mt-6 flex flex-wrap items-center justify-between gap-3">
+              <div className="flex items-center gap-5 text-[11px] sm:text-[12px] font-bold tracking-[0.08em] text-white/70">
                 <button
                   onClick={handlePrev}
-                  className="transition-colors hover:text-white cursor-pointer flex items-center gap-2 uppercase text-[12px] py-1"
+                  className="transition-colors hover:text-white cursor-pointer flex items-center gap-1.5 uppercase py-0.5"
                 >
                   <span className="font-mono">&lt;</span> PREVIOUS
                 </button>
                 <button
                   onClick={handleNext}
-                  className="transition-colors hover:text-white cursor-pointer flex items-center gap-2 uppercase text-[12px] py-1"
+                  className="transition-colors hover:text-white cursor-pointer flex items-center gap-1.5 uppercase py-0.5"
                 >
                   NEXT SOLUTION <span className="font-mono">&gt;</span>
                 </button>
               </div>
 
               <div className="flex items-center gap-3">
-                <span className="text-xs font-medium text-white/80 tracking-widest font-mono">
+                <span className="text-[11px] sm:text-xs font-medium text-white/80 tracking-widest font-mono">
                   {String(activeIndex + 1).padStart(2, "0")} / {String(valueItems.length).padStart(2, "0")}
                 </span>
               </div>
             </div>
 
             {/* Bottom Progress Bar */}
-            <div className="absolute bottom-0 left-0 right-0 z-20 flex h-[4px] w-full bg-white/20">
+            <div className="absolute bottom-0 left-0 right-0 z-20 flex h-[3px] w-full bg-white/20">
               {valueItems.map((_, index) => (
                 <div
                   key={index}
@@ -224,23 +224,23 @@ export default function ServiceValueSolution() {
         </div>
 
         {/* Sub-banner CTA Box */}
-        <div className="kaluna-container mt-8 md:mt-12">
-          <div className="rounded-[20px] bg-gradient-to-r from-[#299EED] to-[#0E2A54] p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl border border-white/20">
+        <div className="kaluna-container mt-7 sm:mt-9 md:mt-10 lg:mt-12">
+          <div className="rounded-[16px] md:rounded-[20px] bg-gradient-to-r from-[#299EED] to-[#0E2A54] px-5 py-4 sm:px-7 sm:py-5 md:px-8 md:py-5 flex flex-col md:flex-row items-center justify-between gap-4 shadow-xl border border-white/20">
             <div>
-              <h4 className="text-xl sm:text-2xl font-semibold text-white tracking-tight">
+              <h4 className="text-base sm:text-lg md:text-xl font-semibold text-white tracking-tight">
                 Ready to modernize your business operations?
               </h4>
-              <p className="mt-1.5 text-xs sm:text-sm text-blue-100 font-normal">
+              <p className="mt-0.5 text-[11px] sm:text-xs text-blue-100 font-normal">
                 Connect with our lead system architect for a tailored ERP roadmap.
               </p>
             </div>
 
             <button
               onClick={() => setIsContactOpen(true)}
-              className="flex-shrink-0 group inline-flex items-center gap-3 bg-white text-[#0E2A54] hover:bg-[#0E2A54] hover:text-white font-semibold text-sm px-6 py-3.5 rounded-full transition-all duration-300 shadow-md cursor-pointer"
+              className="flex-shrink-0 group inline-flex items-center gap-2.5 bg-white text-[#0E2A54] hover:bg-[#0E2A54] hover:text-white font-semibold text-xs sm:text-sm px-5 py-2.5 sm:px-6 sm:py-3 rounded-full transition-all duration-300 shadow-md cursor-pointer"
             >
               <span>Schedule an ERP Consultation</span>
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
         </div>

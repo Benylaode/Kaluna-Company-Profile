@@ -54,23 +54,23 @@ export default async function WhoWeArePage() {
 const expertise = [
   {
     name: "Point of Sale (POS)\n& Retail Management",
-    img: "/image/expertise/pos-retail.webp",
+    img: "/image/Expertise/pos-retail.webp",
   },
   {
     name: "HR & Talent\nManagement Engine",
-    img: "/image/expertise/hrms.webp",
+    img: "/image/Expertise/hrms.webp",
   },
   {
     name: "Financial & Accounting\nAutomation Hub",
-    img: "/image/expertise/financial-accounting.webp",
+    img: "/image/Expertise/financial-accounting.webp",
   },
   {
     name: "Supply Chain &\nInventory Control",
-    img: "/image/expertise/supply-chain.webp",
+    img: "/image/Expertise/supply-chain.webp",
   },
   {
     name: "Logistics & Fleet\nOperations Tracker",
-    img: "/image/expertise/logistics-fleet.webp",
+    img: "/image/Expertise/logistics-fleet.webp",
   },
 ];
 
