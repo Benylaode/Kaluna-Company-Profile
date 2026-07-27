@@ -449,6 +449,13 @@ export default function OurServices({ services }: { services?: ServiceData[] }) 
           <div className="relative z-20 flex flex-col justify-center gap-5 sm:gap-6 md:gap-7 h-full min-h-[640px] px-6 py-8 sm:px-10 sm:py-12 md:px-14 lg:px-16 lg:py-14">
             {/* Top Left Heading & Subtitle */}
             <div className="max-w-[720px] lg:w-[50%]">
+              <div className="flex items-center gap-2.5 mb-4 sm:mb-5">
+                <span className="h-3.5 w-[2.5px] rounded-full bg-[#299EED]" />
+                <span className="text-xs font-semibold uppercase tracking-[0.08em] text-white">
+                  What We Do
+                </span>
+              </div>
+
               <h2 className="text-[36px] sm:text-[48px] md:text-[56px] lg:text-[64px] font-bold leading-[1.05] tracking-[-0.035em] text-white">
                 Helping<br />
                 enterprises<br />

@@ -13,6 +13,7 @@ import Navbar from "../../src/components/Navbar";
 import Footer from "../../src/components/Footer";
 import CTAC from "../../src/components/CTAC";
 import { submitLead } from "../../src/lib/actions";
+import { BackgroundArtwork } from "@/src/components/ServiceHeroBanner";
 
 export default function ContactPage() {
   const [showPopup, setShowPopup] = useState(false);
@@ -73,38 +74,116 @@ export default function ContactPage() {
     <main className="min-h-screen overflow-x-hidden bg-white text-[#0E2A54]">
       <Navbar />
 
-      {/* Hero Banner Section */}
+      {/* Hero Banner Section matching reference image & Work page background */}
       <section className="w-full bg-white pt-[72px] sm:pt-[76px] md:pt-[80px]">
         <div className="kaluna-wide-container">
-          <div
-            className="
-              relative
-              w-full
-              h-[180px]
-              sm:h-[230px]
-              md:h-[270px]
-              rounded-[12px]
-              sm:rounded-[18px]
-              overflow-hidden
-              flex
-              items-center
-              justify-center
-              bg-cover
-              bg-center
-              bg-[linear-gradient(135deg,#02184d_0%,#08297d_100%)]
-            "
-            style={{
-              backgroundImage: "url('/image/banner-title.svg')",
-            }}
-          >
-            {/* Color blend overlay spreading from #02184d to #08297d */}
-            <div className="absolute inset-0 bg-[linear-gradient(135deg,#02184d_0%,#08297d_100%)] opacity-75 mix-blend-multiply z-[1]" />
-            <div className="absolute inset-0 bg-[linear-gradient(135deg,#02184d_0%,#08297d_100%)] opacity-25 z-[1]" />
+          <section className="relative mx-auto w-full max-w-[1830px] select-none overflow-hidden rounded-[20px] sm:rounded-[24px] bg-[#003456] h-[60vh] min-h-[500px] max-h-[700px] lg:h-[60vh]">
+            {/* Work Page Background Vector Artwork */}
+            <BackgroundArtwork idPrefix="contact-hero-bg" />
 
-            <h1 className="relative z-10 text-[24px] sm:text-[32px] md:text-[48px] lg:text-[56px] font-semibold md:font-semibold tracking-[-0.02em] text-white text-center px-4">
-             Contacts Us
-            </h1>
-          </div>
+            {/* Soft Contrast Overlay */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(90deg,rgba(0,36,64,0.22)_0%,rgba(0,36,64,0.08)_50%,rgba(0,36,64,0)_75%)]"
+            />
+
+            {/* Left Column: Text Overlay */}
+            <div className="relative z-20 flex h-full flex-col justify-center px-6 sm:px-10 lg:px-16 lg:w-[52%]">
+              <h1 className="text-[32px] sm:text-[42px] lg:text-[52px] font-bold leading-[1.06] tracking-[-0.04em] text-white">
+                Crafting Digital<br />
+                Solutions<br />
+                <span className="bg-gradient-to-r from-[#299EED] via-[#5DBCF5] to-[#75C8FF] bg-clip-text text-transparent">
+                  For Your Needs
+                </span>
+              </h1>
+
+              <p className="mt-4 sm:mt-6 text-sm sm:text-base lg:text-[17px] font-normal leading-[1.4] text-white/90 max-w-[560px]">
+                We build end-to-end Enterprise Resource Planning solutions that unify your core operations into a single, intelligent platform.
+              </p>
+            </div>
+
+            {/* Right Column: 3D Artwork Composition matching Reference Image 100% */}
+            <div className="hidden lg:flex absolute right-0 top-0 bottom-0 w-[48%] items-center justify-center pointer-events-none z-10">
+              {/* Glassmorphism Background Panel 1 (Tall Vertical Glass Card) */}
+              <div className="absolute right-[10%] top-[12%] h-[76%] w-[58%] rounded-[40px] border border-white/20 bg-white/5 backdrop-blur-md shadow-2xl" />
+
+              {/* Glassmorphism Background Panel 2 (Bottom Right Rounded Card) */}
+              <div className="absolute right-[3%] bottom-[8%] h-[35%] w-[42%] rounded-[28px] border border-white/15 bg-white/10 backdrop-blur-md shadow-xl" />
+
+              {/* Central Logo & 3D Icons Composition Container */}
+              <div className="relative flex items-center justify-center">
+                {/* Main White Emblem Circle */}
+                <div className="relative w-[260px] h-[260px] xl:w-[300px] xl:h-[300px] rounded-full bg-gradient-to-b from-white via-white to-[#E4F4FF] shadow-[0_25px_60px_rgba(0,0,0,0.35)] flex items-center justify-center border-4 border-white/90">
+                  {/* Kaluna K Logo Emblem */}
+                  <svg
+                    className="w-[120px] h-[120px] xl:w-[140px] xl:h-[140px]"
+                    viewBox="0 0 42 41"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path fill="#0b2450" d="M 19.5,-0.5 C 26.8333,-0.5 34.1667,-0.5 41.5,-0.5C 41.5,-0.166667 41.5,0.166667 41.5,0.5C 27.8066,13.8607 14.14,27.1941 0.5,40.5C 0.166667,40.5 -0.166667,40.5 -0.5,40.5C -0.5,33.1667 -0.5,25.8333 -0.5,18.5C 6.5913,12.6197 13.258,6.28633 19.5,-0.5 Z" />
+                    <path fill="#259be8" d="M -0.5,-0.5 C -0.166667,-0.5 0.166667,-0.5 0.5,-0.5C 2.96192,2.46387 5.62859,5.2972 8.5,8 C 5.63064,11.0379 2.63064,13.8712 -0.5,16.5C -0.5,10.8333 -0.5,5.16667 -0.5,-0.5 Z" />
+                    <path fill="#259ce7" d="M 41.5,3.5 C 41.5,14.5 41.5,25.5 41.5,36.5C 35.6365,31.1355 29.9698,25.6355 24.5,20C 29.9698,14.3645 35.6365,8.86447 41.5,3.5 Z" />
+                    <path fill="#0b2450" d="M 41.5,39.5 C 41.5,39.8333 41.5,40.1667 41.5,40.5C 34.1667,40.5 26.8333,40.5 19.5,40.5C 17.0381,37.5361 14.3714,34.7028 11.5,32C 15.0152,28.3176 18.6819,24.8176 22.5,21.5C 28.8538,27.5216 35.1871,33.5216 41.5,39.5 Z" />
+                  </svg>
+
+                  {/* Overlapping 3D Headset Icon on Left of Circle */}
+                  <div className="absolute -left-12 xl:-left-16 top-1/2 -translate-y-1/2 w-[110px] h-[110px] xl:w-[130px] xl:h-[130px] drop-shadow-[0_15px_30px_rgba(0,0,0,0.35)]">
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+                      <defs>
+                        <linearGradient id="contact_headset_grad" x1="10" y1="10" x2="90" y2="90" gradientUnits="userSpaceOnUse">
+                          <stop stopColor="#82D2FF" />
+                          <stop offset="0.6" stopColor="#299EED" />
+                          <stop offset="1" stopColor="#0B4B75" />
+                        </linearGradient>
+                      </defs>
+                      <path
+                        d="M18 55 C 18 24, 82 24, 82 55"
+                        stroke="url(#contact_headset_grad)"
+                        strokeWidth="13"
+                        strokeLinecap="round"
+                      />
+                      <rect x="12" y="44" width="16" height="30" rx="8" fill="url(#contact_headset_grad)" />
+                      <rect x="72" y="44" width="16" height="30" rx="8" fill="url(#contact_headset_grad)" />
+                      <path
+                        d="M20 68 Q 30 84, 52 84 H 60"
+                        stroke="url(#contact_headset_grad)"
+                        strokeWidth="7"
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                  </div>
+
+                  {/* Overlapping 3D Question Bubble ('?') on Top-Right of Circle */}
+                  <div className="absolute -top-5 -right-5 xl:-top-7 xl:-right-7 w-[85px] h-[85px] xl:w-[100px] xl:h-[100px] drop-shadow-[0_15px_30px_rgba(41,158,237,0.45)]">
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+                      <defs>
+                        <linearGradient id="contact_bubble_grad" x1="15" y1="15" x2="85" y2="85" gradientUnits="userSpaceOnUse">
+                          <stop stopColor="#E3F4FF" />
+                          <stop offset="0.7" stopColor="#75C8FF" />
+                          <stop offset="1" stopColor="#299EED" />
+                        </linearGradient>
+                      </defs>
+                      <circle cx="50" cy="46" r="38" fill="url(#contact_bubble_grad)" />
+                      <path d="M30 74 L42 66 L25 58 Z" fill="url(#contact_bubble_grad)" />
+                      <text
+                        x="50"
+                        y="58"
+                        textAnchor="middle"
+                        fill="#0B2450"
+                        fontSize="44"
+                        fontWeight="bold"
+                        fontFamily="sans-serif"
+                      >
+                        ?
+                      </text>
+                    </svg>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
       </section>
 

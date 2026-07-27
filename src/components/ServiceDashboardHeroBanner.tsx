@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import { BackgroundArtwork } from "./ServiceHeroBanner";
 
 interface ServiceDashboardHeroBannerProps {
   title?: string;
@@ -18,25 +19,15 @@ export default function ServiceDashboardHeroBanner({
 
   return (
     <section
-      className="group relative w-full rounded-[16px] sm:rounded-[20px] lg:rounded-[24px] overflow-hidden select-none h-[60vh] min-h-[500px] max-h-[700px] lg:h-[60vh]"
-      style={{
-        background: "linear-gradient(180deg, #075B8C 0%, #064F7C 45%, #003B63 100%)",
-      }}
+      className="group relative w-full rounded-[16px] sm:rounded-[20px] lg:rounded-[24px] overflow-hidden select-none h-[60vh] min-h-[500px] max-h-[700px] lg:h-[60vh] bg-[#003456]"
     >
-      {/* z-1: Diagonal Translucent Overlay Lines & Fields (Pure CSS) */}
-      <div className="pointer-events-none absolute inset-0 z-1 overflow-hidden">
-        {/* Top Left Diagonal Accent Line */}
-        <div className="absolute left-[-15%] top-[-45%] h-[1100px] w-[700px] rotate-45 border-r border-[#6BC4FF]/30" />
+      <BackgroundArtwork idPrefix="service-dashboard-hero" />
 
-        {/* Center Diagonal Gradient Field */}
-        <div className="absolute left-[38%] top-[-55%] h-[1200px] w-[520px] rotate-[-42deg] bg-gradient-to-b from-[#D2EDFF]/20 to-transparent blur-[1px]" />
-
-        {/* Accent Soft Blue Fill Field */}
-        <div className="absolute left-[20%] top-[5%] h-[900px] w-[500px] rotate-45 bg-[#2791D8]/10" />
-
-        {/* Ambient Top Glow Filter */}
-        <div className="absolute right-[20%] top-[-10%] w-[350px] h-[350px] bg-[#2791D8]/20 blur-[80px] rounded-full" />
-      </div>
+      {/* Soft contrast layer */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-1 bg-[linear-gradient(90deg,rgba(0,36,64,0.18)_0%,rgba(0,36,64,0.06)_46%,rgba(0,36,64,0)_72%)]"
+      />
 
       {/* z-5: Large Transparent Decorative Panel behind Dashboard */}
       <div

@@ -40,7 +40,7 @@ const features: TechnicalFeatureItem[] = [
 export default function ServiceTechnicalFeatures() {
   return (
     <section className="w-full bg-white py-14 sm:py-20 lg:py-24 border-t border-gray-100">
-      <div className="kaluna-wide-container px-4 sm:px-6 lg:px-12">
+      <div className="kaluna-container">
         {/* Section Header */}
         <div className="mx-auto max-w-[800px] text-center mb-12 lg:mb-16">
           <div className="flex items-center justify-center gap-2.5 mb-3">

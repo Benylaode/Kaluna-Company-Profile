@@ -115,7 +115,7 @@ function getIconComponent(iconName?: string): LucideIcon {
   return iconMap[iconName.toLowerCase()] ?? Building2;
 }
 
-function BackgroundArtwork({ idPrefix }: BackgroundArtworkProps) {
+export function BackgroundArtwork({ idPrefix }: BackgroundArtworkProps) {
   const backgroundGradientId = `${idPrefix}-hero-background`;
   const diagonalGradientId = `${idPrefix}-diagonal-gradient`;
   const diagonalShadowOneId = `${idPrefix}-diagonal-shadow-one`;
@@ -669,7 +669,17 @@ export default function ServiceHeroBanner({
               fontSize: "clamp(26px, 3.2vw, 52px)",
             }}
           >
-            {displayTitle}
+            {displayTitle.includes("For Your Needs") ? (
+              <>
+                Crafting Digital<br />
+                Solutions<br />
+                <span className="bg-gradient-to-r from-[#299EED] via-[#5DBCF5] to-[#75C8FF] bg-clip-text text-transparent">
+                  For Your Needs
+                </span>
+              </>
+            ) : (
+              displayTitle
+            )}
           </h1>
 
           <p
