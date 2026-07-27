@@ -11,7 +11,7 @@ export const testimonials = [
     company_name: "PT Bahtera Sapta Permata",
     content:
       "Kaluna Technology quickly understood our operational needs. Their team was responsive, easy to communicate with, and able to provide solutions that fit BSP’s business processes.",
-    avatar_url: "/image/default-avatar.svg",
+    avatar_url: "/image/mitra/persone/ibnu saptro.webp",
     logo_url: "/image/mitra/2.webp",
   },
   {
@@ -20,7 +20,7 @@ export const testimonials = [
     company_name: "Suara Merdeka Network",
     content:
       "Kaluna Technology helped us develop a professional and informative enterprise company profile website. The development process was well managed, and communication with the team went smoothly.",
-    avatar_url: "/image/default-avatar.svg",
+    avatar_url: "/image/mitra/persone/gunawan.webp",
     logo_url: "/image/mitra/13.webp",
   },
   {
@@ -47,7 +47,7 @@ export const testimonials = [
     company_name: "Sinau Print",
     content:
       "The ERP system developed by Kaluna Technology has helped make our workflows more structured. Their team also took the time to understand the needs of each department.",
-    avatar_url: "/image/default-avatar.svg",
+    avatar_url: "/image/mitra/persone/anisa.webp",
     logo_url: "/image/mitra/11.webp",
   },
   {
@@ -56,7 +56,7 @@ export const testimonials = [
     company_name: "Mandiri Pribumi",
     content:
       "The company profile website developed by Kaluna Technology met our expectations. It looks professional, and the entire development process went smoothly.",
-    avatar_url: "/image/default-avatar.svg",
+    avatar_url: "/image/mitra/persone/sisca.webp",
     logo_url: "/image/mitra/18.webp",
   },
   {
@@ -65,7 +65,7 @@ export const testimonials = [
     company_name: "X1-Tire",
     content:
       "The dashboard developed by Kaluna Technology has made it easier for our team to monitor and manage data. The system is practical and easy to use in our daily activities.",
-    avatar_url: "/image/default-avatar.svg",
+    avatar_url: "/image/mitra/persone/mayakarta.webp",
     logo_url: "/image/mitra/14.webp",
   },
 ];
