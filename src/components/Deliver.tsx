@@ -193,7 +193,7 @@ export default function Deliver({ testimonials }: { testimonials?: TestimonialDa
                     alt={item.client_name}
                     className="
                       h-12 w-12 rounded-xl bg-gray-200 object-cover
-                      object-[center_30%]
+                      object-[center_20%]
                       md:h-14 md:w-14
                     "
                   />
