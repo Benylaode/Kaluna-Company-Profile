@@ -210,7 +210,7 @@ export default function OurWorks() {
           <div className="relative z-20 mb-6 sm:mb-8 flex flex-wrap items-center justify-between gap-4">
             <span className="inline-flex items-center gap-2.5 text-xs sm:text-xs font-semibold uppercase tracking-wider">
               <span className="h-4 w-[3px] bg-[#299EED] rounded-full" />
-              DELIVERY METHODOLOGY (HOW WE DELIVER)
+              HOW WE DELIVER
             </span>
 
             {/* Stepper info & Navigation Arrows */}

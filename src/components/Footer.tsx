@@ -9,14 +9,7 @@ import {
 } from "react-icons/fa6";
 import { FaXTwitter } from "react-icons/fa6";
 
-const servicesList = [
-  { name: "ERP & System Integration", href: "/services" },
-  { name: "Point of Sale & Retail ERP", href: "/services" },
-  { name: "Human Resource & Payroll ERP", href: "/services" },
-  { name: "Financial & Accounting ERP", href: "/services" },
-  { name: "Supply Chain & Inventory ERP", href: "/services" },
-  { name: "Logistics & Fleet Management ERP", href: "/services" },
-];
+
 
 const socials = [
   {
@@ -84,24 +77,8 @@ export default function Footer() {
               />
             </div>
 
-            {/* Our Service */}
-            <div className="md:col-span-4 lg:col-span-3">
-              <h4 className="mb-4 text-[12px] font-bold uppercase tracking-[0.08em] text-[#0D0D0D]">
-                Our Service
-              </h4>
-              <ul className="space-y-3 text-[13px] text-[#3F3F3F]">
-                {servicesList.map((service) => (
-                  <li key={service.name}>
-                    <Link href={service.href} className="transition-colors hover:text-[#299EED]">
-                      {service.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
             {/* Company */}
-            <div className="max-w-[180px] md:col-span-4 lg:col-span-2">
+            <div className="max-w-[200px] md:col-span-6 lg:col-span-3">
               <h4 className="mb-4 text-[12px] font-bold uppercase tracking-[0.08em] text-[#0D0D0D]">
                 Company
               </h4>
@@ -119,6 +96,11 @@ export default function Footer() {
                 <li>
                   <Link href="#footer" className="transition-colors hover:text-[#299EED]">
                     Contact Us
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services" className="transition-colors hover:text-[#299EED]">
+                    Our Services
                   </Link>
                 </li>
                 <li className="group">
@@ -139,7 +121,7 @@ export default function Footer() {
             </div>
 
             {/* Visit Our Office */}
-            <div className="max-w-[250px] md:col-span-4 lg:col-span-3">
+            <div className="max-w-[250px] md:col-span-6 lg:col-span-4">
               <h4 className="mb-4 text-[12px] font-bold uppercase tracking-[0.08em] text-[#0D0D0D]">
                 Visit Our Office
               </h4>

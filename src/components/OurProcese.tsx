@@ -26,7 +26,7 @@ const DEFAULT_IMAGES = [
   "/image/proses-service/5.jpg",
 ];
 
-const DEFAULT_STEPS: ProcessStep[] =[
+const DEFAULT_STEPS: ProcessStep[] = [
   {
     id: 1,
     title: "Business Architecture & Blueprinting",
@@ -65,9 +65,9 @@ const DEFAULT_STEPS: ProcessStep[] =[
 ];
 
 const SLIDE_INTERVAL_MS = 2500;
-const CARD_WIDTH_PX = 324; // 300px card width + 24px gap
+const CARD_WIDTH_PX = 320; // 300px card width + 20px gap
 
-export default function OurProcese({ steps, title = "IMPLEMENTATION PROCESS" }: OurProceseProps) {
+export default function OurProcese({ steps, title = "HOW WE DELIVER" }: OurProceseProps) {
   const stepsToUse = (steps && steps.length > 0)
     ? steps.map((s, idx) => ({
         id: s.id || idx + 1,
@@ -133,7 +133,7 @@ export default function OurProcese({ steps, title = "IMPLEMENTATION PROCESS" }: 
   const progress = realActiveIndex * stepWidth + stepWidth / 2;
 
   return (
-    <section id="works-section" className="bg-[#FAFAFA] py-12 md:py-16 overflow-hidden">
+    <section id="works-section" className="bg-[#FAFAFA] py-10 md:py-14 overflow-hidden">
       <style>{`
         .kaluna-diagonal {
           position: relative;
@@ -199,6 +199,17 @@ export default function OurProcese({ steps, title = "IMPLEMENTATION PROCESS" }: 
           z-index: 2;
         }
 
+        .kaluna-right-linear-slider {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: calc(300px + 20px);
+          background: linear-gradient(270deg, #0E2A54 0%, rgba(14, 42, 84, 0) 100%);
+          pointer-events: none;
+          z-index: 20;
+        }
+
         @keyframes fillProgress {
           from {
             width: 0%;
@@ -211,7 +222,7 @@ export default function OurProcese({ steps, title = "IMPLEMENTATION PROCESS" }: 
       `}</style>
 
       <div className="kaluna-wide-container">
-        <div className="relative overflow-hidden rounded-[24px] kaluna-diagonal px-5 py-8 text-white sm:px-8 sm:py-12 md:px-12 md:py-16">
+        <div className="relative overflow-hidden rounded-[24px] kaluna-diagonal px-5 py-7 text-white sm:px-8 sm:py-10 md:px-12 md:py-12">
           <div className="kaluna-graphic-k">
             <span />
           </div>
@@ -219,8 +230,8 @@ export default function OurProcese({ steps, title = "IMPLEMENTATION PROCESS" }: 
           <div className="kaluna-right-linear" />
 
           {/* HEADER */}
-          <div className="relative z-20 mb-6 sm:mb-8 flex flex-wrap items-center justify-between gap-4">
-            <span className="inline-flex items-center gap-2.5 text-xs sm:text-sm font-semibold uppercase tracking-wider">
+          <div className="relative z-20 mb-5 sm:mb-6 flex flex-wrap items-center justify-between gap-4">
+            <span className="inline-flex items-center gap-2.5 text-xs sm:text-xs font-semibold uppercase tracking-wider">
               <span className="h-4 w-[3px] bg-[#299EED] rounded-full" />
               {title}
             </span>
@@ -235,17 +246,17 @@ export default function OurProcese({ steps, title = "IMPLEMENTATION PROCESS" }: 
                   type="button"
                   onClick={prevSlide}
                   aria-label="Previous step"
-                  className="group flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white hover:bg-[#299EED] hover:border-[#299EED] transition duration-300"
+                  className="group flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white hover:bg-[#299EED] hover:border-[#299EED] transition duration-300"
                 >
-                  <ArrowLeft className="h-4 w-4 sm:h-5 sm:w-5" />
+                  <ArrowLeft className="h-4 w-4 sm:h-4 sm:w-4" />
                 </button>
                 <button
                   type="button"
                   onClick={nextSlide}
                   aria-label="Next step"
-                  className="group flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white hover:bg-[#299EED] hover:border-[#299EED] transition duration-300"
+                  className="group flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white hover:bg-[#299EED] hover:border-[#299EED] transition duration-300"
                 >
-                  <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
+                  <ArrowRight className="h-4 w-4 sm:h-4 sm:w-4" />
                 </button>
               </div>
             </div>
@@ -258,7 +269,7 @@ export default function OurProcese({ steps, title = "IMPLEMENTATION PROCESS" }: 
             onMouseLeave={() => setPaused(false)}
           >
             <div
-              className={`flex gap-6 ${isTransitioning ? "transition-transform duration-500 ease-out" : ""}`}
+              className={`flex gap-5 ${isTransitioning ? "transition-transform duration-500 ease-out" : ""}`}
               style={{
                 transform: `translateX(-${activeIndex * CARD_WIDTH_PX}px)`,
               }}
@@ -278,9 +289,9 @@ export default function OurProcese({ steps, title = "IMPLEMENTATION PROCESS" }: 
                     }}
                     className={`
                       group relative
-                      flex h-[360px] w-[300px] flex-shrink-0 flex-col
+                      flex h-[350px] w-[300px] flex-shrink-0 flex-col
                       overflow-hidden
-                      rounded-[24px]
+                      rounded-[20px]
                       p-3
                       transition-all duration-500
                       cursor-pointer
@@ -291,7 +302,7 @@ export default function OurProcese({ steps, title = "IMPLEMENTATION PROCESS" }: 
                       }
                     `}
                   >
-                    <div className="relative h-[180px] shrink-0 overflow-hidden rounded-[16px]">
+                    <div className="relative h-[175px] shrink-0 overflow-hidden rounded-[14px]">
                       <LazyImage
                         src={item.image_url}
                         alt={item.title}
@@ -303,25 +314,25 @@ export default function OurProcese({ steps, title = "IMPLEMENTATION PROCESS" }: 
                       )}
                     </div>
 
-                    <div className="flex flex-1 flex-col justify-between px-2 pb-3 pt-4">
+                    <div className="flex flex-1 flex-col justify-start px-2.5 pb-3 pt-3.5">
                       <div>
-                        <div className="flex justify-between gap-3">
+                        <div className="flex items-start justify-between gap-2.5">
                           <h3
-                            className={`text-[20px] leading-[1.3] ${
+                            className={`text-[16px] sm:text-[17px] leading-[1.35] ${
                               isActive
                                 ? "font-semibold text-[#0E2A54]"
-                                : "font-normal text-[#0E2A54]"
+                                : "font-medium text-[#0E2A54]"
                             }`}
                           >
                             {item.title}
                           </h3>
 
-                          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#0E2A54] text-[10px] font-medium text-white">
+                          <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#0E2A54] text-[9.5px] font-medium text-white self-start mt-0.5">
                             {displayId}
                           </span>
                         </div>
 
-                        <p className="mt-2 text-xs sm:text-sm leading-[1.5] text-[#3F3F3F]">
+                        <p className="mt-2 text-[12px] sm:text-[12.5px] leading-[1.55] text-[#4A4A4A]">
                           {item.category}
                         </p>
                       </div>
@@ -329,7 +340,7 @@ export default function OurProcese({ steps, title = "IMPLEMENTATION PROCESS" }: 
 
                     {/* Progress bar tepat di sisi bawah card */}
                     {isActive && (
-                      <div className="absolute bottom-0 left-0 right-0 z-20 h-[5px] bg-[#DCE3EA]">
+                      <div className="absolute bottom-0 left-0 right-0 z-20 h-[4px] bg-[#DCE3EA]">
                         <div
                           key={`progress-${activeIndex}`}
                           className="h-full bg-[#299EED]"
@@ -344,10 +355,12 @@ export default function OurProcese({ steps, title = "IMPLEMENTATION PROCESS" }: 
                 );
               })}
             </div>
+
+            <div className="kaluna-right-linear-slider" />
           </div>
 
           {/* PROGRESS BAR KESELURUHAN DENGAN PANAH PROGRES DI BAWAH SLIDER */}
-          <div className="relative z-20 mt-10 max-w-3xl">
+          <div className="relative z-20 mt-7 max-w-3xl">
             {/* Jalur Progress - Lebar bar biru berubah mengikuti slide aktif */}
             <div className="h-[4px] rounded-full bg-[#304674]">
               <div

@@ -623,7 +623,7 @@ export default async function CaseStudyPage({
             <div className="w-full px-5 md:px-[min(5vw,86px)]">
               <div className="relative z-10 flex items-center justify-between gap-6">
                 <SectionLabel light>
-                  OUR IMPLEMENTATION PROCESS
+                  HOW WE DELIVER
                 </SectionLabel>
 
                 <div className="hidden items-center gap-3 md:flex">
