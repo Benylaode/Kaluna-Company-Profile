@@ -105,10 +105,10 @@ export default function ContactPage() {
             {/* Right Column: 3D Artwork Composition matching Reference Image 100% */}
             <div className="hidden lg:flex absolute right-0 top-0 bottom-0 w-[48%] items-center justify-center pointer-events-none z-10">
               {/* Glassmorphism Background Panel 1 (Tall Vertical Glass Card) */}
-              <div className="absolute right-[10%] top-[12%] h-[76%] w-[58%] rounded-[40px] border border-white/20 bg-white/5 backdrop-blur-md shadow-2xl" />
+              <div className="absolute right-[10%] top-[12%] h-[76%] w-[58%] rounded-[40px] border border-white/20 bg-white/5 shadow-2xl" />
 
               {/* Glassmorphism Background Panel 2 (Bottom Right Rounded Card) */}
-              <div className="absolute right-[3%] bottom-[8%] h-[35%] w-[42%] rounded-[28px] border border-white/15 bg-white/10 backdrop-blur-md shadow-xl" />
+              <div className="absolute right-[3%] bottom-[8%] h-[35%] w-[42%] rounded-[28px] border border-white/15 bg-white/10 shadow-xl" />
 
               {/* Central Logo & 3D Icons Composition Container */}
               <div className="relative flex items-center justify-center">

@@ -1,10 +1,7 @@
-"use client";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import Button from "./ui/Button";
 
 export default function CTAC() {
-  const router = useRouter();
-
   return (
     <section className="bg-transparent pb-12 md:pb-3 lg:pb-3 w-full border-none outline-none">
       <div className="kaluna-wide-container">
@@ -25,12 +22,13 @@ export default function CTAC() {
           </div>
 
           <div className="relative z-10 flex w-full flex-shrink-0 justify-center md:w-auto md:justify-end">
-            <Button
-              variant="primary-white"
-              label="See Our Work"
-              onClick={() => router.push("/works")}
-              className="w-full md:w-auto"
-            />
+            <Link href="/works" className="w-full md:w-auto">
+              <Button
+                variant="primary-white"
+                label="See Our Work"
+                className="w-full md:w-auto"
+              />
+            </Link>
           </div>
         </div>
       </div>

@@ -45,8 +45,6 @@ export default function ServiceDashboardHeroBanner({
           border
           border-[#9CD8FF]/25
           bg-[#00406C]/22
-          backdrop-blur-[2px]
-          panel-float
         `}
       />
 

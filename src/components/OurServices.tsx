@@ -35,8 +35,7 @@ function SparkleIcon({ className = "w-10 h-10" }: { className?: string }) {
 function BackgroundArtwork({ idPrefix }: { idPrefix: string }) {
   const backgroundGradientId = `${idPrefix}-bg`;
   const diagonalGradientId = `${idPrefix}-diag`;
-  const diagonalShadowOneId = `${idPrefix}-shadow1`;
-  const diagonalShadowTwoId = `${idPrefix}-shadow2`;
+
 
   return (
     <svg
@@ -72,77 +71,21 @@ function BackgroundArtwork({ idPrefix }: { idPrefix: string }) {
           <stop offset="1" stopColor="#003F69" />
         </linearGradient>
 
-        <filter
-          id={diagonalShadowOneId}
-          x="-50.8"
-          y="-278.8"
-          width="1759.6"
-          height="1762.6"
-          filterUnits="userSpaceOnUse"
-          colorInterpolationFilters="sRGB"
-        >
-          <feFlood floodOpacity="0" result="BackgroundImageFix" />
-          <feColorMatrix
-            in="SourceAlpha"
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-            result="hardAlpha"
-          />
-          <feOffset dx="46" dy="4" />
-          <feGaussianBlur stdDeviation="36.4" />
-          <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0.825 0 0 0 0 0.929464 0 0 0 0 1 0 0 0 1 0"
-          />
-          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
-          <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
-        </filter>
-
-        <filter
-          id={diagonalShadowTwoId}
-          x="-219"
-          y="-311"
-          width="1850"
-          height="1853"
-          filterUnits="userSpaceOnUse"
-          colorInterpolationFilters="sRGB"
-        >
-          <feFlood floodOpacity="0" result="BackgroundImageFix" />
-          <feColorMatrix
-            in="SourceAlpha"
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-            result="hardAlpha"
-          />
-          <feOffset dy="27" />
-          <feGaussianBlur stdDeviation="36" />
-          <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0.0192306 0 0 0 0 0.467507 0 0 0 0 0.769231 0 0 0 1 0"
-          />
-          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
-          <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
-        </filter>
       </defs>
 
       <rect width="1830" height="889" rx="24" fill={`url(#${backgroundGradientId})`} />
 
-      <g opacity="0.58" filter={`url(#${diagonalShadowOneId})`}>
-        <path
-          d="M696.287 521.085L-21.7188 -196.872C-26.5781 -201.731 -23.168 -210 -16.2625 -210H763.978C772.674 -210 781.029 -206.505 787.252 -200.367L1586.76 599.172C1588.81 601.218 1590 604.031 1590 606.929V1401.52C1590 1406.38 1584.12 1408.86 1580.62 1405.36L1184.11 1008.87L1183.94 1008.7L777.875 602.582L696.287 521V521.085Z"
-          fill={`url(#${diagonalGradientId})`}
-        />
-      </g>
+      <path
+        d="M696.287 521.085L-21.7188 -196.872C-26.5781 -201.731 -23.168 -210 -16.2625 -210H763.978C772.674 -210 781.029 -206.505 787.252 -200.367L1586.76 599.172C1588.81 601.218 1590 604.031 1590 606.929V1401.52C1590 1406.38 1584.12 1408.86 1580.62 1405.36L1184.11 1008.87L1183.94 1008.7L777.875 602.582L696.287 521V521.085Z"
+        fill={`url(#${diagonalGradientId})`}
+        opacity="0.45"
+      />
 
-      <g filter={`url(#${diagonalShadowTwoId})`}>
-        <path
-          d="M797.656 506.68L1556.59 -252.125C1561.73 -257.26 1558.12 -266 1550.82 -266H726.106C716.914 -266 708.083 -262.306 701.505 -255.819L-143.576 589.21C-145.738 591.372 -147 594.346 -147 597.409V1437.21C-147 1442.35 -140.782 1444.96 -137.088 1441.27L282.029 1022.22L282.209 1022.04L711.418 592.814L797.656 506.59V506.68Z"
-          fill="#2791D8"
-          fillOpacity="0.14"
-        />
-      </g>
+      <path
+        d="M797.656 506.68L1556.59 -252.125C1561.73 -257.26 1558.12 -266 1550.82 -266H726.106C716.914 -266 708.083 -262.306 701.505 -255.819L-143.576 589.21C-145.738 591.372 -147 594.346 -147 597.409V1437.21C-147 1442.35 -140.782 1444.96 -137.088 1441.27L282.029 1022.22L282.209 1022.04L711.418 592.814L797.656 506.59V506.68Z"
+        fill="#2791D8"
+        opacity="0.14"
+      />
     </svg>
   );
 }

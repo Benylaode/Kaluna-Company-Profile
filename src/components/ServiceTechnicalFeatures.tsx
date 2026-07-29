@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import { Blocks, UserCheck, CheckCircle2, GitFork, RotateCcw } from "lucide-react";
 

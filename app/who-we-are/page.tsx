@@ -225,7 +225,6 @@ const expertise = [
                 from-[#D2EBFB]/85
                 via-[#82B4D3]/70
                 to-[#07507F]/90
-                backdrop-blur-md
                 shadow-xl
                 who-we-are-bottom-panel-float
               "

@@ -131,77 +131,21 @@ export default function WhoWeAreProblemWeSolve() {
                     <stop offset="1" stopColor="#000000" />
                   </linearGradient>
 
-                  <filter
-                    id="whoweare-problem-shadow-1"
-                    x="-320"
-                    y="-1200"
-                    width="2350"
-                    height="2350"
-                    filterUnits="userSpaceOnUse"
-                    colorInterpolationFilters="sRGB"
-                  >
-                    <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                    <feColorMatrix
-                      in="SourceAlpha"
-                      type="matrix"
-                      values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                      result="hardAlpha"
-                    />
-                    <feOffset dx="30" dy="4" />
-                    <feGaussianBlur stdDeviation="30" />
-                    <feComposite in2="hardAlpha" operator="out" />
-                    <feColorMatrix
-                      type="matrix"
-                      values="0 0 0 0 0.0039 0 0 0 0 0.1568 0 0 0 0 0.2627 0 0 0 1 0"
-                    />
-                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
-                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
-                  </filter>
-
-                  <filter
-                    id="whoweare-problem-shadow-2"
-                    x="600"
-                    y="-230"
-                    width="1250"
-                    height="1200"
-                    filterUnits="userSpaceOnUse"
-                    colorInterpolationFilters="sRGB"
-                  >
-                    <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                    <feColorMatrix
-                      in="SourceAlpha"
-                      type="matrix"
-                      values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                      result="hardAlpha"
-                    />
-                    <feOffset dy="20" />
-                    <feGaussianBlur stdDeviation="30" />
-                    <feComposite in2="hardAlpha" operator="out" />
-                    <feColorMatrix
-                      type="matrix"
-                      values="0 0 0 0 0 0 0 0 0 0.1568 0 0 0 0 0.2627 0 0 0 1 0"
-                    />
-                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
-                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
-                  </filter>
                 </defs>
 
                 <rect width="1600" height="800" fill="url(#whoweare-problem-bg-grad)" />
 
-                <g opacity="0.85" filter="url(#whoweare-problem-shadow-1)">
                   <path
                     d="M956.593 84.215L1946.85 1073.9C1953.56 1080.6 1948.85 1092 1939.33 1092H863.234C851.241 1092 839.719 1087.18 831.135 1078.72L-271.532 -23.4261C-274.354 -26.2465 -276 -30.1244 -276 -34.1198V-1129.45C-276 -1136.15 -267.887 -1139.56 -263.066 -1134.74L283.799 -588.19L284.034 -587.955L844.069 -28.1266L956.593 84.3325V84.215Z"
                     fill="url(#whoweare-problem-diag-grad)"
+                    opacity="0.65"
                   />
-                </g>
 
-                <g filter="url(#whoweare-problem-shadow-2)">
                   <path
                     d="M1175.13 415.498L683.562 907.012C680.235 910.339 682.57 916 687.297 916H1221.48C1227.43 916 1233.15 913.607 1237.41 909.405L1784.78 362.04C1786.18 360.639 1787 358.714 1787 356.729V-187.251C1787 -190.578 1782.97 -192.27 1780.58 -189.877L1509.11 81.5584L1509 81.675L1230.99 359.706L1175.13 415.557V415.498Z"
                     fill="#002843"
-                    fillOpacity="0.45"
+                    opacity="0.45"
                   />
-                </g>
               </svg>
 
               {/* Left Text Contrast Mask */}

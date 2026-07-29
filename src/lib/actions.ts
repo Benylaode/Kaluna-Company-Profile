@@ -177,16 +177,20 @@ function generateEmailHTML({
   `;
 }
 
-export async function getWorks(): Promise<WorkData[]> {
-  const stmt = db.prepare('SELECT * FROM works ORDER BY created_at DESC');
-  const rows = stmt.all() as any[]; 
-  
-  // Parsing string JSON dari SQLite kembali menjadi array untuk masing-masing work
-  return rows.map(row => ({
-    ...row,
-    images: row.images ? JSON.parse(row.images) : [],
-  })) as WorkData[];
-}
+import { unstable_cache } from 'next/cache';
+
+export const getWorks = unstable_cache(
+  async (): Promise<WorkData[]> => {
+    const stmt = db.prepare('SELECT * FROM works ORDER BY created_at DESC');
+    const rows = stmt.all() as any[];
+    return rows.map(row => ({
+      ...row,
+      images: row.images ? JSON.parse(row.images) : [],
+    })) as WorkData[];
+  },
+  ['works-list'],
+  { revalidate: 3600 }
+);
 
 export async function getWorkBySlug(slug: string): Promise<WorkData | undefined> {
   const stmt = db.prepare('SELECT * FROM works WHERE slug = ?');
@@ -194,24 +198,29 @@ export async function getWorkBySlug(slug: string): Promise<WorkData | undefined>
   
   if (!row) return undefined;
 
-  // Parsing string JSON dari SQLite kembali menjadi array
   return {
     ...row,
     images: row.images ? JSON.parse(row.images) : [],
   } as WorkData;
 }
 
-export async function getTestimonials(): Promise<TestimonialData[]> {
-  const stmt = db.prepare('SELECT * FROM testimonials ORDER BY created_at DESC');
-  return stmt.all() as TestimonialData[];
-}
+export const getTestimonials = unstable_cache(
+  async (): Promise<TestimonialData[]> => {
+    const stmt = db.prepare('SELECT * FROM testimonials ORDER BY created_at DESC');
+    return stmt.all() as TestimonialData[];
+  },
+  ['testimonials-list'],
+  { revalidate: 3600 }
+);
 
-
-
-export async function getTeam(): Promise<TeamMember[]> {
-  const stmt = db.prepare('SELECT * FROM team_members');
-  return stmt.all() as TeamMember[];
-}
+export const getTeam = unstable_cache(
+  async (): Promise<TeamMember[]> => {
+    const stmt = db.prepare('SELECT * FROM team_members');
+    return stmt.all() as TeamMember[];
+  },
+  ['team-members-list'],
+  { revalidate: 3600 }
+);
 
 export async function submitLead(formData: FormData) {
   const name = formData.get('name') as string;

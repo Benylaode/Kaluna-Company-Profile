@@ -72,7 +72,6 @@ export default function Footer() {
                 alt="Kaluna Technology"
                 width={422}
                 height={107}
-                priority
                 className="h-auto w-[220px] object-contain select-none md:w-[240px] lg:w-[300px]"
               />
             </div>

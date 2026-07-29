@@ -30,56 +30,14 @@
 /* ============================================================
    WHO WE ARE HERO ANIMATION SYSTEM
    ============================================================ */
-@keyframes whoWeAreFloat {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  50% {
-    transform: translate3d(-1px, -3px, 0);
-  }
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes whoWeArePanelFloat {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  50% {
-    transform: translate3d(1px, -2px, 0);
-  }
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes whoWeAreBottomPanelFloat {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  50% {
-    transform: translate3d(0, -2px, 0);
-  }
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-}
-
+/* Float classes disabled — render static */
 .who-we-are-float,
 .who-we-are-panel-float,
-.who-we-are-bottom-panel-float {
+.who-we-are-bottom-panel-float,
+.panel-float,
+.dashboard-float {
   animation: none !important;
   transform: none !important;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .who-we-are-float,
-  .who-we-are-panel-float,
-  .who-we-are-bottom-panel-float {
-    animation: none !important;
-    transform: none !important;
-  }
 }
 
 @theme inline {
@@ -91,7 +49,6 @@
 
 html {
   background-color: #ffffff;
-  scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
 }
@@ -101,18 +58,10 @@ body {
   color: #171717;
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Safari WebKit stability: avoid global forced GPU layer compositing on container tags */
-section, header, footer, main {
-  /* Safari WebKit Optimization:
-     Do NOT force backface-visibility: hidden globally. 
-     Forcing GPU compositing layers on root containers causes WebKit 
-     to drop off-screen tile backing stores during scroll, producing black blocks. */
-}
 
 /* Safari WebKit backdrop-filter utility fallbacks */
 @supports (-webkit-backdrop-filter: none) {
@@ -136,8 +85,6 @@ section, header, footer, main {
   animation: infinite-scroll 25s linear infinite;
   display: flex;
   width: max-content;
-  /* Safari WebKit optimization: removed persistent will-change to avoid GPU memory drop */
-  contain: layout style;
 }
 
 /* Opsional: Berhenti bergerak jika disorot mouse */
@@ -452,4 +399,90 @@ a, button, [role="button"], select, option, input[type="submit"], input[type="bu
 
 /* Safari WebKit smooth scrolling optimization — content-visibility removed to prevent black blocks */
 
+/* =========================================================
+   SAFARI RENDERING DIAGNOSTIC
+   Aktifkan satu class saja melalui Safari Console.
+   ========================================================= */
 
+/* Tes backdrop-filter */
+html.debug-no-backdrop *,
+html.debug-no-backdrop *::before,
+html.debug-no-backdrop *::after {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+/* Tes filter blur dan drop-shadow */
+html.debug-no-filter *,
+html.debug-no-filter *::before,
+html.debug-no-filter *::after {
+  -webkit-filter: none !important;
+  filter: none !important;
+}
+
+/* Tes semua animasi */
+html.debug-no-animation *,
+html.debug-no-animation *::before,
+html.debug-no-animation *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Tes mask */
+html.debug-no-mask *,
+html.debug-no-mask *::before,
+html.debug-no-mask *::after {
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+
+/* Tes forced compositing */
+html.debug-no-transform main > section,
+html.debug-no-transform main > div > section {
+  -webkit-transform: none !important;
+  transform: none !important;
+  will-change: auto !important;
+  -webkit-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+}
+
+/* =========================================================
+   APPLE WEBKIT SAFE MODE
+   Safari specific aggressive optimizations
+   ========================================================= */
+
+/* Nonaktifkan backdrop blur pada seluruh body agar Safari tidak panic */
+html.apple-webkit-safe body *,
+html.apple-webkit-safe body *::before,
+html.apple-webkit-safe body *::after {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+/* Matikan filter SVG blur atau CSS drop-shadow berat pada SVG atau container */
+html.apple-webkit-safe body [class*="blur-"],
+html.apple-webkit-safe body [class*="drop-shadow"],
+html.apple-webkit-safe body [style*="filter"] {
+  -webkit-filter: none !important;
+  filter: none !important;
+}
+
+/* Hapus mask yang digunakan sebagai workaround clipping */
+html.apple-webkit-safe body *,
+html.apple-webkit-safe body *::before,
+html.apple-webkit-safe body *::after {
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+
+/* Matikan animasi berulang (infinite) yang membebani GPU/CPU Safari secara konstan */
+html.apple-webkit-safe .safari-loop-animation,
+html.apple-webkit-safe .animate-marquee,
+html.apple-webkit-safe [class*="animate-[spin"],
+html.apple-webkit-safe [class*="animate-[ping"],
+html.apple-webkit-safe [class*="animate-[pulse"],
+html.apple-webkit-safe [class*="animate-[bounce"],
+html.apple-webkit-safe .animate-wa-float,
+html.apple-webkit-safe .animate-wa-pulse {
+  animation: none !important;
+}

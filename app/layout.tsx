@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import WhatsAppButton from "../src/components/WhatsAppButton";
 import WebKitBackgroundPreloader from "../src/components/WebKitBackgroundPreloader";
@@ -171,6 +172,30 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
+          }}
+        />
+        <script
+          id="apple-webkit-safe-mode"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function () {
+                var ua = navigator.userAgent || '';
+                var platform = navigator.platform || '';
+
+                var isiOS =
+                  /iPad|iPhone|iPod/.test(ua) ||
+                  (platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+                var isMacSafari =
+                  /Macintosh/.test(ua) &&
+                  /Safari/.test(ua) &&
+                  !/Chrome|Chromium|CriOS|Edg|OPR|Firefox|FxiOS/.test(ua);
+
+                if (isiOS || isMacSafari) {
+                  document.documentElement.classList.add('apple-webkit-safe');
+                }
+              })();
+            `
           }}
         />
       </head>

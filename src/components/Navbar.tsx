@@ -27,15 +27,18 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 20);
+          ticking = false;
+        });
+        ticking = true;
       }
     };
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Run once initially
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -96,8 +99,7 @@ export default function Navbar() {
             {/* Desktop Navigation */}
             <div className="hidden md:flex justify-center">
               <div 
-                className="flex items-center rounded-full border border-gray-100 bg-white/70 p-1.5 backdrop-blur-xl"
-                style={{ WebkitBackdropFilter: "blur(24px)", backdropFilter: "blur(24px)" }}
+                className="flex items-center rounded-full border border-gray-100 bg-white p-1.5"
               >
                 <Link
                   href="/"
