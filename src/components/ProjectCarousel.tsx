@@ -26,7 +26,9 @@ export default function ProjectCarousel({ projects }: { projects: ProjectData[] 
 
   useEffect(() => {
     setProgress(0);
-    const interval = 50;
+    // Interval 100ms = 10 updates/detik, cukup smooth secara visual
+    // Lebih hemat CPU dibanding 50ms (20 updates/detik)
+    const interval = 100;
     const duration = 5000;
     const step = (interval / duration) * 100;
     const timer = setInterval(() => {

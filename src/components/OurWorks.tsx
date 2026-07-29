@@ -57,7 +57,7 @@ const WORK_STEPS: WorkData[] = [
   }
 ];
 
-const SLIDE_INTERVAL_MS = 2500;
+const SLIDE_INTERVAL_MS = 3000; // Dinaikkan dari 2500ms → lebih hemat CPU
 const CARD_WIDTH_PX = 324; // 300px card width + 24px gap
 
 export default function OurWorks() {

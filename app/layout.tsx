@@ -6,11 +6,16 @@ import WhatsAppButton from "../src/components/WhatsAppButton";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  // Mencegah FOIT: teks muncul langsung dengan fallback font sebelum Geist selesai dimuat
+  display: "swap",
+  preload: true,
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
+  preload: false, // Mono font tidak kritis untuk LCP
 });
 
 const siteUrl = "https://www.kalunatechnology.com";
@@ -152,6 +157,16 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
       <head>
+        {/* Preload LCP image: hero slide pertama agar browser segera fetch sebelum parse JS */}
+        <link
+          rel="preload"
+          as="image"
+          href="/image/Hero/Default.webp"
+          fetchPriority="high"
+        />
+        {/* DNS prefetch untuk domain eksternal yang digunakan */}
+        <link rel="dns-prefetch" href="//images.unsplash.com" />
+        <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

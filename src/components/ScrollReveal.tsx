@@ -15,9 +15,9 @@ export default function ScrollReveal({
   children,
   className = "",
   delay = 0,
-  duration = 800,
+  duration = 700, // Dikurangi dari 800ms → 700ms agar terasa lebih responsif
   direction = "up",
-  distance = 30,
+  distance = 24, // Dikurangi dari 30px → 24px agar lebih subtle
 }: ScrollRevealProps) {
   const [isVisible, setIsVisible] = useState(false);
   const domRef = useRef<HTMLDivElement>(null);
@@ -27,10 +27,11 @@ export default function ScrollReveal({
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          observer.unobserve(entry.target);
+          observer.unobserve(entry.target); // Stop observing setelah visible
         }
       },
-      { threshold: 0.1 }
+      // threshold 0.05 = mulai animate saat 5% elemen terlihat (lebih awal, lebih smooth)
+      { threshold: 0.05, rootMargin: "0px 0px -20px 0px" }
     );
 
     const current = domRef.current;
@@ -72,7 +73,9 @@ export default function ScrollReveal({
         transform: getTranslate(),
         transition: `opacity ${duration}ms cubic-bezier(0.16, 1, 0.3, 1), transform ${duration}ms cubic-bezier(0.16, 1, 0.3, 1)`,
         transitionDelay: `${delay}ms`,
-        willChange: "transform, opacity",
+        // willChange hanya aktif saat belum visible (perlu animate)
+        // Setelah visible, di-reset ke 'auto' agar GPU memory dibebaskan
+        willChange: isVisible ? "auto" : "transform, opacity",
       }}
     >
       {children}

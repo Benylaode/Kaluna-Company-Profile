@@ -117,6 +117,9 @@ body {
   animation: infinite-scroll 25s linear infinite;
   display: flex;
   width: max-content;
+  /* GPU acceleration untuk smooth scrolling marquee */
+  will-change: transform;
+  contain: layout style;
 }
 
 /* Opsional: Berhenti bergerak jika disorot mouse */
@@ -426,9 +429,13 @@ a, button, [role="button"], select, option, input[type="submit"], input[type="bu
   }
 }
 
-/* Automatic Zoom Scaling for Screens up to 14-inch IdeaPad Slim 5 (1440px) */
-@media (max-width: 1440px) {
-  body > div.flex-1 {
-    zoom: 0.88;
-  }
+/* ============================================================
+   PERFORMANCE: content-visibility untuk section yang tidak terlihat
+   Ini menyebabkan browser skip rendering section yang off-screen
+   sehingga initial render jauh lebih cepat
+   ============================================================ */
+section {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px; /* Estimasi tinggi section untuk menghindari CLS */
 }
+

@@ -13,32 +13,22 @@ const slides = [
   {
     id: 1,
     image: "/image/Hero/Default.webp",
-    tags: ["Web & Application Development"]
+    tags: ["Industrial Analytics ERP"]
   },
   {
     id: 2,
     image: "/image/Hero/1.webp",
-    tags: ["IoT System Development"]
+    tags: ["ERP Mobile"]
   },
   {
     id: 3,
     image: "/image/Hero/2.webp",
-    tags: ["ERP & System Integration"]
+    tags: ["Sistematis Login ERP"]
   },
   {
     id: 4,
     image: "/image/Hero/3.webp",
-    tags: ["Industrial & Automation Solutions"]
-  },
-  {
-    id: 5,
-    image: "/image/Hero/4.webp",
-    tags: ["Data Dashboard & Analytics"]
-  },
-  {
-    id: 6,
-    image: "/image/Hero/5.webp",
-    tags: ["IT Consulting & Digital Strategy"]
+    tags: ["Dashboard Analytics ERP"]
   }
 ];
 
@@ -84,6 +74,11 @@ const slides = [
               key={slide.id}
               src={slide.image}
               alt={`Kaluna portfolio ${index + 1}`}
+              // Slide pertama = LCP element: eager + high priority
+              // Slide lainnya = lazy load agar tidak block render awal
+              loading={index === 0 ? "eager" : "lazy"}
+              fetchPriority={index === 0 ? "high" : "low"}
+              decoding={index === 0 ? "sync" : "async"}
               className={`absolute left-1/2 top-0 h-full w-auto min-w-full -translate-x-1/2 object-cover object-center transition-opacity duration-1000 ${
                 index === currentSlide ? "opacity-100" : "opacity-0"
               }`}
@@ -169,6 +164,10 @@ const slides = [
                 key={slide.id}
                 src={slide.image}
                 alt={`Kaluna Tech Portfolio ${index + 1}`}
+                // Slide pertama = LCP element utama pada desktop
+                loading={index === 0 ? "eager" : "lazy"}
+                fetchPriority={index === 0 ? "high" : "low"}
+                decoding={index === 0 ? "sync" : "async"}
                 className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-1000 ease-in-out ${
                   index === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
                 }`}

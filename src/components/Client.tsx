@@ -237,6 +237,8 @@ export default function Clients() {
                     <img
                       src={logo.src}
                       alt={logo.name}
+                      loading="lazy"
+                      decoding="async"
                       className="object-contain"
                       style={{
                         height: heightPercent,
@@ -271,6 +273,8 @@ export default function Clients() {
               <img
                 src={logo.src}
                 alt={logo.name}
+                loading="lazy"
+                decoding="async"
                 className="object-contain"
                 style={{
                   height: `${getLogoSizingPercent(logo.name, logo.src)}`,
@@ -288,6 +292,8 @@ export default function Clients() {
               <img
                 src={logo.src}
                 alt={logo.name}
+                loading="lazy"
+                decoding="async"
                 className="object-contain"
                 style={{
                   height: `${getLogoSizingPercent(logo.name, logo.src)}`,

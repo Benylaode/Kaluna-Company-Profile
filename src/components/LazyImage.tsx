@@ -23,13 +23,13 @@ export default function LazyImage({
   // Check if image is already cached/loaded on mount or src change
   useEffect(() => {
     if (!src) return;
-    
+
     // Reset states
     setIsLoaded(false);
     setHasError(false);
 
     const img = imgRef.current;
-    if (img && img.complete) {
+    if (img && img.complete && img.naturalWidth > 0) {
       setIsLoaded(true);
     }
   }, [src]);
@@ -79,19 +79,17 @@ export default function LazyImage({
 
   return (
     <div className={wrapperClasses.join(" ")}>
-      {/* Premium Shimmer Skeleton Loader */}
+      {/* Shimmer Skeleton — hanya opacity, tidak pakai blur agar ringan */}
       {!isLoaded && !hasError && (
         <div
-          className={`absolute inset-0 w-full h-full bg-gradient-to-r from-[#EAF3FF] via-[#F4F9FF] to-[#EAF3FF] bg-[length:200%_100%] animate-shimmer ${shimmerClassName}`}
-          style={{
-            animation: "skeleton-shimmer 1.8s infinite linear",
-          }}
+          className={`absolute inset-0 w-full h-full animate-shimmer ${shimmerClassName}`}
+          aria-hidden="true"
         />
       )}
 
-      {/* Modern, Aesthetic Error Fallback State */}
+      {/* Error Fallback State */}
       {hasError && (
-        <div 
+        <div
           className={`absolute inset-0 flex flex-col items-center justify-center bg-gray-50 text-gray-400 p-4 border border-dashed border-gray-200 select-none ${fallbackClassName}`}
         >
           <svg
@@ -114,22 +112,28 @@ export default function LazyImage({
         </div>
       )}
 
-      {/* Actual Image Element with Premium Blur-up & Scale Transitions */}
+      {/* 
+        Gambar asli dengan OPACITY-ONLY transition (sangat ringan, tidak perlu GPU layer terpisah).
+        - DIHAPUS: blur-[8px] + scale-[1.02] — keduanya sangat mahal di GPU
+        - willChange hanya aktif saat belum loaded, lalu di-reset ke 'auto' setelah selesai
+        - loading="lazy" native agar browser efisien mengelola fetch gambar off-screen
+      */}
       {src && !hasError && (
         <img
           ref={imgRef}
           src={src}
           alt={alt}
+          loading="lazy"
+          decoding="async"
           onLoad={handleLoad}
           onError={handleError}
-          className={`${imgClasses.join(" ")} transition-all duration-[800ms] cubic-bezier(0.16, 1, 0.3, 1) ${
-            isLoaded 
-              ? "opacity-100 scale-100 blur-0" 
-              : "opacity-0 scale-[1.02] blur-[8px]"
+          className={`${imgClasses.join(" ")} transition-opacity duration-500 ease-out ${
+            isLoaded ? "opacity-100" : "opacity-0"
           }`}
           style={{
             ...style,
-            willChange: "transform, opacity, filter",
+            // Bebaskan GPU memory setelah gambar selesai dimuat
+            willChange: isLoaded ? "auto" : "opacity",
           }}
           {...props}
         />
