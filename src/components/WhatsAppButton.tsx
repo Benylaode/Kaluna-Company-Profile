@@ -7,7 +7,7 @@ export default function WhatsAppButton() {
     <div className="fixed bottom-6 right-6 z-[9999] animate-wa-float">
       <Magnetic range={60} strength={0.4}>
         <a
-          href="https://wa.me/6281234567890"
+          href="https://wa.me/6282342939843"
           target="_blank"
           rel="noopener noreferrer"
           className="relative block rounded-full focus:outline-none group focus-visible:ring-4 focus-visible:ring-[#25D366]/40"

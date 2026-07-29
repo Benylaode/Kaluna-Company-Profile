@@ -68,7 +68,7 @@ export default function ContactPopup({
         "Hello, I would like to consult with your team regarding Kaluna Technology's services."
       );
 
-  const waUrl = `https://wa.me/628213939569?text=${waMessage}`;
+  const waUrl = `https://wa.me/6282342939843?text=${waMessage}`;
 
   return createPortal(
     <>

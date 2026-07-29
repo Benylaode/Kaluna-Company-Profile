@@ -270,7 +270,7 @@ export default function Navbar() {
 
           {/* Telephone/Chat Box */}
           <a
-            href="https://wa.me/6281234567890"
+            href="https://wa.me/6282342939843"
             target="_blank"
             rel="noreferrer"
             className="flex items-center justify-between w-full h-12 px-6 rounded-full border border-gray-200 bg-white text-sm font-semibold text-[#0E2A54] hover:bg-gray-50 transition-colors"

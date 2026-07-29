@@ -198,7 +198,7 @@ export default function Footer() {
 
               {/* Tombol Chat CS */}
               <a
-                href="https://wa.me/628213939569"
+                href="https://wa.me/6282342939843"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex h-[50px] items-center justify-between gap-4 rounded-full bg-[#0B2545] pl-5 pr-1.5 text-white shadow-sm transition-all duration-300 hover:bg-[#163A70]"
