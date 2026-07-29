@@ -108,18 +108,17 @@ export default function ServiceDashboardHeroBanner({
         <div className="flex flex-col justify-center items-start text-left max-w-[650px] w-full lg:w-[46%]">
           {/* Category Tag */}
           <div className="flex items-center gap-2.5 mb-2.5 sm:mb-3">
-            <span className="h-3 w-1 rounded-full bg-[#5DBCF5]" />
-            <span className="text-[11px] sm:text-xs font-semibold tracking-widest text-[#5DBCF5] uppercase">
+            <span className="h-3.5 w-[2.5px] rounded-full bg-[#5DBCF5]" />
+            <span className="text-xs sm:text-sm font-semibold tracking-[0.12em] text-[#5DBCF5] uppercase">
               Enterprise ERP Services
             </span>
           </div>
 
           {/* Main H1 Heading with Gradient Sub-text */}
           <h1
-            className="font-bold text-white text-left tracking-[-0.04em] leading-[1.05]"
+            className="font-semibold text-white text-left tracking-[-0.025em] leading-[1.12]"
             style={{
-              fontFamily: "Inter, Geist, Helvetica Neue, sans-serif",
-              fontSize: "clamp(26px, 3.2vw, 50px)",
+              fontSize: "clamp(28px, 3.4vw, 50px)",
             }}
           >
             Trusted ERP
@@ -133,9 +132,9 @@ export default function ServiceDashboardHeroBanner({
 
           {/* Description */}
           <p
-            className="text-white/95 font-normal mt-3.5 sm:mt-4 text-left leading-[1.3] max-w-[580px]"
+            className="text-white/90 font-normal mt-3.5 sm:mt-4 text-left leading-[1.6] max-w-[580px]"
             style={{
-              fontSize: "clamp(13px, 1.15vw, 17px)",
+              fontSize: "clamp(14px, 1.15vw, 17px)",
             }}
           >
             {displayDesc}

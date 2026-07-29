@@ -89,7 +89,7 @@ export default function ContactPage() {
 
             {/* Left Column: Text Overlay */}
             <div className="relative z-20 flex h-full flex-col justify-center px-6 sm:px-10 lg:px-16 lg:w-[52%]">
-              <h1 className="text-[32px] sm:text-[42px] lg:text-[52px] font-bold leading-[1.06] tracking-[-0.04em] text-white">
+              <h1 className="text-[30px] sm:text-[40px] lg:text-[50px] font-semibold leading-[1.12] tracking-[-0.025em] text-white">
                 Crafting Digital<br />
                 Solutions<br />
                 <span className="bg-gradient-to-r from-[#299EED] via-[#5DBCF5] to-[#75C8FF] bg-clip-text text-transparent">
@@ -97,7 +97,7 @@ export default function ContactPage() {
                 </span>
               </h1>
 
-              <p className="mt-4 sm:mt-6 text-sm sm:text-base lg:text-[17px] font-normal leading-[1.4] text-white/90 max-w-[560px]">
+              <p className="mt-4 sm:mt-5 text-sm sm:text-base lg:text-[17px] font-normal leading-[1.6] text-white/90 max-w-[560px]">
                 We build end-to-end Enterprise Resource Planning solutions that unify your core operations into a single, intelligent platform.
               </p>
             </div>

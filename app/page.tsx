@@ -18,7 +18,7 @@ export default async function Home() {
   const testimonialsData = await getTestimonials();
 
   return (
-    <main className="min-h-screen bg-[#FFFFFF] scroll-smooth overflow-x-hidden">
+    <main className="min-h-screen bg-[#FFFFFF]">
       <HashScroll />
       <Navbar />
       

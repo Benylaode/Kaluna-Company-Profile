@@ -75,7 +75,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${headerBgClass}`}>
+      <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${headerBgClass}`} style={{ WebkitTransform: "translateZ(0)", transform: "translateZ(0)" }}>
         <nav className="mx-auto max-w-[1920px] px-5 md:px-[min(6.3vw,121px)] py-3 relative">
           <div className="flex items-center justify-between md:grid md:grid-cols-[1fr_auto_1fr]">
 
@@ -95,7 +95,10 @@ export default function Navbar() {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex justify-center">
-              <div className="flex items-center rounded-full border border-gray-100 bg-white/70 p-1.5 backdrop-blur-xl">
+              <div 
+                className="flex items-center rounded-full border border-gray-100 bg-white/70 p-1.5 backdrop-blur-xl"
+                style={{ WebkitBackdropFilter: "blur(24px)", backdropFilter: "blur(24px)" }}
+              >
                 <Link
                   href="/"
                   className={`rounded-full px-5 py-1.5 text-sm font-normal transition-all ${pathname === "/" ? "bg-[#EFF6FF] text-[#1E88E5]" : "text-[#0D2342] hover:bg-gray-50"

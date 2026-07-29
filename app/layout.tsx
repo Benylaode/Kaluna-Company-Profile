@@ -6,7 +6,6 @@ import WhatsAppButton from "../src/components/WhatsAppButton";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
-  // Mencegah FOIT: teks muncul langsung dengan fallback font sebelum Geist selesai dimuat
   display: "swap",
   preload: true,
 });
@@ -15,7 +14,7 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
   display: "swap",
-  preload: false, // Mono font tidak kritis untuk LCP
+  preload: false,
 });
 
 const siteUrl = "https://www.kalunatechnology.com";

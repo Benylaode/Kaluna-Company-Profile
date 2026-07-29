@@ -94,17 +94,27 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  background-color: #ffffff;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background-color: #ffffff;
+  color: #171717;
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Safari WebKit hardware layer compositing stability */
+section, header, footer, main {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 /* app/globals.css */
@@ -429,13 +439,6 @@ a, button, [role="button"], select, option, input[type="submit"], input[type="bu
   }
 }
 
-/* ============================================================
-   PERFORMANCE: content-visibility untuk section yang tidak terlihat
-   Ini menyebabkan browser skip rendering section yang off-screen
-   sehingga initial render jauh lebih cepat
-   ============================================================ */
-section {
-  content-visibility: auto;
-  contain-intrinsic-size: 0 500px; /* Estimasi tinggi section untuk menghindari CLS */
-}
+/* Safari WebKit smooth scrolling optimization — content-visibility removed to prevent black blocks */
+
 

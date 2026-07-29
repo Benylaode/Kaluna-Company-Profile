@@ -71,11 +71,12 @@ export default function ScrollReveal({
       style={{
         opacity: isVisible ? 1 : 0,
         transform: getTranslate(),
+        WebkitTransform: getTranslate(),
         transition: `opacity ${duration}ms cubic-bezier(0.16, 1, 0.3, 1), transform ${duration}ms cubic-bezier(0.16, 1, 0.3, 1)`,
+        WebkitTransition: `opacity ${duration}ms cubic-bezier(0.16, 1, 0.3, 1), -webkit-transform ${duration}ms cubic-bezier(0.16, 1, 0.3, 1)`,
         transitionDelay: `${delay}ms`,
-        // willChange hanya aktif saat belum visible (perlu animate)
-        // Setelah visible, di-reset ke 'auto' agar GPU memory dibebaskan
-        willChange: isVisible ? "auto" : "transform, opacity",
+        WebkitBackfaceVisibility: "hidden",
+        backfaceVisibility: "hidden",
       }}
     >
       {children}

@@ -132,8 +132,6 @@ export default function LazyImage({
           }`}
           style={{
             ...style,
-            // Bebaskan GPU memory setelah gambar selesai dimuat
-            willChange: isLoaded ? "auto" : "opacity",
           }}
           {...props}
         />

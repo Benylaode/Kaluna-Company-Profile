@@ -658,15 +658,15 @@ export default function ServiceHeroBanner({
         <div className="flex flex-1 flex-col items-start justify-start lg:w-[50%] lg:justify-center lg:pb-[1%]">
           <div className="mb-2.5 flex items-center gap-2.5 sm:mb-3.5">
             <span className="h-3.5 w-[2.5px] rounded-full bg-[#299EED] sm:h-4" />
-            <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#75C8FF] sm:text-[12px] lg:text-[13px]">
+            <span className="text-xs sm:text-sm font-semibold uppercase tracking-[0.12em] text-[#75C8FF]">
               {activeItem.title}
             </span>
           </div>
 
           <h1
-            className="max-w-[760px] text-left font-bold leading-[1.06] tracking-[-0.04em] text-white"
+            className="max-w-[760px] text-left font-semibold leading-[1.12] tracking-[-0.025em] text-white"
             style={{
-              fontSize: "clamp(26px, 3.2vw, 52px)",
+              fontSize: "clamp(28px, 3.4vw, 52px)",
             }}
           >
             {displayTitle.includes("For Your Needs") ? (
@@ -684,9 +684,9 @@ export default function ServiceHeroBanner({
 
           <p
             key={activeItem.id}
-            className="service-description-enter mt-3.5 max-w-[660px] text-left font-normal leading-[1.3] text-white/95 sm:mt-4.5"
+            className="service-description-enter mt-3.5 max-w-[640px] text-left font-normal leading-[1.6] text-white/90 sm:mt-4"
             style={{
-              fontSize: "clamp(13px, 1.15vw, 18px)",
+              fontSize: "clamp(14px, 1.15vw, 17px)",
             }}
           >
             {displayDescription}

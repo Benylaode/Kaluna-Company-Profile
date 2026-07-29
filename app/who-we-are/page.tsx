@@ -243,19 +243,18 @@ const expertise = [
               <h1
                 className="
                   max-w-[680px]
-                  text-[26px]
+                  text-[28px]
                   sm:text-[34px]
                   md:text-[42px]
                   lg:text-[48px]
                   xl:text-[50px]
-                  font-bold
-                  leading-[1.05]
-                  tracking-[-0.04em]
+                  font-semibold
+                  leading-[1.12]
+                  tracking-[-0.025em]
                   text-white
-                  font-sans
                 "
                 style={{
-                  fontSize: "clamp(26px, 3.2vw, 50px)",
+                  fontSize: "clamp(28px, 3.4vw, 50px)",
                 }}
               >
                 Crafting Digital
@@ -283,18 +282,16 @@ const expertise = [
                   mt-3.5
                   lg:mt-4
                   max-w-[580px]
-                  text-[13px]
-                  sm:text-[15px]
-                  md:text-[16px]
+                  text-sm
+                  sm:text-base
                   lg:text-[17px]
-                  xl:text-[18px]
                   font-normal
-                  leading-[1.3]
-                  text-white/92
+                  leading-[1.6]
+                  text-white/90
                   order-2
                   lg:order-none
                 "
-                style={{ fontSize: "clamp(13px, 1.15vw, 17px)", color: "rgba(255, 255, 255, 0.92)" }}
+                style={{ fontSize: "clamp(14px, 1.15vw, 17px)", color: "rgba(255, 255, 255, 0.9)" }}
               >
                 We build end-to-end Enterprise Resource Planning solutions that unify your core operations into a single, intelligent platform.
               </p>

@@ -92,10 +92,10 @@ const slides = [
         </div>
 
         <div className="absolute inset-x-0 top-[300px] sm:top-[360px] px-5">
-          <h1 className="hero-animate-title text-[30px] sm:text-[36px] font-medium leading-[1.1] tracking-[-0.01em] text-white">
+          <h1 className="hero-animate-title text-[28px] sm:text-[36px] font-semibold leading-[1.14] tracking-[-0.02em] text-white">
             Your Scalable IT Solutions Partner for Modern Enterprises
           </h1>
-          <p className="hero-animate-text mt-3 sm:mt-4 text-[13px] sm:text-sm leading-[1.5] tracking-[0.02em] text-white">
+          <p className="hero-animate-text mt-3 sm:mt-4 text-sm sm:text-base leading-[1.6] tracking-[0.01em] text-white/95">
             We design, build, and integrate intelligent software systems that drive operational efficiency and long-term growth through customized Enterprise Resource Planning (ERP) and seamless system integration.
           </p>
 
@@ -117,26 +117,25 @@ const slides = [
         </div>
       </div>
 
-     {/* Desktop Layout (Perfected Grid Ratio & Slighly Wider Slider) */}
-{/* Desktop Layout (Perfect 50:50 Balanced Grid & Wider Slider) */}
+      {/* Desktop Layout (Perfected Grid Ratio & Slighly Wider Slider) */}
       <div className="kaluna-container hidden md:grid min-h-[520px] lg:min-h-[580px] grid-cols-2 items-center gap-8 lg:gap-12 pt-3 pb-3 md:pt-4 md:pb-4 lg:pt-6 lg:pb-6">
         
         {/* Left Column: Text Content */}
         <div className="flex flex-col items-start gap-6">
           <div className="flex items-center gap-2.5">
             <span className="h-4 w-[2.5px] bg-[#299EED] rounded-full"></span>
-            <span className="text-xs font-semibold tracking-wider text-[#0E2A54] uppercase">
+            <span className="text-xs sm:text-sm font-semibold tracking-[0.12em] text-[#0E2A54] uppercase">
               Kaluna Technology
             </span>
           </div>
 
-          <h1 className="hero-animate-title text-[36px] md:text-[44px] lg:text-[54px] font-medium leading-[1.15] tracking-[-0.02em] text-[#0E2A54]">
+          <h1 className="hero-animate-title text-[34px] md:text-[42px] lg:text-[50px] xl:text-[54px] font-semibold leading-[1.12] tracking-[-0.025em] text-[#0E2A54]">
             Your Scalable<br />
             IT Solutions Partner<br />
             for Modern Enterprises
           </h1>
 
-          <p className="hero-animate-text max-w-[500px] text-base leading-[1.6] text-[#4B5563]">
+          <p className="hero-animate-text max-w-[500px] text-base lg:text-[17px] leading-[1.6] text-[#4B5563]">
             We design, build, and integrate intelligent software systems that drive operational efficiency and long-term growth.
           </p>
 
