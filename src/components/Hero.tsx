@@ -48,20 +48,20 @@ const slides = [
     <section className="relative overflow-hidden bg-[linear-gradient(312deg,#f3f8ff_58%,#fff_92%)] pt-6 pb-6 md:pt-8 md:pb-8 lg:pt-12 lg:pb-12">
       <style>{`
         @keyframes fillProgress { 0% { width: 0%; } 100% { width: 100%; } }
-        @keyframes floatUp { 0% { opacity: 0; transform: translateY(10px); } 100% { opacity: 1; transform: translateY(0); } }
+        @keyframes floatUp { 0% { opacity: 0; transform: translateY(8px); } 100% { opacity: 1; transform: translateY(0); } }
         @keyframes heroReveal {
-          0% { opacity: 0; transform: translateY(20px); }
+          0% { opacity: 0; transform: translateY(12px); }
           100% { opacity: 1; transform: translateY(0); }
         }
         .hero-animate-title {
-          animation: heroReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          animation: heroReveal 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
         .hero-animate-text {
-          animation: heroReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+          animation: heroReveal 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.08s forwards;
           opacity: 0;
         }
         .hero-animate-buttons {
-          animation: heroReveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+          animation: heroReveal 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
           opacity: 0;
         }
       `}</style>

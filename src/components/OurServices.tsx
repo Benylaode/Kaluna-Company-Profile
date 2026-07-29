@@ -493,11 +493,11 @@ export default function OurServices({ services }: { services?: ServiceData[] }) 
           <style jsx global>{`
             @keyframes servicePodiumFloat {
               0%, 100% { transform: translateY(0); }
-              50% { transform: translateY(-9px); }
+              50% { transform: translateY(-3px); }
             }
             @keyframes servicePodiumFloatActive {
-              0%, 100% { transform: translateY(0) rotate(0deg); }
-              50% { transform: translateY(-11px) rotate(-1deg); }
+              0%, 100% { transform: translateY(0); }
+              50% { transform: translateY(-4px); }
             }
             .service-podium-icon {
               transform-box: fill-box;

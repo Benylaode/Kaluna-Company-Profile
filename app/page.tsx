@@ -26,29 +26,29 @@ export default async function Home() {
       <div className="flex flex-col w-full">
         <Hero />
         
-        <ScrollReveal duration={1000} direction="up" distance={40}>
+        <ScrollReveal>
           <ProjectCarousel projects={worksData} />
         </ScrollReveal>
         
-        <ScrollReveal duration={1000} direction="up" distance={40}>
+        <ScrollReveal>
           <OurServices />
         </ScrollReveal>
         
         <WhyKaluna />
         
-        <ScrollReveal duration={1000} direction="up" distance={40}>
+        <ScrollReveal>
           <OurWorks />
         </ScrollReveal>
         
-        <ScrollReveal duration={1000} direction="up" distance={40}>
+        <ScrollReveal>
           <Clients />
         </ScrollReveal>
         
-        <ScrollReveal duration={1000} direction="up" distance={40}>
+        <ScrollReveal>
           <Deliver testimonials={testimonialsData} />
         </ScrollReveal>
         
-        <ScrollReveal duration={1000} direction="up" distance={40}>
+        <ScrollReveal>
           <CTA />
         </ScrollReveal>
       </div>

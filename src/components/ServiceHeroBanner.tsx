@@ -766,17 +766,17 @@ export default function ServiceHeroBanner({
             transform: translateY(0);
           }
           50% {
-            transform: translateY(-9px);
+            transform: translateY(-3px);
           }
         }
 
         @keyframes servicePodiumFloatActive {
           0%,
           100% {
-            transform: translateY(0) rotate(0deg);
+            transform: translateY(0);
           }
           50% {
-            transform: translateY(-11px) rotate(-1deg);
+            transform: translateY(-4px);
           }
         }
 

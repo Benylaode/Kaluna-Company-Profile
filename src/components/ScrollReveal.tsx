@@ -15,9 +15,9 @@ export default function ScrollReveal({
   children,
   className = "",
   delay = 0,
-  duration = 700, // Dikurangi dari 800ms → 700ms agar terasa lebih responsif
+  duration = 450, // Respon cepat & presisi khas animasi Apple (450ms)
   direction = "up",
-  distance = 24, // Dikurangi dari 30px → 24px agar lebih subtle
+  distance = 16, // Jarak gerakan sangat halus khas Apple (16px)
 }: ScrollRevealProps) {
   const [isVisible, setIsVisible] = useState(false);
   const domRef = useRef<HTMLDivElement>(null);
@@ -27,11 +27,10 @@ export default function ScrollReveal({
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          observer.unobserve(entry.target); // Stop observing setelah visible
+          observer.unobserve(entry.target);
         }
       },
-      // threshold 0.05 = mulai animate saat 5% elemen terlihat (lebih awal, lebih smooth)
-      { threshold: 0.05, rootMargin: "0px 0px -20px 0px" }
+      { threshold: 0.02, rootMargin: "0px 0px -30px 0px" }
     );
 
     const current = domRef.current;
@@ -61,7 +60,7 @@ export default function ScrollReveal({
           return "none";
       }
     }
-    return "translate(0, 0)";
+    return "none";
   };
 
   return (
