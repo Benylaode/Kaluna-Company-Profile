@@ -491,23 +491,14 @@ export default function OurServices({ services }: { services?: ServiceData[] }) 
           </div>
 
           <style jsx global>{`
-            @keyframes servicePodiumFloat {
-              0%, 100% { transform: translateY(0); }
-              50% { transform: translateY(-3px); }
-            }
-            @keyframes servicePodiumFloatActive {
-              0%, 100% { transform: translateY(0); }
-              50% { transform: translateY(-4px); }
-            }
             .service-podium-icon {
               transform-box: fill-box;
               transform-origin: center;
             }
-            .service-podium-icon--secondary {
-              animation: servicePodiumFloat 6s ease-in-out infinite;
-            }
+            .service-podium-icon--secondary,
             .service-podium-icon--active {
-              animation: servicePodiumFloatActive 5.4s ease-in-out infinite;
+              animation: none !important;
+              transform: none !important;
             }
           `}</style>
         </section>

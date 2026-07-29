@@ -797,18 +797,15 @@ export default function ServiceHeroBanner({
           transition: opacity 300ms ease, filter 300ms ease;
         }
 
-        .service-podium-icon--secondary {
-          animation: servicePodiumFloat 6s ease-in-out infinite;
+        .service-podium-icon--secondary,
+        .service-podium-icon--active {
+          animation: none !important;
+          transform: none !important;
         }
 
         .service-podium-icon--secondary:hover,
         .service-podium-icon--secondary:focus-visible {
           filter: brightness(1.14);
-        }
-
-        .service-podium-icon--active {
-          animation: servicePodiumFloatActive 5.4s ease-in-out infinite;
-          pointer-events: none;
         }
 
         .service-description-enter {

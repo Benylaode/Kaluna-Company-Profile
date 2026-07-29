@@ -177,18 +177,10 @@ export default function ServiceDashboardHeroBanner({
             transform: translate3d(0, 0, 0);
           }
         }
-        .dashboard-float {
-          animation: dashboardFloat 8s ease-in-out infinite alternate;
-        }
+        .dashboard-float,
         .panel-float {
-          animation: panelFloat 10s ease-in-out infinite alternate;
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .dashboard-float,
-          .panel-float {
-            animation: none !important;
-            transform: none !important;
-          }
+          animation: none !important;
+          transform: none !important;
         }
       `}</style>
     </section>
