@@ -881,7 +881,6 @@ export default function WorksClient({ initialWorks = [] }: WorksClientProps) {
                                 transition-transform
                                 duration-[900ms]
                                 ease-out
-                                will-change-transform
                                 group-hover/card:scale-[1.025]
                               "
                               style={{

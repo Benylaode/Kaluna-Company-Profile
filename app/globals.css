@@ -113,7 +113,22 @@ body {
 
 /* Safari WebKit stability: avoid global forced GPU layer compositing on container tags */
 section, header, footer, main {
-  /* Removed backface-visibility: hidden to prevent WebKit GPU tile deallocation black blocks on scroll */
+  /* Safari WebKit Optimization:
+     Do NOT force backface-visibility: hidden globally. 
+     Forcing GPU compositing layers on root containers causes WebKit 
+     to drop off-screen tile backing stores during scroll, producing black blocks. */
+}
+
+/* Safari WebKit backdrop-filter utility fallbacks */
+@supports (-webkit-backdrop-filter: none) {
+  .backdrop-blur-none { -webkit-backdrop-filter: none !important; }
+  .backdrop-blur-sm   { -webkit-backdrop-filter: blur(4px) !important; }
+  .backdrop-blur      { -webkit-backdrop-filter: blur(8px) !important; }
+  .backdrop-blur-md   { -webkit-backdrop-filter: blur(12px) !important; }
+  .backdrop-blur-lg   { -webkit-backdrop-filter: blur(16px) !important; }
+  .backdrop-blur-xl   { -webkit-backdrop-filter: blur(24px) !important; }
+  .backdrop-blur-2xl  { -webkit-backdrop-filter: blur(40px) !important; }
+  .backdrop-blur-3xl  { -webkit-backdrop-filter: blur(64px) !important; }
 }
 
 /* app/globals.css */
@@ -126,8 +141,7 @@ section, header, footer, main {
   animation: infinite-scroll 25s linear infinite;
   display: flex;
   width: max-content;
-  /* GPU acceleration untuk smooth scrolling marquee */
-  will-change: transform;
+  /* Safari WebKit optimization: removed persistent will-change to avoid GPU memory drop */
   contain: layout style;
 }
 
@@ -234,13 +248,12 @@ section, header, footer, main {
    PREMIUM ANIMATION SYSTEM UTILITIES & INTERACTIONS
    ============================================================ */
 
-/* Global Smooth Transitions */
+/* Global Smooth Transitions - Safari WebKit optimized: scoped to color/bg/shadow to prevent global layer promotion */
 a, button, [role="button"], select, input, textarea, .magnetic-wrap {
   transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
               border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
               color 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
-              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
-              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Ensure all clickable items explicitly show pointer */
