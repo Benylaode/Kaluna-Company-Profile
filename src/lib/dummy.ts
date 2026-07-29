@@ -85,11 +85,11 @@ const works = [
   // 1. MY BOSS — IoT SYSTEM
   // ========================================
   {
-    slug: "myboss-iot-system",
+    slug: "myboss-system",
     client: "MY BOSS",
-    title: "IoT System for My Boss (Nasmoco)",
-    desc: "A smart IoT system designed to monitor and manage automotive operational devices in real-time.",
-    category: "IoT & Asset Monitoring ERP",
+    title: "ERP System for My Boss (Nasmoco)",
+    desc: "A smart ERP system designed to monitor and manage automotive operational devices in real-time.",
+    category: "Asset Monitoring ERP",
 
     images: [
       "/image/projects/myboss-iot-system/1.webp",
@@ -103,9 +103,9 @@ const works = [
       overview: {
         label: "Project Overview",
         title:
-          "Transforming Automotive Operations Through Connected IoT Technology",
+          "Transforming Automotive Operations Through Connected Technology",
         description:
-          "Kaluna developed an integrated IoT platform that enables My Boss to monitor automotive equipment, operational activity, and device performance through one centralized system.",
+          "Kaluna developed an integrated platform that enables My Boss to monitor automotive equipment, operational activity, and device performance through one centralized system.",
         gallery: [
           "/image/projects/myboss-iot-system/2.webp",
           "/image/projects/myboss-iot-system/3.webp",
@@ -251,7 +251,7 @@ const works = [
       showcase: {
         image_url:
           "/image/projects/myboss-iot-system/2.webp",
-        alt: "My Boss IoT monitoring system interface",
+        alt: "My Boss monitoring system interface",
       },
     }),
   },
