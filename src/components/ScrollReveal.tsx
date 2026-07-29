@@ -75,8 +75,7 @@ export default function ScrollReveal({
         transition: `opacity ${duration}ms cubic-bezier(0.16, 1, 0.3, 1), transform ${duration}ms cubic-bezier(0.16, 1, 0.3, 1)`,
         WebkitTransition: `opacity ${duration}ms cubic-bezier(0.16, 1, 0.3, 1), -webkit-transform ${duration}ms cubic-bezier(0.16, 1, 0.3, 1)`,
         transitionDelay: `${delay}ms`,
-        WebkitBackfaceVisibility: "hidden",
-        backfaceVisibility: "hidden",
+        /* Safari WebKit optimization: backfaceVisibility removed to prevent tile memory drop black blocks */
       }}
     >
       {children}

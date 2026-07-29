@@ -111,10 +111,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Safari WebKit hardware layer compositing stability */
+/* Safari WebKit stability: avoid global forced GPU layer compositing on container tags */
 section, header, footer, main {
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+  /* Removed backface-visibility: hidden to prevent WebKit GPU tile deallocation black blocks on scroll */
 }
 
 /* app/globals.css */
