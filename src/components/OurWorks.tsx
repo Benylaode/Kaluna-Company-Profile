@@ -323,16 +323,7 @@ export default function OurWorks() {
 
                     {/* Progress bar tepat di sisi bawah card */}
                     {isActive && (
-                      <div className="absolute bottom-0 left-0 right-0 z-20 h-[5px] bg-[#DCE3EA]">
-                        <div
-                          key={`progress-${activeIndex}`}
-                          className="h-full bg-[#299EED]"
-                          style={{
-                            animation: `fillProgress ${SLIDE_INTERVAL_MS}ms linear forwards`,
-                            animationPlayState: paused ? "paused" : "running"
-                          }}
-                        />
-                      </div>
+                      <div className="absolute bottom-0 left-0 right-0 z-20 h-[5px] bg-[#299EED]" />
                     )}
                   </div>
                 );

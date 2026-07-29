@@ -47,22 +47,12 @@ const slides = [
   return (
     <section className="relative overflow-hidden bg-[linear-gradient(312deg,#f3f8ff_58%,#fff_92%)] pt-6 pb-6 md:pt-8 md:pb-8 lg:pt-12 lg:pb-12">
       <style>{`
-        @keyframes fillProgress { 0% { width: 0%; } 100% { width: 100%; } }
-        @keyframes floatUp { 0% { opacity: 0; transform: translateY(8px); } 100% { opacity: 1; transform: translateY(0); } }
-        @keyframes heroReveal {
-          0% { opacity: 0; transform: translateY(12px); }
-          100% { opacity: 1; transform: translateY(0); }
-        }
-        .hero-animate-title {
-          animation: heroReveal 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        .hero-animate-text {
-          animation: heroReveal 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.08s forwards;
-          opacity: 0;
-        }
+        .hero-animate-title,
+        .hero-animate-text,
         .hero-animate-buttons {
-          animation: heroReveal 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
-          opacity: 0;
+          opacity: 1 !important;
+          transform: none !important;
+          animation: none !important;
         }
       `}</style>
 
@@ -74,12 +64,10 @@ const slides = [
               key={slide.id}
               src={slide.image}
               alt={`Kaluna portfolio ${index + 1}`}
-              // Slide pertama = LCP element: eager + high priority
-              // Slide lainnya = lazy load agar tidak block render awal
               loading={index === 0 ? "eager" : "lazy"}
               fetchPriority={index === 0 ? "high" : "low"}
               decoding={index === 0 ? "sync" : "async"}
-              className={`absolute left-1/2 top-0 h-full w-auto min-w-full -translate-x-1/2 object-cover object-center transition-opacity duration-1000 ${
+              className={`absolute left-1/2 top-0 h-full w-auto min-w-full -translate-x-1/2 object-cover object-center transition-opacity duration-300 ${
                 index === currentSlide ? "opacity-100" : "opacity-0"
               }`}
             />
@@ -167,40 +155,29 @@ const slides = [
                 loading={index === 0 ? "eager" : "lazy"}
                 fetchPriority={index === 0 ? "high" : "low"}
                 decoding={index === 0 ? "sync" : "async"}
-                className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-1000 ease-in-out ${
+                className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-300 ${
                   index === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
                 }`}
               />
             ))}
 
-            {/* Premium Tags */}
+            {/* Static Tags */}
             <div className="absolute bottom-5 left-6 z-20 flex flex-wrap gap-3">
               {slides[currentSlide].tags.map((tag, index) => (
                 <span
                   key={`tag-${currentSlide}-${index}`}
-                  className="rounded-full bg-white px-6 py-3.5 text-xs lg:text-sm font-semibold tracking-[0.01em] text-[#0E2A54] shadow-lg"
-                  style={{
-                    animation: `floatUp 0.5s ease-out forwards`,
-                    animationDelay: `${index * 0.1}s`,
-                    opacity: 0
-                  }}
+                  className="rounded-full bg-white px-6 py-3.5 text-xs lg:text-sm font-semibold tracking-[0.01em] text-[#0E2A54] shadow-lg opacity-100"
                 >
                   {tag}
                 </span>
               ))}
             </div>
 
-            {/* Modern Progress Bar */}
+            {/* Static Progress Bar */}
             <div className="absolute bottom-0 left-0 z-20 flex h-[5px] w-full bg-[#D6ECFF]">
               {slides.map((_, index) => (
                 <div key={index} onClick={() => setCurrentSlide(index)} className="relative h-full flex-1 cursor-pointer">
-                  {index === currentSlide && (
-                    <div
-                      className="absolute left-0 top-0 h-full bg-[#299EED]"
-                      style={{ animation: `fillProgress ${slideDuration}ms linear forwards` }}
-                    />
-                  )}
-                  {index < currentSlide && (
+                  {index <= currentSlide && (
                     <div className="absolute left-0 top-0 h-full w-full bg-[#299EED]" />
                   )}
                 </div>

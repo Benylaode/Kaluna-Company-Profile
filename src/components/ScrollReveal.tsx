@@ -71,6 +71,7 @@ export default function ScrollReveal({
         opacity: isVisible ? 1 : 0,
         transform: getTranslate(),
         WebkitTransform: getTranslate(),
+        willChange: "opacity, transform",
         transition: `opacity ${duration}ms cubic-bezier(0.16, 1, 0.3, 1), transform ${duration}ms cubic-bezier(0.16, 1, 0.3, 1)`,
         WebkitTransition: `opacity ${duration}ms cubic-bezier(0.16, 1, 0.3, 1), -webkit-transform ${duration}ms cubic-bezier(0.16, 1, 0.3, 1)`,
         transitionDelay: `${delay}ms`,

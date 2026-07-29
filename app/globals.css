@@ -352,6 +352,7 @@ a, button, [role="button"], select, option, input[type="submit"], input[type="bu
 }
 
 .animate-page-enter {
+  will-change: opacity, transform;
   animation: page-transition-in 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 

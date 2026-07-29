@@ -154,7 +154,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`} style={{ backgroundColor: "#ffffff", color: "#171717" }}>
       <head>
         {/* Preload LCP image: hero slide pertama agar browser segera fetch sebelum parse JS */}
         <link
@@ -173,7 +173,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-full flex flex-col relative">
+      <body className="min-h-full flex flex-col relative" style={{ backgroundColor: "#ffffff", color: "#171717" }}>
         <div className="flex-1 flex flex-col">
           {children}
         </div>
