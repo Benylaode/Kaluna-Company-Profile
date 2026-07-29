@@ -163,12 +163,6 @@ const expertise = [
                 sm:rounded-[24px]
                 overflow-hidden
                 shadow-[0_20px_50px_rgba(0,0,0,0.35)]
-                who-we-are-float
-                transition-transform
-                duration-700
-                ease-out
-                group-hover:-translate-x-[4px]
-                group-hover:scale-[1.01]
                 order-3
                 lg:order-none
               "
@@ -634,7 +628,6 @@ const expertise = [
           <article
             key={idx}
             className="
-              group
               relative
               aspect-[3/2]
               w-full
@@ -644,11 +637,6 @@ const expertise = [
               rounded-[16px]
               bg-[#0E2A54]
               shadow-md
-              transition-all
-              duration-500
-              hover:-translate-y-1.5
-              hover:shadow-2xl
-              hover:shadow-[#0E2A54]/25
             "
           >
             {/* Background Image */}
@@ -662,10 +650,6 @@ const expertise = [
                 w-full
                 object-cover
                 object-center
-                transition-transform
-                duration-700
-                ease-out
-                group-hover:scale-105
               "
             />
 
@@ -717,7 +701,7 @@ const expertise = [
                   <img
                     src={member.image_url}
                     alt={member.full_name}
-                    className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover object-top"
                     style={{ objectPosition: "top center" }}
                   />
                 </div>

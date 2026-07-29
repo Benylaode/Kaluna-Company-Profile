@@ -780,7 +780,7 @@ export default async function CaseStudyPage({
                       alt={work.title}
                       fill
                       sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-[1.035]"
+                      className="object-cover"
                     />
 
                     <div className="absolute inset-x-0 bottom-0 flex items-end justify-between p-5 sm:p-6">

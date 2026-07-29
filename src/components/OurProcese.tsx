@@ -306,7 +306,7 @@ export default function OurProcese({ steps, title = "HOW WE DELIVER" }: OurProce
                       <LazyImage
                         src={item.image_url}
                         alt={item.title}
-                        className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                        className="h-full w-full object-cover"
                       />
 
                       {!isActive && (

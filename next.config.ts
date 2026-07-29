@@ -7,6 +7,11 @@ const nextConfig: NextConfig = {
   // Strict mode untuk development
   reactStrictMode: true,
 
+  // Tree-shaking & WebKit module optimization
+  experimental: {
+    optimizePackageImports: ["lucide-react"],
+  },
+
   images: {
     // Format modern: AVIF lebih kecil 50% dari WebP, WebP lebih kecil 30% dari JPEG
     formats: ["image/avif", "image/webp"],

@@ -617,14 +617,12 @@ export default function ServiceHeroBanner({
     setMousePos({ x: 0, y: 0 });
   };
 
-  const parallaxX = mousePos.x * 14;
-  const parallaxY = mousePos.y * 10;
+  const parallaxX = 0;
+  const parallaxY = 0;
 
   return (
     <section
       ref={sectionRef}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
       className={`relative mx-auto w-full max-w-[1830px] select-none overflow-hidden rounded-[16px] bg-[#003456] sm:rounded-[20px] lg:rounded-[24px] ${
         className || "min-h-[760px] sm:min-h-[800px] lg:aspect-[1830/889] lg:min-h-0"
       }`}
@@ -801,11 +799,7 @@ export default function ServiceHeroBanner({
         .service-podium-icon--active {
           animation: none !important;
           transform: none !important;
-        }
-
-        .service-podium-icon--secondary:hover,
-        .service-podium-icon--secondary:focus-visible {
-          filter: brightness(1.14);
+          filter: none !important;
         }
 
         .service-description-enter {

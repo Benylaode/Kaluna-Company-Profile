@@ -61,7 +61,7 @@ export default function WhyKaluna() {
               direction="up"
               distance={25}
             >
-              <div className="group h-full rounded-[15px] border border-transparent bg-[#EAF3FF] p-6 md:p-8 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-[#299EED] hover:bg-[#DDF0FF] hover:shadow-[0_10px_30px_rgba(41,158,237,0.12)]">
+              <div className="h-full rounded-[15px] border border-transparent bg-[#EAF3FF] p-6 md:p-8 shadow-sm">
                 
                 <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-[12px] bg-[#A3D9F733]">
                   <Image

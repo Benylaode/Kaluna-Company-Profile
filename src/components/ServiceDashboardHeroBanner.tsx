@@ -86,12 +86,6 @@ export default function ServiceDashboardHeroBanner({
           w-[63%]
           hidden
           md:block
-          transition-transform
-          duration-700
-          ease-out
-          group-hover:scale-[1.015]
-          group-hover:-translate-x-3
-          dashboard-float
         `}
       >
         <Image

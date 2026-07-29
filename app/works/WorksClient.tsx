@@ -706,10 +706,6 @@ export default function WorksClient({ initialWorks = [] }: WorksClientProps) {
                         w-full
                         h-full
                         object-cover
-                        transition-transform
-                        duration-1000
-                        ease-out
-                        group-hover:scale-[1.025]
                       "
                       style={{
                         objectPosition:

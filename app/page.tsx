@@ -1,15 +1,18 @@
+import dynamic from 'next/dynamic';
 import Navbar from '../src/components/Navbar';
 import Hero from '../src/components/Hero';
-import Clients from '../src/components/Client';
-import WhyKaluna from '../src/components/WhyKaluna';
-import OurServices from '../src/components/OurServices';
-import OurWorks from '../src/components/OurWorks';
-import Deliver from '../src/components/Deliver';
 import Footer from '../src/components/Footer';
-import ProjectCarousel from '../src/components/ProjectCarousel';
-import CTA from '../src/components/CTA';
 import HashScroll from '../src/components/HashScroll';
 import ScrollReveal from '../src/components/ScrollReveal';
+
+// Dynamic Code Splitting for WebKit JavaScriptCore JSC optimization (<50KB chunk size)
+const ProjectCarousel = dynamic(() => import('../src/components/ProjectCarousel'));
+const OurServices = dynamic(() => import('../src/components/OurServices'));
+const WhyKaluna = dynamic(() => import('../src/components/WhyKaluna'));
+const OurWorks = dynamic(() => import('../src/components/OurWorks'));
+const Clients = dynamic(() => import('../src/components/Client'));
+const Deliver = dynamic(() => import('../src/components/Deliver'));
+const CTA = dynamic(() => import('../src/components/CTA'));
 
 import { getWorks, getTestimonials } from '../src/lib/actions';
 

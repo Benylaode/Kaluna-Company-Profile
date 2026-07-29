@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import WhatsAppButton from "../src/components/WhatsAppButton";
+import WebKitBackgroundPreloader from "../src/components/WebKitBackgroundPreloader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -178,6 +179,7 @@ export default function RootLayout({
           {children}
         </div>
         <WhatsAppButton />
+        <WebKitBackgroundPreloader />
       </body>
     </html>
   );

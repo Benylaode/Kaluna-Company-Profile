@@ -2,7 +2,7 @@ import { RefreshCw } from "lucide-react";
 
 export default function Loading() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-[70vh] w-full px-5 py-24 text-center animate-page-enter">
+    <div className="flex flex-col items-center justify-center min-h-[70vh] w-full px-5 py-24 text-center bg-white" style={{ backgroundColor: "#ffffff" }}>
       {/* Premium loader ring */}
       <div className="relative mb-8 flex items-center justify-center w-20 h-20">
         <div className="absolute inset-0 rounded-full border-4 border-gray-100" />

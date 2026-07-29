@@ -280,19 +280,19 @@ export default function WhoWeAreProblemWeSolve() {
                 <button
                   key={item.id}
                   onClick={() => setActiveIndex(idx)}
-                  className={`group text-left rounded-[20px] p-6 transition-all duration-300 border cursor-pointer flex flex-col justify-between ${
+                  className={`text-left rounded-[20px] p-6 border cursor-pointer flex flex-col justify-between ${
                     isActive
-                      ? "bg-[#0E2A54] text-white border-[#299EED] shadow-xl scale-[1.01]"
-                      : "bg-[#EAF3FF] text-[#0E2A54] border-[#DCEEFF] hover:bg-white hover:shadow-lg hover:border-[#299EED]/50"
+                      ? "bg-[#0E2A54] text-white border-[#299EED]"
+                      : "bg-[#EAF3FF] text-[#0E2A54] border-[#DCEEFF]"
                   }`}
                 >
                   <div>
                     <div className="flex items-center justify-between mb-4">
                       <div
-                        className={`flex h-11 w-11 items-center justify-center rounded-[12px] transition-colors ${
+                        className={`flex h-11 w-11 items-center justify-center rounded-[12px] ${
                           isActive
                             ? "bg-[#299EED] text-white"
-                            : "bg-white text-[#0E2A54] group-hover:bg-[#0E2A54] group-hover:text-white"
+                            : "bg-white text-[#0E2A54]"
                         }`}
                       >
                         <img
@@ -314,7 +314,7 @@ export default function WhoWeAreProblemWeSolve() {
 
                     <h4
                       className={`text-[16px] sm:text-[17px] font-semibold leading-[1.3] tracking-tight ${
-                        isActive ? "text-white" : "text-[#0E2A54] group-hover:text-[#299EED]"
+                        isActive ? "text-white" : "text-[#0E2A54]"
                       }`}
                     >
                       {item.title}
@@ -323,7 +323,7 @@ export default function WhoWeAreProblemWeSolve() {
 
                   <div className="mt-4 pt-3 border-t border-current/10 flex items-center justify-between text-[11px] font-semibold opacity-80">
                     <span>Problem 0{idx + 1}</span>
-                    <span className="flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                    <span className="flex items-center gap-1">
                       <span>View Detail</span>
                       <ArrowRight size={13} />
                     </span>

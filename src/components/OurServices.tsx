@@ -416,16 +416,14 @@ export default function OurServices({ services }: { services?: ServiceData[] }) 
     setMousePos({ x: 0, y: 0 });
   };
 
-  const parallaxX = mousePos.x * 12;
-  const parallaxY = mousePos.y * 8;
+  const parallaxX = 0;
+  const parallaxY = 0;
 
   return (
     <section className="w-full bg-[#FAFAFA] py-10 md:py-14 overflow-hidden">
       <div className="kaluna-wide-container">
         <section
           ref={sectionRef}
-          onMouseMove={handleMouseMove}
-          onMouseLeave={handleMouseLeave}
           className="relative mx-auto w-full max-w-[1830px] select-none overflow-hidden rounded-[20px] sm:rounded-[24px] bg-[#003456] min-h-[640px] sm:min-h-[720px] lg:aspect-[1830/889] lg:min-h-0"
         >
           <BackgroundArtwork idPrefix={idPrefix} />
