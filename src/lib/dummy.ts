@@ -29,7 +29,7 @@ export const testimonials = [
     company_name: "Top Toy",
     content:
       "Kaluna Technology supported the implementation of our videotron and digital signage system for Top Toy’s advertising needs. Their team understood the technical requirements and handled the installation process well.",
-    avatar_url: "/image/default-avatar.svg",
+    avatar_url: "/image/mitra/persone/Simon Agung Hoedoyo.webp",
     logo_url: "/image/mitra/16.webp",
   },
   {
@@ -38,7 +38,7 @@ export const testimonials = [
     company_name: "Queen City Mall",
     content:
       "Kaluna Technology helped us develop an IoT-based solution for our building management needs. The solution was practical and well suited to our day-to-day operations.",
-    avatar_url: "/image/default-avatar.svg",
+    avatar_url: "/image/mitra/persone/Ishaq Nfarara.webp",
     logo_url: "/image/mitra/15.webp",
   },
   {
