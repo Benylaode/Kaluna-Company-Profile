@@ -65,7 +65,14 @@ export default function WhoWeAreProblemWeSolve() {
     <>
       <section className="w-full bg-[#FAFAFA] py-14 sm:py-20 lg:py-24 border-t border-gray-100">
         <style>{`
-          @keyframes fillProgress { 0% { width: 0%; } 100% { width: 100%; } }
+          @keyframes fillProgress {
+            0% { transform: scaleX(0); -webkit-transform: scaleX(0); }
+            100% { transform: scaleX(1); -webkit-transform: scaleX(1); }
+          }
+          @-webkit-keyframes fillProgress {
+            0% { -webkit-transform: scaleX(0); }
+            100% { -webkit-transform: scaleX(1); }
+          }
           @keyframes heroReveal {
             0% { opacity: 0; transform: translateY(16px); }
             100% { opacity: 1; transform: translateY(0); }
@@ -195,7 +202,7 @@ export default function WhoWeAreProblemWeSolve() {
             </div>
 
             {/* Progress Bar */}
-            <div className="absolute bottom-0 left-0 right-0 z-20 flex h-[4px] w-full bg-white/20">
+            <div className="absolute bottom-0 left-0 right-0 z-20 flex h-[4px] w-full bg-white/20 overflow-hidden">
               {problemItems.map((_, index) => (
                 <div
                   key={index}
@@ -204,8 +211,14 @@ export default function WhoWeAreProblemWeSolve() {
                 >
                   {index === activeIndex && (
                     <div
-                      className="absolute left-0 top-0 h-full bg-[#299EED]"
-                      style={{ animation: `fillProgress ${slideDuration}ms linear forwards` }}
+                      className="absolute left-0 top-0 h-full w-full bg-[#299EED]"
+                      style={{
+                        transformOrigin: "left",
+                        WebkitTransformOrigin: "left",
+                        animation: `fillProgress ${slideDuration}ms linear forwards`,
+                        WebkitAnimation: `fillProgress ${slideDuration}ms linear forwards`,
+                        willChange: "transform",
+                      }}
                     />
                   )}
                   {index < activeIndex && (

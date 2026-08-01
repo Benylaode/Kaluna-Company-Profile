@@ -1,6 +1,13 @@
 import type { NextConfig } from "next";
+import path from "path";
 
 const nextConfig: NextConfig = {
+  // Lock Turbopack root to current project folder to fix parent lockfile detection
+  turbopack: {
+    root: path.resolve(process.cwd()),
+  },
+  outputFileTracingRoot: path.resolve(process.cwd()),
+
   // Compression untuk semua response
   compress: true,
 
@@ -9,7 +16,7 @@ const nextConfig: NextConfig = {
 
   // Tree-shaking & WebKit module optimization
   experimental: {
-    optimizePackageImports: ["lucide-react"],
+    optimizePackageImports: ["lucide-react", "react-icons"],
   },
 
   images: {

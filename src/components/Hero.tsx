@@ -54,6 +54,26 @@ const slides = [
           transform: none !important;
           animation: none !important;
         }
+
+        @keyframes fillHeroProgress {
+          0% {
+            transform: scaleX(0);
+            -webkit-transform: scaleX(0);
+          }
+          100% {
+            transform: scaleX(1);
+            -webkit-transform: scaleX(1);
+          }
+        }
+
+        @-webkit-keyframes fillHeroProgress {
+          0% {
+            -webkit-transform: scaleX(0);
+          }
+          100% {
+            -webkit-transform: scaleX(1);
+          }
+        }
       `}</style>
 
       {/* Mobile Layout */}
@@ -75,8 +95,28 @@ const slides = [
           <div className="absolute inset-x-0 bottom-0 h-[200px] sm:h-[250px] bg-gradient-to-b from-[#0E2A54]/0 to-[#0E2A54]" />
         </div>
 
-        <div className="absolute inset-x-0 bottom-0 h-[5px] bg-[#D6ECFF]">
-          <div className="h-full bg-[#299EED]" style={{ width: `${((currentSlide + 1) / slides.length) * 100}%` }} />
+        {/* Animated Progress Bar Mobile */}
+        <div className="absolute inset-x-0 bottom-0 z-20 flex h-[5px] w-full bg-[#D6ECFF] overflow-hidden">
+          {slides.map((_, index) => (
+            <div key={index} onClick={() => setCurrentSlide(index)} className="relative h-full flex-1 cursor-pointer">
+              {index === currentSlide && (
+                <div
+                  key={`hero-mobile-progress-${currentSlide}`}
+                  className="absolute left-0 top-0 h-full w-full bg-[#299EED]"
+                  style={{
+                    transformOrigin: "left",
+                    WebkitTransformOrigin: "left",
+                    animation: `fillHeroProgress ${slideDuration}ms linear forwards`,
+                    WebkitAnimation: `fillHeroProgress ${slideDuration}ms linear forwards`,
+                    willChange: "transform",
+                  }}
+                />
+              )}
+              {index < currentSlide && (
+                <div className="absolute left-0 top-0 h-full w-full bg-[#299EED]" />
+              )}
+            </div>
+          ))}
         </div>
 
         <div className="absolute inset-x-0 top-[300px] sm:top-[360px] px-5">
@@ -166,18 +206,31 @@ const slides = [
               {slides[currentSlide].tags.map((tag, index) => (
                 <span
                   key={`tag-${currentSlide}-${index}`}
-                  className="rounded-full bg-white px-6 py-3.5 text-xs lg:text-sm font-semibold tracking-[0.01em] text-[#0E2A54] shadow-lg opacity-100"
+                  className="rounded-full bg-[#FFFFFF] px-6 py-3.5 text-xs lg:text-sm font-semibold tracking-[0.01em] text-[#0E2A54] shadow-lg opacity-100"
                 >
                   {tag}
                 </span>
               ))}
             </div>
 
-            {/* Static Progress Bar */}
-            <div className="absolute bottom-0 left-0 z-20 flex h-[5px] w-full bg-[#D6ECFF]">
+            {/* Animated Progress Bar Desktop */}
+            <div className="absolute bottom-0 left-0 z-20 flex h-[5px] w-full bg-[#D6ECFF] overflow-hidden">
               {slides.map((_, index) => (
                 <div key={index} onClick={() => setCurrentSlide(index)} className="relative h-full flex-1 cursor-pointer">
-                  {index <= currentSlide && (
+                  {index === currentSlide && (
+                    <div
+                      key={`hero-progress-${currentSlide}`}
+                      className="absolute left-0 top-0 h-full w-full bg-[#299EED]"
+                      style={{
+                        transformOrigin: "left",
+                        WebkitTransformOrigin: "left",
+                        animation: `fillHeroProgress ${slideDuration}ms linear forwards`,
+                        WebkitAnimation: `fillHeroProgress ${slideDuration}ms linear forwards`,
+                        willChange: "transform",
+                      }}
+                    />
+                  )}
+                  {index < currentSlide && (
                     <div className="absolute left-0 top-0 h-full w-full bg-[#299EED]" />
                   )}
                 </div>

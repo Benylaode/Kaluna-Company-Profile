@@ -166,12 +166,22 @@ export default function OurWorks() {
         }
 
         @keyframes fillProgress {
-          from {
-            width: 0%;
+          0% {
+            transform: scaleX(0);
+            -webkit-transform: scaleX(0);
           }
+          100% {
+            transform: scaleX(1);
+            -webkit-transform: scaleX(1);
+          }
+        }
 
-          to {
-            width: 100%;
+        @-webkit-keyframes fillProgress {
+          0% {
+            -webkit-transform: scaleX(0);
+          }
+          100% {
+            -webkit-transform: scaleX(1);
           }
         }
 
@@ -323,7 +333,21 @@ export default function OurWorks() {
 
                     {/* Progress bar tepat di sisi bawah card */}
                     {isActive && (
-                      <div className="absolute bottom-0 left-0 right-0 z-20 h-[5px] bg-[#299EED]" />
+                      <div className="absolute bottom-0 left-0 right-0 z-20 h-[5px] bg-[#DCE3EA] overflow-hidden rounded-b-[24px]">
+                        <div
+                          key={`progress-${activeIndex}`}
+                          className="h-full w-full bg-[#299EED]"
+                          style={{
+                            transformOrigin: "left",
+                            WebkitTransformOrigin: "left",
+                            animation: `fillProgress ${SLIDE_INTERVAL_MS}ms linear forwards`,
+                            WebkitAnimation: `fillProgress ${SLIDE_INTERVAL_MS}ms linear forwards`,
+                            animationPlayState: paused ? "paused" : "running",
+                            WebkitAnimationPlayState: paused ? "paused" : "running",
+                            willChange: "transform",
+                          }}
+                        />
+                      </div>
                     )}
                   </div>
                 );
