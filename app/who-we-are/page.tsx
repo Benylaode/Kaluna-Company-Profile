@@ -53,24 +53,29 @@ export default async function WhoWeArePage() {
 
 const expertise = [
   {
-    name: "Point of Sale (POS)\n& Retail Management",
-    img: "/image/Expertise/pos-retail.webp",
+    name: "Brand & Corporate\nWebsites",
+    description: "Build trust, establish authority, and showcase your business to the world.",
+    img: "/image/projects/altatic-analytic/1.webp",
   },
   {
-    name: "HR & Talent\nManagement Engine",
-    img: "/image/Expertise/hrms.webp",
+    name: "E-Commerce & Retail\nPlatforms",
+    description: "Drive sales with intuitive product catalogs, secure payments, and smooth checkouts.",
+    img: "/image/projects/sinau-print-erp/1.webp",
   },
   {
-    name: "Financial & Accounting\nAutomation Hub",
-    img: "/image/Expertise/financial-accounting.webp",
+    name: "Marketing & Landing\nPage Hubs",
+    description: "Capture leads and convert visitors with high-impact, campaign-focused pages.",
+    img: "/image/projects/web-media-profile/1.webp",
   },
   {
-    name: "Supply Chain &\nInventory Control",
-    img: "/image/Expertise/supply-chain.webp",
+    name: "Member & Client\nPortals",
+    description: "Deliver exclusive content, manage subscriptions, and engage your community.",
+    img: "/image/projects/artic-complex-web/2.webp",
   },
   {
-    name: "Logistics & Fleet\nOperations Tracker",
-    img: "/image/Expertise/logistics-fleet.webp",
+    name: "Custom Web\nApplications",
+    description: "Build interactive tools, dashboards, and data-driven platforms tailored to your needs.",
+    img: "/image/projects/myboss-iot-system/1.webp",
   },
 ];
 
@@ -293,117 +298,30 @@ const expertise = [
         </div>
       </section>
 
-{/* ── 2. About Us ─────────────────────────────────────────── */}
+{/* ── 2. Overview ─────────────────────────────────────────── */}
 <section className="w-full bg-white">
-  <div
-    className="
-      mx-auto
-      max-w-[1920px]
-      px-5
-      kaluna-container
-      pt-12
-      pb-14
-      md:pt-16
-      md:pb-20
-      lg:pt-[52px]
-      lg:pb-[72px]
-    "
-  >
-    <div
-      className="
-        flex
-        flex-col
-        lg:grid
-        lg:grid-cols-[40%_60%]
-        items-start
-        gap-10
-        lg:gap-12
-        xl:gap-16
-      "
-    >
-      {/* Left Content */}
+  <div className="kaluna-container pt-12 pb-14 md:pt-16 md:pb-20 lg:pt-[52px] lg:pb-[72px]">
+    <div className="flex flex-col items-start gap-10 lg:grid lg:grid-cols-[40%_60%] lg:gap-12 xl:gap-16">
       <div className="w-full lg:pt-[52px]">
-        {/* Section Label */}
         <div className="mb-8 flex items-center gap-3">
           <span className="h-[14px] w-[3px] shrink-0 rounded-full bg-[#299EED]" />
-
-          <span
-            className="
-              text-[8px]
-              md:text-[10px]
-              font-semibold
-              uppercase
-              tracking-[0.06em]
-              text-[#0E2A54]
-            "
-          >
+          <span className="text-[8px] font-semibold uppercase tracking-[0.06em] text-[#0E2A54] md:text-[10px]">
             Overview
           </span>
         </div>
 
-        {/* Heading */}
-        <h2
-          className="
-            max-w-[550px]
-            text-[32px]
-            sm:text-[36px]
-            md:text-[40px]
-            lg:text-[42px]
-            font-medium
-            leading-[1.12]
-            tracking-[-0.025em]
-            text-[#0D0D0D]
-          "
-        >
-          Engineering the Digital Backbone of  
-          <br className="hidden sm:block" />
-          <span className="sm:hidden"> </span>
-          Modern Enterprises
+        <h2 className="max-w-[550px] text-[32px] font-medium leading-[1.12] tracking-[-0.025em] text-[#0D0D0D] sm:text-[36px] md:text-[40px] lg:text-[42px]">
+          Empowering Modern Enterprises Through Exceptional Web Experiences.
         </h2>
 
-        {/* Description */}
-        <div
-          className="
-            mt-6
-            max-w-[520px]
-            space-y-4
-            text-[13px]
-            md:text-[14px]
-            leading-[1.7]
-            text-[#4A4A4A]
-          "
-        >
-          <p>
-            Kaluna Technology is a trusted technology partner specializing in enterprise digitalization and workflow automation.
-          </p>
-
-          <p>
-            We empower growing organizations to replace disjointed tools and fragmented operations with custom, high-performance Enterprise Resource Planning (ERP) systems.
-          </p>
-
-          <p>
-            In today’s fast-moving business environment, operational efficiency is a necessity. At Kaluna, we bridge the gap between complex operational challenges and modern software—enabling enterprises to scale efficiently, protect margins, and unlock full operational transparency.
-          </p>
-        </div>
+        <p className="mt-6 max-w-[520px] text-[13px] leading-[1.7] text-[#4A4A4A] md:text-[14px]">
+          At Kaluna Technology, we help growing enterprises build powerful, conversion-focused websites that elevate their brand and streamline their digital presence. A well-crafted website serves as the central hub of your organization—seamlessly integrating your brand story, product catalogs, customer engagement tools, and marketing channels into one cohesive, high-performance platform that works 24/7.
+        </p>
       </div>
 
-      {/* Right Image */}
-      <div
-        className="
-          relative
-          h-[300px]
-          w-full
-          overflow-hidden
-          rounded-[20px]
-          bg-[#EAF3FF]
-          sm:h-[400px]
-          md:h-[480px]
-          lg:h-[540px]
-          xl:h-[560px]
-        "
-      >
+      <div className="relative h-[300px] w-full overflow-hidden rounded-[20px] bg-[#EAF3FF] sm:h-[400px] md:h-[480px] lg:h-[540px] xl:h-[560px]">
         <img
-          src="image/kaluna-office.webp"
+          src="/image/kaluna-office.webp"
           alt="Kaluna Technology Office"
           className="h-full w-full object-cover object-center"
         />
@@ -411,6 +329,7 @@ const expertise = [
     </div>
   </div>
 </section>
+
 {/* ── Problem We Solve ───────────────────────────────────── */}
 <WhoWeAreProblemWeSolve />
 {/* ── 4. Vision & Mission ─────────────────────────────────── */}
@@ -541,9 +460,7 @@ const expertise = [
           text-white
         "
       >
-        To be the most trusted custom ERP partner, 
-        <br className="hidden sm:block" />
-        driving peak operational efficiency through practical, scalable software. 
+        To be the go-to digital partner for enterprises seeking beautiful, fast, and results-driven websites.
       </h2>
     </div>
 
@@ -587,7 +504,7 @@ const expertise = [
           font-light
         "
       >
-      To empower businesses with purpose-built ERP solutions that automate core operations, deliver enterprise reliability, and drive continuous growth through dedicated partnership. 
+      To make powerful, professional websites accessible to every business—combining stunning design, smart functionality, and unwavering support to help our clients thrive online.
       </p>
     </div>
   </div>
@@ -608,6 +525,10 @@ const expertise = [
       Our Technology Expertise
     </h2>
 
+    <p className="mb-8 max-w-[820px] text-[13px] leading-[1.7] text-[#4A4A4A] md:text-[14px]">
+      We design, build, and deploy custom websites tailored to solve specific business challenges. Here are five core website solutions we specialize in:
+    </p>
+
     <div
       className="
         grid
@@ -616,7 +537,7 @@ const expertise = [
         sm:grid-cols-2
         lg:grid-cols-3
         xl:grid-cols-5
-        gap-6
+        gap-5 sm:gap-6
         items-stretch
       "
     >
@@ -627,8 +548,12 @@ const expertise = [
           <article
             key={idx}
             className="
+              group
               relative
-              aspect-[3/2]
+              flex
+              flex-col
+              justify-end
+              min-h-[290px] sm:min-h-[310px]
               w-full
               min-w-0
               cursor-pointer
@@ -636,6 +561,9 @@ const expertise = [
               rounded-[16px]
               bg-[#0E2A54]
               shadow-md
+              transition-all
+              duration-300
+              hover:shadow-xl
             "
           >
             {/* Background Image */}
@@ -649,10 +577,14 @@ const expertise = [
                 w-full
                 object-cover
                 object-center
+                transition-transform
+                duration-700
+                ease-out
+                group-hover:scale-105
               "
             />
 
-            {/* Overlay Linear Gradient: #0E2A54 (Tebal di Bawah, Tipis di Atas) */}
+            {/* Overlay Linear Gradient: #0E2A54 (Tebal di Bawah, Tipis di Atas untuk Keterbacaan Teks Maksimal) */}
             <div
               className="
                 absolute
@@ -660,20 +592,23 @@ const expertise = [
                 pointer-events-none
                 transition-opacity
                 duration-500
-                bg-[linear-gradient(to_top,#0E2A54_0%,#0E2A54_35%,rgba(14,42,84,0.75)_65%,rgba(14,42,84,0.15)_100%)]
-                group-hover:bg-[linear-gradient(to_top,#0E2A54_0%,#0E2A54_40%,rgba(14,42,84,0.85)_70%,rgba(14,42,84,0.2)_100%)]
+                bg-[linear-gradient(to_top,#071A35_0%,#0E2A54_45%,rgba(14,42,84,0.65)_75%,rgba(14,42,84,0.15)_100%)]
+                group-hover:bg-[linear-gradient(to_top,#071A35_0%,#0E2A54_55%,rgba(14,42,84,0.75)_80%,rgba(14,42,84,0.25)_100%)]
               "
             />
 
-            {/* Title Content */}
-            <div className="relative z-10 flex h-full flex-col justify-end p-6 text-white">
-              <h3 className="text-[18px] sm:text-[20px] md:text-[22px] font-medium leading-[1.25] text-white transition-colors">
+            {/* Content */}
+            <div className="relative z-10 flex flex-col justify-end p-5 sm:p-6 text-white h-full">
+              <h3 className="text-[17px] sm:text-[18px] md:text-[19px] font-semibold leading-[1.3] text-white tracking-tight">
                 {titleLines.map((line, lIdx) => (
                   <span key={lIdx} className="block">
                     {line}
                   </span>
                 ))}
               </h3>
+              <p className="mt-2.5 text-[12px] sm:text-[12.5px] leading-[1.55] text-white/90 font-normal">
+                {item.description}
+              </p>
             </div>
           </article>
         );

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 const description =
-  "Explore Kaluna Technology case studies in web development, IoT systems, ERP platforms, data dashboards, and enterprise system integration.";
+  "Explore conversion-driven website projects created by Kaluna Technology for modern enterprises and growing brands.";
 
 export const metadata: Metadata = {
   title: "Our Works",

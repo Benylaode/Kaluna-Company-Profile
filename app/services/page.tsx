@@ -85,24 +85,24 @@ export default async function ServicePage() {
   // FAQ items matching PDF Page 5 & 6
   const pdfFaqs = [
     {
-      q: "Why should our company build a custom ERP with Kaluna instead of buying an off-the-shelf solution like SAP or Odoo?",
-      a: "Off-the-shelf ERPs often require companies to alter their proven business processes to fit rigid pre-built software, or pay heavy recurring licensing fees for unused features. Kaluna Technology builds tailored ERP systems engineered specifically around your exact operational workflows, giving you total ownership, zero per-user licensing fees, and the flexibility to scale freely.",
+      q: "Why should our company choose a custom website instead of a generic template?",
+      a: "A custom website is shaped around your brand, audience, content, and conversion goals. It gives you stronger differentiation, better performance, and the flexibility to grow without fighting template limitations.",
     },
     {
-      q: "How long does a typical ERP implementation take with Kaluna Technology?",
-      a: "A standard enterprise ERP project typically ranges from 8 to 16 weeks, depending on the scope of modules, custom integrations, and data migration needs. We break deployment down into functional phases so your team can start using core modules early in the process.",
+      q: "How long does a typical website project take with Kaluna Technology?",
+      a: "Most website projects take 6 to 12 weeks, depending on the number of pages, content readiness, custom functionality, and integrations. We define a clear timeline during discovery and keep each phase transparent.",
     },
     {
-      q: "Can Kaluna’s ERP integrate with our existing tools (e.g., legacy databases, hardware, IoT devices)?",
-      a: "Yes. We specialize in system integration. Whether you need to connect your ERP to custom e-commerce stores, POS hardware, GPS fleet trackers, payment gateways, or legacy accounting software, we build secure API pipelines to unify your entire tech stack.",
+      q: "Can our website integrate with our existing business and marketing tools?",
+      a: "Yes. We can connect your website with CRM, email marketing, analytics, payment gateways, booking tools, and other third-party platforms through secure integrations.",
     },
     {
-      q: "How does Kaluna automate internal enterprise workflows?",
-      a: "We eliminate repetitive manual work by establishing automated business rules within your ERP. For instance, when a sale is completed at a POS, the ERP automatically updates warehouse inventory, generates an invoice, notifies the fulfillment team, and updates your financial ledger in real-time without human intervention.",
+      q: "Will our team be able to update the website after launch?",
+      a: "Yes. We provide an intuitive content management experience and train your team to update text, images, products, and pages confidently without touching code.",
     },
     {
-      q: "What level of technical support and system maintenance does Kaluna provide after go-live?",
-      a: "We view our clients as long-term technology partners. After deployment, Kaluna provides dedicated SLA-backed technical support, cloud monitoring, periodic security patches, and continuous module development as your enterprise expands.",
+      q: "What support does Kaluna provide after the website goes live?",
+      a: "We provide ongoing maintenance, security updates, backups, performance monitoring, content assistance, and strategic guidance so your website stays fast, secure, and effective.",
     },
   ];
 
@@ -122,14 +122,15 @@ export default async function ServicePage() {
             <span className="text-[#94A3B8] cursor-default">Our Service</span>
             <span className="text-gray-300 font-normal">&gt;</span>
             <span className="text-[#0E2A54] font-bold">
-              ERP & System Integration
+              Website Design & Development
             </span>
           </div>
         </div>
 
         <div className="kaluna-wide-container">
           <ServiceDashboardHeroBanner
-            description="We build end-to-end Enterprise Resource Planning solutions that unify your core operations into a single, intelligent platform."
+            title="Trusted Web Partner for Modern Enterprises."
+            description="We build stunning, high-performance websites that unify your brand, content, and customer experience into one powerful digital platform."
           />
         </div>
       </section>
@@ -184,7 +185,7 @@ export default async function ServicePage() {
                   text-[#0D0D0D]
                 "
               >
-                Empowering Modern Enterprises Through Automation
+                Empowering Modern Enterprises Through Exceptional Web Experiences.
               </h2>
 
               <div
@@ -199,11 +200,11 @@ export default async function ServicePage() {
                 "
               >
                 <p>
-                  At Kaluna Technology, we help growing enterprises transform complex, fragmented operations into automated, friction-free workflows. An <strong className="text-[#0E2A54] font-semibold">Enterprise Resource Planning (ERP)</strong> system serves as the centralized digital backbone of an organization—integrating core functions like finance, inventory, human resources, supply chain, and client relations into a unified data ecosystem.
+                  At Kaluna Technology, we help growing enterprises build powerful, conversion-focused websites that elevate their brand and streamline their digital presence. A well-crafted website serves as the central hub of your organization—seamlessly integrating your brand story, product catalogs, customer engagement tools, and marketing channels into one cohesive, high-performance platform that works 24/7.
                 </p>
 
                 <p>
-                  By eliminating manual data entry, bridging isolated departments, and delivering real-time visibility, a custom ERP empowers leadership to make faster, data-driven decisions while driving operational efficiency at scale.
+                  Every experience is designed to help customers find what they need, trust your business, and take action with confidence.
                 </p>
               </div>
             </div>
@@ -291,7 +292,7 @@ export default async function ServicePage() {
                     lg:text-[32px]
                   "
                 >
-                  Everything You Need to Know About Custom ERP
+                  Everything You Need to Know About Website Building
                 </h2>
               </div>
 
@@ -440,7 +441,7 @@ export default async function ServicePage() {
                   lg:text-[48px]
                 "
               >
-                Featured ERP & System Integration Works
+                Featured Website Projects
               </h2>
 
               <Link

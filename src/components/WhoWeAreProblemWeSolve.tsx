@@ -15,35 +15,35 @@ export interface WhoWeAreProblemItem {
 const problemItems: WhoWeAreProblemItem[] = [
   {
     id: 1,
-    title: "Integrated Management Platform",
+    title: "Website for Enterprise",
     description:
-      "Building unified management platforms that integrate core business processes into a single, reliable source of truth.",
+      "Outdated, slow, and unsecured sites that fail to inspire trust or handle high-volume traffic.",
     iconImg: "/image/Problem/1.svg",
-    tag: "Core Architecture",
+    tag: "Enterprise Web",
   },
   {
     id: 2,
-    title: "Workflow Automation",
+    title: "Website for Commerce",
     description:
-      "Eliminating manual data entry and administrative bottlenecks with automated, error-free cross-departmental workflows.",
+      "Clunky e-commerce experiences with poor checkout flows, abandoned carts, and lost revenue.",
     iconImg: "/image/Problem/2.svg",
-    tag: "Process Automation",
+    tag: "E-Commerce Experience",
   },
   {
     id: 3,
-    title: "System Integration",
+    title: "Website for Organization",
     description:
-      "Connecting legacy software, databases, hardware, and APIs into one cohesive ecosystem for seamless communication.",
+      "Disconnected web properties that confuse customers and dilute brand identity across departments.",
     iconImg: "/image/Problem/3.svg",
-    tag: "Ecosystem Sync",
+    tag: "Unified Digital Presence",
   },
   {
     id: 4,
-    title: "Data-Driven Operations",
+    title: "Website for Company Profile",
     description:
-      "Converting operational data into real-time executive dashboards to enable proactive, insight-driven decision making.",
+      "Static, lifeless digital brochures that fail to tell your story, engage visitors, or generate leads.",
     iconImg: "/image/Problem/4.svg",
-    tag: "Executive Analytics",
+    tag: "Brand & Lead Generation",
   },
 ];
 
@@ -96,7 +96,7 @@ export default function WhoWeAreProblemWeSolve() {
               </span>
             </div>
             <h2 className="text-[28px] sm:text-[36px] lg:text-[42px] font-medium text-[#111111] tracking-[-0.025em] leading-[1.15]">
-              Optimizing Business Workflows<br className="hidden sm:block" /> Through Integrated ERP Solutions
+              The Digital Imperative<br className="hidden sm:block" /> Why Your Business Needs a Modern Website
             </h2>
           </div>
 

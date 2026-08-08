@@ -15,44 +15,44 @@ export interface WorkData {
 const WORK_STEPS: WorkData[] = [
   {
     id: 1,
-    title: "Discovery & Requirement Mapping",
+    title: "Discovery & Strategy",
     tag: "Foundation",
-    category: "Engineered to understand your organizational structure and map system requirements that evolve with your growth.",
+    category: "We learn your brand, audience, and goals to map out the perfect site structure.",
     image_url: "/image/ourworkflow/1.webp"
   },
   {
     id: 2,
-    title: "Technical Analysis & Solution Planning",
+    title: "Wireframing & Design",
     tag: "Architecture",
-    category: "Define the full integration scope, system architecture, and modern technology stack tailored to your enterprise.",
+    category: "We craft clickable prototypes so you can see the look and feel before we write a single line of code.",
     image_url: "/image/ourworkflow/2.webp"
   },
   {
     id: 3,
-    title: "System Design & Prototyping",
+    title: "Development & Build",
     tag: "Validation",
-    category: "Designing detailed system flows, data models, and user interfaces before proceeding to full deployment.",
+    category: "We code a responsive, SEO-optimized site using the latest web technologies.",
     image_url: "/image/ourworkflow/3.webp"
   },
   {
     id: 4,
-    title: "Development & System Integration",
+    title: "Content Integration",
     tag: "Execution",
-    category: "Building scalable ERP modules and integrating existing platforms, databases, and third-party tools.",
+    category: "We populate your site with your copy, images, and video, or help you create fresh content.",
     image_url: "/image/ourworkflow/4.webp"
   },
   {
     id: 5,
-    title: "Testing, Security & Performance",
+    title: "Testing & Optimization",
     tag: "Quality Assurance",
-    category: "Rigorous stress testing, security audits, and data validation to guarantee system stability under load.",
+    category: "We run speed tests, cross-browser checks, and mobile audits to ensure flawless performance.",
     image_url: "/image/ourworkflow/5.webp"
   },
   {
     id: 6,
-    title: "Deployment, Monitoring & Continuous Support",
+    title: "Launch & Ongoing Care",
     tag: "Go-Live & Beyond",
-    category: "Smooth system rollout, real-time monitoring, team training, and ongoing technical support.",
+    category: "We handle the go-live, train your team, and provide 24/7 support and security monitoring.",
     image_url: "/image/ourworkflow/6.webp"
   }
 ];

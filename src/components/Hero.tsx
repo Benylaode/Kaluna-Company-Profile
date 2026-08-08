@@ -13,22 +13,22 @@ const slides = [
   {
     id: 1,
     image: "/image/Hero/Default.webp",
-    tags: ["Industrial Analytics ERP"]
+    tags: ["Corporate Website"]
   },
   {
     id: 2,
     image: "/image/Hero/1.webp",
-    tags: ["ERP Mobile"]
+    tags: ["Responsive Web Experience"]
   },
   {
     id: 3,
     image: "/image/Hero/2.webp",
-    tags: ["Sistematis Login ERP"]
+    tags: ["Conversion-Focused Design"]
   },
   {
     id: 4,
     image: "/image/Hero/3.webp",
-    tags: ["Dashboard Analytics ERP"]
+    tags: ["Integrated Digital Platform"]
   }
 ];
 
@@ -121,10 +121,10 @@ const slides = [
 
         <div className="absolute inset-x-0 top-[300px] sm:top-[360px] px-5">
           <h1 className="hero-animate-title text-[28px] sm:text-[36px] font-semibold leading-[1.14] tracking-[-0.02em] text-white">
-            Your Scalable IT Solutions Partner for Modern Enterprises
+            Your Digital Growth Partner for Modern Enterprises.
           </h1>
           <p className="hero-animate-text mt-3 sm:mt-4 text-sm sm:text-base leading-[1.6] tracking-[0.01em] text-white/95">
-            We design, build, and integrate intelligent software systems that drive operational efficiency and long-term growth through customized Enterprise Resource Planning (ERP) and seamless system integration.
+            We build high-performance websites that blend stunning design with intelligent functionality, so you can scale your brand without technical bottlenecks.
           </p>
 
           <div className="hero-animate-buttons mt-5 flex flex-col gap-3">
@@ -158,13 +158,13 @@ const slides = [
           </div>
 
           <h1 className="hero-animate-title text-[34px] md:text-[42px] lg:text-[50px] xl:text-[54px] font-semibold leading-[1.12] tracking-[-0.025em] text-[#0E2A54]">
-            Your Scalable<br />
-            IT Solutions Partner<br />
+            Your Digital Growth<br />
+            Partner<br />
             for Modern Enterprises
           </h1>
 
           <p className="hero-animate-text max-w-[500px] text-base lg:text-[17px] leading-[1.6] text-[#4B5563]">
-            We design, build, and integrate intelligent software systems that drive operational efficiency and long-term growth.
+            We build high-performance websites that blend stunning design with intelligent functionality, so you can scale your brand without technical bottlenecks.
           </p>
 
           <div className="hero-animate-buttons flex items-center gap-4">

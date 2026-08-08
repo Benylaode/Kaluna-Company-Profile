@@ -407,7 +407,7 @@ export default function OurServices({ services }: { services?: ServiceData[] }) 
               </h2>
 
               <p className="mt-4 sm:mt-5 text-[15px] sm:text-[17px] md:text-[19px] font-normal leading-[1.35] text-white/90 max-w-[560px]">
-                For more than 2 years, we helped many enterprises to digitalize and centralize their business needs.
+                We create cohesive, high-performance web experiences that help modern enterprises grow their brands online.
               </p>
             </div>
 
@@ -417,7 +417,7 @@ export default function OurServices({ services }: { services?: ServiceData[] }) 
                 <SparkleIcon className="w-10 h-10 sm:w-12 sm:h-12" />
               </div>
               <p className="text-[#0E2A54] text-[13px] sm:text-[15px] md:text-[16px] font-medium leading-[1.45]">
-                We streamline enterprise workflows, unifying disjointed software systems, and building structured data environments across all business departments.
+                We streamline digital brand experiences, unifying design, content, and functionality across your website, and building a cohesive online presence that serves every customer touchpoint.
               </p>
             </div>
 

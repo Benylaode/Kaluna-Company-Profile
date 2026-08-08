@@ -30,51 +30,11 @@ export interface ServiceItem {
 const defaultServicesData: ServiceItem[] = [
   {
     id: 1,
-    slug: "erp-system-integration",
-    title: "ERP & System Integration",
+    slug: "system-integration",
+    title: "System Integration",
     description:
-      "We build end-to-end Enterprise Resource Planning solutions that unify your core operations into a single, intelligent platform.",
+      "We build end-to-end System Integration solutions that unify your core operations into a single, intelligent platform.",
     iconName: "building",
-  },
-  {
-    id: 2,
-    slug: "pos-retail-erp",
-    title: "Point of Sale & Retail ERP",
-    description:
-      "Centralizing multi-store cashier transactions, real-time inventory synchronization, pricing control, and sales accounting.",
-    iconName: "cart",
-  },
-  {
-    id: 3,
-    slug: "hr-payroll-erp",
-    title: "Human Resource & Payroll",
-    description:
-      "Automating employee attendance, payroll calculation, performance tracking, shift scheduling, and recruitment workflows.",
-    iconName: "users",
-  },
-  {
-    id: 4,
-    slug: "financial-accounting-erp",
-    title: "Financial & Accounting ERP",
-    description:
-      "Centralizing general ledger, automated invoicing, tax compliance reporting, budget tracking, and real-time cash flow analytics.",
-    iconName: "card",
-  },
-  {
-    id: 5,
-    slug: "supply-chain-inventory-erp",
-    title: "Supply Chain & Inventory ERP",
-    description:
-      "Managing multi-warehouse inventory tracking, procurement automation, vendor management, and stock audit controls.",
-    iconName: "box",
-  },
-  {
-    id: 6,
-    slug: "logistics-fleet-erp",
-    title: "Logistics & Fleet Management",
-    description:
-      "End-to-end delivery dispatching, vehicle fleet tracking, route optimization, maintenance scheduling, and shipping manifests.",
-    iconName: "truck",
   },
 ];
 
@@ -508,11 +468,11 @@ export default function ServiceHeroBanner({
   const ActiveIcon = getIconComponent(activeItem?.iconName);
   const SecondaryIcon = getIconComponent(secondaryItem?.iconName);
 
-  const displayTitle = title || "Trusted ERP Partner for Your Enterprise.";
+  const displayTitle = title || "Trusted Partner for Your Enterprise.";
   const displayDescription =
     description ||
     activeItem?.description ||
-    "We build end-to-end Enterprise Resource Planning solutions that unify your core operations into a single, intelligent platform.";
+    "We build end-to-end System Integration solutions that unify your core operations into a single, intelligent platform.";
 
   const selectSlide = (index: number) => {
     if (activeServicesList.length === 0) return;
@@ -550,8 +510,8 @@ export default function ServiceHeroBanner({
       className={`relative mx-auto w-full max-w-[1830px] select-none overflow-hidden rounded-[16px] bg-[#003456] sm:rounded-[20px] lg:rounded-[24px] ${
         className || "min-h-[760px] sm:min-h-[800px] lg:aspect-[1830/889] lg:min-h-0"
       }`}
-      aria-roledescription="carousel"
-      aria-label="ERP services"
+      aria-roledescription="hero banner"
+      aria-label="System Integration services"
     >
       <BackgroundArtwork idPrefix={idPrefix} />
 
@@ -581,7 +541,7 @@ export default function ServiceHeroBanner({
           <div className="mb-2.5 flex items-center gap-2.5 sm:mb-3.5">
             <span className="h-3.5 w-[2.5px] rounded-full bg-[#299EED] sm:h-4" />
             <span className="text-xs sm:text-sm font-semibold uppercase tracking-[0.12em] text-[#75C8FF]">
-              {activeItem.title}
+              {activeItem?.title || "System Integration"}
             </span>
           </div>
 
@@ -605,7 +565,7 @@ export default function ServiceHeroBanner({
           </h1>
 
           <p
-            key={activeItem.id}
+            key={activeItem?.id ?? 1}
             className="service-description-enter mt-3.5 max-w-[640px] text-left font-normal leading-[1.6] text-white/90 sm:mt-4"
             style={{
               fontSize: "clamp(14px, 1.15vw, 17px)",
@@ -614,56 +574,58 @@ export default function ServiceHeroBanner({
             {displayDescription}
           </p>
 
-          <div className="mt-5 flex flex-wrap items-center gap-3.5 sm:mt-6">
-            <div className="flex items-center rounded-full border border-white/15 bg-white/[0.08] p-1 backdrop-blur-md">
-              <button
-                type="button"
-                onClick={previousSlide}
-                aria-label="Previous service"
-                className="flex h-8 w-8 items-center justify-center rounded-full text-white transition-colors duration-300 hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#75C8FF] sm:h-9 sm:w-9"
-              >
-                <ChevronLeft className="h-4 w-4 sm:h-[16px] sm:w-[16px]" />
-              </button>
+          {activeServicesList.length > 1 && (
+            <div className="mt-5 flex flex-wrap items-center gap-3.5 sm:mt-6">
+              <div className="flex items-center rounded-full border border-white/15 bg-white/[0.08] p-1 backdrop-blur-md">
+                <button
+                  type="button"
+                  onClick={previousSlide}
+                  aria-label="Previous service"
+                  className="flex h-8 w-8 items-center justify-center rounded-full text-white transition-colors duration-300 hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#75C8FF] sm:h-9 sm:w-9"
+                >
+                  <ChevronLeft className="h-4 w-4 sm:h-[16px] sm:w-[16px]" />
+                </button>
 
-              <span
-                className="min-w-[60px] px-2 text-center text-[11px] font-medium tabular-nums text-white/90 sm:text-[12px]"
-                aria-live="polite"
-              >
-                {String(activeIndex + 1).padStart(2, "0")} / {" "}
-                {String(activeServicesList.length).padStart(2, "0")}
-              </span>
+                <span
+                  className="min-w-[60px] px-2 text-center text-[11px] font-medium tabular-nums text-white/90 sm:text-[12px]"
+                  aria-live="polite"
+                >
+                  {String(activeIndex + 1).padStart(2, "0")} / {" "}
+                  {String(activeServicesList.length).padStart(2, "0")}
+                </span>
 
-              <button
-                type="button"
-                onClick={nextSlide}
-                aria-label="Next service"
-                className="flex h-8 w-8 items-center justify-center rounded-full text-white transition-colors duration-300 hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#75C8FF] sm:h-9 sm:w-9"
-              >
-                <ChevronRight className="h-4 w-4 sm:h-[16px] sm:w-[16px]" />
-              </button>
+                <button
+                  type="button"
+                  onClick={nextSlide}
+                  aria-label="Next service"
+                  className="flex h-8 w-8 items-center justify-center rounded-full text-white transition-colors duration-300 hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#75C8FF] sm:h-9 sm:w-9"
+                >
+                  <ChevronRight className="h-4 w-4 sm:h-[16px] sm:w-[16px]" />
+                </button>
+              </div>
+
+              <div className="flex items-center gap-2" aria-label="Select service">
+                {activeServicesList.map((service, index) => {
+                  const isActive = index === activeIndex;
+
+                  return (
+                    <button
+                      key={service.id}
+                      type="button"
+                      onClick={() => selectSlide(index)}
+                      aria-label={`Show ${service.title}`}
+                      aria-current={isActive ? "true" : undefined}
+                      className={`h-1.5 rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#75C8FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#003456] ${
+                        isActive
+                          ? "w-7 bg-[#299EED]"
+                          : "w-1.5 bg-white/35 hover:bg-white/70"
+                      }`}
+                    />
+                  );
+                })}
+              </div>
             </div>
-
-            <div className="flex items-center gap-2" aria-label="Select service">
-              {activeServicesList.map((service, index) => {
-                const isActive = index === activeIndex;
-
-                return (
-                  <button
-                    key={service.id}
-                    type="button"
-                    onClick={() => selectSlide(index)}
-                    aria-label={`Show ${service.title}`}
-                    aria-current={isActive ? "true" : undefined}
-                    className={`h-1.5 rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#75C8FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#003456] ${
-                      isActive
-                        ? "w-7 bg-[#299EED]"
-                        : "w-1.5 bg-white/35 hover:bg-white/70"
-                    }`}
-                  />
-                );
-              })}
-            </div>
-          </div>
+          )}
         </div>
 
         {/* Mobile/tablet podium crop. Desktop uses exact reference placement above. */}

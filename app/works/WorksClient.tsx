@@ -43,11 +43,11 @@ const ImageSlider = ({ images, title }: { images: string[], title: string }) => 
 };
 
 const types = [
-  "IoT & Asset Monitoring ERP",
-  "Printing & Operational ERP",
-  "Retail & Point of Sales (POS) ERP",
-  "Analytical Science ERP",
-  "Financial & Accounting ERP"
+  "Brand & Corporate Websites",
+  "E-Commerce & Retail Platforms",
+  "Marketing & Landing Page Hubs",
+  "Member & Client Portals",
+  "Custom Web Applications"
 ];
 
 const industries = [
@@ -161,11 +161,12 @@ export default function WorksClient({ initialWorks = [] }: WorksClientProps) {
   };
 
   const imagePosition: Record<string, string> = {
-    "x-1-tire-company-profile": "center 40%",
-    "navicom-smart-home": "center 35%",
-    "sinau-print-pos-system": "center center",
-    "suara-merdeka-refresh": "center 30%",
-    "korlantas-polri-edrives": "center center",
+    "x-tire-company-profile": "center 40%",
+    "sinau-print-platform": "center center",
+    "aspoo-asset-management": "center 35%",
+    "artic-analytical-science": "center 30%",
+    "arsalynk-enterprise-platform": "center center",
+    "10-media-publishing-portal": "center center",
   };
 
   return (
@@ -176,8 +177,8 @@ export default function WorksClient({ initialWorks = [] }: WorksClientProps) {
       <section className="w-full bg-white pt-[72px] sm:pt-[76px] md:pt-[80px] pb-4 md:pb-6">
         <div className="kaluna-wide-container">
           <ServiceHeroBanner
-            title="Empowering Enterprises Through Digital Solutions."
-            description="Explore our portfolio of custom Enterprise Resource Planning, POS, HR, and custom software systems built for growing enterprises."
+            title="Web Experiences That Turn Visitors Into Customers."
+            description="For over 5 years, we've partnered with businesses to create stunning, conversion-driven websites that unify their digital presence and turn visitors into loyal customers."
             className="h-[60vh] min-h-[500px] max-h-[700px] lg:h-[60vh]"
           />
         </div>
@@ -217,7 +218,7 @@ export default function WorksClient({ initialWorks = [] }: WorksClientProps) {
                   tracking-[-0.025em]
                 "
               >
-                Create Meaningful Digital Solutions
+                Website Projects Built for Real Growth
               </h2>
             </div>
 

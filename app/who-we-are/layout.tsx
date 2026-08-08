@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 const description =
-  "Learn about Kaluna Technology, our technology expertise, development team, vision, and approach to building scalable digital systems.";
+  "Meet Kaluna Technology, a digital partner building beautiful, fast, and results-driven websites for modern enterprises.";
 
 export const metadata: Metadata = {
   title: "Who We Are",

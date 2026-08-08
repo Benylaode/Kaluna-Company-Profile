@@ -1,5 +1,5 @@
 import React from "react";
-import { Blocks, UserCheck, CheckCircle2, GitFork, RotateCcw } from "lucide-react";
+import { Blocks, UserCheck, CheckCircle2, GitFork, ShieldCheck, TrendingUp } from "lucide-react";
 
 export interface TechnicalFeatureItem {
   title: string;
@@ -9,29 +9,34 @@ export interface TechnicalFeatureItem {
 
 const features: TechnicalFeatureItem[] = [
   {
-    title: "Modular Microservice",
-    desc: "Enable, disable, or extend individual business modules (e.g., Inventory, POS, HR) without affecting core platform stability",
+    title: "Fully Responsive Design",
+    desc: "Your website looks and performs flawlessly on every device—desktop, tablet, and mobile.",
     icon: Blocks,
   },
   {
-    title: "Granular Role-Based Access Control (RBAC)",
-    desc: "Define exact permissions down to the button level for staff, managers, vendors, and external clients.",
+    title: "Intuitive Content Management",
+    desc: "Easily update text, images, and pages without touching a single line of code.",
     icon: UserCheck,
   },
   {
-    title: "Comprehensive Audit Trail & Logging",
-    desc: "Every database record change, user login, and document modification is timestamped and logged for security compliance.",
+    title: "SEO-Optimized Architecture",
+    desc: "Built with clean code, fast load times, and meta-tag management to rank higher on search engines.",
     icon: CheckCircle2,
   },
   {
-    title: "Multi-Branch & Multi-Currency Data Sync",
-    desc: "Handle multi-location inventory, localized tax logic, and multi-currency transactions under one central control panel.",
+    title: "Seamless Third-Party Integrations",
+    desc: "Connect your website with CRM, email marketing, payment gateways, and analytics tools effortlessly.",
     icon: GitFork,
   },
   {
-    title: "Real-Time Event Engine & Webhooks",
-    desc: "Instant event triggers (e.g., low-stock alerts, payment confirmations, dispatch updates) via email, WhatsApp, or system push notifications.",
-    icon: RotateCcw,
+    title: "Enterprise-Grade Security",
+    desc: "SSL encryption, daily backups, firewall protection, and regular security patches to keep your site safe.",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Scalable Performance",
+    desc: "Handle traffic spikes, product expansions, and new features without slowing down or crashing.",
+    icon: TrendingUp,
   },
 ];
 
@@ -55,27 +60,27 @@ export default function ServiceTechnicalFeatures() {
           </p>
         </div>
 
-        {/* 5-Column Grid with Light-Blue Vertical Dividers (Exact Match to Reference Image) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 border-t border-b lg:border-y-0 border-[#BCE1F8]">
+        {/* 6-Column Grid with Light-Blue Vertical Dividers */}
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 border-t border-b lg:border-y-0 border-[#BCE1F8]">
           {features.map((feat, idx) => {
             const Icon = feat.icon;
             return (
               <div
                 key={idx}
-                className="flex flex-col justify-start px-5 sm:px-6 lg:px-7 py-8 lg:py-6 border-b md:border-b-0 lg:border-r border-[#BCE1F8] last:border-r-0 last:border-b-0 transition-colors duration-300 hover:bg-[#F4F9FF]/60"
+                className="flex flex-col justify-start px-4 sm:px-5 lg:px-6 py-8 lg:py-6 border-b md:border-b-0 lg:border-r border-[#BCE1F8] last:border-r-0 last:border-b-0 transition-colors duration-300 hover:bg-[#F4F9FF]/60"
               >
-                {/* Top Icon (Light Cyan/Blue Matching Image) */}
+                {/* Top Icon */}
                 <div className="mb-8 lg:mb-12 text-[#299EED]">
                   <Icon className="w-7 h-7 sm:w-8 sm:h-8 stroke-[1.8]" />
                 </div>
 
                 {/* Title */}
-                <h3 className="text-[17px] sm:text-[18px] lg:text-[18.5px] font-bold text-[#0D0D0D] leading-[1.25] tracking-[-0.01em] mb-4 min-h-[48px] flex items-end">
+                <h3 className="text-[16px] sm:text-[17px] lg:text-[17.5px] font-bold text-[#0D0D0D] leading-[1.25] tracking-[-0.01em] mb-4 min-h-[48px] flex items-end">
                   {feat.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-[12.5px] sm:text-[13px] leading-[1.65] text-[#475569] font-normal">
+                <p className="text-[12px] sm:text-[12.5px] leading-[1.65] text-[#475569] font-normal">
                   {feat.desc}
                 </p>
               </div>

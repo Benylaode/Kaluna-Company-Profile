@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "ERP & System Integration | Kaluna Technology",
+  title: "Website Design & Development | Kaluna Technology",
   description:
-    "Custom ERP development and enterprise system integration for unified workflows, inventory, finance, operations, and data synchronization.",
+    "Custom, high-performance websites that unify your brand, content, customer experience, and marketing ecosystem.",
   alternates: {
     canonical: "/services",
   },
@@ -11,23 +11,23 @@ export const metadata: Metadata = {
     type: "website",
     url: "/services",
     siteName: "Kaluna Technology",
-    title: "ERP & System Integration | Kaluna Technology",
+    title: "Website Design & Development | Kaluna Technology",
     description:
-      "Custom ERP development and enterprise system integration for unified workflows, inventory, finance, operations, and data synchronization.",
+      "Custom, high-performance websites that unify your brand, content, customer experience, and marketing ecosystem.",
     images: [
       {
         url: "/image/service/erp-integration.png",
         width: 1200,
         height: 630,
-        alt: "ERP & System Integration | Kaluna Technology",
+        alt: "Website Design & Development | Kaluna Technology",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "ERP & System Integration | Kaluna Technology",
+    title: "Website Design & Development | Kaluna Technology",
     description:
-      "Custom ERP development and enterprise system integration for unified workflows, inventory, finance, operations, and data synchronization.",
+      "Custom, high-performance websites that unify your brand, content, customer experience, and marketing ecosystem.",
     images: ["/image/service/erp-integration.png"],
   },
 };

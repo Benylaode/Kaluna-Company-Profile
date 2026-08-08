@@ -14,10 +14,10 @@ export default function CTA() {
 
           <div className="relative z-10 text-center md:text-left">
             <h2 className="text-[28px] leading-[1.2] tracking-[-0.01em] text-white md:text-[38px]">
-              Let&apos;s Build Intelligent Systems
+              Let&apos;s Build a Website
             </h2>
             <p className="text-[28px] leading-[1.2] tracking-[-0.01em] text-[#A3D9F7] md:text-[38px]">
-              That Scale With You
+              That Works As Hard As You Do.
             </p>
           </div>
 

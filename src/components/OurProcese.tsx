@@ -29,37 +29,37 @@ const DEFAULT_IMAGES = [
 const DEFAULT_STEPS: ProcessStep[] = [
   {
     id: 1,
-    title: "Business Architecture & Blueprinting",
+    title: "Discovery & Strategy",
     category:
-      "Defining business objectives, gathering requirements, analyzing workflows, and creating a strategic solution blueprint.",
+      "We learn your brand, audience, and goals. We map your site structure and define what success looks like.",
     image_url: "/image/proses-service/1.webp"
   },
   {
     id: 2,
-    title: "UX/UI & System Workflow Prototyping",
+    title: "Design & Prototyping",
     category:
-      "Designing intuitive user experiences, visual interfaces, and interactive system workflows before development.",
+      "We create clickable mockups so you can see exactly how your site will look and feel before we build.",
     image_url: "/image/proses-service/2.webp"
   },
   {
     id: 3,
-    title: "Agile Development & Integration",
+    title: "Development & Build",
     category:
-      "Developing the solution using agile methodologies while integrating required systems, APIs, and business processes.",
+      "We code a fast, responsive, and SEO-friendly website using modern web technologies.",
     image_url: "/image/proses-service/3.webp"
   },
   {
     id: 4,
-    title: "Security Audit, UAT & Quality Assurance",
+    title: "Content & Integration",
     category:
-      "Conducting security assessments, user acceptance testing, and comprehensive quality assurance to ensure reliability.",
+      "We populate your site with your content and connect it to your marketing tools, CRM, and payment systems.",
     image_url: "/image/proses-service/4.webp"
   },
   {
     id: 5,
-    title: "Deployment, Staff Training & Continuous Support",
+    title: "Testing, Launch & Training",
     category:
-      "Deploying the solution to production, training users, and providing ongoing maintenance, monitoring, and continuous support.",
+      "We test every button, form, and link. Then we launch your site and train your team to manage it with confidence.",
     image_url: "/image/proses-service/5.webp"
   }
 ];

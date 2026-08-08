@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Factory, Truck, Store, BarChart3, Users, Code2, ArrowRight } from "lucide-react";
+import { Factory, Truck, Store, BarChart3, ArrowRight } from "lucide-react";
 import ContactPopup from "./ContactPopup";
 
 export interface IndustryUseCase {
@@ -17,63 +17,43 @@ export interface IndustryUseCase {
 const useCases: IndustryUseCase[] = [
   {
     id: 1,
-    industry: "Printing & Packaging",
-    solutionTitle: "Unified POS & Production ERP",
+    industry: "Modern Enterprise",
+    solutionTitle: "Website for Enterprise",
     description:
-      "Synchronizes online and walk-in sales with automated production queueing, paper inventory deductions, and instant financial accounting.",
+      "Outdated, slow, and unsecured sites that fail to inspire trust or handle high-volume traffic.",
     image: "/image/service/1.svg",
     icon: Factory,
-    tag: "Retail & POS Automation",
+    tag: "Trust & Performance",
   },
   {
     id: 2,
-    industry: "Logistics & Fleet",
-    solutionTitle: "Fleet & Truck Tracking ERP",
+    industry: "Digital Commerce",
+    solutionTitle: "Website for Commerce",
     description:
-      "Connects IoT vehicle GPS with dispatch management, automated maintenance alerts, and driver performance logs.",
+      "Clunky e-commerce experiences with poor checkout flows, abandoned carts, and lost revenue.",
     image: "/image/service/2.svg",
     icon: Truck,
-    tag: "IoT & Fleet Telematics",
+    tag: "Conversion & Revenue",
   },
   {
     id: 3,
-    industry: "SME & Multi-Merchant",
-    solutionTitle: "Omnichannel E-Commerce ERP",
+    industry: "Multi-Department Organization",
+    solutionTitle: "Website for Organization",
     description:
-      "Centralizes multi-store product listings, order routing, payment reconciliation, and cross-channel inventory syncing.",
+      "Disconnected web properties that confuse customers and dilute brand identity across departments.",
     image: "/image/service/3.svg",
     icon: Store,
-    tag: "Omnichannel Sync",
+    tag: "Cohesive Brand Presence",
   },
   {
     id: 4,
-    industry: "Corporate Office",
-    solutionTitle: "Automated Office KPI Tracker",
+    industry: "Growing Business",
+    solutionTitle: "Website for Company Profile",
     description:
-      "Centralizes individual and team goal setting, tracks milestone completions in real-time, and generates automated performance reviews.",
+      "Static, lifeless digital brochures that fail to tell your story, engage visitors, or generate leads.",
     image: "/image/service/4.svg",
     icon: BarChart3,
-    tag: "HR & Analytics",
-  },
-  {
-    id: 5,
-    industry: "HR & Recruitment",
-    solutionTitle: "Smart CV & Talent Pipeline",
-    description:
-      "Automates resume parsing, screens candidate profiles against role requirements, and tracks interview stages in a centralized pipeline.",
-    image: "/image/service/5.svg",
-    icon: Users,
-    tag: "Talent Pipeline Engine",
-  },
-  {
-    id: 6,
-    industry: "Tech & Product Teams",
-    solutionTitle: "Product Management Workspace",
-    description:
-      "Unifies feature roadmaps, bug tracking, resource allocation, and cross-team dependencies into one central workspace.",
-    image: "/image/service/6.webp",
-    icon: Code2,
-    tag: "Workspace & Agile System",
+    tag: "Storytelling & Leads",
   },
 ];
 
@@ -126,10 +106,10 @@ export default function ServiceIndustryUseCases() {
               </span>
             </div>
             <h2 className="text-[28px] sm:text-[36px] lg:text-[42px] font-medium text-[#111111] tracking-[-0.025em] leading-[1.15] mb-3">
-              Industry Use Cases & Tailored Solutions
+              The Digital Imperative – Why Your Business Needs a Modern Website.
             </h2>
             <p className="mt-3.5 text-[13px] sm:text-[14px] text-[#555555] leading-[1.65] max-w-xl mx-auto font-normal">
-              Tailored ERP modules engineered around specialized operational pain points across diverse enterprise sectors
+              Modern website solutions designed around the challenges enterprises, commerce teams, organizations, and growing brands face online.
             </p>
           </div>
 
