@@ -8,6 +8,15 @@ export const metadata: Metadata = {
 
   description,
 
+  keywords: [
+    "Kaluna Technology",
+    "Web Engineering Agency",
+    "Digital Growth Partner",
+    "Enterprise Web Developers",
+    "Tim Pembuat Website Perusahaan",
+    "B2B Digital Solutions",
+  ],
+
   alternates: {
     canonical: "/who-we-are",
   },

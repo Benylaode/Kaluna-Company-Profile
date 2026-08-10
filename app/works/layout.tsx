@@ -8,6 +8,16 @@ export const metadata: Metadata = {
 
   description,
 
+  keywords: [
+    "Web Development Portfolio",
+    "Enterprise Case Studies",
+    "Portofolio Website Perusahaan",
+    "Corporate Website Projects",
+    "E-Commerce Case Study",
+    "Member Portal Case Study",
+    "Kaluna Technology Projects",
+  ],
+
   alternates: {
     canonical: "/works",
   },
