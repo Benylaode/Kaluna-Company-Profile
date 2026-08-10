@@ -345,8 +345,27 @@ export async function generateMetadata({
   return {
     title,
     description,
+    keywords: [
+      project.title,
+      project.client,
+      project.category,
+      "Kaluna Technology Case Study",
+      "Web Engineering Case Study",
+      "Custom Web Development",
+    ],
     alternates: {
       canonical: `/works/${slug}`,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      },
     },
     openGraph: {
       type: "article",

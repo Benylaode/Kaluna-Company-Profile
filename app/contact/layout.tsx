@@ -19,6 +19,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/contact",
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
 
   openGraph: {
     type: "website",

@@ -161,6 +161,14 @@ const structuredData = {
         addressRegion: "DKI Jakarta",
         addressCountry: "ID",
       },
+      knowsAbout: [
+        "Custom Web Engineering",
+        "Enterprise Corporate Website Design",
+        "E-Commerce & Retail Platform Development",
+        "Client & Member Portal Architecture",
+        "Custom Web Applications & Analytics Dashboards",
+        "SEO Optimization & Core Web Vitals",
+      ],
       hasOfferCatalog: {
         "@type": "OfferCatalog",
         name: "Enterprise Web Engineering Services",
@@ -219,6 +227,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`} style={{ backgroundColor: "#ffffff", color: "#171717" }}>
       <head>
+        {/* Google AI Overviews & Search Engine Directives */}
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
         {/* Explicit Square Logo Favicons for Google Search & Browsers */}
         <link rel="icon" href="/seo/kaluna-logo-square.png" sizes="512x512" type="image/png" />
         <link rel="icon" href="/favicon-96x96.png" sizes="96x96" type="image/png" />

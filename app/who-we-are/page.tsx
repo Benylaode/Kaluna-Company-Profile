@@ -55,7 +55,7 @@ const expertise = [
   {
     name: "Brand & Corporate\nWebsites",
     description: "Build trust, establish authority, and showcase your business to the world.",
-    img: "/image/projects/X-Tire/1.webp",
+    img: "/image/projects/arsalynk/1.webp",
   },
   {
     name: "E-Commerce & Retail\nPlatforms",
@@ -70,7 +70,7 @@ const expertise = [
   {
     name: "Member & Client\nPortals",
     description: "Deliver exclusive content, manage subscriptions, and engage your community.",
-    img: "/image/projects/arsalynk/1.webp",
+    img: "/image/projects/X-Tire/1.webp",
   },
   {
     name: "Custom Web\nApplications",
