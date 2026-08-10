@@ -1,15 +1,36 @@
 import type { Metadata } from "next";
 
 const description =
-  "Explore Kaluna Technology case studies in web development, IoT systems, ERP platforms, data dashboards, and enterprise system integration.";
+  "Explore conversion-driven website projects created by Kaluna Technology for modern enterprises and growing brands.";
 
 export const metadata: Metadata = {
   title: "Our Works",
 
   description,
 
+  keywords: [
+    "Web Development Portfolio",
+    "Enterprise Case Studies",
+    "Portofolio Website Perusahaan",
+    "Corporate Website Projects",
+    "E-Commerce Case Study",
+    "Member Portal Case Study",
+    "Kaluna Technology Projects",
+  ],
+
   alternates: {
     canonical: "/works",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 
   openGraph: {

@@ -1,230 +1,448 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
-import Link from "next/link";
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
-import LazyImage from "./LazyImage";
+import React, { useId, useMemo, useState, useRef } from "react";
+import { Building2, ShoppingCart } from "lucide-react";
 
 export interface ServiceData {
-  id: number;
-  slug: string;
-  title: string;
-  description: string;
-  image_url: string;
+  id?: number;
+  slug?: string;
+  title?: string;
+  description?: string;
+  image_url?: string;
   content_json?: string;
 }
 
-export default function OurServices({ services }: { services: ServiceData[] }) {
-  const [activeIndex, setActiveIndex] = useState(services.length);
-  const [isTransitioning, setIsTransitioning] = useState(true);
-  const [paused, setPaused] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-  
-  // Card & Gap Dinamis Berdasarkan Breakpoint
-  const [cardConfig, setCardConfig] = useState({
-    cardWidth: 436,
-    gap: 24,
-    viewportOffset: 48, // Menentukan jarak awal kartu pertama dari tepi kiri kontainer
-  });
+// Sparkle Icon (4-point diamond star with smaller accent stars) matching input_file_0.png
+function SparkleIcon({ className = "w-10 h-10" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      <path
+        d="M32 4C32 19.464 19.464 32 4 32C19.464 32 32 44.536 32 60C32 44.536 44.536 32 60 32C44.536 32 32 19.464 32 4Z"
+        fill="#38A0FF"
+      />
+      <path
+        d="M50 8C50 12.418 46.418 16 42 16C46.418 16 50 19.582 50 24C50 19.582 53.582 16 58 16C53.582 16 50 12.418 50 8Z"
+        fill="#75C8FF"
+      />
+      <path
+        d="M16 42C16 44.761 13.761 47 11 47C13.761 47 16 49.239 16 52C16 49.239 18.239 47 21 47C18.239 47 16 44.761 16 42Z"
+        fill="#75C8FF"
+      />
+    </svg>
+  );
+}
 
-  const isResetting = useRef(false);
+function BackgroundArtwork({ idPrefix }: { idPrefix: string }) {
+  const backgroundGradientId = `${idPrefix}-bg`;
+  const diagonalGradientId = `${idPrefix}-diag`;
 
-  // Triple clone data untuk infinite loop
-  const extendedServices = [...services, ...services, ...services];
-
-  // Kalkulasi dimensi responsif dan offsetnya agar sejajar dengan konten header
-  useEffect(() => {
-    const updateDimensions = () => {
-      const width = window.innerWidth;
-      if (width >= 1280) {
-        // Desktop XL (sejajar dengan lg:px-12 yang bernilai 48px)
-        setCardConfig({ cardWidth: 436, gap: 24, viewportOffset: 48 });
-      } else if (width >= 1024) {
-        // Desktop Standard (sejajar dengan lg:px-12 / 48px)
-        setCardConfig({ cardWidth: 400, gap: 20, viewportOffset: 48 });
-      } else if (width >= 768) {
-        // Tablet (sejajar dengan md:px-6 / 24px)
-        setCardConfig({ cardWidth: 340, gap: 20, viewportOffset: 24 });
-      } else {
-        // Mobile: Tampilkan tepat 1 card penuh tanpa terpotong di dalam kontainer
-        const containerWidth = containerRef.current ? containerRef.current.clientWidth : (width - 32);
-        const mobilePadding = 20; // px-5 = 20px
-        const singleCardWidth = Math.max(240, containerWidth - (mobilePadding * 2));
-        setCardConfig({ cardWidth: singleCardWidth, gap: 16, viewportOffset: mobilePadding });
-      }
-    };
-
-    updateDimensions();
-    window.addEventListener("resize", updateDimensions);
-    return () => window.removeEventListener("resize", updateDimensions);
-  }, []);
-
-  const itemWidth = cardConfig.cardWidth + cardConfig.gap;
-
-  // Track position sekarang murni digeser berdasarkan kalkulasi offset dinamis
-  const trackPosition = -(activeIndex * itemWidth) + cardConfig.viewportOffset;
-
-  const nextSlide = useCallback(() => {
-    if (isResetting.current) return;
-    setIsTransitioning(true);
-    setActiveIndex((prev) => prev + 1);
-  }, []);
-
-  const prevSlide = () => {
-    if (isResetting.current) return;
-    setIsTransitioning(true);
-    setActiveIndex((prev) => prev - 1);
-  };
-
-  const handleTransitionEnd = () => {
-    if (activeIndex >= services.length * 2) {
-      isResetting.current = true;
-      setIsTransitioning(false);
-      setActiveIndex(services.length);
-      setTimeout(() => {
-        isResetting.current = false;
-      }, 50);
-    } else if (activeIndex < services.length) {
-      isResetting.current = true;
-      setIsTransitioning(false);
-      setActiveIndex(services.length * 2 - 1);
-      setTimeout(() => {
-        isResetting.current = false;
-      }, 50);
-    }
-  };
-
-  useEffect(() => {
-    if (paused) return;
-    const timer = setInterval(nextSlide, 4500);
-    return () => clearInterval(timer);
-  }, [paused, nextSlide]);
-
-  if (!services || services.length === 0) return null;
 
   return (
-    <section className="bg-[#FAFAFA] py-12 md:py-0 overflow-hidden w-full">
+    <svg
+      aria-hidden="true"
+      className="absolute inset-0 h-full w-full"
+      viewBox="0 0 1830 889"
+      preserveAspectRatio="none"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        <linearGradient
+          id={backgroundGradientId}
+          x1="915"
+          y1="0"
+          x2="915"
+          y2="889"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#004A7C" />
+          <stop offset="1" stopColor="#003456" />
+        </linearGradient>
+
+        <linearGradient
+          id={diagonalGradientId}
+          x1="783"
+          y1="-210"
+          x2="783"
+          y2="1407"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#D2EDFF" stopOpacity="0" />
+          <stop offset="1" stopColor="#003F69" />
+        </linearGradient>
+
+      </defs>
+
+      <rect width="1830" height="889" rx="24" fill={`url(#${backgroundGradientId})`} />
+
+      <path
+        d="M696.287 521.085L-21.7188 -196.872C-26.5781 -201.731 -23.168 -210 -16.2625 -210H763.978C772.674 -210 781.029 -206.505 787.252 -200.367L1586.76 599.172C1588.81 601.218 1590 604.031 1590 606.929V1401.52C1590 1406.38 1584.12 1408.86 1580.62 1405.36L1184.11 1008.87L1183.94 1008.7L777.875 602.582L696.287 521V521.085Z"
+        fill={`url(#${diagonalGradientId})`}
+        opacity="0.45"
+      />
+
+      <path
+        d="M797.656 506.68L1556.59 -252.125C1561.73 -257.26 1558.12 -266 1550.82 -266H726.106C716.914 -266 708.083 -262.306 701.505 -255.819L-143.576 589.21C-145.738 591.372 -147 594.346 -147 597.409V1437.21C-147 1442.35 -140.782 1444.96 -137.088 1441.27L282.029 1022.22L282.209 1022.04L711.418 592.814L797.656 506.59V506.68Z"
+        fill="#2791D8"
+        opacity="0.14"
+      />
+    </svg>
+  );
+}
+
+function PodiumArtwork({
+  idPrefix,
+  parallaxX = 0,
+  parallaxY = 0,
+}: {
+  idPrefix: string;
+  parallaxX?: number;
+  parallaxY?: number;
+}) {
+  const backBodyGradientId = `${idPrefix}-back-body`;
+  const backTopGradientId = `${idPrefix}-back-top`;
+  const frontBodyGradientId = `${idPrefix}-front-body`;
+  const frontTopGradientId = `${idPrefix}-front-top`;
+  const backIconGradientId = `${idPrefix}-back-icon`;
+  const frontIconGradientId = `${idPrefix}-front-icon`;
+  const backGlowId = `${idPrefix}-back-glow`;
+  const frontGlowId = `${idPrefix}-front-glow`;
+  const iconShadowId = `${idPrefix}-icon-shadow`;
+
+  return (
+    <svg
+      className="h-full w-full overflow-visible"
+      viewBox="950 180 880 709"
+      preserveAspectRatio="xMidYMax meet"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-label="3D ERP podium artwork"
+      role="img"
+    >
+      <defs>
+        <linearGradient
+          id={backBodyGradientId}
+          x1="1249.5"
+          y1="577.158"
+          x2="1249.5"
+          y2="1126"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#002741" />
+          <stop offset="1" stopColor="#005188" />
+        </linearGradient>
+
+        <linearGradient
+          id={backTopGradientId}
+          x1="1249.29"
+          y1="475.925"
+          x2="1249.29"
+          y2="678.415"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#005188" />
+          <stop offset="1" stopColor="#002741" />
+        </linearGradient>
+
+        <linearGradient
+          id={frontBodyGradientId}
+          x1="1601.5"
+          y1="488"
+          x2="1601.5"
+          y2="1028"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#299EED" />
+          <stop offset="1" stopColor="#003F69" />
+        </linearGradient>
+
+        <linearGradient
+          id={frontTopGradientId}
+          x1="1601.29"
+          y1="386"
+          x2="1601.29"
+          y2="590.024"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#299EED" />
+          <stop offset="1" stopColor="#003F69" />
+        </linearGradient>
+
+        <linearGradient
+          id={backIconGradientId}
+          x1="1190"
+          y1="330"
+          x2="1260"
+          y2="555"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#FFFFFF" />
+          <stop offset="1" stopColor="#299EED" />
+        </linearGradient>
+
+        <linearGradient
+          id={frontIconGradientId}
+          x1="1570"
+          y1="205"
+          x2="1640"
+          y2="475"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#299EED" />
+          <stop offset="1" stopColor="#FFFFFF" />
+        </linearGradient>
+
+        <filter
+          id={backGlowId}
+          x="1110.8"
+          y="511.8"
+          width="234.4"
+          height="97.4"
+          filterUnits="userSpaceOnUse"
+          colorInterpolationFilters="sRGB"
+        >
+          <feGaussianBlur stdDeviation="15.1" />
+        </filter>
+
+        <filter
+          id={frontGlowId}
+          x="1486.19"
+          y="421.856"
+          width="231.467"
+          height="109.205"
+          filterUnits="userSpaceOnUse"
+          colorInterpolationFilters="sRGB"
+        >
+          <feGaussianBlur stdDeviation="15.1" />
+        </filter>
+
+        <filter
+          id={iconShadowId}
+          x="-40%"
+          y="-40%"
+          width="180%"
+          height="180%"
+          colorInterpolationFilters="sRGB"
+        >
+          <feDropShadow
+            dx="12"
+            dy="14"
+            stdDeviation="10"
+            floodColor="#002A47"
+            floodOpacity="0.56"
+          />
+        </filter>
+      </defs>
+
+      <g
+        transform={`translate(${parallaxX} ${parallaxY})`}
+        className="transition-transform duration-500 ease-out"
+      >
+        {/* Back podium: Left cylinder with Building icon */}
+        <rect
+          x="1021"
+          y="577.158"
+          width="457"
+          height="548.842"
+          fill={`url(#${backBodyGradientId})`}
+        />
+
+        <ellipse
+          cx="1249.286"
+          cy="577.17"
+          rx="228.286"
+          ry="101.245"
+          fill={`url(#${backTopGradientId})`}
+        />
+
+        <g filter={`url(#${backGlowId})`}>
+          <ellipse cx="1228" cy="560.5" rx="87" ry="18.5" fill="#2791D8" />
+        </g>
+
+        <g className="service-podium-icon service-podium-icon--secondary">
+          <Building2
+            x="1136"
+            y="346"
+            width="210"
+            height="210"
+            stroke="#003F69"
+            strokeWidth={1.45}
+            opacity={0.55}
+            aria-hidden="true"
+          />
+          <Building2
+            x="1122"
+            y="332"
+            width="210"
+            height="210"
+            stroke={`url(#${backIconGradientId})`}
+            strokeWidth={1.45}
+            filter={`url(#${iconShadowId})`}
+            aria-hidden="true"
+          />
+        </g>
+
+        {/* Front podium: Right cylinder with ShoppingCart icon */}
+        <rect
+          x="1373"
+          y="488"
+          width="457"
+          height="540"
+          fill={`url(#${frontBodyGradientId})`}
+        />
+
+        <ellipse
+          cx="1601.286"
+          cy="488.012"
+          rx="228.286"
+          ry="102.012"
+          fill={`url(#${frontTopGradientId})`}
+        />
+
+        <g filter={`url(#${frontGlowId})`}>
+          <ellipse
+            cx="1601.93"
+            cy="476.458"
+            rx="87"
+            ry="18.5"
+            transform="rotate(-10.7887 1601.93 476.458)"
+            fill="#004A7C"
+          />
+        </g>
+
+        <g className="service-podium-icon service-podium-icon--active">
+          <ShoppingCart
+            x="1495"
+            y="240"
+            width="235"
+            height="235"
+            stroke="#004A7C"
+            strokeWidth={1.35}
+            opacity={0.62}
+            aria-hidden="true"
+          />
+          <ShoppingCart
+            x="1478"
+            y="222"
+            width="235"
+            height="235"
+            stroke={`url(#${frontIconGradientId})`}
+            strokeWidth={1.35}
+            filter={`url(#${iconShadowId})`}
+            aria-hidden="true"
+          />
+        </g>
+      </g>
+    </svg>
+  );
+}
+
+export default function OurServices({ services }: { services?: ServiceData[] }) {
+  const reactId = useId();
+  const idPrefix = useMemo(
+    () => `our-services-${reactId.replace(/:/g, "")}`,
+    [reactId]
+  );
+
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const sectionRef = useRef<HTMLElement>(null);
+
+  const handleMouseMove = (event: React.MouseEvent<HTMLElement>) => {
+    if (!sectionRef.current) return;
+    const bounds = sectionRef.current.getBoundingClientRect();
+    const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+    const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+    setMousePos({ x, y });
+  };
+
+  const handleMouseLeave = () => {
+    setMousePos({ x: 0, y: 0 });
+  };
+
+  const parallaxX = 0;
+  const parallaxY = 0;
+
+  return (
+    <section className="w-full bg-[#FAFAFA] py-10 md:py-14 overflow-hidden">
       <div className="kaluna-wide-container">
-        {/* 
-          Container Utama diselaraskan dengan kelengkungan CTA (rounded-[24px]).
-        */}
-        <div ref={containerRef} className="relative overflow-visible rounded-[24px] bg-[#EAF3FF] py-8 md:py-12 lg:py-16">
-          <style>{`
-            .hide-scrollbar::-webkit-scrollbar { display: none; }
-            .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-          `}</style>
+        <section
+          ref={sectionRef}
+          className="relative mx-auto w-full max-w-[1830px] select-none overflow-hidden rounded-[20px] sm:rounded-[24px] bg-[#003456] min-h-[640px] sm:min-h-[720px] lg:aspect-[1830/889] lg:min-h-0"
+        >
+          <BackgroundArtwork idPrefix={idPrefix} />
 
-          {/* Header tetap diberi padding manual agar sejajar sempurna dengan konten halaman */}
-          <div className="mb-8 md:mb-14 px-5 md:px-[min(6.3vw,121px)]">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
-              <div>
-                <div className="flex items-center gap-2.5 mb-3">
-                  <span className="h-3.5 w-[2.5px] bg-[#299EED] rounded-full"></span>
-                  <span className="text-xs font-semibold tracking-[0.08em] text-[#0E2A54] uppercase">
-                    Our Service
-                  </span>
-                </div>
-                <h2 className="text-[24px] sm:text-[28px] md:text-[32px] font-medium lg:text-[32px] text-[#0D0D0D] tracking-tight leading-[1.15]">
-                  What We Actually Do
-                </h2>
-              </div>
-
-              {/* Tombol Navigasi Desktop */}
-              <div className="hidden md:flex gap-3">
-                <button
-                  onClick={prevSlide}
-                  className="w-[52px] h-[52px] rounded-full bg-white border border-[#D7E6F8] shadow-sm hover:bg-[#0E2A54] hover:text-white transition-colors duration-300 flex items-center justify-center group cursor-pointer"
-                  aria-label="Previous slide"
-                >
-                  <ChevronLeft size={22} className="group-hover:-translate-x-0.5 transition-transform" />
-                </button>
-                <button
-                  onClick={nextSlide}
-                  className="w-[52px] h-[52px] rounded-full bg-[#0E2A54] text-white shadow-md hover:bg-[#163A70] transition-colors duration-300 flex items-center justify-center group cursor-pointer"
-                  aria-label="Next slide"
-                >
-                  <ChevronRight size={22} className="group-hover:translate-x-0.5 transition-transform" />
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* SLIDER VIEWPORT: overflow-hidden pada mobile agar tepat 1 card yang muncul, md:overflow-visible pada desktop */}
+          {/* Contrast layer */}
           <div
-            className="relative w-full pb-4 overflow-hidden md:overflow-visible"
-            onMouseEnter={() => setPaused(true)}
-            onMouseLeave={() => setPaused(false)}
-          >
-            <div
-              className={`flex ${
-                isTransitioning
-                  ? "transition-transform duration-700 ease-[cubic-bezier(0.22,0.61,0.36,1)]"
-                  : ""
-              }`}
-              style={{ 
-                transform: `translateX(${trackPosition}px)`,
-                gap: `${cardConfig.gap}px`
-              }}
-              onTransitionEnd={handleTransitionEnd}
-            >
-              {extendedServices.map((service, index) => {
-                return (
-                  <div
-                    key={`${service.id}-${index}`}
-                    onClick={() => {
-                      setIsTransitioning(true);
-                      setActiveIndex(index);
-                    }}
-                    className="relative flex-shrink-0 rounded-[18px] overflow-hidden group cursor-pointer h-[330px] sm:h-[360px] md:h-[386px]"
-                    style={{
-                      width: `${cardConfig.cardWidth}px`,  
-                      boxShadow: "0 20px 60px rgba(14, 42, 84, 0.08)",
-                    }}
-                  >
-                    <LazyImage
-                      src={service.image_url}
-                      alt={service.title}
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-104"
-                    />
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(90deg,rgba(0,36,64,0.22)_0%,rgba(0,36,64,0.08)_50%,rgba(0,36,64,0)_75%)]"
+          />
 
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A192F]/82 via-[#0A192F]/28 to-transparent" />
+          {/* Desktop podium artwork placement */}
+          <div className="pointer-events-auto absolute bottom-0 left-[51.9126%] right-0 top-[15%] z-10 hidden lg:block">
+            <PodiumArtwork
+              idPrefix={`${idPrefix}-desktop`}
+              parallaxX={parallaxX}
+              parallaxY={parallaxY}
+            />
+          </div>
 
-                    <div className="absolute bottom-6 sm:bottom-8 left-6 sm:left-8 right-6 sm:right-8 text-white flex flex-col h-full justify-end">
-                      <h3 className="text-base sm:text-lg md:text-xl font-semibold leading-[1.15] mb-2 tracking-tight pr-14 group-hover:-translate-y-1.5 transition-transform duration-300">
-                        {service.title.trim()}
-                      </h3>
+          {/* Banner content */}
+          <div className="relative z-20 flex flex-col justify-center gap-5 sm:gap-6 md:gap-7 h-full min-h-[640px] px-6 py-8 sm:px-10 sm:py-12 md:px-14 lg:px-16 lg:py-14">
+            {/* Top Left Heading & Subtitle */}
+            <div className="max-w-[720px] lg:w-[50%]">
+              <div className="flex items-center gap-2.5 mb-4 sm:mb-5">
+                <span className="h-3.5 w-[2.5px] rounded-full bg-[#299EED]" />
+                <span className="text-xs font-semibold uppercase tracking-[0.08em] text-white">
+                  What We Do
+                </span>
+              </div>
 
-                      <Link
-                        href={`/services/${service.slug}`}
-                        className="w-10 h-10 sm:w-11 sm:h-11 bg-[#299EED] rounded-full flex items-center justify-center hover:bg-white hover:text-[#299EED] transition-all duration-300 absolute right-0 bottom-0 shadow-lg group-hover:-translate-y-1 group-hover:translate-x-[-2px]"
-                      >
-                        <ArrowRight size={18} strokeWidth={2.5} className="-rotate-45 group-hover:rotate-0 transition-transform duration-300" />
-                      </Link>
-                    </div>
-                  </div>
-                );
-              })}
+              <h2 className="text-[26px] sm:text-[32px] md:text-[38px] lg:text-[42px] font-bold leading-[1.12] tracking-[-0.025em] text-white">
+                Helping<br />
+                enterprises<br />
+                to grow{" "}
+                <span className="bg-gradient-to-r from-[#299EED] via-[#5DBCF5] to-[#75C8FF] bg-clip-text text-transparent">
+                  digitally
+                </span>
+              </h2>
+
+              <p className="mt-4 sm:mt-5 text-[15px] sm:text-[17px] md:text-[19px] font-normal leading-[1.35] text-white/90 max-w-[560px]">
+                We create cohesive, high-performance web experiences that help modern enterprises grow their brands online.
+              </p>
+            </div>
+
+            {/* Bottom Left Floating White Card matching input_file_0.png */}
+            <div className="mt-1 sm:mt-2 bg-white rounded-[20px] sm:rounded-[24px] p-5 sm:p-6 md:p-7 shadow-2xl flex items-center gap-4 sm:gap-6 max-w-[760px] w-full">
+              <div className="shrink-0 flex items-center justify-center">
+                <SparkleIcon className="w-10 h-10 sm:w-12 sm:h-12" />
+              </div>
+              <p className="text-[#0E2A54] text-[13px] sm:text-[15px] md:text-[16px] font-medium leading-[1.45]">
+                We streamline digital brand experiences, unifying design, content, and functionality across your website, and building a cohesive online presence that serves every customer touchpoint.
+              </p>
+            </div>
+
+            {/* Mobile Podium artwork placement */}
+            <div className="relative mt-8 h-[300px] w-full shrink-0 lg:hidden">
+              <PodiumArtwork
+                idPrefix={`${idPrefix}-mobile`}
+                parallaxX={0}
+                parallaxY={0}
+              />
             </div>
           </div>
 
-          {/* Kontrol Navigasi Mobile */}
-          <div className="flex md:hidden justify-center gap-4 mt-6 px-5">
-            <button
-              onClick={prevSlide}
-              className="p-3 rounded-full bg-white border border-[#D7E6F8] shadow-sm text-[#0E2A54] hover:bg-[#0E2A54] hover:text-white transition-colors duration-300"
-              aria-label="Previous slide"
-            >
-              <ChevronLeft size={20} />
-            </button>
-            <button
-              onClick={nextSlide}
-              className="p-3 rounded-full bg-[#0E2A54] text-white shadow-md hover:bg-[#163A70] transition-colors duration-300"
-              aria-label="Next slide"
-            >
-              <ChevronRight size={20} />
-            </button>
-          </div>
-        </div>
+          <style jsx global>{`
+            .service-podium-icon {
+              transform-box: fill-box;
+              transform-origin: center;
+            }
+            .service-podium-icon--secondary,
+            .service-podium-icon--active {
+              animation: none !important;
+              transform: none !important;
+            }
+          `}</style>
+        </section>
       </div>
     </section>
   );

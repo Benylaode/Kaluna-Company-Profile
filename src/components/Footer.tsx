@@ -9,14 +9,7 @@ import {
 } from "react-icons/fa6";
 import { FaXTwitter } from "react-icons/fa6";
 
-const servicesList = [
-  { name: "Web & Application Development", href: "/services/web-application-development" },
-  { name: "IoT System Development", href: "/services/iot-system-development" },
-  { name: "ERP & System Integration", href: "/services/erp-system-integration" },
-  { name: "Industrial & Automation Solutions", href: "/services/industrial-automation-solutions" },
-  { name: "Data Dashboard & Analytics", href: "/services/data-dashboard-analytics" },
-  { name: "IT Strategy & Consulting", href: "/services/it-strategy-consulting" },
-];
+
 
 const socials = [
   {
@@ -39,7 +32,7 @@ const socials = [
   },
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/company/pt-sinergi-muda-arsa-arsalynk/",
+    href: "https://www.linkedin.com/company/kalunatechnology/",
     icon: <FaLinkedinIn className="h-[20px] w-[20px]" />,
   },
   {
@@ -79,29 +72,12 @@ export default function Footer() {
                 alt="Kaluna Technology"
                 width={422}
                 height={107}
-                priority
                 className="h-auto w-[220px] object-contain select-none md:w-[240px] lg:w-[300px]"
               />
             </div>
 
-            {/* Our Service */}
-            <div className="md:col-span-4 lg:col-span-3">
-              <h4 className="mb-4 text-[12px] font-bold uppercase tracking-[0.08em] text-[#0D0D0D]">
-                Our Service
-              </h4>
-              <ul className="space-y-3 text-[13px] text-[#3F3F3F]">
-                {servicesList.map((service) => (
-                  <li key={service.name}>
-                    <Link href={service.href} className="transition-colors hover:text-[#299EED]">
-                      {service.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
             {/* Company */}
-            <div className="max-w-[180px] md:col-span-4 lg:col-span-2">
+            <div className="max-w-[200px] md:col-span-6 lg:col-span-3">
               <h4 className="mb-4 text-[12px] font-bold uppercase tracking-[0.08em] text-[#0D0D0D]">
                 Company
               </h4>
@@ -119,6 +95,11 @@ export default function Footer() {
                 <li>
                   <Link href="#footer" className="transition-colors hover:text-[#299EED]">
                     Contact Us
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services" className="transition-colors hover:text-[#299EED]">
+                    Our Services
                   </Link>
                 </li>
                 <li className="group">
@@ -139,7 +120,7 @@ export default function Footer() {
             </div>
 
             {/* Visit Our Office */}
-            <div className="max-w-[250px] md:col-span-4 lg:col-span-3">
+            <div className="max-w-[250px] md:col-span-6 lg:col-span-4">
               <h4 className="mb-4 text-[12px] font-bold uppercase tracking-[0.08em] text-[#0D0D0D]">
                 Visit Our Office
               </h4>
@@ -216,7 +197,7 @@ export default function Footer() {
 
               {/* Tombol Chat CS */}
               <a
-                href="https://wa.me/628213939569"
+                href="https://wa.me/6282342939843"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex h-[50px] items-center justify-between gap-4 rounded-full bg-[#0B2545] pl-5 pr-1.5 text-white shadow-sm transition-all duration-300 hover:bg-[#163A70]"

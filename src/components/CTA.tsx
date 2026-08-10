@@ -1,10 +1,7 @@
-"use client"
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import Button from "./ui/Button";
 
 export default function CTA() {
-  const router = useRouter();
-
   return (
     <section className="bg-transparent pb-12 md:pb-3 lg:pb-3 w-full border-none outline-none">
       <div className="kaluna-wide-container">
@@ -17,20 +14,21 @@ export default function CTA() {
 
           <div className="relative z-10 text-center md:text-left">
             <h2 className="text-[28px] leading-[1.2] tracking-[-0.01em] text-white md:text-[38px]">
-              Let&apos;s Build Intelligent Systems
+              Let&apos;s Build a Website
             </h2>
             <p className="text-[28px] leading-[1.2] tracking-[-0.01em] text-[#A3D9F7] md:text-[38px]">
-              That Scale With You
+              That Works As Hard As You Do.
             </p>
           </div>
 
           <div className="relative z-10 flex w-full flex-shrink-0 justify-center md:w-auto md:justify-end">
-            <Button
-              variant="primary-white"
-              label="Start a Consultation"
-              onClick={() => router.push("/contact")}
-              className="w-full md:w-auto"
-            />
+            <Link href="/contact" className="w-full md:w-auto">
+              <Button
+                variant="primary-white"
+                label="Start a Consultation"
+                className="w-full md:w-auto"
+              />
+            </Link>
           </div>
         </div>
       </div>

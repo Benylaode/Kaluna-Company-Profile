@@ -5,28 +5,28 @@ import Image from "next/image";
 export default function WhyKaluna() {
   const features = [
     {
-      title: "Business-Oriented Development",
-      description: "We develop systems based on your real business needs",
+      title: "Business-First Web Strategy",
+      description: "We don't build generic sites. We build digital sales funnels tailored to your specific industry, audience, and conversion goals.",
       icon: "/image/why/1.svg",
       iconSize: 20,
     },
     {
-      title: "A Dedicated Technical Team For You",
+      title: "Dedicated Team of Web Experts",
       description:
-        "Our experienced team focuses on quality, security, and performance",
+        "From UI/UX designers to front-end developers, your dedicated squad focuses on speed, mobile responsiveness, and pixel-perfect quality.",
       icon: "/image/why/2.svg",
       iconSize: 30,
     },
     {
-      title: "Scalable and Integrated Solutions",
-      description: "Every solution is designed to grow alongside your business",
+      title: "Scalable & Integrated Websites",
+      description: "Your site grows with you. Easily add e-commerce, booking systems, or CRM integrations without rebuilding from scratch.",
       icon: "/image/why/3.svg",
       iconSize: 25,
     },
     {
-      title: "Long-Term Technology Partnership",
+      title: "Long-Term Digital Partnership",
       description:
-        "We provide continuous support and long-term collaboration",
+        "We stick around after launch. Enjoy continuous maintenance, security updates, and strategic consulting to keep your site ahead of the curve.",
       icon: "/image/why/4.svg",
       iconSize: 30,
     },
@@ -45,9 +45,9 @@ export default function WhyKaluna() {
             </div>
 
             <h2 className="text-[28px] md:text-[30px] lg:text-[36px] font-medium leading-tight tracking-tight text-[#0D0D0D]">
-              Delivering IT Solutions That Go
+              Building Websites That Go
               <br className="hidden md:block" />
-              Beyond Implementation
+              Beyond a Beautiful Launch
             </h2>
           </div>
         </ScrollReveal>
@@ -61,7 +61,7 @@ export default function WhyKaluna() {
               direction="up"
               distance={25}
             >
-              <div className="group h-full rounded-[15px] border border-transparent bg-[#EAF3FF] p-6 md:p-8 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-[#299EED] hover:bg-[#DDF0FF] hover:shadow-[0_10px_30px_rgba(41,158,237,0.12)]">
+              <div className="h-full rounded-[15px] border border-transparent bg-[#EAF3FF] p-6 md:p-8 shadow-sm">
                 
                 <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-[12px] bg-[#A3D9F733]">
                   <Image

@@ -1,13 +1,22 @@
 import type { MetadataRoute } from "next";
 
+const baseUrl = "https://www.kalunatechnology.com";
+
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: {
-      userAgent: "*",
-      allow: "/",
-    },
+    rules: [
+      {
+        userAgent: "*",
+        allow: "/",
+        disallow: ["/api/", "/_next/data/"],
+      },
+      {
+        userAgent: "Googlebot-Image",
+        allow: ["/image/", "/seo/", "/*.jpg", "/*.jpeg", "/*.png", "/*.webp", "/*.svg"],
+      },
+    ],
 
-    sitemap: "https://www.kalunatechnology.com/sitemap.xml",
-    host: "https://www.kalunatechnology.com",
+    sitemap: `${baseUrl}/sitemap.xml`,
+    host: baseUrl,
   };
 }

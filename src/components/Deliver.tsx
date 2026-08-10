@@ -191,7 +191,11 @@ export default function Deliver({ testimonials }: { testimonials?: TestimonialDa
                   <img
                     src={item.avatar_url}
                     alt={item.client_name}
-                    className="h-12 w-12 rounded-xl bg-gray-200 object-cover md:h-14 md:w-14"
+                    className="
+                      h-12 w-12 rounded-xl bg-gray-200 object-cover
+                      object-[center_20%]
+                      md:h-14 md:w-14
+                    "
                   />
                   <div className="flex flex-col">
                     <span className="text-sm font-semibold tracking-wide text-[#171717] md:text-[17px]">

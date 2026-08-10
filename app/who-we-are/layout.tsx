@@ -1,15 +1,35 @@
 import type { Metadata } from "next";
 
 const description =
-  "Learn about Kaluna Technology, our technology expertise, development team, vision, and approach to building scalable digital systems.";
+  "Meet Kaluna Technology, a digital partner building beautiful, fast, and results-driven websites for modern enterprises.";
 
 export const metadata: Metadata = {
   title: "Who We Are",
 
   description,
 
+  keywords: [
+    "Kaluna Technology",
+    "Web Engineering Agency",
+    "Digital Growth Partner",
+    "Enterprise Web Developers",
+    "Tim Pembuat Website Perusahaan",
+    "B2B Digital Solutions",
+  ],
+
   alternates: {
     canonical: "/who-we-are",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 
   openGraph: {

@@ -7,6 +7,7 @@ import LazyImage from "./LazyImage";
 export interface WorkData {
   id: number;
   title: string;
+  tag: string;
   category: string;
   image_url: string;
 }
@@ -14,43 +15,49 @@ export interface WorkData {
 const WORK_STEPS: WorkData[] = [
   {
     id: 1,
-    title: "Discovery and Requirement Mapping",
-    category: "Systems engineered to evolve with your growth",
+    title: "Discovery & Strategy",
+    tag: "Foundation",
+    category: "We learn your brand, audience, and goals to map out the perfect site structure.",
     image_url: "/image/ourworkflow/1.webp"
   },
   {
     id: 2,
-    title: "Technical Analysis and Solution Planning",
-    category: "Define integration scope & technology stack",
+    title: "Wireframing & Design",
+    tag: "Architecture",
+    category: "We craft clickable prototypes so you can see the look and feel before we write a single line of code.",
     image_url: "/image/ourworkflow/2.webp"
   },
   {
     id: 3,
-    title: "System Design and Prototyping",
-    category: "Designing system flow before full deployment",
+    title: "Development & Build",
+    tag: "Validation",
+    category: "We code a responsive, SEO-optimized site using the latest web technologies.",
     image_url: "/image/ourworkflow/3.webp"
   },
   {
     id: 4,
-    title: "Development & System Integration",
-    category: "Scalable & integrating platforms and devices",
+    title: "Content Integration",
+    tag: "Execution",
+    category: "We populate your site with your copy, images, and video, or help you create fresh content.",
     image_url: "/image/ourworkflow/4.webp"
   },
   {
     id: 5,
-    title: "Testing, Security and Performance",
-    category: "Ensuring stability, security, and performance",
+    title: "Testing & Optimization",
+    tag: "Quality Assurance",
+    category: "We run speed tests, cross-browser checks, and mobile audits to ensure flawless performance.",
     image_url: "/image/ourworkflow/5.webp"
   },
   {
     id: 6,
-    title: "Deployment, Monitoring & Continuous Improvement",
-    category: "Deploying, providing optimization and support",
+    title: "Launch & Ongoing Care",
+    tag: "Go-Live & Beyond",
+    category: "We handle the go-live, train your team, and provide 24/7 support and security monitoring.",
     image_url: "/image/ourworkflow/6.webp"
   }
 ];
 
-const SLIDE_INTERVAL_MS = 2500;
+const SLIDE_INTERVAL_MS = 3000; // Dinaikkan dari 2500ms → lebih hemat CPU
 const CARD_WIDTH_PX = 324; // 300px card width + 24px gap
 
 export default function OurWorks() {
@@ -159,12 +166,22 @@ export default function OurWorks() {
         }
 
         @keyframes fillProgress {
-          from {
-            width: 0%;
+          0% {
+            transform: scaleX(0);
+            -webkit-transform: scaleX(0);
           }
+          100% {
+            transform: scaleX(1);
+            -webkit-transform: scaleX(1);
+          }
+        }
 
-          to {
-            width: 100%;
+        @-webkit-keyframes fillProgress {
+          0% {
+            -webkit-transform: scaleX(0);
+          }
+          100% {
+            -webkit-transform: scaleX(1);
           }
         }
 
@@ -201,9 +218,9 @@ export default function OurWorks() {
 
           {/* HEADER */}
           <div className="relative z-20 mb-6 sm:mb-8 flex flex-wrap items-center justify-between gap-4">
-            <span className="inline-flex items-center gap-2.5 text-xs sm:text-xs font-normal uppercase tracking-wider">
+            <span className="inline-flex items-center gap-2.5 text-xs sm:text-xs font-semibold uppercase tracking-wider">
               <span className="h-4 w-[3px] bg-[#299EED] rounded-full" />
-              HOW WE DELIVER TECHNOLOGY
+              HOW WE DELIVER
             </span>
 
             {/* Stepper info & Navigation Arrows */}
@@ -275,11 +292,7 @@ export default function OurWorks() {
                       <LazyImage
                         src={item.image_url}
                         alt={item.title}
-                        className="
-                          h-full w-full object-cover
-                          transition duration-700
-                          group-hover:scale-105
-                        "
+                        className="h-full w-full object-cover"
                       />
 
                       {!isActive && (
@@ -288,28 +301,31 @@ export default function OurWorks() {
                     </div>
 
                     {/* CONTENT */}
-                    <div className="flex flex-1 flex-col justify-between px-2 pb-3 pt-4">
+                    <div className="flex flex-1 flex-col justify-between px-2 pb-3 pt-3">
                       <div>
-                        <div className="flex justify-between gap-3">
-                          <h3
-                            className={`
-                              text-[20px] leading-[1.3]
-                              ${
-                                isActive
-                                  ? "font-semibold text-[#0E2A54]"
-                                  : "font-normal text-[#0E2A54]"
-                              }
-                            `}
-                          >
-                            {item.title}
-                          </h3>
-
-                          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#0E2A54] text-[10px] font-medium text-white">
+                        <div className="flex items-center justify-between gap-2 mb-2">
+                          <span className="inline-block px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-[#299EED] bg-[#299EED]/10 rounded border border-[#299EED]/20">
+                            {item.tag}
+                          </span>
+                          <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#0E2A54] text-[9.5px] font-medium text-white">
                             {displayId}
                           </span>
                         </div>
 
-                        <p className="mt-2 text-sm leading-[1.5] text-[#3F3F3F]">
+                        <h3
+                          className={`
+                            text-[17px] leading-[1.3]
+                            ${
+                              isActive
+                                ? "font-semibold text-[#0E2A54]"
+                                : "font-medium text-[#0E2A54]"
+                            }
+                          `}
+                        >
+                          {item.title}
+                        </h3>
+
+                        <p className="mt-2 text-[10px] leading-[1.5] text-[#3F3F3F]">
                           {item.category}
                         </p>
                       </div>
@@ -317,13 +333,18 @@ export default function OurWorks() {
 
                     {/* Progress bar tepat di sisi bawah card */}
                     {isActive && (
-                      <div className="absolute bottom-0 left-0 right-0 z-20 h-[5px] bg-[#DCE3EA]">
+                      <div className="absolute bottom-0 left-0 right-0 z-20 h-[5px] bg-[#DCE3EA] overflow-hidden rounded-b-[24px]">
                         <div
                           key={`progress-${activeIndex}`}
-                          className="h-full bg-[#299EED]"
+                          className="h-full w-full bg-[#299EED]"
                           style={{
+                            transformOrigin: "left",
+                            WebkitTransformOrigin: "left",
                             animation: `fillProgress ${SLIDE_INTERVAL_MS}ms linear forwards`,
-                            animationPlayState: paused ? "paused" : "running"
+                            WebkitAnimation: `fillProgress ${SLIDE_INTERVAL_MS}ms linear forwards`,
+                            animationPlayState: paused ? "paused" : "running",
+                            WebkitAnimationPlayState: paused ? "paused" : "running",
+                            willChange: "transform",
                           }}
                         />
                       </div>

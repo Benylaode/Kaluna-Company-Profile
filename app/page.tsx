@@ -1,55 +1,55 @@
 import Navbar from '../src/components/Navbar';
 import Hero from '../src/components/Hero';
-import Clients from '../src/components/Client';
-import WhyKaluna from '../src/components/WhyKaluna';
-import OurServices from '../src/components/OurServices';
-import OurWorks from '../src/components/OurWorks';
-import Deliver from '../src/components/Deliver';
 import Footer from '../src/components/Footer';
-import ProjectCarousel from '../src/components/ProjectCarousel';
-import CTA from '../src/components/CTA';
 import HashScroll from '../src/components/HashScroll';
 import ScrollReveal from '../src/components/ScrollReveal';
 
-import { getWorks, getTestimonials, getServices } from '../src/lib/actions';
+import ProjectCarousel from '../src/components/ProjectCarousel';
+import OurServices from '../src/components/OurServices';
+import WhyKaluna from '../src/components/WhyKaluna';
+import OurWorks from '../src/components/OurWorks';
+import Clients from '../src/components/Client';
+import Deliver from '../src/components/Deliver';
+import CTA from '../src/components/CTA';
+
+import { getWorks, getTestimonials } from '../src/lib/actions';
 
 export default async function Home() {
   const worksData = await getWorks();
   const testimonialsData = await getTestimonials();
-  const servicesData = await getServices();
 
   return (
-    <main className="min-h-screen bg-[#FFFFFF] scroll-smooth overflow-x-hidden">
+    <main className="min-h-screen bg-[#FFFFFF]">
       <HashScroll />
       <Navbar />
       
       {/* Wrapper diubah: Menghilangkan gap agar jarak murni dari padding (py) masing-masing komponen */}
       <div className="flex flex-col w-full">
-        <Hero />
+        <Hero projects={worksData} />
         
-        <ScrollReveal duration={1000} direction="up" distance={40}>
+        <ScrollReveal>
           <ProjectCarousel projects={worksData} />
         </ScrollReveal>
         
-        <ScrollReveal duration={1000} direction="up" distance={40}>
-          <OurServices services={servicesData} />
+        <ScrollReveal>
+          <OurServices />
         </ScrollReveal>
         
         <WhyKaluna />
         
-        <ScrollReveal duration={1000} direction="up" distance={40}>
+        <ScrollReveal>
           <OurWorks />
         </ScrollReveal>
         
-        <ScrollReveal duration={1000} direction="up" distance={40}>
+        <ScrollReveal>
           <Clients />
         </ScrollReveal>
         
-        <ScrollReveal duration={1000} direction="up" distance={40}>
+        <ScrollReveal>
           <Deliver testimonials={testimonialsData} />
         </ScrollReveal>
         
-        <ScrollReveal duration={1000} direction="up" distance={40}>
+        <ScrollReveal>
           <CTA />
         </ScrollReveal>
       </div>

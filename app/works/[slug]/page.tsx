@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -323,6 +324,72 @@ async function getProjectBySlug(slug: string): Promise<ProjectRecord | null> {
   };
 }
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const project = await getProjectBySlug(slug);
+
+  if (!project) {
+    return {
+      title: "Project Not Found | Kaluna Technology",
+    };
+  }
+
+  const title = `${project.title} | Case Study`;
+  const description = project.desc || `Explore how Kaluna Technology built ${project.title} for ${project.client}.`;
+  const heroImage = project.images?.[0] || "/seo/kaluna-og.jpg";
+
+  return {
+    title,
+    description,
+    keywords: [
+      project.title,
+      project.client,
+      project.category,
+      "Kaluna Technology Case Study",
+      "Web Engineering Case Study",
+      "Custom Web Development",
+    ],
+    alternates: {
+      canonical: `/works/${slug}`,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      },
+    },
+    openGraph: {
+      type: "article",
+      url: `/works/${slug}`,
+      title: `${project.title} | Kaluna Technology Case Study`,
+      description,
+      images: [
+        {
+          url: heroImage,
+          width: 1200,
+          height: 630,
+          alt: project.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} | Kaluna Technology`,
+      description,
+      images: [heroImage],
+    },
+  };
+}
+
 // ==========================================
 // 4. PAGE
 // ==========================================
@@ -623,7 +690,7 @@ export default async function CaseStudyPage({
             <div className="w-full px-5 md:px-[min(5vw,86px)]">
               <div className="relative z-10 flex items-center justify-between gap-6">
                 <SectionLabel light>
-                  OUR IMPLEMENTATION PROCESS
+                  HOW WE DELIVER
                 </SectionLabel>
 
                 <div className="hidden items-center gap-3 md:flex">
@@ -780,7 +847,7 @@ export default async function CaseStudyPage({
                       alt={work.title}
                       fill
                       sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-[1.035]"
+                      className="object-cover"
                     />
 
                     <div className="absolute inset-x-0 bottom-0 flex items-end justify-between p-5 sm:p-6">

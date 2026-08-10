@@ -1,7 +1,21 @@
+import Image from "next/image";
 import Navbar from "../../src/components/Navbar";
 import Footer from "../../src/components/Footer";
 import CTAW from "../../src/components/CTAW";
 import { getTeam } from "../../src/lib/actions";
+import { BackgroundArtwork } from "@/src/components/ServiceHeroBanner";
+import WhoWeAreProblemWeSolve from "@/src/components/WhoWeAreProblemWeSolve";
+
+export interface ExpertiseItem {
+  id: string;
+  name: string;
+  category: string;
+  img: string;
+  function: string;
+  impact: string;
+  tags: string[];
+  badge?: string;
+}
 
 export default async function WhoWeArePage() {
   const team = await getTeam();
@@ -37,22 +51,36 @@ export default async function WhoWeArePage() {
     }
   ];
 
-  const expertise = [
+const expertise = [
   {
-    name: "IoT\nSystems",
-    img: "image/Expertise/1.svg",
+    name: "Brand & Corporate\nWebsites",
+    description: "Build trust, establish authority, and showcase your business to the world.",
+    img: "/image/projects/arsalynk/1.webp",
   },
   {
-    name: "ERP & System\nIntegration",
-    img: "image/Expertise/2.svg",
+    name: "E-Commerce & Retail\nPlatforms",
+    description: "Drive sales with intuitive product catalogs, secure payments, and smooth checkouts.",
+    img: "/image/projects/sinau-print-erp/1.webp",
   },
   {
-    name: "Web & Application\nDevelopment",
-    img: "image/Expertise/3.svg",
+    name: "Marketing & Landing\nPage Hubs",
+    description: "Capture leads and convert visitors with high-impact, campaign-focused pages.",
+    img: "/image/projects/web-media-profile/1.webp",
   },
   {
-    name: "Data Dashboard\n& Analytics",
-    img: "image/Expertise/4.svg",
+    name: "Member & Client\nPortals",
+    description: "Deliver exclusive content, manage subscriptions, and engage your community.",
+    img: "/image/projects/X-Tire/1.webp",
+  },
+  {
+    name: "Custom Web\nApplications",
+    description: "Build interactive tools, dashboards, and data-driven platforms tailored to your needs.",
+    img: "/image/projects/aspoo/1.webp",
+  },
+  {
+    name: "Analytics & Data\nPlatforms",
+    description: "Process complex datasets and render interactive dashboards for science and research.",
+    img: "/image/projects/artic-complex-web/1.webp",
   },
 ];
 
@@ -60,153 +88,244 @@ export default async function WhoWeArePage() {
     <main className="min-h-screen bg-white font-sans text-[#0D2342] overflow-x-hidden">
       <Navbar />
 
-      {/* ── 1. Hero Banner — same design as Our Works ────────────── */}
+      {/* ── 1. Hero Section ────────────────────────────────────────── */}
       <section className="w-full bg-white pt-[72px] sm:pt-[76px] md:pt-[80px]">
         <div className="kaluna-wide-container">
           <div
             className="
+              group
               relative
               w-full
-              h-[180px]
-              sm:h-[230px]
-              md:h-[270px]
-              rounded-[12px]
-              sm:rounded-[18px]
+              h-[60vh]
+              min-h-[500px]
+              max-h-[700px]
+              lg:h-[60vh]
+              rounded-[20px]
+              sm:rounded-[24px]
               overflow-hidden
               flex
-              items-center
-              justify-center
-              bg-cover
-              bg-center
-              bg-[linear-gradient(135deg,#02184d_0%,#08297d_100%)]
+              flex-col
+              lg:flex-row
+              items-stretch
+              justify-between
+              px-6
+              sm:px-10
+              md:px-14
+              lg:pl-[76px]
+              lg:pr-[20px]
+              xl:pl-[88px]
+              xl:pr-[28px]
+              py-7
+              sm:py-9
+              lg:py-10
+              select-none
+              bg-[#003456]
             "
-            style={{
-              backgroundImage: "url('/image/banner-title.svg')",
-            }}
           >
-            {/* Color blend overlay spreading from #02184d to #08297d */}
-            <div className="absolute inset-0 bg-[linear-gradient(135deg,#02184d_0%,#08297d_100%)] opacity-75 mix-blend-multiply z-[1]" />
-            <div className="absolute inset-0 bg-[linear-gradient(135deg,#02184d_0%,#08297d_100%)] opacity-25 z-[1]" />
+            <BackgroundArtwork idPrefix="who-we-are-hero" />
 
-            <h1 className="relative z-10 text-[24px] sm:text-[32px] md:text-[48px] lg:text-[56px] font-semibold md:font-semibold tracking-[-0.02em] text-white text-center px-4">
-              Who We Are
-            </h1>
+            {/* Soft contrast layer */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(90deg,rgba(0,36,64,0.18)_0%,rgba(0,36,64,0.06)_46%,rgba(0,36,64,0)_72%)]"
+            />
+
+            {/* Subtle ambient light glow behind photo area */}
+            <div className="pointer-events-none absolute top-[15%] right-[8%] w-[45%] h-[70%] rounded-full bg-[#2791D8]/15 blur-3xl opacity-60 z-[1]" />
+
+            {/* ── TRANSPARENT PANEL BEHIND PHOTO (z-5) ───────────── */}
+            <div
+              className="
+                pointer-events-none
+                hidden
+                lg:block
+                absolute
+                right-[4.5%]
+                top-[18%]
+                z-[5]
+                h-[90%]
+                w-[58%]
+                rounded-[44px]
+                border
+                border-[#8DD0F5]/30
+                bg-[#00406C]/25
+                who-we-are-panel-float
+              "
+            />
+
+            {/* ── PHOTO TIM WRAPPER (whoweare.webp) (z-10) ────────── */}
+            <div
+              className="
+                relative
+                w-full
+                mt-6
+                lg:mt-0
+                h-[240px]
+                sm:h-[300px]
+                md:h-[340px]
+                lg:absolute
+                lg:right-[2.5%]
+                lg:top-[12%]
+                lg:z-[10]
+                lg:w-[52%]
+                lg:h-[76%]
+                rounded-[20px]
+                sm:rounded-[24px]
+                overflow-hidden
+                shadow-[0_20px_50px_rgba(0,0,0,0.35)]
+                order-3
+                lg:order-none
+              "
+            >
+              {/* Image tag langsung memastikan foto tampil 100% tanpa delay loader */}
+              <img
+                src="/image/whoweare.webp"
+                alt="Kaluna Technology team"
+                className="w-full h-full object-cover"
+                style={{
+                  objectPosition: "48% center",
+                  filter: "grayscale(1) contrast(1.03) brightness(0.92)",
+                }}
+              />
+
+              {/* Overlay Biru-Keabu-abuan (z-15) */}
+              <div
+                className="pointer-events-none absolute inset-0 z-[15]"
+                style={{
+                  background:
+                    "linear-gradient(135deg, rgba(190, 220, 238, 0.18), rgba(8, 67, 105, 0.12))",
+                }}
+              />
+
+              {/* Diagonal Detail Overlay Atas Foto (z-25) */}
+              <div
+                className="pointer-events-none absolute inset-0 z-[25] opacity-30"
+                style={{
+                  background:
+                    "linear-gradient(135deg, rgba(255,255,255,0.45), transparent 60%)",
+                  clipPath: "polygon(0 0, 35% 0, 0 70%)",
+                }}
+              />
+              <div
+                className="pointer-events-none absolute inset-0 z-[25] opacity-25"
+                style={{
+                  background:
+                    "linear-gradient(225deg, #2791D8, transparent 70%)",
+                  clipPath: "polygon(100% 0, 100% 70%, 62% 32%)",
+                }}
+              />
+            </div>
+
+            {/* ── PANEL KANAN BAWAH (z-20) ────────────────────────── */}
+            <div
+              className="
+                pointer-events-none
+                hidden
+                lg:block
+                absolute
+                bottom-[-16%]
+                right-[-5%]
+                z-[20]
+                h-[240px]
+                w-[38%]
+                rounded-[48px]
+                border
+                border-white/15
+                bg-gradient-to-b
+                from-[#D2EBFB]/85
+                via-[#82B4D3]/70
+                to-[#07507F]/90
+                shadow-xl
+                who-we-are-bottom-panel-float
+              "
+            />
+
+            {/* ── KONTEN TEKS KIRI (z-30) ─────────────────────────── */}
+            <div className="relative z-[30] w-full lg:w-[44%] xl:w-[45%] flex flex-col justify-center my-auto order-1 lg:order-none">
+              {/* Heading */}
+              <h1
+                className="
+                  max-w-[680px]
+                  text-[28px]
+                  sm:text-[34px]
+                  md:text-[42px]
+                  lg:text-[48px]
+                  xl:text-[50px]
+                  font-semibold
+                  leading-[1.12]
+                  tracking-[-0.025em]
+                  text-white
+                "
+                style={{
+                  fontSize: "clamp(28px, 3.4vw, 50px)",
+                }}
+              >
+                Crafting Digital
+                <br />
+                Solutions
+                <br />
+                <span
+                  className="
+                    bg-gradient-to-b
+                    from-[#C9EBFF]
+                    via-[#79C8F7]
+                    to-[#299EED]
+                    bg-clip-text
+                    text-transparent
+                    inline-block
+                  "
+                >
+                  For Your Needs.
+                </span>
+              </h1>
+
+              {/* Description */}
+              <p
+                className="
+                  mt-3
+                  lg:mt-3.5
+                  max-w-[420px]
+                  lg:max-w-[440px]
+                  text-sm
+                  sm:text-base
+                  font-normal
+                  leading-[1.5]
+                  text-white/90
+                  order-2
+                  lg:order-none
+                "
+              >
+                We build high-performance custom websites and web applications tailored to your business goals.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-{/* ── 2. About Us ─────────────────────────────────────────── */}
+{/* ── 2. Overview ─────────────────────────────────────────── */}
 <section className="w-full bg-white">
-  <div
-    className="
-      mx-auto
-      max-w-[1920px]
-      px-5
-      kaluna-container
-      pt-12
-      pb-14
-      md:pt-16
-      md:pb-20
-      lg:pt-[52px]
-      lg:pb-[72px]
-    "
-  >
-    <div
-      className="
-        flex
-        flex-col
-        lg:grid
-        lg:grid-cols-[40%_60%]
-        items-start
-        gap-10
-        lg:gap-12
-        xl:gap-16
-      "
-    >
-      {/* Left Content */}
+  <div className="kaluna-container pt-12 pb-14 md:pt-16 md:pb-20 lg:pt-[52px] lg:pb-[72px]">
+    <div className="flex flex-col items-start gap-10 lg:grid lg:grid-cols-[40%_60%] lg:gap-12 xl:gap-16">
       <div className="w-full lg:pt-[52px]">
-        {/* Section Label */}
         <div className="mb-8 flex items-center gap-3">
           <span className="h-[14px] w-[3px] shrink-0 rounded-full bg-[#299EED]" />
-
-          <span
-            className="
-              text-[8px]
-              md:text-[10px]
-              font-semibold
-              uppercase
-              tracking-[0.06em]
-              text-[#0E2A54]
-            "
-          >
+          <span className="text-[8px] font-semibold uppercase tracking-[0.06em] text-[#0E2A54] md:text-[10px]">
             Overview
           </span>
         </div>
 
-        {/* Heading */}
-        <h2
-          className="
-            max-w-[550px]
-            text-[32px]
-            sm:text-[36px]
-            md:text-[40px]
-            lg:text-[42px]
-            font-medium
-            leading-[1.12]
-            tracking-[-0.025em]
-            text-[#0D0D0D]
-          "
-        >
-          Crafting Digital Solutions
-          <br className="hidden sm:block" />
-          <span className="sm:hidden"> </span>
-          For Your Needs
+        <h2 className="max-w-[550px] text-[22px] sm:text-[25px] md:text-[28px] lg:text-[32px] font-medium leading-[1.25] tracking-[-0.02em] text-[#0D0D0D]">
+          Empowering Modern Enterprises Through Exceptional Web Experiences.
         </h2>
 
-        {/* Description */}
-        <div
-          className="
-            mt-8
-            max-w-[510px]
-            space-y-6
-            text-[12px]
-            md:text-[14px]
-            leading-[1.6]
-            text-[#4A4A4A]
-          "
-        >
-          <p>
-            Kaluna Technology is a technology and digital solutions brand
-            operated by PT SINERGI MUDA ARSA (ARSALYNK), focused on developing integrated
-            systems, custom software, and scalable technology infrastructures
-            to support business digital transformation.
-          </p>
-
-          <p>
-            We help organizations overcome operational challenges, disconnected
-            systems, inefficient manual processes, and the growing need for
-            structured, scalable digital ecosystems.
-          </p>
-        </div>
+        <p className="mt-6 max-w-[520px] text-[13px] leading-[1.7] text-[#4A4A4A] md:text-[14px]">
+          At Kaluna Technology, we help growing enterprises build powerful, conversion-focused websites that elevate their brand and streamline their digital presence. A well-crafted website serves as the central hub of your organization—seamlessly integrating your brand story, product catalogs, customer engagement tools, and marketing channels into one cohesive, high-performance platform that works 24/7.
+        </p>
       </div>
 
-      {/* Right Image */}
-      <div
-        className="
-          relative
-          h-[300px]
-          w-full
-          overflow-hidden
-          rounded-[20px]
-          bg-[#EAF3FF]
-          sm:h-[400px]
-          md:h-[480px]
-          lg:h-[540px]
-          xl:h-[560px]
-        "
-      >
+      <div className="relative h-[300px] w-full overflow-hidden rounded-[20px] bg-[#EAF3FF] sm:h-[400px] md:h-[480px] lg:h-[540px] xl:h-[560px]">
         <img
-          src="image/kaluna-office.webp"
+          src="/image/kaluna-office.webp"
           alt="Kaluna Technology Office"
           className="h-full w-full object-cover object-center"
         />
@@ -214,337 +333,22 @@ export default async function WhoWeArePage() {
     </div>
   </div>
 </section>
+
 {/* ── Problem We Solve ───────────────────────────────────── */}
-<section className="w-full overflow-hidden bg-[#FAFAFA] py-12 md:py-20">
-  <div className="kaluna-wide-container">
-    <div
-      className="
-        relative
-        overflow-hidden
-        rounded-[24px]
-        bg-[#EAF3FF]
-        px-5
-        py-10
-        sm:px-8
-        md:px-[calc(min(6.3vw,121px)-min(1.8vw,34px))]
-        md:py-16
-      "
-    >
-      <div className="w-full">
-        {/* Header */}
-        <div className="mx-auto max-w-[680px] text-center">
-          <div className="mb-4 flex items-center justify-center gap-2.5">
-            <span className="h-3.5 w-[2.5px] rounded-full bg-[#299EED]" />
-
-            <span
-              className="
-                text-[10px]
-                font-semibold
-                uppercase
-                tracking-[0.08em]
-                text-[#0E2A54]
-                md:text-[11px]
-              "
-            >
-              Problem We Solve
-            </span>
-          </div>
-
-          <h2
-            className="
-              text-[26px]
-              font-medium
-              leading-[1.16]
-              tracking-[-0.02em]
-              text-[#0D0D0D]
-              sm:text-[28px]
-              md:text-[32px]
-              lg:text-[34px]
-            "
-          >
-            Turning Complex Problems
-            <br />
-            Into Scalable Solutions
-          </h2>
-        </div>
-
-        {/* Problem Cards */}
-        <div
-          className="
-            mt-10
-            grid
-            grid-cols-1
-            gap-5
-            sm:grid-cols-2
-            md:mt-12
-            lg:grid-cols-4
-            lg:gap-6
-          "
-        >
-          {/* Card 1 */}
-          <div
-            className="
-              min-h-[250px]
-              rounded-[18px]
-              bg-white
-              p-6
-              shadow-[0_12px_35px_rgba(14,42,84,0.05)]
-              transition-all
-              duration-300
-              hover:-translate-y-1
-              hover:shadow-[0_18px_45px_rgba(14,42,84,0.08)]
-              md:p-8
-            "
-          >
-            <div
-              className="
-                mb-6
-                flex
-                h-[50px]
-                w-[50px]
-                items-center
-                justify-center
-                rounded-[11px]
-                bg-[#A3D9F733]
-              "
-            >
-              <img
-                src="/image/Problem/1.svg"
-                alt="Fragmented Business Systems"
-                className="h-[24px] w-[24px] object-contain"
-              />
-            </div>
-
-            <h3
-              className="
-                text-[16px]
-                leading-[1.35]
-                tracking-[-0.01em]
-                text-[#0E2A54]
-                md:text-[20px]
-              "
-            >
-              Fragmented Business Systems
-            </h3>
-
-            <p
-              className="
-                mt-3
-                text-[11px]
-                leading-[1.6]
-                text-[#737373]
-                md:text-[12px]
-              "
-            >
-              Integrates systems through ERP and System Integration, connecting
-              departments into one unified platform for efficient workflows and
-              accurate data.
-            </p>
-          </div>
-
-          {/* Card 2 */}
-          <div
-            className="
-              min-h-[250px]
-              rounded-[18px]
-              bg-white
-              p-6
-              shadow-[0_12px_35px_rgba(14,42,84,0.05)]
-              transition-all
-              duration-300
-              hover:-translate-y-1
-              hover:shadow-[0_18px_45px_rgba(14,42,84,0.08)]
-              md:p-8
-            "
-          >
-            <div
-              className="
-                mb-6
-                flex
-                h-[50px]
-                w-[50px]
-                items-center
-                justify-center
-                rounded-[11px]
-                bg-[#A3D9F733]
-              "
-            >
-              <img
-                src="/image/Problem/2.svg"
-                alt="Lack of Real-Time Operational Visibility"
-                className="h-[24px] w-[24px] object-contain"
-              />
-            </div>
-
-            <h3
-              className="
-                text-[16px]
-                leading-[1.35]
-                tracking-[-0.01em]
-                text-[#0E2A54]
-                md:text-[20px]
-              "
-            >
-              Lack of Real-Time Operational Visibility
-            </h3>
-
-            <p
-              className="
-                mt-3
-                text-[11px]
-                leading-[1.6]
-                text-[#737373]
-                md:text-[12px]
-              "
-            >
-              Using IoT System Development and Industrial Automation, Kaluna
-              builds connected systems that provide real-time monitoring and
-              automated alerts.
-            </p>
-          </div>
-
-          {/* Card 3 */}
-          <div
-            className="
-              min-h-[250px]
-              rounded-[18px]
-              bg-white
-              p-6
-              shadow-[0_12px_35px_rgba(14,42,84,0.05)]
-              transition-all
-              duration-300
-              hover:-translate-y-1
-              hover:shadow-[0_18px_45px_rgba(14,42,84,0.08)]
-              md:p-8
-            "
-          >
-            <div
-              className="
-                mb-6
-                flex
-                h-[50px]
-                w-[50px]
-                items-center
-                justify-center
-                rounded-[11px]
-                bg-[#A3D9F733]
-              "
-            >
-              <img
-                src="/image/Problem/3.svg"
-                alt="Businesses Struggle to Turn Data into Insights"
-                className="h-[24px] w-[24px] object-contain"
-              />
-            </div>
-
-            <h3
-              className="
-                text-[16px]
-                leading-[1.35]
-                tracking-[-0.01em]
-                text-[#0E2A54]
-                md:text-[20px]
-              "
-            >
-              Businesses Struggle to Turn Data into Insights
-            </h3>
-
-            <p
-              className="
-                mt-3
-                text-[11px]
-                leading-[1.6]
-                text-[#737373]
-                md:text-[12px]
-              "
-            >
-              Kaluna develops Data Dashboards and Analytics platforms that
-              transform raw data into clear visual insights for faster and smarter
-              business decisions.
-            </p>
-          </div>
-
-          {/* Card 4 */}
-          <div
-            className="
-              min-h-[250px]
-              rounded-[18px]
-              bg-white
-              p-6
-              shadow-[0_12px_35px_rgba(14,42,84,0.05)]
-              transition-all
-              duration-300
-              hover:-translate-y-1
-              hover:shadow-[0_18px_45px_rgba(14,42,84,0.08)]
-              md:p-8
-            "
-          >
-            <div
-              className="
-                mb-6
-                flex
-                h-[50px]
-                w-[50px]
-                items-center
-                justify-center
-                rounded-[11px]
-                bg-[#A3D9F733]
-              "
-            >
-              <img
-                src="/image/Problem/4.svg"
-                alt="Outdated or Inefficient Digital Platforms"
-                className="h-[24px] w-[24px] object-contain"
-              />
-            </div>
-
-            <h3
-              className="
-                text-[16px]
-                leading-[1.35]
-                tracking-[-0.01em]
-                text-[#0E2A54]
-                md:text-[20px]
-              "
-            >
-              Outdated or Inefficient Digital Platforms
-            </h3>
-
-            <p
-              className="
-                mt-3
-                text-[11px]
-                leading-[1.6]
-                text-[#737373]
-                md:text-[12px]
-              "
-            >
-              Through Web and Application Development, Kaluna builds modern,
-              scalable digital platforms tailored to business needs.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<WhoWeAreProblemWeSolve />
 {/* ── 4. Vision & Mission ─────────────────────────────────── */}
 <section
   className="
     relative
-    min-h-[340px]
+    min-h-[360px]
     w-full
     overflow-hidden
-    py-10
+    py-12
     md:py-16
-    lg:h-[450px]
-    xl:h-[470px]
+    lg:py-20
   "
 >
-  {/* ========================================================
-      BACKGROUND
-      Menggunakan path asli dari vision.svg
-  ======================================================== */}
+  {/* BACKGROUND */}
   <svg
     aria-hidden="true"
     className="pointer-events-none absolute inset-0 h-full w-full"
@@ -567,12 +371,9 @@ export default async function WhoWeArePage() {
       </linearGradient>
     </defs>
 
-    {/* Main gradient */}
     <rect width="1920" height="634" fill="url(#vision-gradient)" />
 
-    {/* K graphic — exact paths from vision.svg */}
     <g opacity="0.5">
-      {/* Small lower-right triangle */}
       <path
         d="
           M1599.1 558.413
@@ -586,8 +387,6 @@ export default async function WhoWeArePage() {
         "
         fill="#2C9FDD"
       />
-
-      {/* Main lower diagonal of K */}
       <path
         d="
           M83.8965 1599
@@ -599,8 +398,6 @@ export default async function WhoWeArePage() {
         "
         fill="#375CA9"
       />
-
-      {/* Main upper diagonal of K */}
       <path
         d="
           M-65.9999 -1121
@@ -617,9 +414,7 @@ export default async function WhoWeArePage() {
     </g>
   </svg>
 
-  {/* ========================================================
-      CONTENT
-  ======================================================== */}
+  {/* CONTENT */}
   <div
     className="
       relative
@@ -639,17 +434,17 @@ export default async function WhoWeArePage() {
   >
     {/* Vision */}
     <div className="flex flex-col items-center">
-      <div className="mb-[20px] flex items-center gap-[12px]">
-        <span className="h-[15px] w-[4px] bg-[#299EED]" />
+      <div className="mb-4 flex items-center gap-3">
+        <span className="h-3.5 w-[3px] bg-[#299EED] rounded-full" />
 
         <span
           className="
-            text-[11px]
+            text-[10px]
+            md:text-[11px]
+            font-semibold
             uppercase
-            leading-none
-            tracking-[0.02em]
+            tracking-[0.08em]
             text-white
-            md:text-[12px]
           "
         >
           Our Vision
@@ -658,46 +453,42 @@ export default async function WhoWeArePage() {
 
       <h2
         className="
-          max-w-[1080px]
-          text-[22px]
+          max-w-[900px]
+          text-[18px]
+          sm:text-[22px]
+          md:text-[26px]
+          lg:text-[28px]
           font-normal
-          leading-[1.15]
-          tracking-[-0.025em]
+          leading-snug
+          tracking-[-0.02em]
           text-white
-          sm:text-[28px]
-          md:text-[34px]
-          lg:text-[40px]
-          xl:text-[42px]
         "
       >
-        To empower enterprises with reliable and
-        <br className="hidden sm:block" />
-        future-ready technology systems
+        To be the go-to digital partner for enterprises seeking beautiful, fast, and results-driven websites.
       </h2>
     </div>
 
     {/* Mission */}
     <div
       className="
-        mt-[42px]
+        mt-8
+        md:mt-10
         flex
         flex-col
         items-center
-        md:mt-[46px]
-        lg:mt-[50px]
       "
     >
-      <div className="mb-[19px] flex items-center gap-[12px]">
-        <span className="h-[15px] w-[4px] bg-[#299EED]" />
+      <div className="mb-3 flex items-center gap-3">
+        <span className="h-3.5 w-[3px] bg-[#299EED] rounded-full" />
 
         <span
           className="
-            text-[11px]
+            text-[10px]
+            md:text-[11px]
+            font-semibold
             uppercase
-            leading-none
-            tracking-[0.02em]
+            tracking-[0.08em]
             text-white
-            md:text-[12px]
           "
         >
           Our Mission
@@ -706,54 +497,49 @@ export default async function WhoWeArePage() {
 
       <p
         className="
-          max-w-[1000px]
-          text-[14px]
-          leading-[1.4]
-          tracking-[-0.02em]
-          text-white
+          max-w-[850px]
+          text-[13px]
+          sm:text-[15px]
+          md:text-[17px]
+          lg:text-[18px]
+          leading-relaxed
+          tracking-[-0.01em]
+          text-white/90
           font-light
-          sm:text-[18px]
-          md:text-[22px]
-          lg:text-[24px]
         "
       >
-        Deliver structured, scalable, and performance-driven IT solutions.
+      To make powerful, professional websites accessible to every business—combining stunning design, smart functionality, and unwavering support to help our clients thrive online.
       </p>
     </div>
   </div>
 </section>
-<section className="w-full bg-white py-12 md:py-16">
-  <div className="kaluna-container">
-    <div className="mb-3 flex items-center gap-2.5">
-      <span className="h-3.5 w-[2.5px] rounded-full bg-[#299EED]" />
-      <span className="text-[10px] font-semibold uppercase tracking-[0.08em] text-[#0E2A54]">
-        Our Expertise
-      </span>
+
+{/* ── 5. Our Expertise ─────────────────────────────────────── */}
+<section className="w-full bg-white px-6 py-10 md:px-10 lg:px-14 md:py-12">
+  <div className="mx-auto max-w-[1440px]">
+    {/* HEADER CONTAINER */}
+    <div className="max-w-[800px]">
+      <div className="flex items-center gap-2.5">
+        <span className="h-[16px] w-[3px] shrink-0 rounded-full bg-[#1686E5]" />
+        <span className="text-[11px] font-semibold tracking-[0.08em] uppercase text-[#0B2A50]">
+          OUR EXPERTISE
+        </span>
+      </div>
+
+      <h2 className="mt-3 text-[clamp(24px,2.4vw,36px)] font-semibold leading-[1.15] tracking-[-0.025em] text-[#0D0D0D]">
+        Our Technology Expertise
+      </h2>
+
+      <p className="mt-2.5 max-w-[750px] text-[14px] sm:text-[15px] leading-[1.55] text-black/65">
+        We design, build, and deploy custom websites tailored to solve specific business challenges. Here are six core website solutions we specialize in.
+      </p>
     </div>
 
-    <h2 className="mb-6 text-[24px] font-[550] text-[#0D0D0D] md:mb-8 md:text-[30px]">
-      Our Technology Expertise
-    </h2>
-
-    <div
-      className="
-        grid
-        w-full
-        max-w-[1690px]
-        grid-cols-1
-        items-stretch
-        justify-items-start
-        text-left
-        gap-x-[30px]
-        gap-y-[30px]
-        sm:grid-cols-2
-        lg:grid-cols-4
-      "
-    >
+    {/* GRID: 3x2 Layout (3 columns on desktop, 2 on tablet, 1 on mobile) */}
+    <div className="mt-7 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 md:gap-5 items-stretch">
       {expertise.map((item, idx) => {
-        const titleLines = item.name.split("\n").slice(0, 2);
-        const firstBaseline = titleLines.length === 1 ? 160 : 130;
-        const gradientId = `expertise-gradient-${idx}`;
+        const numberStr = String(idx + 1).padStart(2, "0");
+        const titleText = item.name.replace(/\n/g, " ");
 
         return (
           <article
@@ -761,89 +547,65 @@ export default async function WhoWeArePage() {
             className="
               group
               relative
-              aspect-[3/2]
-              min-w-0
+              h-[220px]
+              sm:h-[240px]
+              md:h-[255px]
+              lg:h-[270px]
               w-full
+              min-w-0
               cursor-pointer
               overflow-hidden
-              rounded-[12px]
-              bg-[#EAF3FF]
-              transition-all
+              rounded-[16px]
+              border
+              border-black/10
+              bg-[#041B3A]
+              shadow-[0_4px_16px_rgba(0,0,0,0.04)]
+              transition-transform
               duration-500
               hover:-translate-y-1
-              hover:shadow-2xl
             "
           >
+            {/* Background Image */}
             <img
               src={item.img}
-              alt={item.name.replace(/\n/g, " ")}
+              alt={titleText}
               className="
                 absolute
                 inset-0
-                w-full
                 h-full
+                w-full
                 object-cover
-                object-top
+                object-center
                 transition-transform
                 duration-700
                 ease-out
-                group-hover:scale-110
+                group-hover:scale-[1.04]
               "
+            />
+
+            {/* Soft Linear Gradient Overlay */}
+            <div
+              className="absolute inset-0 pointer-events-none"
               style={{
-                objectPosition: "top center",
+                background:
+                  "linear-gradient(to bottom, rgba(4,27,58,0.02) 15%, rgba(4,27,58,0.45) 50%, rgba(4,27,58,0.95) 100%)",
               }}
             />
 
-            <div className="pointer-events-none absolute inset-0 bg-[#299EED]/15 transition-colors duration-500 group-hover:bg-[#0E2A54]/40" />
+            {/* Bottom Content Area */}
+            <div className="absolute inset-x-0 bottom-0 z-10 p-4 sm:p-5 text-white">
+              <span className="mb-1 block text-[10px] sm:text-[11px] font-medium tracking-[0.12em] text-white/60">
+                {numberStr}
+              </span>
 
-            <svg
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-0 h-full w-full"
-              viewBox="0 0 300 200"
-              fill="none"
-              preserveAspectRatio="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <defs>
-                <linearGradient
-                  id={gradientId}
-                  x1="150"
-                  y1="18"
-                  x2="135"
-                  y2="208"
-                  gradientUnits="userSpaceOnUse"
-                >
-                  <stop stopColor="#0E2A54" stopOpacity="0" />
-                  <stop offset="1" stopColor="#0E2A54" />
-                </linearGradient>
-              </defs>
+              <h3 className="max-w-[280px] text-[16px] sm:text-[17px] lg:text-[18px] font-semibold leading-[1.2] tracking-[-0.015em] text-white">
+                {titleText}
+              </h3>
 
-              <rect
-                width="300"
-                height="200"
-                fill={`url(#${gradientId})`}
-              />
-
-              <text
-                x="20"
-                y={firstBaseline}
-                fill="white"
-                fontSize="22"
-                fontWeight="400"
-                letterSpacing="0"
-                fontFamily="inherit"
-              >
-                {titleLines.map((line, lineIndex) => (
-                  <tspan
-                    key={`${line}-${lineIndex}`}
-                    x="20"
-                    y={firstBaseline + lineIndex * 26}
-                  >
-                    {line}
-                  </tspan>
-                ))}
-              </text>
-            </svg>
+              <p className="mt-1 max-w-[280px] text-[12px] lg:text-[12.5px] leading-[1.4] text-white/75 font-normal">
+                {item.description}
+              </p>
+            </div>
           </article>
         );
       })}
@@ -869,7 +631,7 @@ export default async function WhoWeArePage() {
                   <img
                     src={member.image_url}
                     alt={member.full_name}
-                    className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover object-top"
                     style={{ objectPosition: "top center" }}
                   />
                 </div>

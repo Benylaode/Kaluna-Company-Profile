@@ -26,7 +26,9 @@ export default function ProjectCarousel({ projects }: { projects: ProjectData[] 
 
   useEffect(() => {
     setProgress(0);
-    const interval = 50;
+    // Interval 100ms = 10 updates/detik, cukup smooth secara visual
+    // Lebih hemat CPU dibanding 50ms (20 updates/detik)
+    const interval = 100;
     const duration = 5000;
     const step = (interval / duration) * 100;
     const timer = setInterval(() => {
@@ -59,7 +61,7 @@ export default function ProjectCarousel({ projects }: { projects: ProjectData[] 
               menempel di ujung atas dan bawah sejajar dengan gambar di kanan.
           */}
           <div className="relative flex flex-col pl-0 pr-6 lg:pr-12 lg:col-span-5">
-            <div key={`text-${currentIndex}`} className="animate-fade-in flex flex-col h-full justify-between flex-1">
+            <div className="flex flex-col h-full justify-between flex-1">
               
               <div>
                 {/* 
@@ -139,8 +141,8 @@ export default function ProjectCarousel({ projects }: { projects: ProjectData[] 
               {projects.map((project, pIndex) => (
                 <div
                   key={`project-${project.id}`}
-                  className={`absolute inset-0 h-full w-full transition-all duration-700 ease-out transform ${
-                    pIndex === currentIndex ? "opacity-100 translate-y-0 z-10" : "opacity-0 -translate-y-8 z-0"
+                  className={`absolute inset-0 h-full w-full transition-opacity duration-300 ${
+                    pIndex === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"
                   }`}
                 >
                   {project.images?.[0] && (
@@ -182,14 +184,8 @@ export default function ProjectCarousel({ projects }: { projects: ProjectData[] 
                 <div className="h-5 w-[3px] bg-[#299EED] rounded-full" />
                 <span 
                   key={`client-${currentIndex}`} 
-                  className="text-[13px] font-semibold uppercase tracking-[0.15em] text-white animate-[slideRight_0.5s_ease-out_forwards] opacity-0"
+                  className="text-[13px] font-semibold uppercase tracking-[0.15em] text-white opacity-100"
                 >
-                  <style>{`
-                    @keyframes slideRight {
-                      from { opacity: 0; transform: translateX(-15px); }
-                      to { opacity: 1; transform: translateX(0); }
-                    }
-                  `}</style>
                   {projects[currentIndex].client}
                 </span>
               </div>

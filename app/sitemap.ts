@@ -27,59 +27,39 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Services
     {
-      path: "/services/web-application-development",
+      path: "/services",
       changeFrequency: "monthly" as const,
       priority: 0.9,
-    },
-    {
-      path: "/services/iot-system-development",
-      changeFrequency: "monthly" as const,
-      priority: 0.9,
-    },
-    {
-      path: "/services/erp-system-integration",
-      changeFrequency: "monthly" as const,
-      priority: 0.9,
-    },
-    {
-      path: "/services/industrial-automation-solutions",
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
-    },
-    {
-      path: "/services/data-dashboard-analytics",
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
-    },
-    {
-      path: "/services/it-strategy-consulting",
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
     },
 
     // Works
     {
-      path: "/works/myboss-iot-system",
+      path: "/works/x-tire-company-profile",
       changeFrequency: "monthly" as const,
       priority: 0.8,
     },
     {
-      path: "/works/sinau-print-erp",
+      path: "/works/sinau-print-platform",
       changeFrequency: "monthly" as const,
       priority: 0.8,
     },
     {
-      path: "/works/web-media-profile",
+      path: "/works/10-media-publishing-portal",
       changeFrequency: "monthly" as const,
       priority: 0.8,
     },
     {
-      path: "/works/artic-complex-web",
+      path: "/works/arsalynk-enterprise-platform",
       changeFrequency: "monthly" as const,
       priority: 0.8,
     },
     {
-      path: "/works/altatic-analytic",
+      path: "/works/aspoo-asset-management",
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    },
+    {
+      path: "/works/artic-analytical-science",
       changeFrequency: "monthly" as const,
       priority: 0.8,
     },

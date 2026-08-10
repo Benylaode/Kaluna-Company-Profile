@@ -27,6 +27,19 @@
   --kaluna-sea: #299EED;
 }
 
+/* ============================================================
+   WHO WE ARE HERO ANIMATION SYSTEM
+   ============================================================ */
+/* Float classes disabled — render static */
+.who-we-are-float,
+.who-we-are-panel-float,
+.who-we-are-bottom-panel-float,
+.panel-float,
+.dashboard-float {
+  animation: none !important;
+  transform: none !important;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -34,17 +47,32 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  background-color: #ffffff;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background-color: #ffffff;
+  color: #171717;
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* Safari WebKit backdrop-filter utility fallbacks */
+@supports (-webkit-backdrop-filter: none) {
+  .backdrop-blur-none { -webkit-backdrop-filter: none !important; }
+  .backdrop-blur-sm   { -webkit-backdrop-filter: blur(4px) !important; }
+  .backdrop-blur      { -webkit-backdrop-filter: blur(8px) !important; }
+  .backdrop-blur-md   { -webkit-backdrop-filter: blur(12px) !important; }
+  .backdrop-blur-lg   { -webkit-backdrop-filter: blur(16px) !important; }
+  .backdrop-blur-xl   { -webkit-backdrop-filter: blur(24px) !important; }
+  .backdrop-blur-2xl  { -webkit-backdrop-filter: blur(40px) !important; }
+  .backdrop-blur-3xl  { -webkit-backdrop-filter: blur(64px) !important; }
 }
 
 /* app/globals.css */
@@ -155,20 +183,21 @@ body {
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.4s ease-out forwards;
+  opacity: 1 !important;
+  transform: none !important;
+  animation: none !important;
 }
 
 /* ============================================================
    PREMIUM ANIMATION SYSTEM UTILITIES & INTERACTIONS
    ============================================================ */
 
-/* Global Smooth Transitions */
+/* Global Smooth Transitions - Safari WebKit optimized: scoped to color/bg/shadow to prevent global layer promotion */
 a, button, [role="button"], select, input, textarea, .magnetic-wrap {
   transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
               border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
               color 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
-              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
-              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Ensure all clickable items explicitly show pointer */
@@ -196,12 +225,12 @@ a, button, [role="button"], select, option, input[type="submit"], input[type="bu
     transform: translateY(0px);
   }
   50% {
-    transform: translateY(-8px);
+    transform: translateY(-3px);
   }
 }
 
 .animate-wa-float {
-  animation: float-breathing 4s ease-in-out infinite;
+  animation: none !important;
 }
 
 .animate-wa-pulse {
@@ -263,7 +292,7 @@ a, button, [role="button"], select, option, input[type="submit"], input[type="bu
 @keyframes page-transition-in {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
@@ -272,7 +301,9 @@ a, button, [role="button"], select, option, input[type="submit"], input[type="bu
 }
 
 .animate-page-enter {
-  animation: page-transition-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 1 !important;
+  transform: none !important;
+  animation: none !important;
 }
 
 /* ============================================================
@@ -366,9 +397,92 @@ a, button, [role="button"], select, option, input[type="submit"], input[type="bu
   }
 }
 
-/* Automatic Zoom Scaling for Screens up to 14-inch IdeaPad Slim 5 (1440px) */
-@media (max-width: 1440px) {
-  body > div.flex-1 {
-    zoom: 0.88;
-  }
+/* Safari WebKit smooth scrolling optimization — content-visibility removed to prevent black blocks */
+
+/* =========================================================
+   SAFARI RENDERING DIAGNOSTIC
+   Aktifkan satu class saja melalui Safari Console.
+   ========================================================= */
+
+/* Tes backdrop-filter */
+html.debug-no-backdrop *,
+html.debug-no-backdrop *::before,
+html.debug-no-backdrop *::after {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+/* Tes filter blur dan drop-shadow */
+html.debug-no-filter *,
+html.debug-no-filter *::before,
+html.debug-no-filter *::after {
+  -webkit-filter: none !important;
+  filter: none !important;
+}
+
+/* Tes semua animasi */
+html.debug-no-animation *,
+html.debug-no-animation *::before,
+html.debug-no-animation *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Tes mask */
+html.debug-no-mask *,
+html.debug-no-mask *::before,
+html.debug-no-mask *::after {
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+
+/* Tes forced compositing */
+html.debug-no-transform main > section,
+html.debug-no-transform main > div > section {
+  -webkit-transform: none !important;
+  transform: none !important;
+  will-change: auto !important;
+  -webkit-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+}
+
+/* =========================================================
+   APPLE WEBKIT SAFE MODE
+   Safari specific aggressive optimizations
+   ========================================================= */
+
+/* Nonaktifkan backdrop blur pada seluruh body agar Safari tidak panic */
+html.apple-webkit-safe body *,
+html.apple-webkit-safe body *::before,
+html.apple-webkit-safe body *::after {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+/* Matikan filter SVG blur atau CSS drop-shadow berat pada SVG atau container */
+html.apple-webkit-safe body [class*="blur-"],
+html.apple-webkit-safe body [class*="drop-shadow"],
+html.apple-webkit-safe body [style*="filter"] {
+  -webkit-filter: none !important;
+  filter: none !important;
+}
+
+/* Hapus mask yang digunakan sebagai workaround clipping */
+html.apple-webkit-safe body *,
+html.apple-webkit-safe body *::before,
+html.apple-webkit-safe body *::after {
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+
+/* Matikan animasi berulang (infinite) yang membebani GPU/CPU Safari secara konstan */
+html.apple-webkit-safe .safari-loop-animation,
+html.apple-webkit-safe .animate-marquee,
+html.apple-webkit-safe [class*="animate-[spin"],
+html.apple-webkit-safe [class*="animate-[ping"],
+html.apple-webkit-safe [class*="animate-[pulse"],
+html.apple-webkit-safe [class*="animate-[bounce"],
+html.apple-webkit-safe .animate-wa-float,
+html.apple-webkit-safe .animate-wa-pulse {
+  animation: none !important;
 }

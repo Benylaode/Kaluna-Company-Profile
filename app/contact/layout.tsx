@@ -1,15 +1,34 @@
 import type { Metadata } from "next";
 
 const description =
-  "Get in touch with Kaluna Technology. Schedule a consultation for custom software development, IoT systems, ERP integration, and data analytics.";
+  "Get in touch with Kaluna Technology. Schedule a consultation for custom corporate website engineering, e-commerce development, client portals, and bespoke web applications.";
 
 export const metadata: Metadata = {
   title: "Contact Us",
 
   description,
 
+  keywords: [
+    "Konsultasi Pembuatan Website",
+    "Schedule Web Development Consultation",
+    "Contact Kaluna Technology",
+    "Hubungi Web Agency Jakarta",
+    "Web Engineering Consultation",
+  ],
+
   alternates: {
     canonical: "/contact",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 
   openGraph: {
