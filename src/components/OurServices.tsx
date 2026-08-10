@@ -397,7 +397,7 @@ export default function OurServices({ services }: { services?: ServiceData[] }) 
                 </span>
               </div>
 
-              <h2 className="text-[36px] sm:text-[48px] md:text-[56px] lg:text-[64px] font-bold leading-[1.05] tracking-[-0.035em] text-white">
+              <h2 className="text-[26px] sm:text-[32px] md:text-[38px] lg:text-[42px] font-bold leading-[1.12] tracking-[-0.025em] text-white">
                 Helping<br />
                 enterprises<br />
                 to grow{" "}

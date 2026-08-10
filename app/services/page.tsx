@@ -175,13 +175,13 @@ export default async function ServicePage() {
               <h2
                 className="
                   max-w-[550px]
-                  text-[32px]
-                  sm:text-[36px]
-                  md:text-[40px]
-                  lg:text-[42px]
+                  text-[22px]
+                  sm:text-[25px]
+                  md:text-[28px]
+                  lg:text-[32px]
                   font-medium
-                  leading-[1.12]
-                  tracking-[-0.025em]
+                  leading-[1.25]
+                  tracking-[-0.02em]
                   text-[#0D0D0D]
                 "
               >
