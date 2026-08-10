@@ -4,33 +4,62 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Button from "./ui/Button";
 
-export default function Hero() {
+export interface HeroProjectData {
+  id: number;
+  slug?: string;
+  client: string;
+  title: string;
+  category: string;
+  images: string[];
+}
+
+export default function Hero({ projects }: { projects?: HeroProjectData[] }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideDuration = 4000;
   const router = useRouter();
 
-const slides = [
-  {
-    id: 1,
-    image: "/image/Hero/Default.webp",
-    tags: ["Corporate Website"]
-  },
-  {
-    id: 2,
-    image: "/image/Hero/1.webp",
-    tags: ["Responsive Web Experience"]
-  },
-  {
-    id: 3,
-    image: "/image/Hero/2.webp",
-    tags: ["Conversion-Focused Design"]
-  },
-  {
-    id: 4,
-    image: "/image/Hero/3.webp",
-    tags: ["Integrated Digital Platform"]
-  }
-];
+  // Pemetaan poin-poin fitur ke gambar proyek yang sesuai
+  const featurePoints = [
+    {
+      id: 1,
+      image: "/image/projects/X-Tire/1.webp",
+      tags: ["Corporate Website"],
+      slug: "x-tire-company-profile",
+    },
+    {
+      id: 2,
+      image: "/image/projects/sinau-print-erp/1.webp",
+      tags: ["Responsive Web Experience"],
+      slug: "sinau-print-platform",
+    },
+    {
+      id: 3,
+      image: "/image/projects/web-media-profile/1.webp",
+      tags: ["Conversion-Focused Design"],
+      slug: "10-media-publishing-portal",
+    },
+    {
+      id: 4,
+      image: "/image/projects/arsalynk/1.webp",
+      tags: ["Integrated Digital Platform"],
+      slug: "arsalynk-enterprise-platform",
+    },
+    {
+      id: 5,
+      image: "/image/projects/aspoo/1.webp",
+      tags: ["Custom Web Application"],
+      slug: "aspoo-asset-management",
+    },
+    {
+      id: 6,
+      image: "/image/projects/artic-complex-web/1.webp",
+      tags: ["Data-Driven Analytics Engine"],
+      slug: "artic-analytical-science",
+    },
+  ];
+
+  // Menggunakan featurePoints dengan gambar proyek yang mewakilinya
+  const slides = featurePoints;
 
   useEffect(() => {
     const timer = setInterval(() => {

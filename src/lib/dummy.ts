@@ -89,9 +89,9 @@ const works = [
     desc: "A high-performance corporate website designed to build trust, establish authority, and showcase X-Tire to global customers.",
     category: "Brand & Corporate Websites",
     images: [
-      "/image/projects/altatic-analytic/1.webp",
-      "/image/projects/altatic-analytic/2.webp",
-      "/image/projects/altatic-analytic/3.webp",
+      "/image/projects/X-Tire/1.webp",
+      "/image/projects/X-Tire/2.webp",
+      "/image/projects/X-Tire/3.webp",
     ],
     content_json: JSON.stringify({
       year: "2026",
@@ -100,8 +100,8 @@ const works = [
         title: "Elevating Brand Presence Through a Custom Corporate Platform",
         description: "Kaluna designed and built a fast, SEO-optimized corporate website for X-Tire to showcase product lines, establish authority, and streamline customer inquiries.",
         gallery: [
-          "/image/projects/altatic-analytic/2.webp",
-          "/image/projects/altatic-analytic/3.webp",
+          "/image/projects/X-Tire/2.webp",
+          "/image/projects/X-Tire/3.webp",
         ],
       },
       challenges: {
@@ -117,11 +117,11 @@ const works = [
       solutions: {
         label: "Our Solution",
         title: "Kaluna delivered a custom corporate website solution with high performance and interactive catalog navigation.",
-        background_image: "/image/projects/altatic-analytic/1.webp",
+        background_image: "/image/projects/X-Tire/1.webp",
         items: [
-          { title: "Custom Responsive Architecture", desc: "Fast page loads and seamless viewing on mobile and desktop.", image_url: "/image/projects/altatic-analytic/1.webp" },
-          { title: "Interactive Product Showcase", desc: "Structured searching and filtering for product specifications.", image_url: "/image/projects/altatic-analytic/2.webp" },
-          { title: "Lead Generation Flows", desc: "Optimized call-to-action forms connecting visitors directly to sales.", image_url: "/image/projects/altatic-analytic/3.webp" },
+          { title: "Custom Responsive Architecture", desc: "Fast page loads and seamless viewing on mobile and desktop.", image_url: "/image/projects/X-Tire/1.webp" },
+          { title: "Interactive Product Showcase", desc: "Structured searching and filtering for product specifications.", image_url: "/image/projects/X-Tire/2.webp" },
+          { title: "Lead Generation Flows", desc: "Optimized call-to-action forms connecting visitors directly to sales.", image_url: "/image/projects/X-Tire/3.webp" },
         ],
       },
       tech_stack: [
@@ -149,10 +149,10 @@ const works = [
           { title: "< 1s Load Speed", desc: "Optimized assets delivered near-instant page transitions." },
           { title: "Mobile First Design", desc: "Flawless UX across all smartphones and tablet devices." },
         ],
-        image_url: "/image/projects/altatic-analytic/1.webp",
+        image_url: "/image/projects/X-Tire/1.webp",
       },
       showcase: {
-        image_url: "/image/projects/altatic-analytic/2.webp",
+        image_url: "/image/projects/X-Tire/2.webp",
         alt: "X-Tire corporate website interface",
       },
     }),
@@ -322,9 +322,9 @@ const works = [
     desc: "A secure client portal delivering exclusive services, managing partner interactions, and engaging business communities.",
     category: "Member & Client Portals",
     images: [
-      "/image/projects/web-media-profile/1.webp",
-      "/image/projects/artic-complex-web/2.webp",
-      "/image/projects/altatic-analytic/3.webp",
+      "/image/projects/arsalynk/1.webp",
+      "/image/projects/arsalynk/2.webp",
+      "/image/projects/arsalynk/3.webp",
     ],
     content_json: JSON.stringify({
       year: "2026",
@@ -333,8 +333,8 @@ const works = [
         title: "Building an Integrated Member & Client Portal for Arsalynk",
         description: "Kaluna engineered a state-of-the-art client portal for Arsalynk, enabling secure partner access, content distribution, and service management.",
         gallery: [
-          "/image/projects/artic-complex-web/2.webp",
-          "/image/projects/altatic-analytic/3.webp",
+          "/image/projects/arsalynk/2.webp",
+          "/image/projects/arsalynk/3.webp",
         ],
       },
       challenges: {
@@ -350,11 +350,11 @@ const works = [
       solutions: {
         label: "Our Solution",
         title: "Kaluna built a custom member portal solution with modern UI aesthetics and robust access control architecture.",
-        background_image: "/image/projects/web-media-profile/1.webp",
+        background_image: "/image/projects/arsalynk/1.webp",
         items: [
-          { title: "Role-Based Member Access", desc: "Granular permissions for clients, partners, and administrators.", image_url: "/image/projects/web-media-profile/1.webp" },
-          { title: "Service & Resource Hub", desc: "Exclusive content repository and project status tracking.", image_url: "/image/projects/artic-complex-web/2.webp" },
-          { title: "Secure Portal Dashboard", desc: "Direct, secure messaging and request management for clients.", image_url: "/image/projects/altatic-analytic/3.webp" },
+          { title: "Role-Based Member Access", desc: "Granular permissions for clients, partners, and administrators.", image_url: "/image/projects/arsalynk/1.webp" },
+          { title: "Service & Resource Hub", desc: "Exclusive content repository and project status tracking.", image_url: "/image/projects/arsalynk/2.webp" },
+          { title: "Secure Portal Dashboard", desc: "Direct, secure messaging and request management for clients.", image_url: "/image/projects/arsalynk/3.webp" },
         ],
       },
       tech_stack: [
@@ -383,10 +383,10 @@ const works = [
           { title: "Fast Performance", desc: "Sub-second response times across portal dashboards." },
           { title: "Scalable Architecture", desc: "Built to support thousands of active members seamlessly." },
         ],
-        image_url: "/image/projects/web-media-profile/1.webp",
+        image_url: "/image/projects/arsalynk/1.webp",
       },
       showcase: {
-        image_url: "/image/projects/artic-complex-web/2.webp",
+        image_url: "/image/projects/arsalynk/2.webp",
         alt: "Arsalynk client portal interface",
       },
     }),
@@ -400,9 +400,9 @@ const works = [
     desc: "An interactive web application built to monitor operational assets, device statuses, and data-driven workflows in real time.",
     category: "Custom Web Applications",
     images: [
-      "/image/projects/myboss-iot-system/1.webp",
-      "/image/projects/myboss-iot-system/2.webp",
-      "/image/projects/myboss-iot-system/3.webp",
+      "/image/projects/aspoo/1.webp",
+      "/image/projects/aspoo/2.webp",
+      "/image/projects/aspoo/3.webp",
     ],
     content_json: JSON.stringify({
       year: "2026",
@@ -411,8 +411,8 @@ const works = [
         title: "Digitizing Operational Workflows With Custom Web Apps",
         description: "Kaluna developed a custom web application enabling Aspoo to monitor equipment assets and operational activity from a centralized data-driven dashboard.",
         gallery: [
-          "/image/projects/myboss-iot-system/2.webp",
-          "/image/projects/myboss-iot-system/3.webp",
+          "/image/projects/aspoo/2.webp",
+          "/image/projects/aspoo/3.webp",
         ],
       },
       challenges: {
@@ -428,11 +428,11 @@ const works = [
       solutions: {
         label: "Our Solution",
         title: "Kaluna designed an interactive custom web application for real-time asset tracking and data visualization.",
-        background_image: "/image/projects/myboss-iot-system/1.webp",
+        background_image: "/image/projects/aspoo/1.webp",
         items: [
-          { title: "Real-Time Status Dashboard", desc: "Live overview of asset usage, status, and health indicators.", image_url: "/image/projects/myboss-iot-system/1.webp" },
-          { title: "Automated Maintenance Alerts", desc: "Notifications triggered when assets require routine service.", image_url: "/image/projects/myboss-iot-system/2.webp" },
-          { title: "Centralized Audit Trail", desc: "Complete historical log of asset movements and updates.", image_url: "/image/projects/myboss-iot-system/3.webp" },
+          { title: "Real-Time Status Dashboard", desc: "Live overview of asset usage, status, and health indicators.", image_url: "/image/projects/aspoo/1.webp" },
+          { title: "Automated Maintenance Alerts", desc: "Notifications triggered when assets require routine service.", image_url: "/image/projects/aspoo/2.webp" },
+          { title: "Centralized Audit Trail", desc: "Complete historical log of asset movements and updates.", image_url: "/image/projects/aspoo/3.webp" },
         ],
       },
       tech_stack: [
@@ -460,10 +460,10 @@ const works = [
           { title: "Faster Maintenance", desc: "Automated alerts sped up issue resolution times." },
           { title: "Auditable Logs", desc: "Complete historical record available on demand." },
         ],
-        image_url: "/image/projects/myboss-iot-system/1.webp",
+        image_url: "/image/projects/aspoo/1.webp",
       },
       showcase: {
-        image_url: "/image/projects/myboss-iot-system/2.webp",
+        image_url: "/image/projects/aspoo/2.webp",
         alt: "Aspoo asset management dashboard interface",
       },
     }),

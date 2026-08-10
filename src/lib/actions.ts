@@ -189,7 +189,7 @@ export const getWorks = unstable_cache(
     })) as WorkData[];
   },
   ['works-list'],
-  { revalidate: 3600 }
+  { revalidate: 10 }
 );
 
 export async function getWorkBySlug(slug: string): Promise<WorkData | undefined> {

@@ -25,7 +25,7 @@ export default async function Home() {
       
       {/* Wrapper diubah: Menghilangkan gap agar jarak murni dari padding (py) masing-masing komponen */}
       <div className="flex flex-col w-full">
-        <Hero />
+        <Hero projects={worksData} />
         
         <ScrollReveal>
           <ProjectCarousel projects={worksData} />

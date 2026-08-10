@@ -55,7 +55,7 @@ const expertise = [
   {
     name: "Brand & Corporate\nWebsites",
     description: "Build trust, establish authority, and showcase your business to the world.",
-    img: "/image/projects/altatic-analytic/1.webp",
+    img: "/image/projects/X-Tire/1.webp",
   },
   {
     name: "E-Commerce & Retail\nPlatforms",
@@ -70,12 +70,12 @@ const expertise = [
   {
     name: "Member & Client\nPortals",
     description: "Deliver exclusive content, manage subscriptions, and engage your community.",
-    img: "/image/projects/artic-complex-web/2.webp",
+    img: "/image/projects/arsalynk/1.webp",
   },
   {
     name: "Custom Web\nApplications",
     description: "Build interactive tools, dashboards, and data-driven platforms tailored to your needs.",
-    img: "/image/projects/myboss-iot-system/1.webp",
+    img: "/image/projects/aspoo/1.webp",
   },
 ];
 
