@@ -77,6 +77,11 @@ const expertise = [
     description: "Build interactive tools, dashboards, and data-driven platforms tailored to your needs.",
     img: "/image/projects/aspoo/1.webp",
   },
+  {
+    name: "Analytics & Data\nPlatforms",
+    description: "Process complex datasets and render interactive dashboards for science and research.",
+    img: "/image/projects/artic-complex-web/1.webp",
+  },
 ];
 
   return (
@@ -277,21 +282,20 @@ const expertise = [
               {/* Description */}
               <p
                 className="
-                  mt-3.5
-                  lg:mt-4
-                  max-w-[580px]
+                  mt-3
+                  lg:mt-3.5
+                  max-w-[420px]
+                  lg:max-w-[440px]
                   text-sm
                   sm:text-base
-                  lg:text-[17px]
                   font-normal
-                  leading-[1.6]
+                  leading-[1.5]
                   text-white/90
                   order-2
                   lg:order-none
                 "
-                style={{ fontSize: "clamp(14px, 1.15vw, 17px)", color: "rgba(255, 255, 255, 0.9)" }}
               >
-                We design, build, and deploy high-performance custom websites and web applications tailored to elevate your brand and solve specific business challenges.
+                We build high-performance custom websites and web applications tailored to your business goals.
               </p>
             </div>
           </div>
@@ -511,37 +515,31 @@ const expertise = [
 </section>
 
 {/* ── 5. Our Expertise ─────────────────────────────────────── */}
-<section className="w-full bg-white py-14 md:py-20">
-  <div className="kaluna-container">
-    <div className="mb-3 flex items-center gap-2.5">
-      <span className="h-3.5 w-[2.5px] rounded-full bg-[#299EED]" />
+<section className="w-full bg-white px-6 py-10 md:px-10 lg:px-14 md:py-12">
+  <div className="mx-auto max-w-[1440px]">
+    {/* HEADER CONTAINER */}
+    <div className="max-w-[800px]">
+      <div className="flex items-center gap-2.5">
+        <span className="h-[16px] w-[3px] shrink-0 rounded-full bg-[#1686E5]" />
+        <span className="text-[11px] font-semibold tracking-[0.08em] uppercase text-[#0B2A50]">
+          OUR EXPERTISE
+        </span>
+      </div>
 
-      <span className="text-[10px] font-semibold uppercase tracking-[0.08em] text-[#0E2A54]">
-        Our Expertise
-      </span>
+      <h2 className="mt-3 text-[clamp(24px,2.4vw,36px)] font-semibold leading-[1.15] tracking-[-0.025em] text-[#0D0D0D]">
+        Our Technology Expertise
+      </h2>
+
+      <p className="mt-2.5 max-w-[750px] text-[14px] sm:text-[15px] leading-[1.55] text-black/65">
+        We design, build, and deploy custom websites tailored to solve specific business challenges. Here are six core website solutions we specialize in.
+      </p>
     </div>
 
-    <h2 className="mb-4 text-[24px] font-[550] text-[#0D0D0D] md:text-[30px]">
-      Our Technology Expertise
-    </h2>
-
-    <p className="mb-10 max-w-[860px] text-[14px] leading-[1.65] text-[#555555] md:text-[15px]">
-      We design, build, and deploy custom websites tailored to solve specific business challenges. Here are five core website solutions we specialize in:
-    </p>
-
-    <div
-      className="
-        grid
-        w-full
-        grid-cols-1
-        sm:grid-cols-2
-        lg:grid-cols-5
-        gap-4 lg:gap-5
-        items-stretch
-      "
-    >
+    {/* GRID: 3x2 Layout (3 columns on desktop, 2 on tablet, 1 on mobile) */}
+    <div className="mt-7 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 md:gap-5 items-stretch">
       {expertise.map((item, idx) => {
-        const titleLines = item.name.split("\n");
+        const numberStr = String(idx + 1).padStart(2, "0");
+        const titleText = item.name.replace(/\n/g, " ");
 
         return (
           <article
@@ -549,63 +547,62 @@ const expertise = [
             className="
               group
               relative
-              flex
-              flex-col
-              justify-end
-              h-[380px] sm:h-[400px] lg:h-[430px]
+              h-[220px]
+              sm:h-[240px]
+              md:h-[255px]
+              lg:h-[270px]
               w-full
               min-w-0
               cursor-pointer
               overflow-hidden
-              rounded-[20px]
-              bg-[#081B38]
-              shadow-md
-              transition-all
-              duration-300
-              hover:shadow-2xl
+              rounded-[16px]
+              border
+              border-black/10
+              bg-[#041B3A]
+              shadow-[0_4px_16px_rgba(0,0,0,0.04)]
+              transition-transform
+              duration-500
               hover:-translate-y-1
             "
           >
             {/* Background Image */}
             <img
               src={item.img}
-              alt={item.name.replace(/\n/g, " ")}
+              alt={titleText}
               className="
                 absolute
                 inset-0
                 h-full
                 w-full
                 object-cover
-                object-top
+                object-center
                 transition-transform
                 duration-700
                 ease-out
-                group-hover:scale-105
+                group-hover:scale-[1.04]
               "
             />
 
-            {/* Overlay Linear Gradient: Rich Dark Blue Blend for Perfect Text Contrast */}
+            {/* Soft Linear Gradient Overlay */}
             <div
-              className="
-                absolute
-                inset-0
-                pointer-events-none
-                bg-[linear-gradient(to_top,#081C38_0%,#0C274E_48%,rgba(12,39,78,0.7)_70%,transparent_100%)]
-                transition-opacity
-                duration-500
-              "
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background:
+                  "linear-gradient(to bottom, rgba(4,27,58,0.02) 15%, rgba(4,27,58,0.45) 50%, rgba(4,27,58,0.95) 100%)",
+              }}
             />
 
-            {/* Content Container aligned at bottom */}
-            <div className="relative z-10 flex flex-col justify-end p-6 text-white h-full">
-              <h3 className="text-[17px] sm:text-[18px] lg:text-[19px] font-bold leading-[1.25] text-white tracking-tight">
-                {titleLines.map((line, lIdx) => (
-                  <span key={lIdx} className="block">
-                    {line}
-                  </span>
-                ))}
+            {/* Bottom Content Area */}
+            <div className="absolute inset-x-0 bottom-0 z-10 p-4 sm:p-5 text-white">
+              <span className="mb-1 block text-[10px] sm:text-[11px] font-medium tracking-[0.12em] text-white/60">
+                {numberStr}
+              </span>
+
+              <h3 className="max-w-[280px] text-[16px] sm:text-[17px] lg:text-[18px] font-semibold leading-[1.2] tracking-[-0.015em] text-white">
+                {titleText}
               </h3>
-              <p className="mt-3 text-[12px] lg:text-[12.5px] leading-[1.55] text-white/85 font-normal">
+
+              <p className="mt-1 max-w-[280px] text-[12px] lg:text-[12.5px] leading-[1.4] text-white/75 font-normal">
                 {item.description}
               </p>
             </div>
