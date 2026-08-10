@@ -291,7 +291,7 @@ const expertise = [
                 "
                 style={{ fontSize: "clamp(14px, 1.15vw, 17px)", color: "rgba(255, 255, 255, 0.9)" }}
               >
-                We build end-to-end Enterprise Resource Planning solutions that unify your core operations into a single, intelligent platform.
+                We design, build, and deploy high-performance custom websites and web applications tailored to elevate your brand and solve specific business challenges.
               </p>
             </div>
           </div>
@@ -310,7 +310,7 @@ const expertise = [
           </span>
         </div>
 
-        <h2 className="max-w-[550px] text-[32px] font-medium leading-[1.12] tracking-[-0.025em] text-[#0D0D0D] sm:text-[36px] md:text-[40px] lg:text-[42px]">
+        <h2 className="max-w-[550px] text-[22px] sm:text-[25px] md:text-[28px] lg:text-[32px] font-medium leading-[1.25] tracking-[-0.02em] text-[#0D0D0D]">
           Empowering Modern Enterprises Through Exceptional Web Experiences.
         </h2>
 
@@ -511,7 +511,7 @@ const expertise = [
 </section>
 
 {/* ── 5. Our Expertise ─────────────────────────────────────── */}
-<section className="w-full bg-white py-12 md:py-16">
+<section className="w-full bg-white py-14 md:py-20">
   <div className="kaluna-container">
     <div className="mb-3 flex items-center gap-2.5">
       <span className="h-3.5 w-[2.5px] rounded-full bg-[#299EED]" />
@@ -521,11 +521,11 @@ const expertise = [
       </span>
     </div>
 
-    <h2 className="mb-6 text-[24px] font-[550] text-[#0D0D0D] md:mb-8 md:text-[30px]">
+    <h2 className="mb-4 text-[24px] font-[550] text-[#0D0D0D] md:text-[30px]">
       Our Technology Expertise
     </h2>
 
-    <p className="mb-8 max-w-[820px] text-[13px] leading-[1.7] text-[#4A4A4A] md:text-[14px]">
+    <p className="mb-10 max-w-[860px] text-[14px] leading-[1.65] text-[#555555] md:text-[15px]">
       We design, build, and deploy custom websites tailored to solve specific business challenges. Here are five core website solutions we specialize in:
     </p>
 
@@ -535,9 +535,8 @@ const expertise = [
         w-full
         grid-cols-1
         sm:grid-cols-2
-        lg:grid-cols-3
-        xl:grid-cols-5
-        gap-5 sm:gap-6
+        lg:grid-cols-5
+        gap-4 lg:gap-5
         items-stretch
       "
     >
@@ -553,17 +552,18 @@ const expertise = [
               flex
               flex-col
               justify-end
-              min-h-[290px] sm:min-h-[310px]
+              h-[380px] sm:h-[400px] lg:h-[430px]
               w-full
               min-w-0
               cursor-pointer
               overflow-hidden
-              rounded-[16px]
-              bg-[#0E2A54]
+              rounded-[20px]
+              bg-[#081B38]
               shadow-md
               transition-all
               duration-300
-              hover:shadow-xl
+              hover:shadow-2xl
+              hover:-translate-y-1
             "
           >
             {/* Background Image */}
@@ -576,7 +576,7 @@ const expertise = [
                 h-full
                 w-full
                 object-cover
-                object-center
+                object-top
                 transition-transform
                 duration-700
                 ease-out
@@ -584,29 +584,28 @@ const expertise = [
               "
             />
 
-            {/* Overlay Linear Gradient: #0E2A54 (Tebal di Bawah, Tipis di Atas untuk Keterbacaan Teks Maksimal) */}
+            {/* Overlay Linear Gradient: Rich Dark Blue Blend for Perfect Text Contrast */}
             <div
               className="
                 absolute
                 inset-0
                 pointer-events-none
+                bg-[linear-gradient(to_top,#081C38_0%,#0C274E_48%,rgba(12,39,78,0.7)_70%,transparent_100%)]
                 transition-opacity
                 duration-500
-                bg-[linear-gradient(to_top,#071A35_0%,#0E2A54_45%,rgba(14,42,84,0.65)_75%,rgba(14,42,84,0.15)_100%)]
-                group-hover:bg-[linear-gradient(to_top,#071A35_0%,#0E2A54_55%,rgba(14,42,84,0.75)_80%,rgba(14,42,84,0.25)_100%)]
               "
             />
 
-            {/* Content */}
-            <div className="relative z-10 flex flex-col justify-end p-5 sm:p-6 text-white h-full">
-              <h3 className="text-[17px] sm:text-[18px] md:text-[19px] font-semibold leading-[1.3] text-white tracking-tight">
+            {/* Content Container aligned at bottom */}
+            <div className="relative z-10 flex flex-col justify-end p-6 text-white h-full">
+              <h3 className="text-[17px] sm:text-[18px] lg:text-[19px] font-bold leading-[1.25] text-white tracking-tight">
                 {titleLines.map((line, lIdx) => (
                   <span key={lIdx} className="block">
                     {line}
                   </span>
                 ))}
               </h3>
-              <p className="mt-2.5 text-[12px] sm:text-[12.5px] leading-[1.55] text-white/90 font-normal">
+              <p className="mt-3 text-[12px] lg:text-[12.5px] leading-[1.55] text-white/85 font-normal">
                 {item.description}
               </p>
             </div>
