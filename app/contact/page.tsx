@@ -24,10 +24,19 @@ export default function ContactPage() {
     setIsLoading(true);
     try {
       const result = await submitLead(formData);
-      if (result.success) {
+      if (result?.success) {
         setShowPopup(true);
       } else {
-        alert("Terjadi kesalahan, silakan coba lagi.");
+        alert(result?.message || "Terjadi kesalahan, silakan coba lagi.");
+      }
+    } catch (err: unknown) {
+      console.error("Error submitting lead:", err);
+      const errorMessage = err instanceof Error ? err.message : String(err);
+      if (errorMessage.includes("Failed to find Server Action")) {
+        alert("Sesi halaman telah kedaluwarsa karena pembaruan server. Halaman akan dimuat ulang otomatis.");
+        window.location.reload();
+      } else {
+        alert("Terjadi kesalahan saat menghubungi server. Silakan muat ulang halaman dan coba lagi.");
       }
     } finally {
       setIsLoading(false);
