@@ -100,16 +100,14 @@ export const metadata: Metadata = {
   },
 
   icons: {
+    // Note: favicon.ico, icon.png, and apple-icon.png in app/ are auto-detected by Next.js.
+    // Only list additional icon sizes from public/ that aren't auto-detected.
     icon: [
       { url: "/seo/kaluna-logo-square.png", type: "image/png", sizes: "512x512" },
       { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
       { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
-      { url: "/favicon.ico", sizes: "any" },
     ],
     shortcut: "/seo/kaluna-logo-square.png",
-    apple: [
-      { url: "/seo/kaluna-logo-square.png", sizes: "180x180", type: "image/png" },
-    ],
   },
 
   formatDetection: {
@@ -232,11 +230,9 @@ export default function RootLayout({
         <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
-        {/* Explicit Square Logo Favicons for Google Search & Browsers */}
-        <link rel="icon" href="/seo/kaluna-logo-square.png" sizes="512x512" type="image/png" />
-        <link rel="icon" href="/favicon-96x96.png" sizes="96x96" type="image/png" />
-        <link rel="icon" href="/favicon-48x48.png" sizes="48x48" type="image/png" />
-        <link rel="apple-touch-icon" href="/seo/kaluna-logo-square.png" sizes="180x180" />
+        {/* Icon link tags are handled by Next.js Metadata API (metadata.icons)
+            and auto-detected files in app/ (favicon.ico, icon.png, apple-icon.png).
+            Do NOT add manual <link rel="icon"> here to avoid duplication. */}
 
         {/* Preload LCP image: hero slide pertama agar browser segera fetch sebelum parse JS */}
         <link
