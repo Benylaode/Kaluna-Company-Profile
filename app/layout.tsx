@@ -100,14 +100,16 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    // Note: favicon.ico, icon.png, and apple-icon.png in app/ are auto-detected by Next.js.
-    // Only list additional icon sizes from public/ that aren't auto-detected.
     icon: [
-      { url: "/seo/kaluna-logo-square.png", type: "image/png", sizes: "512x512" },
-      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
       { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
+      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/seo/kaluna-logo-square.png", sizes: "512x512", type: "image/png" },
     ],
-    shortcut: "/seo/kaluna-logo-square.png",
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
   },
 
   formatDetection: {
@@ -225,23 +227,16 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`} style={{ backgroundColor: "#ffffff", color: "#171717" }}>
       <head>
-        {/* Google AI Overviews & Search Engine Directives */}
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
-        {/* Icon link tags are handled by Next.js Metadata API (metadata.icons)
-            and auto-detected files in app/ (favicon.ico, icon.png, apple-icon.png).
-            Do NOT add manual <link rel="icon"> here to avoid duplication. */}
-
-        {/* Preload LCP image: hero slide pertama agar browser segera fetch sebelum parse JS */}
         <link
           rel="preload"
           as="image"
           href="/image/projects/X-Tire/1.webp"
           fetchPriority="high"
         />
-        {/* DNS prefetch untuk domain eksternal yang digunakan */}
         <link rel="dns-prefetch" href="//images.unsplash.com" />
         <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
         <script
@@ -271,7 +266,7 @@ export default function RootLayout({
                   document.documentElement.classList.add('apple-webkit-safe');
                 }
               })();
-            `
+            `,
           }}
         />
       </head>
