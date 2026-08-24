@@ -3,15 +3,23 @@ import type { MetadataRoute } from "next";
 const siteUrl = "https://www.kalunatechnology.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const lastModDate = new Date();
+
   const routes = [
+    // Main Pages
     {
       path: "",
       changeFrequency: "weekly" as const,
-      priority: 1,
+      priority: 1.0,
     },
     {
       path: "/works",
       changeFrequency: "weekly" as const,
+      priority: 0.9,
+    },
+    {
+      path: "/services",
+      changeFrequency: "monthly" as const,
       priority: 0.9,
     },
     {
@@ -25,14 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
 
-    // Services
-    {
-      path: "/services",
-      changeFrequency: "monthly" as const,
-      priority: 0.9,
-    },
-
-    // Works
+    // Case Studies & Works
     {
       path: "/works/x-tire-company-profile",
       changeFrequency: "monthly" as const,
@@ -67,7 +68,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return routes.map((route) => ({
     url: `${siteUrl}${route.path}`,
-    lastModified: new Date(),
+    lastModified: lastModDate,
     changeFrequency: route.changeFrequency,
     priority: route.priority,
   }));

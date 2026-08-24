@@ -12,7 +12,7 @@ export default function robots(): MetadataRoute.Robots {
       },
       {
         userAgent: "Googlebot-Image",
-        allow: ["/image/", "/seo/", "/*.jpg", "/*.jpeg", "/*.png", "/*.webp", "/*.svg"],
+        allow: ["/image/", "/seo/", "/*.jpg", "/*.jpeg", "/*.png", "/*.webp", "/*.svg", "/*.ico"],
       },
     ],
 
