@@ -49,13 +49,6 @@ export default function Navbar() {
     { name: "Financial & Accounting ERP", href: "/services/financial-accounting-erp" },
     { name: "Supply Chain & Inventory ERP", href: "/services/supply-chain-inventory-erp" },
     { name: "Logistics & Fleet Management ERP", href: "/services/logistics-fleet-erp" },
-    /*
-    { name: "Industrial & Automation Solutions", href: "/services/industrial-automation-solutions" },
-    { name: "Web & Application Development", href: "/services/web-application-development" },
-    { name: "IoT System Development", href: "/services/iot-system-development" },
-    { name: "Data Dashboard & Analytics", href: "/services/data-dashboard-analytics" },
-    { name: "IT Consulting & Digital Strategy", href: "/services/it-strategy-consulting" },
-    */
   ];
 
   const scrollToFooter = () => {

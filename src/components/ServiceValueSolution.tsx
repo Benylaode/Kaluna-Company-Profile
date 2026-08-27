@@ -35,7 +35,7 @@ const valueItems: ValueItem[] = [
     highlights: [
       "REST & SOAP API gateways",
       "Bi-directional database sync",
-      "Hardware, IoT & POS device links",
+      "Payment gateways, CRM & Marketing tool links",
     ],
   },
   {

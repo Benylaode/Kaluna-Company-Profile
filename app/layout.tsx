@@ -20,9 +20,9 @@ const geistMono = Geist_Mono({
 });
 
 const siteUrl = "https://www.kalunatechnology.com";
-const siteTitle = "Kaluna Technology | Enterprise Web Development & Digital Engineering Agency";
+const siteTitle = "Kaluna Technology | Jasa Pembuatan Website & Custom Web Builder Agency";
 const siteDescription =
-  "Kaluna Technology is a premier web engineering agency. We design and build high-performance corporate websites, e-commerce platforms, member portals, and custom web applications for modern enterprises.";
+  "Kaluna Technology adalah web engineering agency & penyedia jasa pembuatan website perusahaan profesional. Kami merancang dan membangun website company profile berkinerja tinggi, platform e-commerce, portal member, serta custom web application untuk bisnis dan perusahaan modern.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -35,17 +35,39 @@ export const metadata: Metadata = {
   description: siteDescription,
 
   keywords: [
+    // Brand & Company Identifiers
     "Kaluna Technology",
+    "kalunatechnology",
+    "kaluna",
+    "Kaluna Tech",
+    "PT Kaluna Teknologi",
+    "PT SINERGI MUDA ARSA",
+    "ARSALYNK",
+    "arsalynk",
+    
+    // Core Indonesian Web Builder & Development Keywords
+    "Jasa Pembuatan Website",
+    "Jasa Web Builder",
+    "Jasa Pembuatan Website Perusahaan",
+    "Jasa Bikin Website Jakarta",
+    "Jasa Pembuatan Website Company Profile",
+    "Jasa Web Application",
+    "Jasa Pembuatan Toko Online E-Commerce",
+    "Jasa Pembuatan Landing Page",
+    "Jasa Web Developer Indonesia",
+    "Software House Jakarta",
+    "Web Agency Jakarta",
+    "Jasa Website Bisnis Profesional",
+    
+    // English & International Keywords
     "Custom Web Development Agency",
     "Enterprise Web Engineering",
     "Corporate Website Builder",
-    "Jasa Pembuatan Website Enterprise",
+    "Custom Web Application Development",
     "E-Commerce Platform Engineering",
     "Member Portal Development",
-    "Custom Web Application",
-    "B2B Digital Agency",
-    "PT SINERGI MUDA ARSA",
-    "ARSALYNK",
+    "B2B Digital Web Agency",
+    "Full-Stack Web Development Indonesia",
   ],
 
   applicationName: "Kaluna Technology",
@@ -87,7 +109,7 @@ export const metadata: Metadata = {
         url: "/seo/kaluna-og.jpg",
         width: 1200,
         height: 630,
-        alt: "Kaluna Technology - Enterprise Web Development Agency",
+        alt: "Kaluna Technology - Jasa Pembuatan Website & Custom Web Builder Agency",
       },
     ],
   },
@@ -127,7 +149,14 @@ const structuredData = {
       "@id": `${siteUrl}/#website`,
       url: `${siteUrl}/`,
       name: "Kaluna Technology",
-      alternateName: ["Kaluna Tech", "kalunatechnology.com"],
+      alternateName: [
+        "kalunatechnology",
+        "kaluna",
+        "Kaluna Tech",
+        "PT Kaluna Teknologi",
+        "kalunatechnology.com",
+        "Kaluna Web Agency",
+      ],
       description: siteDescription,
       publisher: {
         "@id": `${siteUrl}/#organization`,
@@ -138,6 +167,7 @@ const structuredData = {
       "@id": `${siteUrl}/#organization`,
       name: "Kaluna Technology",
       legalName: "PT SINERGI MUDA ARSA (ARSALYNK)",
+      alternateName: ["Kaluna Tech", "PT Kaluna Teknologi", "kalunatechnology"],
       url: `${siteUrl}/`,
       image: `${siteUrl}/seo/kaluna-logo-square.png`,
       logo: {
@@ -149,6 +179,18 @@ const structuredData = {
       },
       description: siteDescription,
       email: "corporate@kalunatechnology.com",
+      telephone: "+6281234567890",
+      priceRange: "$$",
+      areaServed: [
+        {
+          "@type": "Country",
+          name: "Indonesia",
+        },
+        {
+          "@type": "AdministrativeArea",
+          name: "Worldwide",
+        },
+      ],
       sameAs: [
         "https://www.instagram.com/kalunatechnology/",
         "https://www.linkedin.com/company/pt-sinergi-muda-arsa-arsalynk/",
@@ -162,55 +204,57 @@ const structuredData = {
         addressCountry: "ID",
       },
       knowsAbout: [
-        "Custom Web Engineering",
-        "Enterprise Corporate Website Design",
-        "E-Commerce & Retail Platform Development",
+        "Jasa Pembuatan Website",
+        "Jasa Web Builder & Custom Web Engineering",
+        "Jasa Pembuatan Website Perusahaan & Company Profile",
+        "E-Commerce & Digital Retail Platform Development",
         "Client & Member Portal Architecture",
         "Custom Web Applications & Analytics Dashboards",
+        "UI/UX Design & Next.js Development",
         "SEO Optimization & Core Web Vitals",
       ],
       hasOfferCatalog: {
         "@type": "OfferCatalog",
-        name: "Enterprise Web Engineering Services",
+        name: "Layanan Jasa Pembuatan Website & Web Engineering",
         itemListElement: [
           {
             "@type": "Offer",
             itemOffered: {
               "@type": "Service",
-              name: "Brand & Corporate Website Engineering",
-              description: "Custom high-performance corporate websites built to establish market authority and drive B2B inquiries.",
+              name: "Jasa Pembuatan Website Perusahaan (Corporate Website Builder)",
+              description: "Custom high-performance corporate websites built to establish market authority, present company credibility, and drive qualified B2B inquiries.",
             },
           },
           {
             "@type": "Offer",
             itemOffered: {
               "@type": "Service",
-              name: "E-Commerce & Retail Platform Development",
-              description: "Scalable digital retail storefronts with seamless checkout flows and automated product catalog management.",
+              name: "Jasa Pembuatan Toko Online & E-Commerce Platform",
+              description: "Scalable digital retail storefronts with seamless checkout flows, real-time product calculators, and automated payment gateway integrations.",
             },
           },
           {
             "@type": "Offer",
             itemOffered: {
               "@type": "Service",
-              name: "Marketing & Landing Page Hubs",
-              description: "Campaign-focused landing page hubs engineered for maximum lead conversion and speed.",
+              name: "Jasa Pembuatan Landing Page & Marketing Web Hubs",
+              description: "Campaign-focused landing page hubs engineered for maximum lead conversion, high speed, and flawless mobile responsiveness.",
             },
           },
           {
             "@type": "Offer",
             itemOffered: {
               "@type": "Service",
-              name: "Enterprise Member & Client Portals",
-              description: "Secure role-based member portals for exclusive service distribution and partner engagement.",
+              name: "Jasa Pembuatan Portal Member & Client Portal",
+              description: "Secure role-based member portals for exclusive service distribution, customer accounts, and partner engagement.",
             },
           },
           {
             "@type": "Offer",
             itemOffered: {
               "@type": "Service",
-              name: "Custom Web Applications & Analytics Dashboards",
-              description: "Interactive data dashboards and bespoke web apps tailored to enterprise operational needs.",
+              name: "Jasa Custom Web Application & Dashboard Analytics",
+              description: "Bespoke full-stack web applications, operational management portals, and interactive business analytics dashboards.",
             },
           },
         ],
