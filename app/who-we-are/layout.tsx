@@ -1,20 +1,26 @@
 import type { Metadata } from "next";
 
 const description =
-  "Meet Kaluna Technology, a digital partner building beautiful, fast, and results-driven websites for modern enterprises.";
+  "Kenali Kaluna Technology (PT Kaluna Teknologi / ARSALYNK), agency jasa pembuatan website perusahaan, corporate web engineering, dan mitra transformasi digital modern di Jakarta.";
 
 export const metadata: Metadata = {
-  title: "Who We Are",
+  title: "Tentang Kami (Who We Are)",
 
   description,
 
   keywords: [
     "Kaluna Technology",
+    "PT Kaluna Teknologi",
+    "Tentang Kaluna Technology",
     "Web Engineering Agency",
+    "Jasa Pembuatan Website Jakarta",
+    "Jasa Web Builder Perusahaan",
     "Digital Growth Partner",
     "Enterprise Web Developers",
     "Tim Pembuat Website Perusahaan",
-    "B2B Digital Solutions",
+    "B2B Digital Agency Jakarta",
+    "PT SINERGI MUDA ARSA",
+    "ARSALYNK",
   ],
 
   alternates: {

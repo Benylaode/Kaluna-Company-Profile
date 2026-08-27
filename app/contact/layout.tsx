@@ -1,19 +1,22 @@
 import type { Metadata } from "next";
 
 const description =
-  "Get in touch with Kaluna Technology. Schedule a consultation for custom corporate website engineering, e-commerce development, client portals, and bespoke web applications.";
+  "Hubungi Kaluna Technology untuk konsultasi jasa pembuatan website perusahaan, toko online e-commerce, portal member, dan custom web application.";
 
 export const metadata: Metadata = {
-  title: "Contact Us",
+  title: "Hubungi Kami (Contact Us)",
 
   description,
 
   keywords: [
     "Konsultasi Pembuatan Website",
+    "Jasa Pembuatan Website Jakarta",
+    "Jasa Web Builder",
     "Schedule Web Development Consultation",
     "Contact Kaluna Technology",
     "Hubungi Web Agency Jakarta",
     "Web Engineering Consultation",
+    "Software House Jakarta",
   ],
 
   alternates: {

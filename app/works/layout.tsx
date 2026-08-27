@@ -1,21 +1,23 @@
 import type { Metadata } from "next";
 
 const description =
-  "Explore conversion-driven website projects created by Kaluna Technology for modern enterprises and growing brands.";
+  "Portofolio hasil pembuatan website perusahaan, toko online, portal membership, dan web application modern oleh Kaluna Technology.";
 
 export const metadata: Metadata = {
-  title: "Our Works",
+  title: "Portofolio Website & Case Studies (Our Works)",
 
   description,
 
   keywords: [
+    "Portofolio Website Perusahaan",
+    "Jasa Pembuatan Website Portfolio",
     "Web Development Portfolio",
     "Enterprise Case Studies",
-    "Portofolio Website Perusahaan",
     "Corporate Website Projects",
     "E-Commerce Case Study",
     "Member Portal Case Study",
     "Kaluna Technology Projects",
+    "Contoh Website Perusahaan",
   ],
 
   alternates: {

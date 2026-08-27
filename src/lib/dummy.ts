@@ -25,19 +25,19 @@ export const testimonials = [
   },
   {
     client_name: "Simon Agung Hoedoyo",
-    role: "Project Leader – IoT & Digital Signage",
+    role: "Project Leader – Digital Media & Web Systems",
     company_name: "Top Toy",
     content:
-      "Kaluna Technology supported the implementation of our videotron and digital signage system for Top Toy’s advertising needs. Their team understood the technical requirements and handled the installation process well.",
+      "Kaluna Technology supported the implementation of our digital marketing display portal and interactive web system for Top Toy’s brand expansion. Their engineering and delivery were outstanding.",
     avatar_url: "/image/mitra/persone/Simon Agung Hoedoyo.webp",
     logo_url: "/image/mitra/16.webp",
   },
   {
     client_name: "Ishaq Nfarara",
-    role: "Building System Manager",
+    role: "Building Operations Manager",
     company_name: "Queen City Mall",
     content:
-      "Kaluna Technology helped us develop an IoT-based solution for our building management needs. The solution was practical and well suited to our day-to-day operations.",
+      "Kaluna Technology helped us develop a modern web management system for our facility operations. The platform is responsive, intuitive, and perfectly suited to our daily commercial workflows.",
     avatar_url: "/image/mitra/persone/Ishaq Nfarara.webp",
     logo_url: "/image/mitra/15.webp",
   },
