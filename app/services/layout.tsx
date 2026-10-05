@@ -1,22 +1,20 @@
 import type { Metadata } from "next";
 
+// Root layout applies the "%s | Kaluna Technology" title template, so the
+// page title below must NOT repeat the brand name.
+const title = "Enterprise Technology Services & Digital Engineering";
+const description =
+  "Kaluna Technology delivers enterprise ERP systems, system integration, web applications, and digital engineering solutions for businesses in Indonesia.";
+
 export const metadata: Metadata = {
-  title: "Layanan Jasa Pembuatan Website & Web Engineering",
-  description:
-    "Solusi jasa pembuatan website perusahaan, platform e-commerce, portal member, dan custom web application berkinerja tinggi oleh Kaluna Technology.",
+  title,
+  description,
   keywords: [
-    "Jasa Pembuatan Website",
-    "Jasa Web Builder",
-    "Jasa Pembuatan Website Perusahaan",
-    "Jasa Website Company Profile",
-    "Jasa Web Application",
-    "Jasa Pembuatan Toko Online E-Commerce",
-    "Jasa Bikin Web Jakarta",
-    "Enterprise Web Development",
-    "Custom Website Services",
-    "E-Commerce Engineering",
-    "Client Portal Development",
-    "Web Application Agency",
+    "Enterprise Technology Services",
+    "ERP System Integration",
+    "Custom ERP Development",
+    "Enterprise Web Applications",
+    "Digital Engineering",
     "Kaluna Technology Services",
   ],
   alternates: {
@@ -37,23 +35,22 @@ export const metadata: Metadata = {
     type: "website",
     url: "/services",
     siteName: "Kaluna Technology",
-    title: "Layanan Jasa Pembuatan Website & Web Engineering | Kaluna Technology",
-    description:
-      "Solusi jasa pembuatan website perusahaan, platform e-commerce, portal member, dan custom web application berkinerja tinggi oleh Kaluna Technology.",
+    // OG/Twitter titles are not run through the title template.
+    title: `${title} | Kaluna Technology`,
+    description,
     images: [
       {
         url: "/seo/kaluna-og.jpg",
         width: 1200,
         height: 630,
-        alt: "Layanan Jasa Pembuatan Website | Kaluna Technology",
+        alt: "Enterprise Technology Services | Kaluna Technology",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Layanan Jasa Pembuatan Website & Web Engineering | Kaluna Technology",
-    description:
-      "Solusi jasa pembuatan website perusahaan, platform e-commerce, portal member, dan custom web application berkinerja tinggi oleh Kaluna Technology.",
+    title: `${title} | Kaluna Technology`,
+    description,
     images: ["/seo/kaluna-og.jpg"],
   },
 };
