@@ -5,17 +5,26 @@ import Image from "next/image";
 import { BackgroundArtwork } from "./ServiceHeroBanner";
 
 interface ServiceDashboardHeroBannerProps {
-  title?: string;
+  /** Small uppercase badge above the H1. */
+  category?: string;
+  /** H1 first two lines (rendered with the original <br /> breaks). */
+  titleLines?: [string, string];
+  /** Gradient-styled final line of the H1. */
+  titleAccent?: string;
   description?: string;
+  imageAlt?: string;
 }
 
 export default function ServiceDashboardHeroBanner({
-  title,
-  description
+  category = "Enterprise Technology Services",
+  titleLines = ["Integrated Technology", "Solutions for"],
+  titleAccent = "Modern Enterprises.",
+  description,
+  imageAlt = "Enterprise platform dashboard interface",
 }: ServiceDashboardHeroBannerProps) {
   const displayDesc =
     description ||
-    "We build end-to-end Enterprise Resource Planning solutions that unify your core operations into a single, intelligent platform.";
+    "We engineer enterprise software, integrated ERP platforms, web applications, and scalable digital solutions for modern business operations in Indonesia.";
 
   return (
     <section
@@ -88,7 +97,7 @@ export default function ServiceDashboardHeroBanner({
       >
         <Image
           src="/image/benner/service.webp"
-          alt="ERP dashboard interface"
+          alt={imageAlt}
           fill
           priority
           className="object-contain object-right-top"
@@ -102,7 +111,7 @@ export default function ServiceDashboardHeroBanner({
           <div className="flex items-center gap-2.5 mb-2.5 sm:mb-3">
             <span className="h-3.5 w-[2.5px] rounded-full bg-[#5DBCF5]" />
             <span className="text-xs sm:text-sm font-semibold tracking-[0.12em] text-[#5DBCF5] uppercase">
-              Enterprise ERP Services
+              {category}
             </span>
           </div>
 
@@ -113,12 +122,12 @@ export default function ServiceDashboardHeroBanner({
               fontSize: "clamp(28px, 3.4vw, 50px)",
             }}
           >
-            Trusted ERP
+            {titleLines[0]}
             <br />
-            Partner for
+            {titleLines[1]}
             <br />
             <span className="bg-gradient-to-b from-[#C9EBFF] via-[#5DBCF5] to-[#1B9AED] bg-clip-text text-transparent">
-              Your Enterprise.
+              {titleAccent}
             </span>
           </h1>
 
@@ -137,7 +146,7 @@ export default function ServiceDashboardHeroBanner({
         <div className="relative z-20 w-[115%] -ml-[7.5%] h-[240px] mt-6 md:hidden">
           <Image
             src="/image/benner/service.webp"
-            alt="ERP dashboard interface"
+            alt={imageAlt}
             fill
             priority
             className="object-contain object-center"

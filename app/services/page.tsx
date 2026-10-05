@@ -85,24 +85,24 @@ export default async function ServicePage() {
   // FAQ items matching PDF Page 5 & 6
   const pdfFaqs = [
     {
-      q: "Why should our company choose a custom website instead of a generic template?",
-      a: "A custom website is shaped around your brand, audience, content, and conversion goals. It gives you stronger differentiation, better performance, and the flexibility to grow without fighting template limitations.",
+      q: "What enterprise technology services does Kaluna Technology provide?",
+      a: "Kaluna Technology provides custom ERP systems, system integration, enterprise web applications, and data platforms. We help businesses in Indonesia connect their operations, finance, inventory, and customer-facing channels into one scalable foundation.",
     },
     {
-      q: "How long does a typical website project take with Kaluna Technology?",
-      a: "Most website projects take 6 to 12 weeks, depending on the number of pages, content readiness, custom functionality, and integrations. We define a clear timeline during discovery and keep each phase transparent.",
+      q: "Why choose a custom enterprise solution instead of an off-the-shelf package?",
+      a: "A custom solution is shaped around your actual workflows, data, and growth plans. It removes the compromises of generic software, integrates with the tools you already use, and scales without forcing your teams to adapt to rigid templates.",
     },
     {
-      q: "Can our website integrate with our existing business and marketing tools?",
-      a: "Yes. We can connect your website with CRM, email marketing, analytics, payment gateways, booking tools, and other third-party platforms through secure integrations.",
+      q: "How long does a typical enterprise project take?",
+      a: "Timelines depend on scope, number of modules, integrations, and data migration needs. Most projects are delivered in phases, with a clear roadmap defined during discovery so each milestone stays transparent and measurable.",
     },
     {
-      q: "Will our team be able to update the website after launch?",
-      a: "Yes. We provide an intuitive content management experience and train your team to update text, images, products, and pages confidently without touching code.",
+      q: "Can your solutions integrate with our existing business systems?",
+      a: "Yes. We connect new platforms with existing ERP, CRM, accounting, payment, analytics, and third-party tools through secure APIs, and we safely migrate historical data into the new system.",
     },
     {
-      q: "What support does Kaluna provide after the website goes live?",
-      a: "We provide ongoing maintenance, security updates, backups, performance monitoring, content assistance, and strategic guidance so your website stays fast, secure, and effective.",
+      q: "What support does Kaluna provide after launch?",
+      a: "We provide hands-on team onboarding, ongoing maintenance, security updates, backups, performance monitoring, and strategic guidance so your platform stays fast, secure, and effective as your business grows.",
     },
   ];
 
@@ -119,18 +119,17 @@ export default async function ServicePage() {
               Home
             </Link>
             <span className="text-gray-300 font-normal">&gt;</span>
-            <span className="text-[#94A3B8] cursor-default">Our Service</span>
-            <span className="text-gray-300 font-normal">&gt;</span>
-            <span className="text-[#0E2A54] font-bold">
-              Website Design & Development
-            </span>
+            <span className="text-[#0E2A54] font-bold">Services</span>
           </div>
         </div>
 
         <div className="kaluna-wide-container">
           <ServiceDashboardHeroBanner
-            title="Trusted Web Partner for Modern Enterprises."
-            description="We build stunning, high-performance websites that unify your brand, content, and customer experience into one powerful digital platform."
+            category="Enterprise Technology Services"
+            titleLines={["Integrated Technology", "Solutions for"]}
+            titleAccent="Modern Enterprises."
+            description="We engineer enterprise software, integrated ERP platforms, web applications, and scalable digital solutions for modern business operations in Indonesia."
+            imageAlt="Enterprise platform dashboard interface"
           />
         </div>
       </section>
@@ -185,7 +184,7 @@ export default async function ServicePage() {
                   text-[#0D0D0D]
                 "
               >
-                Empowering Modern Enterprises Through Exceptional Web Experiences.
+                Empowering Modern Enterprises Through Integrated Technology.
               </h2>
 
               <div
@@ -200,11 +199,11 @@ export default async function ServicePage() {
                 "
               >
                 <p>
-                  At Kaluna Technology, we help growing enterprises build powerful, conversion-focused websites that elevate their brand and streamline their digital presence. A well-crafted website serves as the central hub of your organization—seamlessly integrating your brand story, product catalogs, customer engagement tools, and marketing channels into one cohesive, high-performance platform that works 24/7.
+                  Kaluna Technology is a Jakarta-based technology company helping enterprises across Indonesia modernize their operations. We design and build custom ERP systems, system integrations, enterprise web applications, and data platforms that connect finance, operations, inventory, and customer touchpoints into one cohesive, high-performance foundation.
                 </p>
 
                 <p>
-                  Every experience is designed to help customers find what they need, trust your business, and take action with confidence.
+                  Every solution is engineered around real business workflows, so your teams work faster, your data stays trustworthy, and your leadership gains the visibility needed to make confident decisions.
                 </p>
               </div>
             </div>
@@ -227,7 +226,7 @@ export default async function ServicePage() {
               >
                 <img
                   src={showcaseImage}
-                  alt="Enterprise ERP System Preview"
+                  alt="Enterprise platform interface delivered by Kaluna Technology"
                   className="h-full w-full object-cover object-center"
                 />
               </div>
@@ -292,7 +291,7 @@ export default async function ServicePage() {
                     lg:text-[32px]
                   "
                 >
-                  Everything You Need to Know About Website Building
+                  Everything You Need to Know About Enterprise Technology Services
                 </h2>
               </div>
 
@@ -441,7 +440,7 @@ export default async function ServicePage() {
                   lg:text-[48px]
                 "
               >
-                Featured Website Projects
+                Featured Projects
               </h2>
 
               <Link

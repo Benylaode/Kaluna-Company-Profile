@@ -59,6 +59,21 @@ export default function Navbar() {
     }
   };
 
+  // Progressive enhancement: the Contact link is a real <a href="/contact"> so
+  // crawlers, no-JS users and "open in new tab" all reach /contact. A plain
+  // left click opens the existing modal instead.
+  const handleContactClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    beforeOpen?: () => void
+  ) => {
+    const isModifiedClick =
+      e.ctrlKey || e.metaKey || e.shiftKey || e.altKey || e.button !== 0;
+    if (isModifiedClick) return;
+    e.preventDefault();
+    beforeOpen?.();
+    setIsContactOpen(true);
+  };
+
   const isHome = pathname === "/";
 
   // Mobile (< md): always solid white — burger icon must be readable
@@ -132,15 +147,16 @@ export default function Navbar() {
 
             {/* Desktop Contact Button */}
             <div className="hidden md:flex justify-end">
-              <button
-                onClick={() => setIsContactOpen(true)}
+              <Link
+                href="/contact"
+                onClick={(e) => handleContactClick(e)}
                 className="group flex items-center rounded-full bg-[#0D2342] py-1 pl-4 pr-1 text-white transition-all duration-300 hover:bg-[#163A70]"
               >
                 <span className="mr-2.5 text-[13px] font-normal">Contact Us</span>
                 <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[#1E88E5] group-hover:scale-105 transition-transform">
                   <ArrowRight size={12} strokeWidth={2} />
                 </div>
-              </button>
+              </Link>
             </div>
 
             {/* Mobile Menu Toggle */}
@@ -239,18 +255,18 @@ export default function Navbar() {
         {/* Bottom Actions & Contacts */}
         <div className="mt-8 flex flex-col gap-4 border-t border-gray-100 pt-6">
           {/* Contact Us Button */}
-          <button
-            onClick={() => {
-              setIsMobileMenuOpen(false);
-              setIsContactOpen(true);
-            }}
+          <Link
+            href="/contact"
+            onClick={(e) =>
+              handleContactClick(e, () => setIsMobileMenuOpen(false))
+            }
             className="group flex h-14 w-full items-center justify-between gap-4 rounded-full bg-[#0E2A54] py-2 pl-8 pr-2 text-white shadow-md transition hover:bg-[#163A70]"
           >
             <span className="text-sm font-medium tracking-[0.02em] text-white">Contact Us</span>
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#299EED] text-white transition-transform duration-300 group-hover:translate-x-1">
               <ArrowRight size={18} />
             </div>
-          </button>
+          </Link>
 
           {/* Email Box */}
           <a
