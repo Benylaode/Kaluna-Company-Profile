@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 });
 
 const siteUrl = "https://www.kalunatechnology.com";
-const siteTitle = "Kaluna Technology | Jasa Pembuatan Website & Custom Web Builder Agency";
+const siteTitle = "Kaluna Technology | Web Engineering & Digital Solutions";
 const siteDescription =
   "Kaluna Technology adalah web engineering agency & penyedia jasa pembuatan website perusahaan profesional. Kami merancang dan membangun website company profile berkinerja tinggi, platform e-commerce, portal member, serta custom web application untuk bisnis dan perusahaan modern.";
 
@@ -105,7 +105,7 @@ export const metadata: Metadata = {
         url: "/seo/kaluna-og.jpg",
         width: 1200,
         height: 630,
-        alt: "Kaluna Technology - Jasa Pembuatan Website & Custom Web Builder Agency",
+        alt: "Kaluna Technology - Web Engineering & Digital Solutions",
       },
     ],
   },
