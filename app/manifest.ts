@@ -15,7 +15,7 @@ export default function manifest(): MetadataRoute.Manifest {
     dir: "ltr",
     categories: ["business", "productivity", "technology"],
     icons: [
-      { src: "/favicon-192x192.png", sizes: "192x192", type: "image/png" },
+      { src: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
       { src: "/seo/kaluna-logo-square.png", sizes: "512x512", type: "image/png" },
     ],
     shortcuts: [
