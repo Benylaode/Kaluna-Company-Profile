@@ -169,7 +169,7 @@ const structuredData = {
       },
       description: siteDescription,
       email: "corporate@kalunatechnology.com",
-      telephone: "+6282342939843",
+      telephone: "+6281234567890",
       parentOrganization: {
         "@type": "Organization",
         "@id": "https://www.arsalynk.com/#organization",
