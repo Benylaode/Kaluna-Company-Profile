@@ -150,7 +150,7 @@ export default function Hero({ projects }: { projects?: HeroProjectData[] }) {
 
         <div className="absolute inset-x-0 top-[300px] sm:top-[360px] px-5">
           <h1 className="hero-animate-title text-[28px] sm:text-[36px] font-semibold leading-[1.14] tracking-[-0.02em] text-white">
-            Your Digital Growth Partner for Modern Enterprises.
+            Kaluna Technology — Your Digital Growth Partner for Modern Enterprises.
           </h1>
           <p className="hero-animate-text mt-3 sm:mt-4 text-sm sm:text-base leading-[1.6] tracking-[0.01em] text-white/95">
             We build high-performance websites that blend stunning design with intelligent functionality, so you can scale your brand without technical bottlenecks.
@@ -187,8 +187,8 @@ export default function Hero({ projects }: { projects?: HeroProjectData[] }) {
           </div>
 
           <h1 className="hero-animate-title text-[34px] md:text-[42px] lg:text-[50px] xl:text-[54px] font-semibold leading-[1.12] tracking-[-0.025em] text-[#0E2A54]">
-            Your Digital Growth<br />
-            Partner<br />
+            Kaluna Technology<br />
+            Your Digital Growth Partner<br />
             for Modern Enterprises
           </h1>
 
