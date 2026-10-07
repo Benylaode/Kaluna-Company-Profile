@@ -294,7 +294,7 @@ export default function Navbar() {
 
           {/* Footer copyright */}
           <div className="text-center text-[10px] font-bold tracking-widest text-gray-400 mt-4 uppercase">
-            &copy; 2026 PT KALUNA TEKNOLOGI
+            &copy; 2026 Kaluna Technology · Part of Arsalynk
           </div>
         </div>
 
