@@ -39,10 +39,7 @@ export const metadata: Metadata = {
     "kalunatechnology",
     "kaluna",
     "Kaluna Tech",
-    "PT Kaluna Teknologi",
-    "PT SINERGI MUDA ARSA",
-    "ARSALYNK",
-    "arsalynk",
+    "Kaluna Technology Arsalynk",
     
     // Core Indonesian Web Builder & Development Keywords
     "Jasa Pembuatan Website",
