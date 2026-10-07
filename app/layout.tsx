@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
 import WhatsAppButton from "../src/components/WhatsAppButton";
 import WebKitBackgroundPreloader from "../src/components/WebKitBackgroundPreloader";
@@ -149,25 +148,18 @@ const structuredData = {
       "@id": `${siteUrl}/#website`,
       url: `${siteUrl}/`,
       name: "Kaluna Technology",
-      alternateName: [
-        "kalunatechnology",
-        "kaluna",
-        "Kaluna Tech",
-        "PT Kaluna Teknologi",
-        "kalunatechnology.com",
-        "Kaluna Web Agency",
-      ],
+      alternateName: ["Kaluna Tech", "kalunatechnology.com"],
       description: siteDescription,
+      inLanguage: "id-ID",
       publisher: {
         "@id": `${siteUrl}/#organization`,
       },
     },
     {
-      "@type": "ProfessionalService",
+      "@type": "Organization",
       "@id": `${siteUrl}/#organization`,
       name: "Kaluna Technology",
-      legalName: "PT SINERGI MUDA ARSA (ARSALYNK)",
-      alternateName: ["Kaluna Tech", "PT Kaluna Teknologi", "kalunatechnology"],
+      alternateName: ["Kaluna Tech", "kalunatechnology.com"],
       url: `${siteUrl}/`,
       image: `${siteUrl}/seo/kaluna-logo-square.png`,
       logo: {
@@ -176,89 +168,96 @@ const structuredData = {
         contentUrl: `${siteUrl}/seo/kaluna-logo-square.png`,
         width: 512,
         height: 512,
+        caption: "Kaluna Technology",
       },
       description: siteDescription,
       email: "corporate@kalunatechnology.com",
-      telephone: "+6281234567890",
-      priceRange: "$$",
-      areaServed: [
-        {
-          "@type": "Country",
-          name: "Indonesia",
-        },
-        {
-          "@type": "AdministrativeArea",
-          name: "Worldwide",
-        },
-      ],
+      telephone: "+6282342939843",
+      parentOrganization: {
+        "@type": "Organization",
+        "@id": "https://www.arsalynk.com/#organization",
+        name: "Arsalynk",
+        legalName: "PT Sinergi Muda Arsa",
+        url: "https://www.arsalynk.com/",
+      },
+      areaServed: {
+        "@type": "Country",
+        name: "Indonesia",
+      },
       sameAs: [
         "https://www.instagram.com/kalunatechnology/",
-        "https://www.linkedin.com/company/pt-sinergi-muda-arsa-arsalynk/",
-        "https://x.com/arsalynk",
+        "https://www.linkedin.com/company/kalunatechnology/",
+        "https://www.youtube.com/channel/UCovhihQGMo4m6IkkyUbU3bQ",
       ],
       address: {
         "@type": "PostalAddress",
-        streetAddress: "Menara Rajawali, 26th Floor, Kuningan Business District",
-        addressLocality: "South Jakarta",
+        streetAddress:
+          "Menara Rajawali, 26th Floor, Jl. DR. Ide Anak Agung Gde Agung",
+        addressLocality: "Jakarta Selatan",
         addressRegion: "DKI Jakarta",
+        postalCode: "12950",
         addressCountry: "ID",
       },
       knowsAbout: [
-        "Jasa Pembuatan Website",
-        "Jasa Web Builder & Custom Web Engineering",
-        "Jasa Pembuatan Website Perusahaan & Company Profile",
-        "E-Commerce & Digital Retail Platform Development",
-        "Client & Member Portal Architecture",
-        "Custom Web Applications & Analytics Dashboards",
-        "UI/UX Design & Next.js Development",
-        "SEO Optimization & Core Web Vitals",
+        "Web Engineering",
+        "Jasa Pembuatan Website Perusahaan",
+        "E-Commerce Platform Development",
+        "Member and Client Portal Development",
+        "Custom Web Application Development",
+        "Enterprise System Integration",
+        "UI/UX Design",
+        "SEO and Core Web Vitals",
       ],
       hasOfferCatalog: {
         "@type": "OfferCatalog",
-        name: "Layanan Jasa Pembuatan Website & Web Engineering",
+        name: "Kaluna Technology Services",
         itemListElement: [
           {
             "@type": "Offer",
             itemOffered: {
               "@type": "Service",
-              name: "Jasa Pembuatan Website Perusahaan (Corporate Website Builder)",
-              description: "Custom high-performance corporate websites built to establish market authority, present company credibility, and drive qualified B2B inquiries.",
+              name: "Corporate Website Development",
+              url: `${siteUrl}/services`,
+              provider: { "@id": `${siteUrl}/#organization` },
             },
           },
           {
             "@type": "Offer",
             itemOffered: {
               "@type": "Service",
-              name: "Jasa Pembuatan Toko Online & E-Commerce Platform",
-              description: "Scalable digital retail storefronts with seamless checkout flows, real-time product calculators, and automated payment gateway integrations.",
+              name: "E-Commerce Platform Development",
+              url: `${siteUrl}/services`,
+              provider: { "@id": `${siteUrl}/#organization` },
             },
           },
           {
             "@type": "Offer",
             itemOffered: {
               "@type": "Service",
-              name: "Jasa Pembuatan Landing Page & Marketing Web Hubs",
-              description: "Campaign-focused landing page hubs engineered for maximum lead conversion, high speed, and flawless mobile responsiveness.",
-            },
-          },
-          {
-            "@type": "Offer",
-            itemOffered: {
-              "@type": "Service",
-              name: "Jasa Pembuatan Portal Member & Client Portal",
-              description: "Secure role-based member portals for exclusive service distribution, customer accounts, and partner engagement.",
-            },
-          },
-          {
-            "@type": "Offer",
-            itemOffered: {
-              "@type": "Service",
-              name: "Jasa Custom Web Application & Dashboard Analytics",
-              description: "Bespoke full-stack web applications, operational management portals, and interactive business analytics dashboards.",
+              name: "Custom Web Application Development",
+              url: `${siteUrl}/services`,
+              provider: { "@id": `${siteUrl}/#organization` },
             },
           },
         ],
       },
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${siteUrl}/#webpage`,
+      url: `${siteUrl}/`,
+      name: siteTitle,
+      description: siteDescription,
+      isPartOf: { "@id": `${siteUrl}/#website` },
+      about: { "@id": `${siteUrl}/#organization` },
+      mainEntity: { "@id": `${siteUrl}/#organization` },
+      inLanguage: "id-ID",
+      hasPart: [
+        { "@type": "WebPage", name: "Services", url: `${siteUrl}/services` },
+        { "@type": "WebPage", name: "Our Works", url: `${siteUrl}/works` },
+        { "@type": "WebPage", name: "Who We Are", url: `${siteUrl}/who-we-are` },
+        { "@type": "WebPage", name: "Contact Us", url: `${siteUrl}/contact` },
+      ],
     },
   ],
 };
@@ -269,7 +268,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`} style={{ backgroundColor: "#ffffff", color: "#171717" }}>
+    <html lang="id" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`} style={{ backgroundColor: "#ffffff", color: "#171717" }}>
       <head>
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
