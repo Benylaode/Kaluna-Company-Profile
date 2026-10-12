@@ -3,8 +3,6 @@ import { getWorks } from "../src/lib/actions";
 import { SITE_URL } from "../src/lib/seo";
 
 // Update this date when the static pages' content meaningfully changes.
-// Using `new Date()` on every build tells Google everything changed daily,
-// which makes it ignore <lastmod> entirely.
 const STATIC_LAST_MODIFIED = new Date("2026-10-12");
 
 type StaticRoute = Pick<
@@ -16,8 +14,8 @@ const staticRouteDefs: StaticRoute[] = [
   { url: SITE_URL, changeFrequency: "weekly", priority: 1.0 },
   { url: `${SITE_URL}/services`, changeFrequency: "monthly", priority: 0.9 },
   { url: `${SITE_URL}/works`, changeFrequency: "weekly", priority: 0.9 },
-  { url: `${SITE_URL}/who-we-are`, changeFrequency: "monthly", priority: 0.7 },
-  { url: `${SITE_URL}/contact`, changeFrequency: "monthly", priority: 0.7 },
+  { url: `${SITE_URL}/who-we-are`, changeFrequency: "monthly", priority: 0.8 },
+  { url: `${SITE_URL}/contact`, changeFrequency: "monthly", priority: 0.8 },
 ];
 
 const staticRoutes: MetadataRoute.Sitemap = staticRouteDefs.map((route) => ({

@@ -1,27 +1,14 @@
 import type { Metadata } from "next";
-import JsonLd from "@/src/components/JsonLd";
-import { buildBreadcrumbJsonLd } from "@/src/lib/seo";
+import JsonLd from "../../src/components/JsonLd";
 
-// Root layout applies the "%s | Kaluna Technology" title template, so the
-// page title below must NOT repeat the brand name.
-const title = "Our Services – Web Development & Digital Engineering";
+const siteUrl = "https://www.kalunatechnology.com";
 const description =
-  "Kaluna Technology delivers enterprise ERP systems, system integration, web applications, and digital engineering solutions for businesses in Indonesia.";
+  "Kaluna Technology menyediakan layanan web engineering, website perusahaan, e-commerce, custom web application, dan integrasi sistem digital untuk bisnis modern.";
 
 export const metadata: Metadata = {
-  title,
+  title: "Our Services – Web Development & Digital Engineering",
   description,
-  keywords: [
-    "Enterprise Technology Services",
-    "ERP System Integration",
-    "Custom ERP Development",
-    "Enterprise Web Applications",
-    "Digital Engineering",
-    "Kaluna Technology Services",
-  ],
-  alternates: {
-    canonical: "/services",
-  },
+  alternates: { canonical: "/services" },
   robots: {
     index: true,
     follow: true,
@@ -37,38 +24,48 @@ export const metadata: Metadata = {
     type: "website",
     url: "/services",
     siteName: "Kaluna Technology",
-    // OG/Twitter titles are not run through the title template.
-    title: `${title} | Kaluna Technology`,
+    title: "Services | Kaluna Technology",
     description,
-    images: [
-      {
-        url: "/seo/kaluna-og.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Enterprise Technology Services | Kaluna Technology",
-      },
-    ],
+    images: [{ url: "/seo/kaluna-og.jpg", width: 1200, height: 630, alt: "Kaluna Technology Services" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${title} | Kaluna Technology`,
+    title: "Services | Kaluna Technology",
     description,
     images: ["/seo/kaluna-og.jpg"],
   },
 };
 
-const breadcrumb = buildBreadcrumbJsonLd([
-  { name: "Services", path: "/services" },
-]);
+export default function ServiceLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const canonicalUrl = `${siteUrl}/services`;
+  const data = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${canonicalUrl}#breadcrumb`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
+          { "@type": "ListItem", position: 2, name: "Services", item: canonicalUrl },
+        ],
+      },
+      {
+        "@type": "CollectionPage",
+        "@id": `${canonicalUrl}#webpage`,
+        url: canonicalUrl,
+        name: "Services | Kaluna Technology",
+        description,
+        isPartOf: { "@id": `${siteUrl}/#website` },
+        about: { "@id": `${siteUrl}/#organization` },
+        breadcrumb: { "@id": `${canonicalUrl}#breadcrumb` },
+        inLanguage: "id-ID",
+      },
+    ],
+  };
 
-export default function ServiceLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
   return (
     <>
-      <JsonLd data={breadcrumb} />
+      <JsonLd id="services-schema" data={data} />
       {children}
     </>
   );

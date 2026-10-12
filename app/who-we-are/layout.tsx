@@ -1,33 +1,14 @@
 import type { Metadata } from "next";
-import JsonLd from "@/src/components/JsonLd";
-import { buildBreadcrumbJsonLd, SITE_URL } from "@/src/lib/seo";
+import JsonLd from "../../src/components/JsonLd";
 
+const siteUrl = "https://www.kalunatechnology.com";
 const description =
-  "Kenali Kaluna Technology (PT Kaluna Teknologi / ARSALYNK), agency jasa pembuatan website perusahaan, corporate web engineering, dan mitra transformasi digital modern di Jakarta.";
+  "Kenali Kaluna Technology, web engineering dan digital solutions agency dalam ekosistem Arsalynk yang membantu perusahaan membangun platform digital modern.";
 
 export const metadata: Metadata = {
   title: "About Us – Who We Are",
-
   description,
-
-  keywords: [
-    "Kaluna Technology",
-    "PT Kaluna Teknologi",
-    "Tentang Kaluna Technology",
-    "Web Engineering Agency",
-    "Jasa Pembuatan Website Jakarta",
-    "Jasa Web Builder Perusahaan",
-    "Digital Growth Partner",
-    "Enterprise Web Developers",
-    "Tim Pembuat Website Perusahaan",
-    "B2B Digital Agency Jakarta",
-    "PT SINERGI MUDA ARSA",
-    "ARSALYNK",
-  ],
-
-  alternates: {
-    canonical: "/who-we-are",
-  },
+  alternates: { canonical: "/who-we-are" },
   robots: {
     index: true,
     follow: true,
@@ -39,23 +20,14 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
-
   openGraph: {
     type: "website",
     url: "/who-we-are",
     siteName: "Kaluna Technology",
     title: "Who We Are | Kaluna Technology",
     description,
-    images: [
-      {
-        url: "/seo/kaluna-og.jpg",
-        width: 1200,
-        height: 630,
-        alt: "About Kaluna Technology",
-      },
-    ],
+    images: [{ url: "/seo/kaluna-og.jpg", width: 1200, height: 630, alt: "About Kaluna Technology" }],
   },
-
   twitter: {
     card: "summary_large_image",
     title: "Who We Are | Kaluna Technology",
@@ -64,30 +36,37 @@ export const metadata: Metadata = {
   },
 };
 
-const breadcrumb = buildBreadcrumbJsonLd([
-  { name: "Who We Are", path: "/who-we-are" },
-]);
+export default function WhoWeAreLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const canonicalUrl = `${siteUrl}/who-we-are`;
+  const data = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${canonicalUrl}#breadcrumb`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
+          { "@type": "ListItem", position: 2, name: "Who We Are", item: canonicalUrl },
+        ],
+      },
+      {
+        "@type": ["AboutPage", "WebPage"],
+        "@id": `${canonicalUrl}#webpage`,
+        url: canonicalUrl,
+        name: "Who We Are | Kaluna Technology",
+        description,
+        isPartOf: { "@id": `${siteUrl}/#website` },
+        about: { "@id": `${siteUrl}/#organization` },
+        mainEntity: { "@id": `${siteUrl}/#organization` },
+        breadcrumb: { "@id": `${canonicalUrl}#breadcrumb` },
+        inLanguage: "id-ID",
+      },
+    ],
+  };
 
-const aboutPage = {
-  "@context": "https://schema.org",
-  "@type": "AboutPage",
-  "@id": `${SITE_URL}/who-we-are#webpage`,
-  url: `${SITE_URL}/who-we-are`,
-  name: "Who We Are | Kaluna Technology",
-  description,
-  isPartOf: { "@id": `${SITE_URL}/#website` },
-  about: { "@id": `${SITE_URL}/#organization` },
-};
-
-export default function WhoWeAreLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
   return (
     <>
-      <JsonLd data={breadcrumb} />
-      <JsonLd data={aboutPage} />
+      <JsonLd id="who-we-are-schema" data={data} />
       {children}
     </>
   );

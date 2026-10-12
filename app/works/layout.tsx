@@ -1,30 +1,14 @@
 import type { Metadata } from "next";
-import JsonLd from "@/src/components/JsonLd";
-import { buildBreadcrumbJsonLd, SITE_URL } from "@/src/lib/seo";
+import JsonLd from "../../src/components/JsonLd";
 
+const siteUrl = "https://www.kalunatechnology.com";
 const description =
-  "Portofolio hasil pembuatan website perusahaan, toko online, portal membership, dan web application modern oleh Kaluna Technology.";
+  "Jelajahi portofolio dan case studies Kaluna Technology untuk website perusahaan, e-commerce, portal pelanggan, dan custom web application.";
 
 export const metadata: Metadata = {
   title: "Our Works – Portfolio & Case Studies",
-
   description,
-
-  keywords: [
-    "Portofolio Website Perusahaan",
-    "Jasa Pembuatan Website Portfolio",
-    "Web Development Portfolio",
-    "Enterprise Case Studies",
-    "Corporate Website Projects",
-    "E-Commerce Case Study",
-    "Member Portal Case Study",
-    "Kaluna Technology Projects",
-    "Contoh Website Perusahaan",
-  ],
-
-  alternates: {
-    canonical: "/works",
-  },
+  alternates: { canonical: "/works" },
   robots: {
     index: true,
     follow: true,
@@ -36,23 +20,14 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
-
   openGraph: {
     type: "website",
     url: "/works",
     siteName: "Kaluna Technology",
     title: "Our Works | Kaluna Technology",
     description,
-    images: [
-      {
-        url: "/seo/kaluna-og.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Kaluna Technology Works and Case Studies",
-      },
-    ],
+    images: [{ url: "/seo/kaluna-og.jpg", width: 1200, height: 630, alt: "Kaluna Technology Works and Case Studies" }],
   },
-
   twitter: {
     card: "summary_large_image",
     title: "Our Works | Kaluna Technology",
@@ -61,30 +36,36 @@ export const metadata: Metadata = {
   },
 };
 
-const breadcrumb = buildBreadcrumbJsonLd([
-  { name: "Our Works", path: "/works" },
-]);
+export default function WorksLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const canonicalUrl = `${siteUrl}/works`;
+  const data = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${canonicalUrl}#breadcrumb`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
+          { "@type": "ListItem", position: 2, name: "Our Works", item: canonicalUrl },
+        ],
+      },
+      {
+        "@type": "CollectionPage",
+        "@id": `${canonicalUrl}#webpage`,
+        url: canonicalUrl,
+        name: "Our Works | Kaluna Technology",
+        description,
+        isPartOf: { "@id": `${siteUrl}/#website` },
+        about: { "@id": `${siteUrl}/#organization` },
+        breadcrumb: { "@id": `${canonicalUrl}#breadcrumb` },
+        inLanguage: "id-ID",
+      },
+    ],
+  };
 
-const collectionPage = {
-  "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "@id": `${SITE_URL}/works#webpage`,
-  url: `${SITE_URL}/works`,
-  name: "Portofolio Website & Case Studies | Kaluna Technology",
-  description,
-  isPartOf: { "@id": `${SITE_URL}/#website` },
-  about: { "@id": `${SITE_URL}/#organization` },
-};
-
-export default function WorksLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
   return (
     <>
-      <JsonLd data={breadcrumb} />
-      <JsonLd data={collectionPage} />
+      <JsonLd id="works-schema" data={data} />
       {children}
     </>
   );
