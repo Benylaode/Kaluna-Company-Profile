@@ -78,9 +78,9 @@ export default function Footer() {
 
             {/* Company */}
             <div className="max-w-[200px] md:col-span-6 lg:col-span-3">
-              <h4 className="mb-4 text-[12px] font-bold uppercase tracking-[0.08em] text-[#0D0D0D]">
+              <p className="mb-4 text-[12px] font-bold uppercase tracking-[0.08em] text-[#0D0D0D]">
                 Company
-              </h4>
+              </p>
               <ul className="space-y-3 text-[13px] text-[#3F3F3F]">
                 <li>
                   <Link href="/works" className="transition-colors hover:text-[#299EED]">
@@ -121,9 +121,9 @@ export default function Footer() {
 
             {/* Visit Our Office */}
             <div className="max-w-[250px] md:col-span-6 lg:col-span-4">
-              <h4 className="mb-4 text-[12px] font-bold uppercase tracking-[0.08em] text-[#0D0D0D]">
+              <p className="mb-4 text-[12px] font-bold uppercase tracking-[0.08em] text-[#0D0D0D]">
                 Visit Our Office
-              </h4>
+              </p>
               <p className="mb-3.5 text-[13px] font-medium leading-relaxed text-[#3F3F3F]">
                 PT SINERGI MUDA ARSA (ARSALYNK) Office Menara Rajawali, 26th Floor Kuningan Business District, South Jakarta, Indonesia
               </p>
@@ -131,7 +131,7 @@ export default function Footer() {
                 href="https://maps.google.com/maps?q=Menara+Rajawali,+Jl.+DR.+Ide+Anak+Agung+Gde+Agung,+Jakarta+Selatan"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-[13px] font-bold text-[#299EED] hover:underline"
+                className="inline-flex items-center gap-1 text-[13px] font-bold text-[#0B5C98] hover:underline"
               >
                 Open in Maps →
               </a>

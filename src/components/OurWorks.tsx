@@ -218,10 +218,10 @@ export default function OurWorks() {
 
           {/* HEADER */}
           <div className="relative z-20 mb-6 sm:mb-8 flex flex-wrap items-center justify-between gap-4">
-            <span className="inline-flex items-center gap-2.5 text-xs sm:text-xs font-semibold uppercase tracking-wider">
+            <h2 className="inline-flex items-center gap-2.5 text-xs sm:text-xs font-semibold uppercase tracking-wider">
               <span className="h-4 w-[3px] bg-[#299EED] rounded-full" />
               HOW WE DELIVER
-            </span>
+            </h2>
 
             {/* Stepper info & Navigation Arrows */}
             <div className="flex items-center gap-3">
@@ -264,10 +264,16 @@ export default function OurWorks() {
                 const realIndex = index % totalStepsCount;
                 const isActive = index === activeIndex;
                 const displayId = String(realIndex + 1).padStart(2, "0");
+                // Only the middle copy is the canonical content; the others exist
+                // purely for the infinite-loop effect.
+                const isCanonical =
+                  index >= totalStepsCount && index < totalStepsCount * 2;
+                const TitleTag = isCanonical ? "h3" : "p";
 
                 return (
                   <div
                     key={`${item.id}-${index}`}
+                    aria-hidden={isCanonical ? undefined : true}
                     onClick={() => {
                       setIsTransitioning(true);
                       setActiveIndex(index);
@@ -304,7 +310,7 @@ export default function OurWorks() {
                     <div className="flex flex-1 flex-col justify-between px-2 pb-3 pt-3">
                       <div>
                         <div className="flex items-center justify-between gap-2 mb-2">
-                          <span className="inline-block px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-[#299EED] bg-[#299EED]/10 rounded border border-[#299EED]/20">
+                          <span className="inline-block px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-[#0B5C98] bg-[#299EED]/10 rounded border border-[#299EED]/20">
                             {item.tag}
                           </span>
                           <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#0E2A54] text-[9.5px] font-medium text-white">
@@ -312,7 +318,7 @@ export default function OurWorks() {
                           </span>
                         </div>
 
-                        <h3
+                        <TitleTag
                           className={`
                             text-[17px] leading-[1.3]
                             ${
@@ -323,7 +329,7 @@ export default function OurWorks() {
                           `}
                         >
                           {item.title}
-                        </h3>
+                        </TitleTag>
 
                         <p className="mt-2 text-[10px] leading-[1.5] text-[#3F3F3F]">
                           {item.category}

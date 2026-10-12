@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Navbar from '../src/components/Navbar';
 import Hero from '../src/components/Hero';
 import Footer from '../src/components/Footer';
@@ -13,6 +14,12 @@ import Deliver from '../src/components/Deliver';
 import CTA from '../src/components/CTA';
 
 import { getWorks, getTestimonials } from '../src/lib/actions';
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: '/',
+  },
+};
 
 export default async function Home() {
   const worksData = await getWorks();

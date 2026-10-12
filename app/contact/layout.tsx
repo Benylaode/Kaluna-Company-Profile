@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import JsonLd from "@/src/components/JsonLd";
+import { buildBreadcrumbJsonLd, SITE_URL } from "@/src/lib/seo";
 
 const description =
   "Hubungi Kaluna Technology untuk konsultasi jasa pembuatan website perusahaan, toko online e-commerce, portal member, dan custom web application.";
 
 export const metadata: Metadata = {
-  title: "Hubungi Kami (Contact Us)",
+  title: "Contact Us – Free Website Consultation",
 
   description,
 
@@ -58,10 +60,31 @@ export const metadata: Metadata = {
   },
 };
 
+const breadcrumb = buildBreadcrumbJsonLd([
+  { name: "Contact", path: "/contact" },
+]);
+
+const contactPage = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "@id": `${SITE_URL}/contact#webpage`,
+  url: `${SITE_URL}/contact`,
+  name: "Contact Kaluna Technology",
+  description,
+  isPartOf: { "@id": `${SITE_URL}/#website` },
+  about: { "@id": `${SITE_URL}/#organization` },
+};
+
 export default function ContactLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return children;
+  return (
+    <>
+      <JsonLd data={breadcrumb} />
+      <JsonLd data={contactPage} />
+      {children}
+    </>
+  );
 }

@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import JsonLd from "@/src/components/JsonLd";
+import { buildBreadcrumbJsonLd } from "@/src/lib/seo";
 
 // Root layout applies the "%s | Kaluna Technology" title template, so the
 // page title below must NOT repeat the brand name.
-const title = "Enterprise Technology Services & Digital Engineering";
+const title = "Our Services – Web Development & Digital Engineering";
 const description =
   "Kaluna Technology delivers enterprise ERP systems, system integration, web applications, and digital engineering solutions for businesses in Indonesia.";
 
@@ -55,10 +57,19 @@ export const metadata: Metadata = {
   },
 };
 
+const breadcrumb = buildBreadcrumbJsonLd([
+  { name: "Services", path: "/services" },
+]);
+
 export default function ServiceLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return children;
+  return (
+    <>
+      <JsonLd data={breadcrumb} />
+      {children}
+    </>
+  );
 }

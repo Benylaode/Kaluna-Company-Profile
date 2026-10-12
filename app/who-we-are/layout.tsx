@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import JsonLd from "@/src/components/JsonLd";
+import { buildBreadcrumbJsonLd, SITE_URL } from "@/src/lib/seo";
 
 const description =
   "Kenali Kaluna Technology (PT Kaluna Teknologi / ARSALYNK), agency jasa pembuatan website perusahaan, corporate web engineering, dan mitra transformasi digital modern di Jakarta.";
 
 export const metadata: Metadata = {
-  title: "Tentang Kami (Who We Are)",
+  title: "About Us – Who We Are",
 
   description,
 
@@ -62,10 +64,31 @@ export const metadata: Metadata = {
   },
 };
 
+const breadcrumb = buildBreadcrumbJsonLd([
+  { name: "Who We Are", path: "/who-we-are" },
+]);
+
+const aboutPage = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "@id": `${SITE_URL}/who-we-are#webpage`,
+  url: `${SITE_URL}/who-we-are`,
+  name: "Who We Are | Kaluna Technology",
+  description,
+  isPartOf: { "@id": `${SITE_URL}/#website` },
+  about: { "@id": `${SITE_URL}/#organization` },
+};
+
 export default function WhoWeAreLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return children;
+  return (
+    <>
+      <JsonLd data={breadcrumb} />
+      <JsonLd data={aboutPage} />
+      {children}
+    </>
+  );
 }

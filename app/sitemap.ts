@@ -1,75 +1,61 @@
 import type { MetadataRoute } from "next";
+import { getWorks } from "../src/lib/actions";
+import { SITE_URL } from "../src/lib/seo";
 
-const siteUrl = "https://www.kalunatechnology.com";
+// Update this date when the static pages' content meaningfully changes.
+// Using `new Date()` on every build tells Google everything changed daily,
+// which makes it ignore <lastmod> entirely.
+const STATIC_LAST_MODIFIED = new Date("2026-10-12");
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModDate = new Date();
+type StaticRoute = Pick<
+  MetadataRoute.Sitemap[number],
+  "url" | "changeFrequency" | "priority"
+>;
 
-  const routes = [
-    // Main Pages
-    {
-      path: "",
-      changeFrequency: "weekly" as const,
-      priority: 1.0,
-    },
-    {
-      path: "/works",
-      changeFrequency: "weekly" as const,
-      priority: 0.9,
-    },
-    {
-      path: "/services",
-      changeFrequency: "monthly" as const,
-      priority: 0.9,
-    },
-    {
-      path: "/who-we-are",
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
-    },
-    {
-      path: "/contact",
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
-    },
+const staticRouteDefs: StaticRoute[] = [
+  { url: SITE_URL, changeFrequency: "weekly", priority: 1.0 },
+  { url: `${SITE_URL}/services`, changeFrequency: "monthly", priority: 0.9 },
+  { url: `${SITE_URL}/works`, changeFrequency: "weekly", priority: 0.9 },
+  { url: `${SITE_URL}/who-we-are`, changeFrequency: "monthly", priority: 0.7 },
+  { url: `${SITE_URL}/contact`, changeFrequency: "monthly", priority: 0.7 },
+];
 
-    // Case Studies & Works
-    {
-      path: "/works/x-tire-company-profile",
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
-    },
-    {
-      path: "/works/sinau-print-platform",
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
-    },
-    {
-      path: "/works/10-media-publishing-portal",
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
-    },
-    {
-      path: "/works/arsalynk-enterprise-platform",
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
-    },
-    {
-      path: "/works/aspoo-asset-management",
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
-    },
-    {
-      path: "/works/artic-analytical-science",
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
-    },
-  ];
+const staticRoutes: MetadataRoute.Sitemap = staticRouteDefs.map((route) => ({
+  ...route,
+  lastModified: STATIC_LAST_MODIFIED,
+}));
 
-  return routes.map((route) => ({
-    url: `${siteUrl}${route.path}`,
-    lastModified: lastModDate,
-    changeFrequency: route.changeFrequency,
-    priority: route.priority,
-  }));
+// Regenerate hourly so newly added works show up without a redeploy.
+export const revalidate = 3600;
+
+function toAbsoluteUrl(src: string): string {
+  if (/^https?:\/\//i.test(src)) return src;
+  return `${SITE_URL}${src.startsWith("/") ? "" : "/"}${src}`;
+}
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  let workRoutes: MetadataRoute.Sitemap = [];
+
+  try {
+    const works = await getWorks();
+    workRoutes = works
+      .filter((work) => Boolean(work.slug))
+      .map((work) => {
+        const parsed = work.created_at ? new Date(work.created_at) : null;
+        return {
+          url: `${SITE_URL}/works/${work.slug}`,
+          lastModified:
+            parsed && !Number.isNaN(parsed.getTime())
+              ? parsed
+              : STATIC_LAST_MODIFIED,
+          changeFrequency: "monthly" as const,
+          priority: 0.8,
+          images: (work.images ?? []).slice(0, 10).map(toAbsoluteUrl),
+        };
+      });
+  } catch {
+    // If the DB is unavailable at build time, still ship the static routes.
+  }
+
+  return [...staticRoutes, ...workRoutes];
 }

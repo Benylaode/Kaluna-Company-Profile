@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import { testimonials as dummyTestimonials } from "../lib/dummy";
 
 export interface TestimonialData {
@@ -140,10 +141,18 @@ export default function Deliver({ testimonials }: { testimonials?: TestimonialDa
         </div>
 
         <div className="flex items-center gap-1.5 mb-2">
-          <button onClick={prevSlide} className="flex h-10 w-10 items-center justify-center rounded-full border border-[#0E2A54] text-[#0E2A54] transition-colors hover:bg-[#0E2A54] hover:text-white md:h-[46px] md:w-[46px]">
+          <button 
+            onClick={prevSlide} 
+            aria-label="Previous testimonial"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-[#0E2A54] text-[#0E2A54] transition-colors hover:bg-[#0E2A54] hover:text-white md:h-[46px] md:w-[46px]"
+          >
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5"><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
           </button>
-          <button onClick={nextSlide} className="flex h-10 w-10 items-center justify-center rounded-full bg-[#0E2A54] text-white transition-colors hover:bg-[#163A70] md:h-[46px] md:w-[46px]">
+          <button 
+            onClick={nextSlide} 
+            aria-label="Next testimonial"
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-[#0E2A54] text-white transition-colors hover:bg-[#163A70] md:h-[46px] md:w-[46px]"
+          >
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5"><path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
           </button>
         </div>
@@ -165,16 +174,20 @@ export default function Deliver({ testimonials }: { testimonials?: TestimonialDa
                 <div>
                   <div className="mb-4 flex h-8 items-center md:mb-5">
                     {item.logo_url ? (
-                      <img
+                      <Image
                         src={item.logo_url}
                         alt={item.company_name}
-                        className="h-7 md:h-8 object-contain"
+                        width={120}
+                        height={32}
+                        className="h-7 md:h-8 w-auto object-contain"
                       />
                     ) : getCompanyLogo(item.company_name) ? (
-                      <img
+                      <Image
                         src={getCompanyLogo(item.company_name)!}
                         alt={item.company_name}
-                        className="h-7 md:h-8 object-contain"
+                        width={120}
+                        height={32}
+                        className="h-7 md:h-8 w-auto object-contain"
                       />
                     ) : (
                       <span className="text-sm font-semibold uppercase tracking-wide text-[#0E2A54] md:text-lg">
@@ -188,9 +201,11 @@ export default function Deliver({ testimonials }: { testimonials?: TestimonialDa
                 </div>
 
                 <div className="mt-4 flex items-center gap-3 md:gap-4">
-                  <img
+                  <Image
                     src={item.avatar_url}
                     alt={item.client_name}
+                    width={56}
+                    height={56}
                     className="
                       h-12 w-12 rounded-xl bg-gray-200 object-cover
                       object-[center_20%]
@@ -213,7 +228,7 @@ export default function Deliver({ testimonials }: { testimonials?: TestimonialDa
       </div>
 
       <div className="kaluna-container mt-6 flex items-center justify-start">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1">
           {displayTestimonials.map((_, idx) => (
             <button
               key={idx}
@@ -221,15 +236,20 @@ export default function Deliver({ testimonials }: { testimonials?: TestimonialDa
                 setIsTransitioning(true);
                 setActiveIndex(displayTestimonials.length + idx);
               }}
-              className={`flex items-center justify-center transition-all duration-300 ${progressIndex === idx
-                  ? "h-5 w-5 rounded-full border border-[#299EED] bg-[#299EED]/10"
-                  : "h-2 w-2 rounded-full bg-gray-200 hover:bg-gray-300"
-                }`}
+              className="flex h-7 w-7 items-center justify-center p-1 rounded-full outline-none focus:outline-none cursor-pointer"
               aria-label={`Go to slide ${idx + 1}`}
             >
-              {progressIndex === idx && (
-                <span className="h-1.5 w-1.5 rounded-full bg-[#299EED]" />
-              )}
+              <span
+                className={`flex items-center justify-center transition-all duration-300 ${
+                  progressIndex === idx
+                    ? "h-5 w-5 rounded-full border border-[#299EED] bg-[#299EED]/10"
+                    : "h-2 w-2 rounded-full bg-gray-300 hover:bg-gray-400"
+                }`}
+              >
+                {progressIndex === idx && (
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#299EED]" />
+                )}
+              </span>
             </button>
           ))}
         </div>

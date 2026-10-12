@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import JsonLd from "@/src/components/JsonLd";
+import { buildBreadcrumbJsonLd, SITE_URL } from "@/src/lib/seo";
 
 const description =
   "Portofolio hasil pembuatan website perusahaan, toko online, portal membership, dan web application modern oleh Kaluna Technology.";
 
 export const metadata: Metadata = {
-  title: "Portofolio Website & Case Studies (Our Works)",
+  title: "Our Works – Portfolio & Case Studies",
 
   description,
 
@@ -59,10 +61,31 @@ export const metadata: Metadata = {
   },
 };
 
+const breadcrumb = buildBreadcrumbJsonLd([
+  { name: "Our Works", path: "/works" },
+]);
+
+const collectionPage = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": `${SITE_URL}/works#webpage`,
+  url: `${SITE_URL}/works`,
+  name: "Portofolio Website & Case Studies | Kaluna Technology",
+  description,
+  isPartOf: { "@id": `${SITE_URL}/#website` },
+  about: { "@id": `${SITE_URL}/#organization` },
+};
+
 export default function WorksLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return children;
+  return (
+    <>
+      <JsonLd data={breadcrumb} />
+      <JsonLd data={collectionPage} />
+      {children}
+    </>
+  );
 }

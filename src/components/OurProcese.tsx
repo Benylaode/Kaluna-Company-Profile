@@ -241,10 +241,10 @@ export default function OurProcese({ steps, title = "HOW WE DELIVER" }: OurProce
 
           {/* HEADER */}
           <div className="relative z-20 mb-5 sm:mb-6 flex flex-wrap items-center justify-between gap-4">
-            <span className="inline-flex items-center gap-2.5 text-xs sm:text-xs font-semibold uppercase tracking-wider">
+            <h2 className="inline-flex items-center gap-2.5 text-xs sm:text-xs font-semibold uppercase tracking-wider">
               <span className="h-4 w-[3px] bg-[#299EED] rounded-full" />
               {title}
-            </span>
+            </h2>
 
             {/* Stepper info & Navigation Arrows */}
             <div className="flex items-center gap-3">
@@ -289,10 +289,15 @@ export default function OurProcese({ steps, title = "HOW WE DELIVER" }: OurProce
                 const realIndex = index % totalStepsCount;
                 const isActive = index === activeIndex;
                 const displayId = String(realIndex + 1).padStart(2, "0");
+                // Only the middle copy is canonical; the rest exist for the loop effect.
+                const isCanonical =
+                  index >= totalStepsCount && index < totalStepsCount * 2;
+                const TitleTag = isCanonical ? "h3" : "p";
 
                 return (
                   <div
                     key={`${item.id}-${index}`}
+                    aria-hidden={isCanonical ? undefined : true}
                     onClick={() => {
                       setIsTransitioning(true);
                       setActiveIndex(index);
@@ -327,7 +332,7 @@ export default function OurProcese({ steps, title = "HOW WE DELIVER" }: OurProce
                     <div className="flex flex-1 flex-col justify-start px-2.5 pb-3 pt-3.5">
                       <div>
                         <div className="flex items-start justify-between gap-2.5">
-                          <h3
+                          <TitleTag
                             className={`text-[16px] sm:text-[17px] leading-[1.35] ${
                               isActive
                                 ? "font-semibold text-[#0E2A54]"
@@ -335,7 +340,7 @@ export default function OurProcese({ steps, title = "HOW WE DELIVER" }: OurProce
                             }`}
                           >
                             {item.title}
-                          </h3>
+                          </TitleTag>
 
                           <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#0E2A54] text-[9.5px] font-medium text-white self-start mt-0.5">
                             {displayId}

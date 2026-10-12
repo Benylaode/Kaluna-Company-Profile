@@ -87,15 +87,15 @@ export default function Navbar() {
   return (
     <>
       <header className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${headerBgClass}`}>
-        <nav className="mx-auto max-w-[1920px] px-5 md:px-[min(6.3vw,121px)] py-3 relative">
+        <nav aria-label="Main navigation" className="mx-auto max-w-[1920px] px-5 md:px-[min(6.3vw,121px)] py-3 relative">
           <div className="flex items-center justify-between md:grid md:grid-cols-[1fr_auto_1fr]">
 
             {/* Logo */}
             <div className="flex justify-start">
-              <Link href="/">
+              <Link href="/" aria-label="Kaluna Technology - Home">
                 <Image
                   src="/logo.svg"
-                  alt="Kaluna Logo"
+                  alt="Kaluna Technology logo"
                   width={32}
                   height={32}
                   className="w-[26px] h-[26px] md:w-[32px] md:h-[32px] transition hover:scale-105"
@@ -132,7 +132,7 @@ export default function Navbar() {
                       : "text-[#0D2342] hover:bg-gray-50"
                   }`}
                 >
-                  Our Service
+                  Our Services
                 </Link>
 
                 <Link
@@ -163,6 +163,7 @@ export default function Navbar() {
             <div className="md:hidden flex items-center">
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
                 className="text-[#0D2342] p-2 outline-none focus:outline-none [-webkit-tap-highlight-color:transparent]"
               >
                 {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -192,6 +193,7 @@ export default function Navbar() {
             </Link>
             <button
               onClick={() => setIsMobileMenuOpen(false)}
+              aria-label="Close navigation drawer"
               className="text-[#0D2342] hover:text-[#299EED] transition-colors p-1 outline-none focus:outline-none [-webkit-tap-highlight-color:transparent]"
             >
               <div className="flex h-7 w-7 items-center justify-center rounded-full border border-[#0D2342] text-[#0D2342] hover:border-[#299EED] hover:text-[#299EED] transition-all">

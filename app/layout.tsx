@@ -20,9 +20,9 @@ const geistMono = Geist_Mono({
 });
 
 const siteUrl = "https://www.kalunatechnology.com";
-const siteTitle = "Kaluna Technology | Jasa Pembuatan Website & Custom Web Builder Agency";
+const siteTitle = "Kaluna Technology | Jasa Pembuatan Website & Web Development";
 const siteDescription =
-  "Kaluna Technology adalah web engineering agency & penyedia jasa pembuatan website perusahaan profesional. Kami merancang dan membangun website company profile berkinerja tinggi, platform e-commerce, portal member, serta custom web application untuk bisnis dan perusahaan modern.";
+  "Kaluna Technology adalah web engineering agency di Jakarta. Jasa pembuatan website perusahaan, e-commerce, portal member, dan custom web application.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -82,9 +82,9 @@ export const metadata: Metadata = {
   creator: "Kaluna Technology",
   publisher: "PT SINERGI MUDA ARSA (ARSALYNK)",
 
-  alternates: {
-    canonical: "/",
-  },
+  // NOTE: no canonical here. A root-level canonical is inherited by every
+  // child route that does not override it and would point it to the homepage.
+  // The homepage canonical lives in app/page.tsx.
 
   robots: {
     index: true,
@@ -145,6 +145,17 @@ const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "SiteNavigationElement",
+      "@id": `${siteUrl}/#navigation`,
+      name: ["Our Works", "Our Services", "About Us", "Contact Us"],
+      url: [
+        `${siteUrl}/works`,
+        `${siteUrl}/services`,
+        `${siteUrl}/who-we-are`,
+        `${siteUrl}/contact`,
+      ],
+    },
+    {
       "@type": "WebSite",
       "@id": `${siteUrl}/#website`,
       url: `${siteUrl}/`,
@@ -179,7 +190,6 @@ const structuredData = {
       },
       description: siteDescription,
       email: "corporate@kalunatechnology.com",
-      telephone: "+6281234567890",
       priceRange: "$$",
       areaServed: [
         {
@@ -271,9 +281,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`} style={{ backgroundColor: "#ffffff", color: "#171717" }}>
       <head>
-        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-        <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-        <meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
         <link
           rel="preload"
