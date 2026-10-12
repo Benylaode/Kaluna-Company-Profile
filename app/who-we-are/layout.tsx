@@ -6,7 +6,7 @@ const description =
   "Kenali Kaluna Technology, web engineering dan digital solutions agency dalam ekosistem Arsalynk yang membantu perusahaan membangun platform digital modern.";
 
 export const metadata: Metadata = {
-  title: "Who We Are",
+  title: "About Us – Who We Are",
   description,
   alternates: { canonical: "/who-we-are" },
   robots: {

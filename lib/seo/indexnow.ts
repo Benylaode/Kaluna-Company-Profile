@@ -27,7 +27,7 @@ export async function submitToIndexNow(urls: string[]): Promise<IndexNowResponse
             return null;
           }
         })
-        .filter((url): url is URL => Boolean(url) && url.host === canonicalHost)
+        .filter((url): url is URL => url !== null && url.host === canonicalHost)
         .map((url) => url.toString())
     )
   );

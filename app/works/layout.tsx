@@ -6,7 +6,7 @@ const description =
   "Jelajahi portofolio dan case studies Kaluna Technology untuk website perusahaan, e-commerce, portal pelanggan, dan custom web application.";
 
 export const metadata: Metadata = {
-  title: "Our Works",
+  title: "Our Works – Portfolio & Case Studies",
   description,
   alternates: { canonical: "/works" },
   robots: {

@@ -20,18 +20,14 @@ export default function WebKitBackgroundPreloader() {
         }
       });
 
-      // 2. Preload gambar-gambar utama untuk WebKit / Safari di background
+      // 2. Preload banner gambar untuk navigasi cepat halaman berikutnya
       const criticalImages = [
         "/image/whoweare.webp",
         "/image/benner/service.webp",
-        "/image/Hero/Default.webp",
-        "/image/Hero/1.webp",
-        "/image/Hero/2.webp",
-        "/image/Hero/3.webp",
       ];
 
       criticalImages.forEach((src) => {
-        const img = new Image();
+        const img = new window.Image();
         img.src = src;
       });
     };

@@ -240,9 +240,9 @@ export default function ServiceValueSolution() {
         <div className="kaluna-container mt-7 sm:mt-9 md:mt-10 lg:mt-12">
           <div className="rounded-[16px] md:rounded-[20px] bg-gradient-to-r from-[#299EED] to-[#0E2A54] px-5 py-4 sm:px-7 sm:py-5 md:px-8 md:py-5 flex flex-col md:flex-row items-center justify-between gap-4 shadow-xl border border-white/20">
             <div>
-              <h4 className="text-base sm:text-lg md:text-xl font-semibold text-white tracking-tight">
+              <h3 className="text-base sm:text-lg md:text-xl font-semibold text-white tracking-tight">
                 Ready to build a website that drives growth?
-              </h4>
+              </h3>
               <p className="mt-0.5 text-[11px] sm:text-xs text-blue-100 font-normal">
                 Connect with our web experts for a tailored digital roadmap.
               </p>

@@ -1,5 +1,5 @@
 type JsonLdProps = {
-  id: string;
+  id?: string;
   data: unknown;
 };
 

@@ -637,7 +637,7 @@ const expertise = [
                 </div>
                 <div className="flex justify-between items-start gap-1">
                   <div className="flex flex-col">
-                    <h4 className="font-bold text-sm md:text-base text-[#0D2342] leading-tight mb-1">{member.full_name}</h4>
+                    <h3 className="font-bold text-sm md:text-base text-[#0D2342] leading-tight mb-1">{member.full_name}</h3>
                     <span className="text-[10px] md:text-[11px] font-semibold text-gray-500 uppercase tracking-wide">{member.position}</span>
                   </div>
                   <a href={member.linkedin_url} target="_blank" rel="noreferrer" className="w-6 h-6 md:w-7 md:h-7 shrink-0 bg-[#0D2342] text-white rounded-full flex items-center justify-center hover:bg-[#299EED] transition-colors mt-0.5 shadow-sm">

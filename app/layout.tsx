@@ -19,9 +19,9 @@ const geistMono = Geist_Mono({
 });
 
 const siteUrl = "https://www.kalunatechnology.com";
-const siteTitle = "Kaluna Technology | Web Engineering & Digital Solutions";
+const siteTitle = "Kaluna Technology | Jasa Pembuatan Website & Web Engineering";
 const siteDescription =
-  "Kaluna Technology adalah web engineering agency & penyedia jasa pembuatan website perusahaan profesional. Kami merancang dan membangun website company profile berkinerja tinggi, platform e-commerce, portal member, serta custom web application untuk bisnis dan perusahaan modern.";
+  "Kaluna Technology adalah web engineering agency di Jakarta. Jasa pembuatan website perusahaan, e-commerce, portal member, dan custom web application.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -78,9 +78,9 @@ export const metadata: Metadata = {
   creator: "Kaluna Technology",
   publisher: "PT SINERGI MUDA ARSA (ARSALYNK)",
 
-  alternates: {
-    canonical: "/",
-  },
+  // NOTE: no canonical here. A root-level canonical is inherited by every
+  // child route that does not override it and would point it to the homepage.
+  // The homepage canonical lives in app/page.tsx.
 
   robots: {
     index: true,
@@ -141,6 +141,17 @@ const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "SiteNavigationElement",
+      "@id": `${siteUrl}/#navigation`,
+      name: ["Our Works", "Our Services", "About Us", "Contact Us"],
+      url: [
+        `${siteUrl}/works`,
+        `${siteUrl}/services`,
+        `${siteUrl}/who-we-are`,
+        `${siteUrl}/contact`,
+      ],
+    },
+    {
       "@type": "WebSite",
       "@id": `${siteUrl}/#website`,
       url: `${siteUrl}/`,
@@ -169,7 +180,6 @@ const structuredData = {
       },
       description: siteDescription,
       email: "corporate@kalunatechnology.com",
-      telephone: "+6281234567890",
       parentOrganization: {
         "@type": "Organization",
         "@id": "https://www.arsalynk.com/#organization",
@@ -177,10 +187,12 @@ const structuredData = {
         legalName: "PT Sinergi Muda Arsa",
         url: "https://www.arsalynk.com/",
       },
-      areaServed: {
-        "@type": "Country",
-        name: "Indonesia",
-      },
+      areaServed: [
+        {
+          "@type": "Country",
+          name: "Indonesia",
+        },
+      ],
       sameAs: [
         "https://www.instagram.com/kalunatechnology/",
         "https://www.linkedin.com/company/kalunatechnology/",
@@ -267,9 +279,6 @@ export default function RootLayout({
   return (
     <html lang="id" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`} style={{ backgroundColor: "#ffffff", color: "#171717" }}>
       <head>
-        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-        <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-        <meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
         <link
           rel="preload"

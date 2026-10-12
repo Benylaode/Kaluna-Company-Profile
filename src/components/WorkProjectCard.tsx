@@ -74,13 +74,14 @@ export default function WorkProjectCard({
 
                   {/* Desktop CTA Button */}
                   <div className="hidden md:block mt-8">
-                    <Link href={`/works/${currentProject.slug}`} className="w-full sm:w-fit">
-                      <button className="group flex h-[60px] w-full sm:w-[250px] items-center justify-between gap-4 rounded-full bg-[#0E2A54] py-2 pl-8 pr-2.5 text-white transition hover:bg-[#163A70] cursor-pointer border-0 shadow-none">
-                        <span className="text-sm font-medium tracking-[0.02em] md:text-base text-white">See Case Studies</span>
-                        <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#299EED] text-white transition-transform duration-300 group-hover:translate-x-1">
-                          <ArrowRight size={18} />
-                        </div>
-                      </button>
+                    <Link 
+                      href={`/works/${currentProject.slug}`} 
+                      className="group flex h-[60px] w-full sm:w-[250px] items-center justify-between gap-4 rounded-full bg-[#0E2A54] py-2 pl-8 pr-2.5 text-white transition hover:bg-[#163A70] cursor-pointer"
+                    >
+                      <span className="text-sm font-medium tracking-[0.02em] md:text-base text-white">See Case Studies</span>
+                      <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#299EED] text-white transition-transform duration-300 group-hover:translate-x-1">
+                        <ArrowRight size={18} />
+                      </div>
                     </Link>
                   </div>
                 </div>
@@ -174,13 +175,14 @@ export default function WorkProjectCard({
 
             {/* Mobile-only CTA Button */}
             <div className="flex md:hidden w-full mt-4">
-              <Link href={`/works/${currentProject.slug}`} className="w-full">
-                <button className="group flex h-[60px] w-full items-center justify-between gap-4 rounded-full bg-[#0E2A54] py-2 pl-8 pr-2.5 text-white transition hover:bg-[#163A70] cursor-pointer border-0 shadow-none">
-                  <span className="text-sm font-medium tracking-[0.02em] text-white">See Detail Project</span>
-                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#299EED] text-white transition-transform duration-300 group-hover:translate-x-1">
-                    <ArrowRight size={18} />
-                  </div>
-                </button>
+              <Link 
+                href={`/works/${currentProject.slug}`} 
+                className="group flex h-[60px] w-full items-center justify-between gap-4 rounded-full bg-[#0E2A54] py-2 pl-8 pr-2.5 text-white transition hover:bg-[#163A70] cursor-pointer"
+              >
+                <span className="text-sm font-medium tracking-[0.02em] text-white">See Detail Project</span>
+                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#299EED] text-white transition-transform duration-300 group-hover:translate-x-1">
+                  <ArrowRight size={18} />
+                </div>
               </Link>
             </div>
 

@@ -6,7 +6,7 @@ const description =
   "Hubungi Kaluna Technology untuk konsultasi website perusahaan, e-commerce, portal pelanggan, custom web application, dan kebutuhan digital engineering.";
 
 export const metadata: Metadata = {
-  title: "Contact Us",
+  title: "Contact Us – Free Website Consultation",
   description,
   alternates: { canonical: "/contact" },
   robots: {

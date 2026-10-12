@@ -6,7 +6,7 @@ const description =
   "Kaluna Technology menyediakan layanan web engineering, website perusahaan, e-commerce, custom web application, dan integrasi sistem digital untuk bisnis modern.";
 
 export const metadata: Metadata = {
-  title: "Services",
+  title: "Our Services – Web Development & Digital Engineering",
   description,
   alternates: { canonical: "/services" },
   robots: {
