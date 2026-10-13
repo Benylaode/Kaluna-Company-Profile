@@ -35,47 +35,34 @@ export default async function Home() {
       <div className="flex flex-col w-full">
         <Hero projects={worksData} />
 
+        {/* SEO Brand Overview & Navigation: Visually hidden via sr-only so it remains accessible and crawlable by Googlebot without displaying visually on screen */}
         <section
           aria-labelledby="kaluna-brand-overview"
-          className="border-b border-[#E7EEF7] bg-white"
+          className="sr-only"
         >
-          <div className="kaluna-container grid gap-7 py-8 md:grid-cols-[1.2fr_1fr] md:items-center md:py-10">
-            <div>
-              <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#299EED]">
-                Kaluna Technology
-              </p>
-              <h2
-                id="kaluna-brand-overview"
-                className="text-[24px] font-semibold leading-[1.25] tracking-[-0.02em] text-[#0E2A54] md:text-[30px]"
-              >
-                Web engineering & digital solutions for modern businesses.
-              </h2>
-              <p className="mt-3 max-w-[760px] text-[14px] leading-[1.75] text-[#4B5563] md:text-[15px]">
-                Kaluna Technology membantu perusahaan membangun website perusahaan, platform e-commerce,
-                portal pelanggan, dan custom web application yang cepat, terukur, serta siap berkembang.
-              </p>
-            </div>
-
-            <nav
-              aria-label="Explore Kaluna Technology"
-              className="grid grid-cols-2 gap-2 sm:grid-cols-4 md:grid-cols-2"
-            >
-              {[
-                ["Services", "/services"],
-                ["Our Works", "/works"],
-                ["Who We Are", "/who-we-are"],
-                ["Contact Us", "/contact"],
-              ].map(([label, href]) => (
-                <Link
-                  key={href}
-                  href={href}
-                  className="rounded-xl border border-[#DCE8F6] bg-[#F8FBFF] px-4 py-3 text-[13px] font-medium text-[#0E2A54] transition hover:border-[#299EED] hover:text-[#299EED]"
-                >
-                  {label}
-                </Link>
-              ))}
-            </nav>
+          <div>
+            <p>Kaluna Technology</p>
+            <h2 id="kaluna-brand-overview">
+              Web engineering & digital solutions for modern businesses.
+            </h2>
+            <p>
+              Kaluna Technology membantu perusahaan membangun website perusahaan, platform e-commerce,
+              portal pelanggan, dan custom web application yang cepat, terukur, serta siap berkembang.
+            </p>
           </div>
+
+          <nav aria-label="Explore Kaluna Technology">
+            {[
+              ["Services", "/services"],
+              ["Our Works", "/works"],
+              ["Who We Are", "/who-we-are"],
+              ["Contact Us", "/contact"],
+            ].map(([label, href]) => (
+              <Link key={href} href={href}>
+                {label}
+              </Link>
+            ))}
+          </nav>
         </section>
         
         <div data-nosnippet>
