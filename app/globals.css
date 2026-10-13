@@ -92,6 +92,19 @@ body {
   animation-play-state: paused; 
 }
 
+/* Accessibility & SEO - Visually Hidden pattern (crawlable by search engines & screen readers) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 /* ============================================================
    KALUNA DESIGN SYSTEM — Global Utility Classes
    ============================================================ */
