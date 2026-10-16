@@ -186,11 +186,11 @@ export default function Hero({ projects }: { projects?: HeroProjectData[] }) {
             </span>
           </div>
 
-          <div role="heading" aria-level={1} className="hero-animate-title text-[34px] md:text-[42px] lg:text-[50px] xl:text-[54px] font-semibold leading-[1.12] tracking-[-0.025em] text-[#0E2A54]">
+          <h1 className="hero-animate-title text-[34px] md:text-[42px] lg:text-[50px] xl:text-[54px] font-semibold leading-[1.12] tracking-[-0.025em] text-[#0E2A54]">
             Kaluna Technology<br />
             Your Digital Growth Partner<br />
             for Modern Enterprises
-          </div>
+          </h1>
 
           <p className="hero-animate-text max-w-[500px] text-base lg:text-[17px] leading-[1.6] text-[#4B5563]">
             We build high-performance websites that blend stunning design with intelligent functionality, so you can scale your brand without technical bottlenecks.

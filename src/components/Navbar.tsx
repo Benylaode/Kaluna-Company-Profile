@@ -237,7 +237,7 @@ export default function Navbar() {
                   : "text-[#0D2342] hover:bg-gray-100/50"
               }`}
             >
-              Our Service
+              Our Services
             </Link>
 
             {/* Who We Are Link */}

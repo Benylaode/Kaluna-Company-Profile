@@ -335,6 +335,10 @@ export async function generateMetadata({
   if (!project) {
     return {
       title: "Project Not Found | Kaluna Technology",
+      robots: {
+        index: false,
+        follow: false,
+      },
     };
   }
 
@@ -370,6 +374,7 @@ export async function generateMetadata({
     openGraph: {
       type: "article",
       url: `/works/${slug}`,
+      siteName: "Kaluna Technology",
       title: `${project.title} | Kaluna Technology Case Study`,
       description,
       images: [

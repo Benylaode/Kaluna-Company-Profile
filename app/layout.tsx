@@ -34,36 +34,11 @@ export const metadata: Metadata = {
   description: siteDescription,
 
   keywords: [
-    // Brand & Company Identifiers
     "Kaluna Technology",
-    "kalunatechnology",
-    "kaluna",
-    "Kaluna Tech",
-    "Kaluna Technology Arsalynk",
-    
-    // Core Indonesian Web Builder & Development Keywords
-    "Jasa Pembuatan Website",
-    "Jasa Web Builder",
+    "Web Engineering Jakarta",
     "Jasa Pembuatan Website Perusahaan",
-    "Jasa Bikin Website Jakarta",
-    "Jasa Pembuatan Website Company Profile",
-    "Jasa Web Application",
-    "Jasa Pembuatan Toko Online E-Commerce",
-    "Jasa Pembuatan Landing Page",
-    "Jasa Web Developer Indonesia",
+    "Custom Web Applications",
     "Software House Jakarta",
-    "Web Agency Jakarta",
-    "Jasa Website Bisnis Profesional",
-    
-    // English & International Keywords
-    "Custom Web Development Agency",
-    "Enterprise Web Engineering",
-    "Corporate Website Builder",
-    "Custom Web Application Development",
-    "E-Commerce Platform Engineering",
-    "Member Portal Development",
-    "B2B Digital Web Agency",
-    "Full-Stack Web Development Indonesia",
   ],
 
   applicationName: "Kaluna Technology",
@@ -137,31 +112,63 @@ export const metadata: Metadata = {
   },
 };
 
+const sitelinksNavigation = [
+  {
+    name: "Our Works",
+    url: `${siteUrl}/works`,
+    description: "Portofolio proyek, studi kasus, dan hasil rekayasa web Kaluna Technology.",
+  },
+  {
+    name: "Our Services",
+    url: `${siteUrl}/services`,
+    description: "Layanan web engineering, sistem enterprise ERP, dan custom web application.",
+  },
+  {
+    name: "Who We Are",
+    url: `${siteUrl}/who-we-are`,
+    description: "Profil Kaluna Technology, visi, tim software engineering, dan ekosistem Arsalynk.",
+  },
+  {
+    name: "Contact Us",
+    url: `${siteUrl}/contact`,
+    description: "Konsultasi teknis, penawaran harga, dan diskusi kebutuhan proyek website bisnis.",
+  },
+];
+
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "SiteNavigationElement",
+      "@type": "ItemList",
       "@id": `${siteUrl}/#navigation`,
-      name: ["Our Works", "Our Services", "About Us", "Contact Us"],
-      url: [
-        `${siteUrl}/works`,
-        `${siteUrl}/services`,
-        `${siteUrl}/who-we-are`,
-        `${siteUrl}/contact`,
-      ],
+      name: "Kaluna Technology Main Navigation",
+      numberOfItems: sitelinksNavigation.length,
+      itemListElement: sitelinksNavigation.map((item, index) => ({
+        "@type": "SiteNavigationElement",
+        position: index + 1,
+        name: item.name,
+        url: item.url,
+        description: item.description,
+      })),
     },
     {
       "@type": "WebSite",
       "@id": `${siteUrl}/#website`,
       url: `${siteUrl}/`,
       name: "Kaluna Technology",
-      alternateName: ["Kaluna Tech", "kalunatechnology.com"],
+      alternateName: ["Kaluna Tech", "kalunatechnology.com", "Kaluna"],
       description: siteDescription,
       inLanguage: "id-ID",
       publisher: {
         "@id": `${siteUrl}/#organization`,
       },
+      hasPart: sitelinksNavigation.map((item) => ({
+        "@type": "WebPage",
+        "@id": `${item.url}#webpage`,
+        name: item.name,
+        url: item.url,
+        description: item.description,
+      })),
     },
     {
       "@type": "Organization",
@@ -261,12 +268,13 @@ const structuredData = {
       about: { "@id": `${siteUrl}/#organization` },
       mainEntity: { "@id": `${siteUrl}/#organization` },
       inLanguage: "id-ID",
-      hasPart: [
-        { "@type": "WebPage", name: "Services", url: `${siteUrl}/services` },
-        { "@type": "WebPage", name: "Our Works", url: `${siteUrl}/works` },
-        { "@type": "WebPage", name: "Who We Are", url: `${siteUrl}/who-we-are` },
-        { "@type": "WebPage", name: "Contact Us", url: `${siteUrl}/contact` },
-      ],
+      hasPart: sitelinksNavigation.map((item) => ({
+        "@type": "WebPage",
+        "@id": `${item.url}#webpage`,
+        name: item.name,
+        url: item.url,
+        description: item.description,
+      })),
     },
   ],
 };

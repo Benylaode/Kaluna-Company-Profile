@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Link from "next/link";
 import Navbar from '../src/components/Navbar';
 import Hero from '../src/components/Hero';
 import Footer from '../src/components/Footer';
@@ -34,36 +33,6 @@ export default async function Home() {
       {/* Wrapper diubah: Menghilangkan gap agar jarak murni dari padding (py) masing-masing komponen */}
       <div className="flex flex-col w-full">
         <Hero projects={worksData} />
-
-        {/* SEO Brand Overview & Navigation: Visually hidden via sr-only so it remains accessible and crawlable by Googlebot without displaying visually on screen */}
-        <section
-          aria-labelledby="kaluna-brand-overview"
-          className="sr-only"
-        >
-          <div>
-            <p>Kaluna Technology</p>
-            <h2 id="kaluna-brand-overview">
-              Web engineering & digital solutions for modern businesses.
-            </h2>
-            <p>
-              Kaluna Technology membantu perusahaan membangun website perusahaan, platform e-commerce,
-              portal pelanggan, dan custom web application yang cepat, terukur, serta siap berkembang.
-            </p>
-          </div>
-
-          <nav aria-label="Explore Kaluna Technology">
-            {[
-              ["Services", "/services"],
-              ["Our Works", "/works"],
-              ["Who We Are", "/who-we-are"],
-              ["Contact Us", "/contact"],
-            ].map(([label, href]) => (
-              <Link key={href} href={href}>
-                {label}
-              </Link>
-            ))}
-          </nav>
-        </section>
         
         <div data-nosnippet>
           <ScrollReveal>
