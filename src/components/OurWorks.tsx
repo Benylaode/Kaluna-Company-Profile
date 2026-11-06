@@ -15,44 +15,44 @@ export interface WorkData {
 const WORK_STEPS: WorkData[] = [
   {
     id: 1,
-    title: "Discovery & Strategy",
-    tag: "Foundation",
-    category: "We learn your brand, audience, and goals to map out the perfect site structure.",
+    title: "Asset & Hardware Discovery",
+    tag: "Discovery",
+    category: "We audit your physical infrastructure, machinery protocols, and operational workflows to design the optimal IoT architecture.",
     image_url: "/image/ourworkflow/1.webp"
   },
   {
     id: 2,
-    title: "Wireframing & Design",
+    title: "Sensor & Edge Prototyping",
     tag: "Architecture",
-    category: "We craft clickable prototypes so you can see the look and feel before we write a single line of code.",
+    category: "We design industrial schematics, sensor arrays, and opto-isolated gateway interfaces tailored to your field conditions.",
     image_url: "/image/ourworkflow/2.webp"
   },
   {
     id: 3,
-    title: "Development & Build",
-    tag: "Validation",
-    category: "We code a responsive, SEO-optimized site using the latest web technologies.",
+    title: "Firmware & Edge Engineering",
+    tag: "Engineering",
+    category: "We code custom microcontroller firmware with sub-second sampling, edge filtering, and anomaly threshold triggers.",
     image_url: "/image/ourworkflow/3.webp"
   },
   {
     id: 4,
-    title: "Content Integration",
-    tag: "Execution",
-    category: "We populate your site with your copy, images, and video, or help you create fresh content.",
+    title: "Cloud Telemetry & MQTT Ingestion",
+    tag: "Integration",
+    category: "We deploy high-throughput MQTT brokers and secure WebSocket streams linking physical devices directly to your ERP.",
     image_url: "/image/ourworkflow/4.webp"
   },
   {
     id: 5,
-    title: "Testing & Optimization",
-    tag: "Quality Assurance",
-    category: "We run speed tests, cross-browser checks, and mobile audits to ensure flawless performance.",
+    title: "Field Audits & Stress Testing",
+    tag: "Validation",
+    category: "We conduct thermal, RF signal, and packet loss stress tests to guarantee 99.98% telemetry packet delivery in harsh environments.",
     image_url: "/image/ourworkflow/5.webp"
   },
   {
     id: 6,
-    title: "Launch & Ongoing Care",
-    tag: "Go-Live & Beyond",
-    category: "We handle the go-live, train your team, and provide 24/7 support and security monitoring.",
+    title: "Deployment & 24/7 Monitoring",
+    tag: "Go-Live",
+    category: "We handle on-site hardware installation, train dispatch controllers, and provide continuous remote hardware surveillance.",
     image_url: "/image/ourworkflow/6.webp"
   }
 ];
@@ -220,7 +220,7 @@ export default function OurWorks() {
           <div className="relative z-20 mb-6 sm:mb-8 flex flex-wrap items-center justify-between gap-4">
             <h2 className="inline-flex items-center gap-2.5 text-xs sm:text-xs font-semibold uppercase tracking-wider">
               <span className="h-4 w-[3px] bg-[#299EED] rounded-full" />
-              HOW WE DELIVER
+              HOW WE DELIVER IOT SYSTEMS
             </h2>
 
             {/* Stepper info & Navigation Arrows */}

@@ -3,10 +3,10 @@ import JsonLd from "../../src/components/JsonLd";
 
 const siteUrl = "https://www.kalunatechnology.com";
 const description =
-  "Kenali Kaluna Technology, web engineering dan digital solutions agency dalam ekosistem Arsalynk yang membantu perusahaan membangun platform digital modern.";
+  "Kenali Kaluna Technology, penyedia solusi Smart IoT System, industrial automation, dan fleet telemetry terpercaya dalam ekosistem Arsalynk.";
 
 export const metadata: Metadata = {
-  title: "Who We Are – About Kaluna Technology",
+  title: "Who We Are – Smart IoT & Automation Ecosystem",
   description,
   alternates: { canonical: "/who-we-are" },
   robots: {

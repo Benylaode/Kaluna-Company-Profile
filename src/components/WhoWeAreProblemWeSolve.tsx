@@ -15,35 +15,35 @@ export interface WhoWeAreProblemItem {
 const problemItems: WhoWeAreProblemItem[] = [
   {
     id: 1,
-    title: "Website for Enterprise",
+    title: "Operational Blind Spots",
     description:
-      "Outdated, slow, and unsecured sites that fail to inspire trust or handle high-volume traffic.",
+      "Physical devices, machinery, and fleet vehicles operate without real-time connectivity, leaving leadership in the dark.",
     iconImg: "/image/Problem/1.svg",
-    tag: "Enterprise Web",
+    tag: "Remote Telemetry",
   },
   {
     id: 2,
-    title: "Website for Commerce",
+    title: "Unplanned Machinery Downtime",
     description:
-      "Clunky e-commerce experiences with poor checkout flows, abandoned carts, and lost revenue.",
+      "Reactive maintenance leads to sudden equipment failures, halting operations and causing costly delays.",
     iconImg: "/image/Problem/2.svg",
-    tag: "E-Commerce Experience",
+    tag: "Predictive Maintenance",
   },
   {
     id: 3,
-    title: "Website for Organization",
+    title: "Siloed Equipment Data",
     description:
-      "Disconnected web properties that confuse customers and dilute brand identity across departments.",
+      "Legacy PLCs, sensors, and controllers do not communicate with central ERP and command systems.",
     iconImg: "/image/Problem/3.svg",
-    tag: "Unified Digital Presence",
+    tag: "Edge Integration",
   },
   {
     id: 4,
-    title: "Website for Company Profile",
+    title: "Inefficient Fleet & Fuel Loss",
     description:
-      "Static, lifeless digital brochures that fail to tell your story, engage visitors, or generate leads.",
+      "Unmonitored transit routes lead to fuel wastage, excessive idling, and delivery invoice disputes.",
     iconImg: "/image/Problem/4.svg",
-    tag: "Brand & Lead Generation",
+    tag: "Fleet Intelligence",
   },
 ];
 
@@ -96,7 +96,7 @@ export default function WhoWeAreProblemWeSolve() {
               </span>
             </div>
             <h2 className="text-[28px] sm:text-[36px] lg:text-[42px] font-medium text-[#111111] tracking-[-0.025em] leading-[1.15]">
-              The Digital Imperative<br className="hidden sm:block" /> Why Your Business Needs a Modern Website
+              Connecting the Physical World<br className="hidden sm:block" /> Why Modern Enterprises Need Smart IoT Systems
             </h2>
           </div>
 

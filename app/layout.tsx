@@ -19,9 +19,9 @@ const geistMono = Geist_Mono({
 });
 
 const siteUrl = "https://www.kalunatechnology.com";
-const siteTitle = "Kaluna Technology | Jasa Pembuatan Website & Web Engineering";
+const siteTitle = "Kaluna Technology | Smart IoT System & Industrial Telemetry Solutions";
 const siteDescription =
-  "Kaluna Technology adalah web engineering agency di Jakarta. Jasa pembuatan website perusahaan, e-commerce, portal member, dan custom web application.";
+  "Kaluna Technology menghadirkan layanan Smart IoT System komprehensif, otomasi industri, fleet telemetry, dan manajemen sensor real-time untuk perusahaan modern di Indonesia.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -35,10 +35,13 @@ export const metadata: Metadata = {
 
   keywords: [
     "Kaluna Technology",
-    "Web Engineering Jakarta",
-    "Jasa Pembuatan Website Perusahaan",
-    "Custom Web Applications",
-    "Software House Jakarta",
+    "Smart IoT System",
+    "Fleet Telemetry",
+    "Industrial Automation",
+    "IoT Management Indonesia",
+    "Edge Computing",
+    "Connected Devices",
+    "MyBOS IoT",
   ],
 
   applicationName: "Kaluna Technology",
@@ -116,22 +119,22 @@ const sitelinksNavigation = [
   {
     name: "Our Works",
     url: `${siteUrl}/works`,
-    description: "Portofolio proyek, studi kasus, dan hasil rekayasa web Kaluna Technology.",
+    description: "Portofolio proyek, studi kasus Smart IoT System, dan implementasi fleet telemetry Kaluna Technology.",
   },
   {
     name: "Our Services",
     url: `${siteUrl}/services`,
-    description: "Layanan web engineering, sistem enterprise ERP, dan custom web application.",
+    description: "Layanan Smart IoT System komprehensif, otomasi industri, dan integrasi hardware edge computing.",
   },
   {
     name: "Who We Are",
     url: `${siteUrl}/who-we-are`,
-    description: "Profil Kaluna Technology, visi, tim software engineering, dan ekosistem Arsalynk.",
+    description: "Profil Kaluna Technology, visi, tim embedded engineering, dan ekosistem Arsalynk.",
   },
   {
     name: "Contact Us",
     url: `${siteUrl}/contact`,
-    description: "Konsultasi teknis, penawaran harga, dan diskusi kebutuhan proyek website bisnis.",
+    description: "Konsultasi teknis, penawaran harga, dan diskusi kebutuhan proyek IoT & otomasi industri.",
   },
 ];
 
@@ -215,14 +218,14 @@ const structuredData = {
         addressCountry: "ID",
       },
       knowsAbout: [
-        "Web Engineering",
-        "Jasa Pembuatan Website Perusahaan",
-        "E-Commerce Platform Development",
-        "Member and Client Portal Development",
-        "Custom Web Application Development",
+        "Smart IoT Systems",
+        "Connected Operational IoT Ecosystem",
+        "Fleet Telemetry and Asset Tracking",
+        "Industrial Automation & Edge Computing",
+        "Smart Facility & Energy Management",
         "Enterprise System Integration",
-        "UI/UX Design",
-        "SEO and Core Web Vitals",
+        "Low-Latency MQTT Streaming",
+        "Time-Series Telemetry Analytics",
       ],
       hasOfferCatalog: {
         "@type": "OfferCatalog",
@@ -232,7 +235,7 @@ const structuredData = {
             "@type": "Offer",
             itemOffered: {
               "@type": "Service",
-              name: "Corporate Website Development",
+              name: "Smart IoT System Architecture",
               url: `${siteUrl}/services`,
               provider: { "@id": `${siteUrl}/#organization` },
             },
@@ -241,7 +244,7 @@ const structuredData = {
             "@type": "Offer",
             itemOffered: {
               "@type": "Service",
-              name: "E-Commerce Platform Development",
+              name: "Connected Asset & Fleet Telemetry (MyBOS)",
               url: `${siteUrl}/services`,
               provider: { "@id": `${siteUrl}/#organization` },
             },
@@ -250,7 +253,7 @@ const structuredData = {
             "@type": "Offer",
             itemOffered: {
               "@type": "Service",
-              name: "Custom Web Application Development",
+              name: "Industrial Automation & Edge Computing",
               url: `${siteUrl}/services`,
               provider: { "@id": `${siteUrl}/#organization` },
             },
@@ -291,7 +294,7 @@ export default function RootLayout({
         <link
           rel="preload"
           as="image"
-          href="/image/projects/X-Tire/1.webp"
+          href="/image/projects/myboss-iot-system/1.webp"
           fetchPriority="high"
         />
         <link rel="dns-prefetch" href="//images.unsplash.com" />

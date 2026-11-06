@@ -16,74 +16,74 @@ export interface ValueItem {
 const valueItems: ValueItem[] = [
   {
     id: 1,
-    title: "Tailored Web Experiences, Built Around Your Brand.",
-    subtitle: "Designed Around Your Identity",
-    desc: "We don't force generic templates onto your business. We design and develop custom websites that reflect your unique identity and vision.",
-    image: "/image/service/1.svg",
+    title: "Tailored IoT Device & Sensor Architecture.",
+    subtitle: "Beyond Plug-and-Play Tools",
+    desc: "We don't use generic plug-and-play gadgets. Each device architecture is securely tailored to your physical machinery, electrical environment, and operational workflows.",
+    image: "/image/iot/industrial-automation-edge.svg",
     highlights: [
-      "Custom business logic & module mapping",
-      "Zero compromise on your core operations",
-      "Tailored user permissions & roles",
+      "Custom microcontroller firmware & logic",
+      "Industrial enclosure & electrical isolation",
+      "Opto-isolated PLC signal interfaces",
     ],
   },
   {
     id: 2,
-    title: "Seamless Integrations with Your Marketing Ecosystem.",
-    subtitle: "Connect Every Customer Touchpoint",
-    desc: "We connect your website with CRM, email marketing, payment gateways, and analytics—without disrupting your existing tools.",
-    image: "/image/service/2.svg",
+    title: "Seamless Fleet & Machinery Telemetry Integration.",
+    subtitle: "Connect Field to Control Room",
+    desc: "We connect telemetry sensors, GPS trackers, and factory PLCs into central enterprise dashboards and dispatch systems.",
+    image: "/image/iot/mybos-fleet-tracking.svg",
     highlights: [
-      "REST & SOAP API gateways",
-      "Bi-directional database sync",
-      "Payment gateways, CRM & Marketing tool links",
+      "Ultra-reliable MQTT cloud brokers",
+      "Low-latency WebSocket telemetry feeds",
+      "Direct ERP & dispatch API webhooks",
     ],
   },
   {
     id: 3,
-    title: "Enterprise-Grade Security & Peace of Mind.",
-    subtitle: "Protected Around the Clock",
-    desc: "SSL encryption, daily backups, firewall protection, and regular security scans keep your data and reputation safe.",
-    image: "/image/service/3.svg",
+    title: "Industrial-Grade Security & Edge Isolation.",
+    subtitle: "Hardware to Cloud Protection",
+    desc: "Hardware encryption, secure boot microcode, and isolated edge networks protect your operational infrastructure from unauthorized intrusion.",
+    image: "/image/iot/card-smart-iot.svg",
     highlights: [
-      "Granular RBAC down to field-level",
-      "AES-256 data encryption at rest & in transit",
-      "Immutable system audit logs",
+      "Mutual TLS & cryptographic token auth",
+      "Tamper-proof hardware enclosure designs",
+      "Immutable telemetry audit logs",
     ],
   },
   {
     id: 4,
-    title: "Scalable Websites That Grow With You.",
-    subtitle: "Ready for Every Stage of Growth",
-    desc: "Handle traffic spikes, product expansions, and new markets effortlessly—without per-user fees or expensive upgrades.",
-    image: "/image/service/4.svg",
+    title: "Scalable Edge-to-Cloud Infrastructure.",
+    subtitle: "Zero Telemetry Packet Loss",
+    desc: "Handle thousands of distributed field nodes, fleet vehicles, and continuous high-frequency sensor streaming effortlessly.",
+    image: "/image/iot/scalable-systems-iot.webp",
     highlights: [
-      "100% IP ownership for your business",
-      "Zero per-user monthly licensing fees",
-      "Cloud-native microservice architecture",
+      "Time-series database hypertable storage",
+      "Local edge offline packet queuing",
+      "Microservice telemetry stream parsers",
     ],
   },
   {
     id: 5,
-    title: "Real-Time Analytics for Smarter Decisions.",
-    subtitle: "Turn Behavior Into Insight",
-    desc: "Built-in dashboards turn visitor behavior and conversion data into actionable business insights.",
-    image: "/image/service/5.svg",
+    title: "Predictive Failure Alerts & Automated Shutdown.",
+    subtitle: "Stop Downtime Before It Starts",
+    desc: "Algorithmic anomaly detection flags abnormal vibration, temperature spikes, and fuel drains before mechanical breakdown occurs.",
+    image: "/image/iot/smart-facility-energy.svg",
     highlights: [
-      "Real-time cash flow & inventory metrics",
-      "Automated automated KPI reports",
-      "Customizable executive widgets",
+      "Sub-second sensor threshold triggers",
+      "Automated WhatsApp & dispatch work orders",
+      "Predictive component wear scoring",
     ],
   },
   {
     id: 6,
-    title: "Dedicated Support, Long After Launch.",
-    subtitle: "A Long-Term Digital Partnership",
-    desc: "We stay by your side with continuous maintenance, performance optimization, and strategic guidance.",
-    image: "/image/service/6.webp",
+    title: "Dedicated Hardware Care & 24/7 Monitoring.",
+    subtitle: "Mission-Critical Operational Support",
+    desc: "We provide ongoing telemetry health surveillance, firmware over-the-air (FOTA) updates, and rapid on-site engineering assistance.",
+    image: "/image/projects/myboss-iot-system/case-study-angle-02.webp",
     highlights: [
-      "SLA-backed technical support",
-      "Proactive cloud health monitoring",
-      "Ongoing feature & module upgrades",
+      "24/7 gateway connectivity surveillance",
+      "Over-the-air firmware updates (FOTA)",
+      "SLA-backed industrial field support",
     ],
   },
 ];
@@ -241,10 +241,10 @@ export default function ServiceValueSolution() {
           <div className="rounded-[16px] md:rounded-[20px] bg-gradient-to-r from-[#299EED] to-[#0E2A54] px-5 py-4 sm:px-7 sm:py-5 md:px-8 md:py-5 flex flex-col md:flex-row items-center justify-between gap-4 shadow-xl border border-white/20">
             <div>
               <h3 className="text-base sm:text-lg md:text-xl font-semibold text-white tracking-tight">
-                Ready to build a website that drives growth?
+                Ready to connect and automate your operations with Smart IoT?
               </h3>
               <p className="mt-0.5 text-[11px] sm:text-xs text-blue-100 font-normal">
-                Connect with our web experts for a tailored digital roadmap.
+                Connect with our IoT engineering team for a tailored hardware & telemetry roadmap.
               </p>
             </div>
 
@@ -252,7 +252,7 @@ export default function ServiceValueSolution() {
               onClick={() => setIsContactOpen(true)}
               className="flex-shrink-0 group inline-flex items-center gap-2.5 bg-white text-[#0E2A54] hover:bg-[#0E2A54] hover:text-white font-semibold text-xs sm:text-sm px-5 py-2.5 sm:px-6 sm:py-3 rounded-full transition-all duration-300 shadow-md cursor-pointer"
             >
-              <span>Schedule a Web Consultation</span>
+              <span>Consult Your IoT Project</span>
               <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
             </button>
           </div>

@@ -14,15 +14,15 @@ import { ShieldCheck, Cpu, RefreshCw, Zap, FileText } from "lucide-react";
 export default async function ServicePage() {
   const worksData = await getWorks();
 
-  // Filter works for ERP
+  // Filter works for IoT
   const filteredWorks = worksData.filter(
-    (w) => w.category === "ERP & System Integration"
+    (w) => w.slug === "myboss-iot-system"
   ).length > 0
-    ? worksData.filter((w) => w.category === "ERP & System Integration")
+    ? worksData.filter((w) => w.slug === "myboss-iot-system")
     : worksData;
 
-  const showcaseImage = filteredWorks[0]?.images[0] || "/image/service/erp-integration.png";
-  const clientName = filteredWorks[0]?.client || "ERP & System Integration";
+  const showcaseImage = filteredWorks[0]?.images[0] || "/image/projects/myboss-iot-system/1.webp";
+  const clientName = filteredWorks[0]?.client || "Smart IoT System";
 
   // Technical Key Features from PDF
   const technicalFeatures = [
@@ -82,27 +82,27 @@ export default async function ServicePage() {
     },
   ];
 
-  // FAQ items matching PDF Page 5 & 6
+  // FAQ items matching Smart IoT System
   const pdfFaqs = [
     {
-      q: "What enterprise technology services does Kaluna Technology provide?",
-      a: "Kaluna Technology provides custom ERP systems, system integration, enterprise web applications, and data platforms. We help businesses in Indonesia connect their operations, finance, inventory, and customer-facing channels into one scalable foundation.",
+      q: "What Smart IoT services does Kaluna Technology provide?",
+      a: "Kaluna Technology provides comprehensive Smart IoT management systems, commercial fleet telemetry (MyBOS), industrial automation with edge computing, smart facility and energy management, and custom sensor-to-cloud integrations.",
     },
     {
-      q: "Why choose a custom enterprise solution instead of an off-the-shelf package?",
-      a: "A custom solution is shaped around your actual workflows, data, and growth plans. It removes the compromises of generic software, integrates with the tools you already use, and scales without forcing your teams to adapt to rigid templates.",
+      q: "Why choose Kaluna's custom IoT architecture over generic off-the-shelf devices?",
+      a: "Generic off-the-shelf IoT devices suffer from closed ecosystems, poor sensor compatibility, and lack of integration with enterprise ERP. Kaluna tailors each device firmware, gateway protocol (MQTT/Modbus), and cloud dashboard directly to your operational workflows.",
     },
     {
-      q: "How long does a typical enterprise project take?",
-      a: "Timelines depend on scope, number of modules, integrations, and data migration needs. Most projects are delivered in phases, with a clear roadmap defined during discovery so each milestone stays transparent and measurable.",
+      q: "How does the MyBOS fleet telemetry system improve logistics operations?",
+      a: "MyBOS delivers continuous satellite GPS positioning, engine diagnostics, fuel theft alerts, driver behavior scoring, and digital proof-of-delivery (e-POD), achieving an average 22% reduction in fleet fuel expenditure.",
     },
     {
-      q: "Can your solutions integrate with our existing business systems?",
-      a: "Yes. We connect new platforms with existing ERP, CRM, accounting, payment, analytics, and third-party tools through secure APIs, and we safely migrate historical data into the new system.",
+      q: "Can Kaluna's IoT systems integrate with our existing ERP and machine PLCs?",
+      a: "Yes. We interface with legacy and modern industrial equipment via Modbus, RS-485, CAN-bus, and OPC-UA, streaming normalized telemetry data into central ERP, WMS, and dispatch platforms via secure APIs.",
     },
     {
-      q: "What support does Kaluna provide after launch?",
-      a: "We provide hands-on team onboarding, ongoing maintenance, security updates, backups, performance monitoring, and strategic guidance so your platform stays fast, secure, and effective as your business grows.",
+      q: "What ongoing monitoring and hardware support does Kaluna provide?",
+      a: "We provide 24/7 gateway connectivity surveillance, over-the-air firmware upgrades (FOTA), sensor recalibration, security patches, and SLA-backed on-site industrial maintenance.",
     },
   ];
 
@@ -125,16 +125,15 @@ export default async function ServicePage() {
 
         <div className="kaluna-wide-container">
           <ServiceDashboardHeroBanner
-            category="Enterprise Technology Services"
-            titleLines={["Integrated Technology", "Solutions for"]}
+            category="Enterprise Smart IoT Solutions"
+            titleLines={["Smart IoT System &", "Industrial Automation for"]}
             titleAccent="Modern Enterprises."
-            description="We engineer enterprise software, integrated ERP platforms, web applications, and scalable digital solutions for modern business operations in Indonesia."
-            imageAlt="Enterprise platform dashboard interface"
+            description="Layanan manajemen sistem komprehensif yang menghubungkan berbagai lini operasional perusahaan besar. Kami membantu menyederhanakan alur kerja yang kompleks, meningkatkan visibilitas data secara real-time, dan memastikan skalabilitas bisnis jangka panjang di era digital."
+            imageAlt="Smart IoT System telemetry dashboard"
           />
         </div>
       </section>
 
-      {/* 2. Overview Section (PDF Page 1) */}
       {/* 2. Overview Section (PDF Page 1) */}
       <section className="w-full bg-white">
         <div
@@ -184,7 +183,7 @@ export default async function ServicePage() {
                   text-[#0D0D0D]
                 "
               >
-                Empowering Modern Enterprises Through Integrated Technology.
+                Connecting Physical Devices for Smarter Operational Automation.
               </h2>
 
               <div
@@ -199,11 +198,11 @@ export default async function ServicePage() {
                 "
               >
                 <p>
-                  Kaluna Technology is a Jakarta-based technology company helping enterprises across Indonesia modernize their operations. We design and build custom ERP systems, system integrations, enterprise web applications, and data platforms that connect finance, operations, inventory, and customer touchpoints into one cohesive, high-performance foundation.
+                  Kaluna Technology is the Smart IoT and automation engineering unit within the Arsalynk enterprise technology ecosystem. We design and deploy comprehensive IoT management systems that connect commercial vehicle fleets, factory PLCs, remote sensors, and energy grids into a single, high-performance operational foundation.
                 </p>
 
                 <p>
-                  Every solution is engineered around real business workflows, so your teams work faster, your data stays trustworthy, and your leadership gains the visibility needed to make confident decisions.
+                  Every architecture is engineered to eliminate operational blind spots, resolve data lag, and prevent costly reactive downtime—giving leadership immediate visibility to make confident operational decisions.
                 </p>
               </div>
             </div>
@@ -291,7 +290,7 @@ export default async function ServicePage() {
                     lg:text-[32px]
                   "
                 >
-                  Everything You Need to Know About Enterprise Technology Services
+                  Everything You Need to Know About Smart IoT & Automation Services
                 </h2>
               </div>
 

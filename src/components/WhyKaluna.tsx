@@ -5,28 +5,28 @@ import Image from "next/image";
 export default function WhyKaluna() {
   const features = [
     {
-      title: "Business-First Web Strategy",
-      description: "We don't build generic sites. We build digital sales funnels tailored to your specific industry, audience, and conversion goals.",
+      title: "Tailored Hardware & Sensor Architecture",
+      description: "We do not use generic plug-and-play tools. Each device architecture is securely tailored to your physical infrastructure, security protocols, and operational workflows.",
       icon: "/image/why/1.svg",
       iconSize: 20,
     },
     {
-      title: "Dedicated Team of Web Experts",
+      title: "Industrial Automation & Edge Computing",
       description:
-        "From UI/UX designers to front-end developers, your dedicated squad focuses on speed, mobile responsiveness, and pixel-perfect quality.",
+        "Connecting plant machinery, industrial PLCs, and edge gateways to automate manufacturing workflows, monitor equipment status, and prevent unplanned downtime.",
       icon: "/image/why/2.svg",
       iconSize: 30,
     },
     {
-      title: "Scalable & Integrated Websites",
-      description: "Your site grows with you. Easily add e-commerce, booking systems, or CRM integrations without rebuilding from scratch.",
+      title: "Real-Time Telemetry & Zero Data Lag",
+      description: "Ultra-reliable MQTT and low-latency cloud data streaming deliver continuous visibility across commercial fleets, energy grids, and remote facilities.",
       icon: "/image/why/3.svg",
       iconSize: 25,
     },
     {
-      title: "Long-Term Digital Partnership",
+      title: "Seamless Enterprise ERP Integration",
       description:
-        "We stick around after launch. Enjoy continuous maintenance, security updates, and strategic consulting to keep your site ahead of the curve.",
+        "Direct integration with central ERP platforms, logistics dispatchers, and automated alert systems—turning raw hardware signals into automated operational decisions.",
       icon: "/image/why/4.svg",
       iconSize: 30,
     },
@@ -45,9 +45,9 @@ export default function WhyKaluna() {
             </div>
 
             <h2 className="text-[28px] md:text-[30px] lg:text-[36px] font-medium leading-tight tracking-tight text-[#0D0D0D]">
-              Building Websites That Go
+              Connecting Physical Assets
               <br className="hidden md:block" />
-              Beyond a Beautiful Launch
+              Beyond Off-the-Shelf Tools
             </h2>
           </div>
         </ScrollReveal>

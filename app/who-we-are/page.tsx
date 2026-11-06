@@ -53,34 +53,34 @@ export default async function WhoWeArePage() {
 
 const expertise = [
   {
-    name: "Brand & Corporate\nWebsites",
-    description: "Build trust, establish authority, and showcase your business to the world.",
-    img: "/image/projects/arsalynk/1.webp",
+    name: "Connected Asset & Fleet\nTelemetry (MyBOS)",
+    description: "Real-time satellite GPS tracking, driver behavior monitoring, and digital proof-of-delivery.",
+    img: "/image/projects/myboss-iot-system/1.webp",
   },
   {
-    name: "E-Commerce & Retail\nPlatforms",
-    description: "Drive sales with intuitive product catalogs, secure payments, and smooth checkouts.",
-    img: "/image/projects/sinau-print-erp/1.webp",
+    name: "Industrial Automation &\nEdge Computing",
+    description: "Connect plant machinery and industrial PLCs to automate factory workflows and prevent downtime.",
+    img: "/image/iot/industrial-automation-edge.svg",
   },
   {
-    name: "Marketing & Landing\nPage Hubs",
-    description: "Capture leads and convert visitors with high-impact, campaign-focused pages.",
-    img: "/image/projects/web-media-profile/1.webp",
+    name: "Smart Facility & Energy\nTelemetry",
+    description: "Monitor power draw, environmental metrics, ambient climate, and digital safety compliance live.",
+    img: "/image/iot/smart-facility-energy.svg",
   },
   {
-    name: "Member & Client\nPortals",
-    description: "Deliver exclusive content, manage subscriptions, and engage your community.",
-    img: "/image/projects/X-Tire/1.webp",
+    name: "MyBOS Transport Command\n& Dispatch Systems",
+    description: "Commercial fleet route optimization, fuel theft tracking, and automated dispatch intelligence.",
+    img: "/image/iot/mybos-fleet-tracking.svg",
   },
   {
-    name: "Custom Web\nApplications",
-    description: "Build interactive tools, dashboards, and data-driven platforms tailored to your needs.",
-    img: "/image/projects/aspoo/1.webp",
+    name: "Industrial Machinery &\nEquipment Sensor IoT",
+    description: "Bridge machine PLCs and vibration/thermal sensors directly into real-time operational ERP queues.",
+    img: "/image/iot/sinau-print-iot.svg",
   },
   {
-    name: "Analytics & Data\nPlatforms",
-    description: "Process complex datasets and render interactive dashboards for science and research.",
-    img: "/image/projects/artic-complex-web/1.webp",
+    name: "Distributed Connected Devices\n& Telemetry Platform",
+    description: "Consolidate remote device telemetry, FOTA firmware updates, and audit logs under one command panel.",
+    img: "/image/iot/aspoo-marketplace.svg",
   },
 ];
 
@@ -153,16 +153,16 @@ const expertise = [
               "
             />
 
-            {/* ── PHOTO TIM WRAPPER (whoweare.webp) (z-10) ────────── */}
+            {/* ── IOT SYSTEM SHOWCASE WRAPPER (z-10) ────────── */}
             <div
               className="
                 relative
                 w-full
                 mt-6
                 lg:mt-0
-                h-[240px]
-                sm:h-[300px]
-                md:h-[340px]
+                h-[260px]
+                sm:h-[320px]
+                md:h-[360px]
                 lg:absolute
                 lg:right-[2.5%]
                 lg:top-[12%]
@@ -172,34 +172,38 @@ const expertise = [
                 rounded-[20px]
                 sm:rounded-[24px]
                 overflow-hidden
-                shadow-[0_20px_50px_rgba(0,0,0,0.35)]
+                shadow-[0_20px_50px_rgba(0,0,0,0.45)]
                 order-3
                 lg:order-none
+                border
+                border-white/15
+                bg-[#00223D]
               "
             >
-              {/* Image tag langsung memastikan foto tampil 100% tanpa delay loader */}
               <img
-                src="/image/whoweare.webp"
-                alt="Kaluna Technology team"
-                className="w-full h-full object-cover"
-                style={{
-                  objectPosition: "48% center",
-                  filter: "grayscale(1) contrast(1.03) brightness(0.92)",
-                }}
+                src="/image/projects/myboss-iot-system/1.webp"
+                alt="Smart IoT System Telemetry Command Center - MyBOS"
+                className="w-full h-full object-cover object-left-top"
               />
 
-              {/* Overlay Biru-Keabu-abuan (z-15) */}
+              {/* Status Badge Live IoT */}
+              <div className="absolute top-3.5 left-3.5 z-[20] flex items-center gap-2 rounded-full bg-[#001D38]/85 backdrop-blur-md px-3 py-1.5 border border-[#299EED]/40 text-white text-[11px] font-medium shadow-md">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span>MyBOS Telemetry • Live Connected Fleet</span>
+              </div>
+
+              {/* Subtle Gradient Overlay */}
               <div
                 className="pointer-events-none absolute inset-0 z-[15]"
                 style={{
                   background:
-                    "linear-gradient(135deg, rgba(190, 220, 238, 0.18), rgba(8, 67, 105, 0.12))",
+                    "linear-gradient(135deg, rgba(8, 67, 105, 0.08), rgba(0, 36, 64, 0.35))",
                 }}
               />
 
               {/* Diagonal Detail Overlay Atas Foto (z-25) */}
               <div
-                className="pointer-events-none absolute inset-0 z-[25] opacity-30"
+                className="pointer-events-none absolute inset-0 z-[25] opacity-25"
                 style={{
                   background:
                     "linear-gradient(135deg, rgba(255,255,255,0.45), transparent 60%)",
@@ -207,7 +211,7 @@ const expertise = [
                 }}
               />
               <div
-                className="pointer-events-none absolute inset-0 z-[25] opacity-25"
+                className="pointer-events-none absolute inset-0 z-[25] opacity-20"
                 style={{
                   background:
                     "linear-gradient(225deg, #2791D8, transparent 70%)",
@@ -242,27 +246,33 @@ const expertise = [
 
             {/* ── KONTEN TEKS KIRI (z-30) ─────────────────────────── */}
             <div className="relative z-[30] w-full lg:w-[44%] xl:w-[45%] flex flex-col justify-center my-auto order-1 lg:order-none">
+              {/* Category Tag */}
+              <div className="flex items-center gap-2 mb-3 lg:mb-4">
+                <span className="h-3 w-[2.5px] rounded-full bg-[#5DBCF5]" />
+                <span className="text-[11px] sm:text-xs font-semibold tracking-[0.14em] text-[#8DD0F5] uppercase">
+                  Arsalynk Enterprise Solution
+                </span>
+              </div>
+
               {/* Heading */}
               <h1
                 className="
                   max-w-[680px]
-                  text-[28px]
-                  sm:text-[34px]
-                  md:text-[42px]
-                  lg:text-[48px]
-                  xl:text-[50px]
+                  text-[32px]
+                  sm:text-[40px]
+                  md:text-[48px]
+                  lg:text-[52px]
+                  xl:text-[56px]
                   font-semibold
                   leading-[1.12]
                   tracking-[-0.025em]
                   text-white
                 "
                 style={{
-                  fontSize: "clamp(28px, 3.4vw, 50px)",
+                  fontSize: "clamp(30px, 3.8vw, 56px)",
                 }}
               >
-                Crafting Digital
-                <br />
-                Solutions
+                Smart IoT
                 <br />
                 <span
                   className="
@@ -275,27 +285,27 @@ const expertise = [
                     inline-block
                   "
                 >
-                  For Your Needs.
+                  System
                 </span>
               </h1>
 
               {/* Description */}
               <p
                 className="
-                  mt-3
-                  lg:mt-3.5
-                  max-w-[420px]
-                  lg:max-w-[440px]
+                  mt-3.5
+                  lg:mt-4
+                  max-w-[460px]
+                  lg:max-w-[490px]
                   text-sm
-                  sm:text-base
+                  sm:text-[15px]
                   font-normal
-                  leading-[1.5]
-                  text-white/90
+                  leading-[1.65]
+                  text-white/95
                   order-2
                   lg:order-none
                 "
               >
-                We build high-performance custom websites and web applications tailored to your business goals.
+                Layanan manajemen sistem komprehensif yang menghubungkan berbagai lini operasional perusahaan besar. Kami membantu menyederhanakan alur kerja yang kompleks, meningkatkan visibilitas data secara real-time, dan memastikan skalabilitas bisnis jangka panjang di era digital.
               </p>
             </div>
           </div>
@@ -315,18 +325,18 @@ const expertise = [
         </div>
 
         <h2 className="max-w-[550px] text-[22px] sm:text-[25px] md:text-[28px] lg:text-[32px] font-medium leading-[1.25] tracking-[-0.02em] text-[#0D0D0D]">
-          Empowering Modern Enterprises Through Exceptional Web Experiences.
+          Empowering Modern Enterprises Through Connected IoT Intelligence.
         </h2>
 
         <p className="mt-6 max-w-[520px] text-[13px] leading-[1.7] text-[#4A4A4A] md:text-[14px]">
-          At Kaluna Technology, we help growing enterprises build powerful, conversion-focused websites that elevate their brand and streamline their digital presence. A well-crafted website serves as the central hub of your organization—seamlessly integrating your brand story, product catalogs, customer engagement tools, and marketing channels into one cohesive, high-performance platform that works 24/7.
+          At Kaluna Technology, we build enterprise Smart IoT Systems and industrial automation frameworks that eliminate operational blind spots. Serving as the IoT engineering unit within the Arsalynk ecosystem, we connect physical machinery, commercial vehicle fleets, remote sensors, and facilities into a unified command infrastructure that operates 24/7 with zero data lag.
         </p>
       </div>
 
       <div className="relative h-[300px] w-full overflow-hidden rounded-[20px] bg-[#EAF3FF] sm:h-[400px] md:h-[480px] lg:h-[540px] xl:h-[560px]">
         <img
-          src="/image/kaluna-office.webp"
-          alt="Kaluna Technology Office"
+          src="/image/iot/scalable-systems-iot.webp"
+          alt="Connected IoT Industrial Hardware & Systems - Kaluna Technology"
           className="h-full w-full object-cover object-center"
         />
       </div>
@@ -464,7 +474,7 @@ const expertise = [
           text-white
         "
       >
-        To be the go-to digital partner for enterprises seeking beautiful, fast, and results-driven websites.
+        To be the trusted technology provider for enterprises seeking resilient, scalable, and real-time Smart IoT and industrial automation systems.
       </h2>
     </div>
 
@@ -508,7 +518,7 @@ const expertise = [
           font-light
         "
       >
-      To make powerful, professional websites accessible to every business—combining stunning design, smart functionality, and unwavering support to help our clients thrive online.
+        To bridge physical assets with digital intelligence—combining robust edge hardware, low-latency telemetry streaming, and mission-critical support to eliminate operational downtime.
       </p>
     </div>
   </div>
@@ -531,7 +541,7 @@ const expertise = [
       </h2>
 
       <p className="mt-2.5 max-w-[750px] text-[14px] sm:text-[15px] leading-[1.55] text-black/65">
-        We design, build, and deploy custom websites tailored to solve specific business challenges. Here are six core website solutions we specialize in.
+        We design, engineer, and deploy enterprise IoT and telemetry systems tailored to solve specific operational challenges. Here are six core solutions we specialize in.
       </p>
     </div>
 

@@ -29,37 +29,37 @@ const DEFAULT_IMAGES = [
 const DEFAULT_STEPS: ProcessStep[] = [
   {
     id: 1,
-    title: "Discovery & Strategy",
+    title: "Asset & Hardware Discovery",
     category:
-      "We learn your brand, audience, and goals. We map your site structure and define what success looks like.",
+      "We audit your physical machinery, PLC outputs, and telemetry requirements to architect a custom IoT framework.",
     image_url: "/image/proses-service/1.webp"
   },
   {
     id: 2,
-    title: "Design & Prototyping",
+    title: "Sensor & Gateway Prototyping",
     category:
-      "We create clickable mockups so you can see exactly how your site will look and feel before we build.",
+      "We design industrial schematics, sensor arrays, and opto-isolated gateway interfaces built for harsh operating conditions.",
     image_url: "/image/proses-service/2.webp"
   },
   {
     id: 3,
-    title: "Development & Build",
+    title: "Firmware & Edge Engineering",
     category:
-      "We code a fast, responsive, and SEO-friendly website using modern web technologies.",
+      "We code custom microcontroller firmware with sub-second telemetry sampling, edge filtering, and anomaly threshold triggers.",
     image_url: "/image/proses-service/3.webp"
   },
   {
     id: 4,
-    title: "Content & Integration",
+    title: "Cloud Telemetry & MQTT Ingestion",
     category:
-      "We populate your site with your content and connect it to your marketing tools, CRM, and payment systems.",
+      "We deploy high-throughput MQTT brokers and secure WebSocket streams linking physical devices directly to your ERP and dispatch command.",
     image_url: "/image/proses-service/4.webp"
   },
   {
     id: 5,
-    title: "Testing, Launch & Training",
+    title: "Field Deployment & 24/7 Monitoring",
     category:
-      "We test every button, form, and link. Then we launch your site and train your team to manage it with confidence.",
+      "We handle live hardware installation, train dispatch controllers, and provide continuous remote surveillance with SLA guarantees.",
     image_url: "/image/proses-service/5.webp"
   }
 ];

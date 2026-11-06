@@ -9,33 +9,33 @@ export interface TechnicalFeatureItem {
 
 const features: TechnicalFeatureItem[] = [
   {
-    title: "Fully Responsive Design",
-    desc: "Your website looks and performs flawlessly on every device—desktop, tablet, and mobile.",
+    title: "Industrial Edge Computing",
+    desc: "Connect plant PLCs, machinery, and microcontrollers to run local logic and eliminate data lag.",
     icon: Blocks,
   },
   {
-    title: "Intuitive Content Management",
-    desc: "Easily update text, images, and pages without touching a single line of code.",
+    title: "Real-Time Sensor Telemetry",
+    desc: "Low-latency MQTT and WebSocket streaming for continuous second-by-second equipment visibility.",
     icon: UserCheck,
   },
   {
-    title: "SEO-Optimized Architecture",
-    desc: "Built with clean code, fast load times, and meta-tag management to rank higher on search engines.",
+    title: "Granular Device Access (RBAC)",
+    desc: "Role-based control down to individual relays and sensor groups for strict industrial security.",
     icon: CheckCircle2,
   },
   {
-    title: "Seamless Third-Party Integrations",
-    desc: "Connect your website with CRM, email marketing, payment gateways, and analytics tools effortlessly.",
+    title: "Automated Incident Alerting",
+    desc: "Instant threshold anomaly triggers via push webhooks, SMS, and automated equipment throttling.",
     icon: GitFork,
   },
   {
-    title: "Enterprise-Grade Security",
-    desc: "SSL encryption, daily backups, firewall protection, and regular security patches to keep your site safe.",
+    title: "Enterprise ERP & API Sync",
+    desc: "Direct integration connecting hardware telemetry into central ERP, dispatch, and billing platforms.",
     icon: ShieldCheck,
   },
   {
-    title: "Scalable Performance",
-    desc: "Handle traffic spikes, product expansions, and new features without slowing down or crashing.",
+    title: "Predictive Maintenance Engine",
+    desc: "Time-series analytics identifying component wear before expensive mechanical breakdowns happen.",
     icon: TrendingUp,
   },
 ];

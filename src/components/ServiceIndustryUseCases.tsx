@@ -17,43 +17,43 @@ export interface IndustryUseCase {
 const useCases: IndustryUseCase[] = [
   {
     id: 1,
-    industry: "Modern Enterprise",
-    solutionTitle: "Website for Enterprise",
+    industry: "Logistics & Fleet Transport",
+    solutionTitle: "Connected Asset & Fleet Telemetry",
     description:
-      "Outdated, slow, and unsecured sites that fail to inspire trust or handle high-volume traffic.",
-    image: "/image/service/1.svg",
-    icon: Factory,
-    tag: "Trust & Performance",
+      "Operational blind spots across vehicle fleets resulting in fuel theft, transit delays, and delivery disputes.",
+    image: "/image/projects/myboss-iot-system/1.webp",
+    icon: Truck,
+    tag: "MyBOS Telemetry",
   },
   {
     id: 2,
-    industry: "Digital Commerce",
-    solutionTitle: "Website for Commerce",
+    industry: "Manufacturing & Industrial Plants",
+    solutionTitle: "Industrial Automation & Edge Computing",
     description:
-      "Clunky e-commerce experiences with poor checkout flows, abandoned carts, and lost revenue.",
-    image: "/image/service/2.svg",
-    icon: Truck,
-    tag: "Conversion & Revenue",
+      "Siloed machine PLCs operating without networked monitoring, leading to unexpected breakdowns and production halts.",
+    image: "/image/iot/industrial-automation-edge.svg",
+    icon: Factory,
+    tag: "PLC & Edge Gateway",
   },
   {
     id: 3,
-    industry: "Multi-Department Organization",
-    solutionTitle: "Website for Organization",
+    industry: "Commercial Facilities & Campus",
+    solutionTitle: "Smart Facility & Energy Management",
     description:
-      "Disconnected web properties that confuse customers and dilute brand identity across departments.",
-    image: "/image/service/3.svg",
+      "Unregulated peak power consumption, manual meter reads, and undetected water and thermal hazards.",
+    image: "/image/iot/smart-facility-energy.svg",
     icon: Store,
-    tag: "Cohesive Brand Presence",
+    tag: "Energy & Environmental Grid",
   },
   {
     id: 4,
-    industry: "Growing Business",
-    solutionTitle: "Website for Company Profile",
+    industry: "Distributed Equipment Operations",
+    solutionTitle: "Remote Device & Machine Monitoring",
     description:
-      "Static, lifeless digital brochures that fail to tell your story, engage visitors, or generate leads.",
-    image: "/image/service/4.svg",
+      "Disparate equipment across regional hubs managed on spreadsheets without real-time health visibility.",
+    image: "/image/iot/aspoo-marketplace.svg",
     icon: BarChart3,
-    tag: "Storytelling & Leads",
+    tag: "Predictive Asset Control",
   },
 ];
 
@@ -106,10 +106,10 @@ export default function ServiceIndustryUseCases() {
               </span>
             </div>
             <h2 className="text-[28px] sm:text-[36px] lg:text-[42px] font-medium text-[#111111] tracking-[-0.025em] leading-[1.15] mb-3">
-              The Digital Imperative – Why Your Business Needs a Modern Website.
+              Connecting the Physical World: Industry IoT Use Cases.
             </h2>
             <p className="mt-3.5 text-[13px] sm:text-[14px] text-[#555555] leading-[1.65] max-w-xl mx-auto font-normal">
-              Modern website solutions designed around the challenges enterprises, commerce teams, organizations, and growing brands face online.
+              Enterprise Smart IoT solutions engineered around the operational challenges factories, logistics fleets, commercial campuses, and equipment operators face daily.
             </p>
           </div>
 

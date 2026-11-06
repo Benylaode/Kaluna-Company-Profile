@@ -43,20 +43,18 @@ const ImageSlider = ({ images, title }: { images: string[], title: string }) => 
 };
 
 const types = [
-  "Brand & Corporate Websites",
-  "E-Commerce & Retail Platforms",
-  "Marketing & Landing Page Hubs",
-  "Member & Client Portals",
-  "Custom Web Applications"
+  "Connected Asset & Fleet Telemetry",
+  "Industrial Automation",
+  "Facility & Energy Management",
+  "Remote Asset Telemetry",
+  "IoT Analytics & Data"
 ];
 
 const industries = [
-  "Corporate",
-  "Finance & Banking",
-  "Government Organizations",
-  "UMKM",
-  "Agency/Studio",
-  "Infrastructure & Engineering",
+  "Logistics & Fleet Transport",
+  "Manufacturing & Industrial Plants",
+  "Commercial Facilities & Campus",
+  "Enterprise Infrastructure",
   "Other Industries"
 ];
 
@@ -161,12 +159,12 @@ export default function WorksClient({ initialWorks = [] }: WorksClientProps) {
   };
 
   const imagePosition: Record<string, string> = {
-    "x-tire-company-profile": "center 40%",
-    "sinau-print-platform": "center center",
-    "aspoo-asset-management": "center 35%",
-    "artic-analytical-science": "center 30%",
-    "arsalynk-enterprise-platform": "center center",
-    "10-media-publishing-portal": "center center",
+    "myboss-iot-system": "center center",
+    "industrial-automation-edge": "center center",
+    "smart-facility-energy": "center center",
+    "myboss-logistics-fleet-management": "center center",
+    "smart-machinery-telemetry": "center center",
+    "smart-device-ecosystem": "center center",
   };
 
   return (
@@ -177,16 +175,16 @@ export default function WorksClient({ initialWorks = [] }: WorksClientProps) {
       <section className="w-full bg-white pt-[72px] sm:pt-[76px] md:pt-[80px] pb-4 md:pb-6">
         <div className="kaluna-wide-container">
           <ServiceHeroBanner
-            title="Web Experiences That Turn Visitors Into Customers."
-            description="For over 5 years, we've partnered with businesses to create stunning, conversion-driven websites that unify their digital presence and turn visitors into loyal customers."
+            title="Connected IoT Systems That Transform Physical Operations."
+            description="Explore our deployment portfolio of Smart IoT Systems, fleet telemetry (MyBOS), industrial PLC automation, and remote sensor grids that eliminate operational blind spots."
             className="h-[60vh] min-h-[500px] max-h-[700px] lg:h-[60vh]"
           />
         </div>
       </section>
 
-      {/* Featured WorkProjectCard — shows Sinau Print with interactive prev/next */}
+      {/* Featured WorkProjectCard — shows MyBOS IoT with interactive prev/next */}
       {!isLoading && projects.length > 2 && isDefaultFilter && (
-        <WorkProjectCard projects={projects} defaultIndex={2} />
+        <WorkProjectCard projects={projects} defaultIndex={0} />
       )}
 
       {/* Main Projects Section */}
@@ -218,7 +216,7 @@ export default function WorksClient({ initialWorks = [] }: WorksClientProps) {
                   tracking-[-0.025em]
                 "
               >
-                Website Projects Built for Real Growth
+                Smart IoT Deployments Built for Operational Growth
               </h2>
             </div>
 

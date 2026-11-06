@@ -22,8 +22,8 @@ export default function WebKitBackgroundPreloader() {
 
       // 2. Preload banner gambar untuk navigasi cepat halaman berikutnya
       const criticalImages = [
-        "/image/whoweare.webp",
-        "/image/benner/service.webp",
+        "/image/projects/myboss-iot-system/1.webp",
+        "/image/iot/scalable-systems-iot.webp",
       ];
 
       criticalImages.forEach((src) => {

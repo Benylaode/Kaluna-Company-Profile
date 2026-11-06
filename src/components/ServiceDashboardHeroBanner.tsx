@@ -13,6 +13,7 @@ interface ServiceDashboardHeroBannerProps {
   titleAccent?: string;
   description?: string;
   imageAlt?: string;
+  imageSrc?: string;
 }
 
 export default function ServiceDashboardHeroBanner({
@@ -21,6 +22,7 @@ export default function ServiceDashboardHeroBanner({
   titleAccent = "Modern Enterprises.",
   description,
   imageAlt = "Enterprise platform dashboard interface",
+  imageSrc = "/image/iot/service-section-smart-iot-system.svg",
 }: ServiceDashboardHeroBannerProps) {
   const displayDesc =
     description ||
@@ -96,10 +98,11 @@ export default function ServiceDashboardHeroBanner({
         `}
       >
         <Image
-          src="/image/benner/service.webp"
+          src={imageSrc}
           alt={imageAlt}
           fill
           priority
+          unoptimized
           className="object-contain object-right-top"
         />
       </div>
@@ -145,10 +148,11 @@ export default function ServiceDashboardHeroBanner({
         {/* Mobile Dashboard Image Display */}
         <div className="relative z-20 w-[115%] -ml-[7.5%] h-[240px] mt-6 md:hidden">
           <Image
-            src="/image/benner/service.webp"
+            src={imageSrc}
             alt={imageAlt}
             fill
             priority
+            unoptimized
             className="object-contain object-center"
           />
         </div>

@@ -7,12 +7,12 @@ const canonicalUrls = [
   `${SITE_URL}/works`,
   `${SITE_URL}/who-we-are`,
   `${SITE_URL}/contact`,
-  `${SITE_URL}/works/x-tire-company-profile`,
-  `${SITE_URL}/works/sinau-print-platform`,
-  `${SITE_URL}/works/10-media-publishing-portal`,
-  `${SITE_URL}/works/arsalynk-enterprise-platform`,
-  `${SITE_URL}/works/aspoo-asset-management`,
-  `${SITE_URL}/works/artic-analytical-science`,
+  `${SITE_URL}/works/myboss-iot-system`,
+  `${SITE_URL}/works/industrial-automation-edge`,
+  `${SITE_URL}/works/smart-facility-energy`,
+  `${SITE_URL}/works/myboss-logistics-fleet-management`,
+  `${SITE_URL}/works/smart-machinery-telemetry`,
+  `${SITE_URL}/works/smart-device-ecosystem`,
 ];
 
 export async function POST(request: Request) {

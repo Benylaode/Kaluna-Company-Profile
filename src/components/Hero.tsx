@@ -18,43 +18,43 @@ export default function Hero({ projects }: { projects?: HeroProjectData[] }) {
   const slideDuration = 4000;
   const router = useRouter();
 
-  // Pemetaan poin-poin fitur ke gambar proyek yang sesuai
+  // Pemetaan poin-poin fitur ke gambar proyek IoT yang sesuai dari Arsalynk
   const featurePoints = [
     {
       id: 1,
-      image: "/image/projects/X-Tire/1.webp",
-      tags: ["Corporate Website"],
-      slug: "x-tire-company-profile",
+      image: "/image/projects/myboss-iot-system/1.webp",
+      tags: ["Connected Asset & Fleet Telemetry"],
+      slug: "myboss-iot-system",
     },
     {
       id: 2,
-      image: "/image/projects/sinau-print-erp/1.webp",
-      tags: ["Responsive Web Experience"],
-      slug: "sinau-print-platform",
+      image: "/image/iot/scalable-systems-iot.webp",
+      tags: ["Industrial Automation & Edge Computing"],
+      slug: "industrial-automation-edge",
     },
     {
       id: 3,
-      image: "/image/projects/web-media-profile/1.webp",
-      tags: ["Conversion-Focused Design"],
-      slug: "10-media-publishing-portal",
+      image: "/image/iot/smart-facility-energy.svg",
+      tags: ["Smart Facility & Energy Management"],
+      slug: "smart-facility-energy",
     },
     {
       id: 4,
-      image: "/image/projects/arsalynk/1.webp",
-      tags: ["Integrated Digital Platform"],
-      slug: "arsalynk-enterprise-platform",
+      image: "/image/iot/mybos-fleet-tracking.svg",
+      tags: ["MyBOS Transport Command & Telemetry"],
+      slug: "myboss-logistics-fleet-management",
     },
     {
       id: 5,
-      image: "/image/projects/aspoo/1.webp",
-      tags: ["Custom Web Application"],
-      slug: "aspoo-asset-management",
+      image: "/image/iot/sinau-print-iot.svg",
+      tags: ["Industrial Machinery Sensor IoT"],
+      slug: "smart-machinery-telemetry",
     },
     {
       id: 6,
-      image: "/image/projects/artic-complex-web/1.webp",
-      tags: ["Data-Driven Analytics Engine"],
-      slug: "artic-analytical-science",
+      image: "/image/iot/aspoo-marketplace.svg",
+      tags: ["Distributed Connected Device Telemetry"],
+      slug: "smart-device-ecosystem",
     },
   ];
 
@@ -150,23 +150,23 @@ export default function Hero({ projects }: { projects?: HeroProjectData[] }) {
 
         <div className="absolute inset-x-0 top-[300px] sm:top-[360px] px-5">
           <h1 className="hero-animate-title text-[28px] sm:text-[36px] font-semibold leading-[1.14] tracking-[-0.02em] text-white">
-            Kaluna Technology — Your Digital Growth Partner for Modern Enterprises.
+            Smart IoT System & Connected Operational Management.
           </h1>
           <p className="hero-animate-text mt-3 sm:mt-4 text-sm sm:text-base leading-[1.6] tracking-[0.01em] text-white/95">
-            We build high-performance websites that blend stunning design with intelligent functionality, so you can scale your brand without technical bottlenecks.
+            Layanan manajemen sistem komprehensif yang menghubungkan berbagai lini operasional perusahaan besar. Kami membantu menyederhanakan alur kerja yang kompleks, meningkatkan visibilitas data secara real-time, dan memastikan skalabilitas bisnis jangka panjang di era digital.
           </p>
 
           <div className="hero-animate-buttons mt-5 flex flex-col gap-3">
             <Button
               variant="primary-white"
-              label="Start a Consultation"
+              label="Consult Your IoT Project"
               onClick={() => router.push("/contact")}
               className="w-full bg-white hover:bg-[#DDEEFF] text-[#0E2A54] border-0"
             />
 
             <Button
               variant="secondary"
-              label="Explore Our Work"
+              label="Explore IoT Systems"
               onClick={scrollToWorks}
               className="w-full border-white text-white hover:bg-white/10 hover:text-white active:bg-white/20"
             />
@@ -182,30 +182,30 @@ export default function Hero({ projects }: { projects?: HeroProjectData[] }) {
           <div className="flex items-center gap-2.5">
             <span className="h-4 w-[2.5px] bg-[#299EED] rounded-full"></span>
             <span className="text-xs sm:text-sm font-semibold tracking-[0.12em] text-[#0E2A54] uppercase">
-              Kaluna Technology
+              Kaluna Technology — Smart IoT System
             </span>
           </div>
 
           <h1 className="hero-animate-title text-[34px] md:text-[42px] lg:text-[50px] xl:text-[54px] font-semibold leading-[1.12] tracking-[-0.025em] text-[#0E2A54]">
-            Kaluna Technology<br />
-            Your Digital Growth Partner<br />
-            for Modern Enterprises
+            Smart IoT System &<br />
+            Connected Operational<br />
+            Management
           </h1>
 
           <p className="hero-animate-text max-w-[500px] text-base lg:text-[17px] leading-[1.6] text-[#4B5563]">
-            We build high-performance websites that blend stunning design with intelligent functionality, so you can scale your brand without technical bottlenecks.
+            Layanan manajemen sistem komprehensif yang menghubungkan aset fisik, sensor lapangan, dan lini operasional perusahaan besar dalam satu visibilitas data real-time untuk mengeliminasi downtime dan inefisiensi.
           </p>
 
           <div className="hero-animate-buttons flex items-center gap-4">
             <Button
               variant="primary"
-              label="Start a Consultation"
+              label="Consult Your IoT Project"
               onClick={() => router.push("/contact")}
             />
 
             <Button
               variant="secondary"
-              label="Explore Our Work"
+              label="Explore IoT Systems"
               onClick={scrollToWorks}
             />
           </div>

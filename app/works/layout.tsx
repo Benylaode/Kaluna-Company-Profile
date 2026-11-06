@@ -3,10 +3,10 @@ import JsonLd from "../../src/components/JsonLd";
 
 const siteUrl = "https://www.kalunatechnology.com";
 const description =
-  "Jelajahi portofolio dan case studies Kaluna Technology untuk website perusahaan, e-commerce, portal pelanggan, dan custom web application.";
+  "Jelajahi portofolio dan case studies Smart IoT System, fleet telemetry (MyBOS), dan otomasi industri Kaluna Technology.";
 
 export const metadata: Metadata = {
-  title: "Our Works – Portfolio & Case Studies",
+  title: "Our Works – Smart IoT Systems & Telemetry Case Studies",
   description,
   alternates: { canonical: "/works" },
   robots: {

@@ -14,10 +14,10 @@ export default function CTA() {
 
           <div className="relative z-10 text-center md:text-left">
             <h2 className="text-[28px] leading-[1.2] tracking-[-0.01em] text-white md:text-[38px]">
-              Let&apos;s Build a Website
+              Let&apos;s Connect Your Physical Operations
             </h2>
             <p className="text-[28px] leading-[1.2] tracking-[-0.01em] text-[#A3D9F7] md:text-[38px]">
-              That Works As Hard As You Do.
+              Into a Smarter, Real-Time Operating Ecosystem.
             </p>
           </div>
 
@@ -25,7 +25,7 @@ export default function CTA() {
             <Link href="/contact" className="w-full md:w-auto">
               <Button
                 variant="primary-white"
-                label="Start a Consultation"
+                label="Consult Your IoT Project"
                 className="w-full md:w-auto"
               />
             </Link>

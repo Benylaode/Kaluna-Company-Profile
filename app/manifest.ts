@@ -2,10 +2,10 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Kaluna Technology - Web Engineering & Digital Solutions",
+    name: "Kaluna Technology - Smart IoT System & Industrial Telemetry",
     short_name: "Kaluna Technology",
     description:
-      "Web engineering, website perusahaan, e-commerce, portal pelanggan, dan custom web application untuk bisnis modern.",
+      "Smart IoT System, fleet telemetry, otomasi industri, dan manajemen sensor real-time untuk bisnis modern.",
     start_url: "/",
     scope: "/",
     display: "standalone",

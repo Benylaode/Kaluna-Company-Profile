@@ -3,10 +3,10 @@ import JsonLd from "../../src/components/JsonLd";
 
 const siteUrl = "https://www.kalunatechnology.com";
 const description =
-  "Hubungi Kaluna Technology untuk konsultasi website perusahaan, e-commerce, portal pelanggan, custom web application, dan kebutuhan digital engineering.";
+  "Hubungi Kaluna Technology untuk konsultasi Smart IoT System, fleet telemetry, otomasi industri, dan integrasi hardware perusahaan.";
 
 export const metadata: Metadata = {
-  title: "Contact Us – Free Website Consultation",
+  title: "Contact Us – Smart IoT & Automation Consultation",
   description,
   alternates: { canonical: "/contact" },
   robots: {

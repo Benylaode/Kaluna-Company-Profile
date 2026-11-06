@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useId, useMemo, useState, useRef } from "react";
-import { Building2, ShoppingCart } from "lucide-react";
+import { Cpu, Radio, Activity, Wifi } from "lucide-react";
 
 export interface ServiceData {
   id?: number;
@@ -260,7 +260,7 @@ function PodiumArtwork({
         </g>
 
         <g className="service-podium-icon service-podium-icon--secondary">
-          <Building2
+          <Cpu
             x="1136"
             y="346"
             width="210"
@@ -270,7 +270,7 @@ function PodiumArtwork({
             opacity={0.55}
             aria-hidden="true"
           />
-          <Building2
+          <Cpu
             x="1122"
             y="332"
             width="210"
@@ -282,7 +282,7 @@ function PodiumArtwork({
           />
         </g>
 
-        {/* Front podium: Right cylinder with ShoppingCart icon */}
+        {/* Front podium: Right cylinder with Radio/Telemetry icon */}
         <rect
           x="1373"
           y="488"
@@ -311,7 +311,7 @@ function PodiumArtwork({
         </g>
 
         <g className="service-podium-icon service-podium-icon--active">
-          <ShoppingCart
+          <Radio
             x="1495"
             y="240"
             width="235"
@@ -321,7 +321,7 @@ function PodiumArtwork({
             opacity={0.62}
             aria-hidden="true"
           />
-          <ShoppingCart
+          <Radio
             x="1478"
             y="222"
             width="235"
@@ -398,16 +398,16 @@ export default function OurServices({ services }: { services?: ServiceData[] }) 
               </div>
 
               <h2 className="text-[26px] sm:text-[32px] md:text-[38px] lg:text-[42px] font-bold leading-[1.12] tracking-[-0.025em] text-white">
-                Helping<br />
-                enterprises<br />
-                to grow{" "}
+                Connecting<br />
+                physical operations<br />
+                to smart{" "}
                 <span className="bg-gradient-to-r from-[#299EED] via-[#5DBCF5] to-[#75C8FF] bg-clip-text text-transparent">
-                  digitally
+                  automation
                 </span>
               </h2>
 
               <p className="mt-4 sm:mt-5 text-[15px] sm:text-[17px] md:text-[19px] font-normal leading-[1.35] text-white/90 max-w-[560px]">
-                We create cohesive, high-performance web experiences that help modern enterprises grow their brands online.
+                We engineer comprehensive IoT management systems, industrial telemetry, and connected device architectures that bridge physical assets with enterprise software.
               </p>
             </div>
 
@@ -417,7 +417,7 @@ export default function OurServices({ services }: { services?: ServiceData[] }) 
                 <SparkleIcon className="w-10 h-10 sm:w-12 sm:h-12" />
               </div>
               <p className="text-[#0E2A54] text-[13px] sm:text-[15px] md:text-[16px] font-medium leading-[1.45]">
-                We streamline digital brand experiences, unifying design, content, and functionality across your website, and building a cohesive online presence that serves every customer touchpoint.
+                We eliminate operational blind spots by bridging physical machinery, telemetry sensors, and control rooms into unified real-time data streams, giving leadership complete operational visibility.
               </p>
             </div>
 
